@@ -1,0 +1,33 @@
+name: agentic_scrna_cluster
+
+channels:
+  - conda-forge
+  - bioconda
+
+dependencies:
+  - python=3.11
+
+  # Core scientific stack
+  - numpy
+  - pandas
+  - scipy
+  - matplotlib
+  - scikit-learn
+
+  # Single-cell analysis
+  - scanpy
+  - anndata
+
+  # Notebook environment
+  - jupyterlab
+  - ipykernel
+
+  # Utilities
+  - pip
+
+  - pip:
+      - langchain
+      - langgraph
+      - langchain-openai
+      - python-dotenv
+      - pydantic
