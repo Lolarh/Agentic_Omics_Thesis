@@ -4,3 +4,5 @@ __pycache__/
 data/
 results/
 .DS_Store
+# Scratch notebook
+adhoc.ipynb

@@ -13,14 +13,18 @@ dependencies:
   - scipy
   - matplotlib
   - scikit-learn
-
+  - scikit-misc
+  
   # Single-cell analysis
   - scanpy
   - anndata
+  - python-igraph
+  - leidenalg
 
   # Notebook environment
   - jupyterlab
   - ipykernel
+  - ipywidgets
 
   # Utilities
   - pip

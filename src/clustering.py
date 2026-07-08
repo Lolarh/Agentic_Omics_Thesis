@@ -1,21 +1,40 @@
 import scanpy as sc
 
-def run_clustering(adata, n_pcs=20, resolution=1.0):
-    sc.pp.neighbors(adata, n_pcs=n_pcs)
+def run_clustering(
+    adata,
+    n_pcs=20,
+    n_neighbors=15,
+    resolution=1.0,
+    random_state=42,
+):
+    """
+    Construct the neighborhood graph and perform Leiden clustering.
+    """
+
+    sc.pp.neighbors(
+        adata,
+        n_neighbors=n_neighbors,
+        n_pcs=n_pcs,
+    )
+
+    sc.tl.leiden(
+        adata,
+        resolution=resolution,
+        random_state=random_state,
+        flavor="igraph",
+        directed=False,
+        n_iterations=2,
+    )
+
+    # Compute UMAP coordinates
     sc.tl.umap(adata)
-    sc.tl.leiden(adata, resolution=resolution)
+
+    # Store clustering parameters for reproducibility
+    adata.uns["clustering_params"] = {
+        "n_neighbors": n_neighbors,
+        "resolution": resolution,
+        "n_pcs": n_pcs,
+        "random_state": random_state,
+    }
+
     return adata
-
-
-#adata_10 = pbmc_data.copy()
-#adata_20 = pbmc_data.copy()
-
-#run_clustering(adata_10, n_pcs=10)
-#run_clustering(adata_20, n_pcs=20)
-
-#run_clustering(pbmc_data.copy(), n_pcs=10, resolution=0.5)
-#run_clustering(pbmc_data.copy(), n_pcs=20, resolution=1.0)
-#run_clustering(pbmc_data.copy(), n_pcs=30, resolution=1.2)
-
-#sc.pl.umap(pbmc_data.copy(), n_pcs=10, color="leiden")
-# sc.pl.umap(pbmc_data.copy(), n_pcs=20, color="leiden")
