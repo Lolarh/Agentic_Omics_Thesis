@@ -1,50 +1,61 @@
-# Agentic AI for scRNA-seq Clustering Optimization
+# Agentic AI Framework for scRNA-seq Clustering Optimization
 
 ## Overview
 
-This master’s thesis project focuses on developing improving and automating clustering decisions in single-cell RNA sequencing (scRNA-seq) analysis.
+This master's thesis investigates the use of an agentic AI framework to improve the robustness and reproducibility of clustering in single-cell RNA sequencing (scRNA-seq) analysis.
 
-The goal is not to replace existing bioinformatics tools, but to support them by making clustering workflows more robust, and reproducible.
+Rather than replacing established bioinformatics workflows, the project builds on the standard Scanpy pipeline by introducing an intelligent optimization layer that automatically evaluates and refines clustering parameters. The objective is to reduce manual parameter tuning while improving clustering quality through iterative evaluation and feedback.
 
-The system builds on established tools such as Scanpy and investigates how an agent-based approach can help improve clustering quality in a structured and automated way.
-
----
 
 ## Motivation
 
-In scRNA-seq analysis, clustering results are highly sensitive to parameter choices (for example; number of neighbors, number of principal components, clustering resolution). Small changes can lead to significantly different biological interpretations.
+Clustering results in scRNA-seq are highly sensitive to analysis parameters such as the number of principal components (PCs), number of neighbors, and Leiden clustering resolution. Small parameter changes can produce substantially different cluster structures and biological interpretations.
 
-This project explores whether an AI-assisted system can:
-- reduce manual trial-and-error in clustering
-- improve robustness of clustering outcomes
-- support more systematic parameter selection
-- help identify unstable or unreliable cluster configurations
+This project explores whether an AI-driven optimization agent can:
 
----
+* Reduce manual trial-and-error during clustering
+* Improve clustering robustness and reproducibility
+* Systematically optimize clustering parameters
+* Identify stable and high-quality clustering solutions using quantitative evaluation metrics
 
-## Core Idea
 
-The system will:
+## Core Workflow
 
-1. Load single-cell RNA-seq data (initially PBMC datasets)
-2. Run a standard Scanpy pipeline (preprocessing → clustering → visualization)
-3. Test different clustering parameter configurations
-4. Evaluate clustering results using simple quantitative and structural metrics
-5. Compare results to identify more stable or meaningful cluster structures
+The framework consists of two main components:
+
+1. A deterministic preprocessing pipeline using Scanpy (quality control, normalization, highly variable gene selection, PCA, and neighborhood graph construction)
+
+2. An agentic optimization layer that:
+
+   * explores different clustering parameter combinations,
+   * evaluates clustering quality,
+   * compares alternative solutions, and
+   * recommends improved clustering configurations through iterative feedback.
 
 ## Methods and Tools
 
-- Python
-- Scanpy
-- AnnData
-- Snakemake
-- Jupyter Notebooks
-- NumPy / Pandas / Matplotlib
-- Custom clustering optimization agent: System that evaluates multiple clustering configurations using metrics such as silhouette score, cluster stability, and marker gene enrichment to select optimal solutions
+* Python
+* Scanpy
+* AnnData
+* NumPy
+* Pandas
+* Matplotlib
+* Jupyter Notebook
+* LangGraph (agent orchestration)
+* LangChain
+* Scikit-learn
 
----
+### Clustering Evaluation
 
-## Dataset
-PBMC 10k: Primary dataset to develop and optimize clustering pipeline and agent
+The optimization agent evaluates clustering performance using metrics such as:
 
-Human pancreas dataset: Validation dataset for testing generalization across biological systems
+* Silhouette Score
+* Davies–Bouldin Index
+* Cluster size and structure
+* Cluster stability across parameter configurations
+
+## Datasets
+
+* **PBMC 3K** – Baseline development and pipeline validation
+* **PBMC 10K** – Clustering optimization and scalability evaluation
+* **Human Pancreas Dataset** – Validation of the framework on an independent biological dataset
