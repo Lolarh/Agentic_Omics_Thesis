@@ -47,12 +47,21 @@ The framework consists of two main components:
 
 ### Clustering Evaluation
 
-The optimization agent evaluates clustering performance using metrics such as:
+The optimization agent evaluates clustering quality using a combination of internal and external validation metrics.
 
-* Silhouette Score
-* Davies–Bouldin Index
-* Cluster size and structure
-* Cluster stability across parameter configurations
+**Internal metrics**
+
+Silhouette Score
+Davies–Bouldin Index
+Cluster size and structure
+Cluster stability across parameter configurations
+
+**External metrics (when reference cell labels are available)**
+
+Adjusted Rand Index (ARI)
+Normalized Mutual Information (NMI)
+
+Using both internal and external metrics enables the framework to assess clustering quality in both unlabeled and annotated datasets, providing a more comprehensive evaluation of clustering performance.
 
 ## Datasets
 
