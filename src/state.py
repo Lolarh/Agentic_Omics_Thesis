@@ -24,7 +24,8 @@ class Experiment(TypedDict):
 
 
 class State(TypedDict):
-    messages: Annotated[list, add_messages]
+    messages: Annotated[list, add_messages] 
+    # The Annotated type with operator.add ensures that new messages are appended to the existing list rather than replacing it.
 
     adata: AnnData
 
