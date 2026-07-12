@@ -21,6 +21,7 @@ class Experiment(TypedDict):
     iteration: int
     parameters: Parameters
     metrics: Metrics
+    reason: str
 
 
 class State(TypedDict):
