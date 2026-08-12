@@ -24,7 +24,7 @@ class Experiment(TypedDict):
     reason: str
 
 
-class State(TypedDict):
+class State(TypedDict): # Centralized state
     messages: Annotated[list, add_messages] 
     # The Annotated type with operator.add ensures that new messages are appended to the existing list rather than replacing it.
 

@@ -11,6 +11,7 @@ def build_reflection_prompt(history, parameters, metrics):
     - Maximize the Silhouette Score.
     - Minimize the Davies–Bouldin Index.
     - Consider previous experiments before suggesting new parameters.
+    - Consider the number of clusters and cluster sizes when assessing whether a solution may be under- or over-clustered.
     - Adjust only ONE clustering parameter at a time.
     - If no meaningful improvement is likely, return "stop".
     - Briefly explain your reasoning.

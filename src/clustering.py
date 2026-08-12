@@ -5,8 +5,7 @@ def run_clustering(
     n_pcs=20,
     n_neighbors=15,
     resolution=1.0,
-    random_state=42,
-):
+    random_state=42,):
     """
     Construct the neighborhood graph and perform Leiden clustering.
     """
