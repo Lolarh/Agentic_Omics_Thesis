@@ -13,20 +13,26 @@ class Parameters(TypedDict):
 class Metrics(TypedDict, total=False):
     silhouette_score: float
     davies_bouldin_score: float
+    wc_dispersion_score: float
     n_clusters: int
     cluster_sizes: dict
+    largest_cluster_size: int
+    largest_cluster_fraction: float
+    number_of_small_clusters: int
+    small_clusters: dict
 
 
-class Experiment(TypedDict):
+class Experiment(TypedDict, total=False):
     iteration: int
     parameters: Parameters
     metrics: Metrics
     reason: str
 
 
-class State(TypedDict): # Centralized state
-    messages: Annotated[list, add_messages] 
-    # The Annotated type with operator.add ensures that new messages are appended to the existing list rather than replacing it.
+class State(TypedDict):
+    """Centralized state."""
+
+    messages: Annotated[list, add_messages]
 
     adata: AnnData
 
@@ -43,5 +49,8 @@ class State(TypedDict): # Centralized state
     # Agent decision ("continue" or "stop")
     decision: str
 
-    # Agents reason for update or stop
+    # Agent's reason for update or stop
     reason: str
+
+    # Prevent duplicate configurations
+    evaluated_configs: list[tuple[int, float, int]]
