@@ -1,0 +1,691 @@
+{
+  "experiment_id": "EXP-027",
+  "date": "2026-09-17T12:57:07.557912",
+  "dataset": "PBMC3K",
+  "method": "agentic_biology",
+  "condition": "biology",
+  "agent_version": "v0.5-refactored",
+  "change": "Refactored the reflection and final selection workflow, added controlled LLM decision validation, duplicate configuration checks, and a maximum experiment budget.",
+  "reason_for_change": "To improve the reliability and reproducibility of agentic parameter exploration and to ensure that invalid or repeated LLM-proposed configurations are rejected before clustering.",
+  "iterations": [
+    {
+      "iteration": 0,
+      "parameters": {
+        "n_neighbors": 15,
+        "resolution": 1.0,
+        "n_pcs": 20
+      },
+      "metrics": {
+        "silhouette_score": 0.07478884607553482,
+        "davies_bouldin_score": 2.666380841974742,
+        "wc_dispersion_score": 374182.5,
+        "banfield_raftery_score": 12939.826171875
+      },
+      "cluster_structure": {
+        "n_clusters": 10,
+        "cluster_sizes": {
+          "0": 574,
+          "1": 552,
+          "2": 347,
+          "3": 299,
+          "4": 164,
+          "5": 465,
+          "6": 168,
+          "7": 23,
+          "8": 32,
+          "9": 14
+        },
+        "largest_cluster_size": 574,
+        "largest_cluster_fraction": 0.2175890826383624,
+        "number_of_small_clusters": 3,
+        "small_clusters": {
+          "7": 23,
+          "8": 32,
+          "9": 14
+        }
+      },
+      "clustering_time_seconds": 6.7112454589951085,
+      "evaluation_time_seconds": 0.21825287501269486,
+      "marker_genes": {
+        "0": [
+          "MALAT1",
+          "CD27",
+          "IL7R",
+          "SELL",
+          "LTB",
+          "NDFIP1",
+          "GIMAP5",
+          "MAL",
+          "LDLRAP1",
+          "GIMAP7"
+        ],
+        "1": [
+          "IL32",
+          "LTB",
+          "IL7R",
+          "B2M",
+          "CD2",
+          "AQP3",
+          "GIMAP7",
+          "ANXA1",
+          "TRADD",
+          "VIM"
+        ],
+        "2": [
+          "CD74",
+          "CD79A",
+          "HLA-DRA",
+          "CD79B",
+          "HLA-DPB1",
+          "HLA-DQA1",
+          "MS4A1",
+          "HLA-DRB1",
+          "HLA-DQB1",
+          "CD37"
+        ],
+        "3": [
+          "CCL5",
+          "NKG7",
+          "GZMA",
+          "B2M",
+          "CST7",
+          "IL32",
+          "CTSW",
+          "GZMK",
+          "LYAR",
+          "MALAT1"
+        ],
+        "4": [
+          "NKG7",
+          "GNLY",
+          "GZMB",
+          "CTSW",
+          "PRF1",
+          "CST7",
+          "GZMA",
+          "B2M",
+          "FGFBP2",
+          "CD247"
+        ],
+        "5": [
+          "LYZ",
+          "S100A9",
+          "S100A8",
+          "TYROBP",
+          "FTL",
+          "FCN1",
+          "CST3",
+          "LGALS2",
+          "S100A6",
+          "FTH1"
+        ],
+        "6": [
+          "LST1",
+          "FCER1G",
+          "AIF1",
+          "COTL1",
+          "FCGR3A",
+          "FTH1",
+          "IFITM3",
+          "IFITM2",
+          "SAT1",
+          "FTL"
+        ],
+        "7": [
+          "ISG15",
+          "IFI6",
+          "MX1",
+          "IFIT1",
+          "OAS1",
+          "IFI44",
+          "IFI35",
+          "UBE2L6",
+          "GBP1",
+          "B2M"
+        ],
+        "8": [
+          "HLA-DPB1",
+          "HLA-DPA1",
+          "CST3",
+          "FCER1A",
+          "HLA-DRA",
+          "HLA-DRB1",
+          "HLA-DQA1",
+          "CD74",
+          "HLA-DRB5",
+          "HLA-DQB1"
+        ],
+        "9": [
+          "PF4",
+          "PPBP",
+          "NRGN",
+          "GPX1",
+          "RGS18",
+          "OAZ1",
+          "GP9",
+          "GNG11",
+          "SDPR",
+          "SPARC"
+        ]
+      },
+      "decision": {
+        "decision": "continue",
+        "parameters": {
+          "n_neighbors": 15,
+          "resolution": 1.0,
+          "n_pcs": 30
+        },
+        "reason": "Intrinsic separation is weak (silhouette 0.075, DBI 2.67), but marker profiles indicate coherent immune populations, with small clusters plausibly representing platelets, ISG-high, and dendritic cells. To seek improved separation without altering granularity or risking loss of rare populations, increase n_pcs to 30 while keeping n_neighbors and resolution fixed to isolate the effect of capturing additional biological variance.",
+        "llm_decision_time_seconds": 15.72908775000542
+      }
+    },
+    {
+      "iteration": 1,
+      "parameters": {
+        "n_neighbors": 15,
+        "resolution": 1.0,
+        "n_pcs": 30
+      },
+      "metrics": {
+        "silhouette_score": 0.06962878257036209,
+        "davies_bouldin_score": 2.7087095145901565,
+        "wc_dispersion_score": 375064.8125,
+        "banfield_raftery_score": 12959.5087890625
+      },
+      "cluster_structure": {
+        "n_clusters": 9,
+        "cluster_sizes": {
+          "0": 539,
+          "1": 611,
+          "2": 324,
+          "3": 341,
+          "4": 202,
+          "5": 435,
+          "6": 140,
+          "7": 33,
+          "8": 13
+        },
+        "largest_cluster_size": 611,
+        "largest_cluster_fraction": 0.23161485974222895,
+        "number_of_small_clusters": 2,
+        "small_clusters": {
+          "7": 33,
+          "8": 13
+        }
+      },
+      "clustering_time_seconds": 2.71602091701061,
+      "evaluation_time_seconds": 0.15208995799184777,
+      "marker_genes": {
+        "0": [
+          "MALAT1",
+          "CD27",
+          "SELL",
+          "IL7R",
+          "LTB",
+          "NDFIP1",
+          "GIMAP5",
+          "LDLRAP1",
+          "MAL",
+          "PPA1"
+        ],
+        "1": [
+          "LTB",
+          "IL32",
+          "IL7R",
+          "CD2",
+          "B2M",
+          "AQP3",
+          "GIMAP7",
+          "ANXA1",
+          "VIM",
+          "TRADD"
+        ],
+        "2": [
+          "CCL5",
+          "NKG7",
+          "B2M",
+          "GZMA",
+          "CST7",
+          "CTSW",
+          "IL32",
+          "GZMK",
+          "LYAR",
+          "MALAT1"
+        ],
+        "3": [
+          "CD74",
+          "CD79A",
+          "HLA-DRA",
+          "CD79B",
+          "HLA-DPB1",
+          "MS4A1",
+          "HLA-DQA1",
+          "CD37",
+          "HLA-DQB1",
+          "HLA-DRB1"
+        ],
+        "4": [
+          "LST1",
+          "FCER1G",
+          "AIF1",
+          "COTL1",
+          "FTH1",
+          "IFITM3",
+          "SAT1",
+          "FTL",
+          "S100A11",
+          "PSAP"
+        ],
+        "5": [
+          "S100A9",
+          "LYZ",
+          "S100A8",
+          "TYROBP",
+          "FCN1",
+          "FTL",
+          "CST3",
+          "LGALS2",
+          "S100A6",
+          "FTH1"
+        ],
+        "6": [
+          "GZMB",
+          "NKG7",
+          "PRF1",
+          "GNLY",
+          "CTSW",
+          "CST7",
+          "GZMA",
+          "FGFBP2",
+          "B2M",
+          "CD247"
+        ],
+        "7": [
+          "HLA-DPA1",
+          "HLA-DPB1",
+          "HLA-DRB1",
+          "HLA-DRA",
+          "CD74",
+          "CST3",
+          "HLA-DQA1",
+          "HLA-DRB5",
+          "FCER1A",
+          "HLA-DQB1"
+        ],
+        "8": [
+          "PF4",
+          "SDPR",
+          "GNG11",
+          "PPBP",
+          "NRGN",
+          "SPARC",
+          "GPX1",
+          "RGS18",
+          "OAZ1",
+          "GP9"
+        ]
+      },
+      "decision": {
+        "decision": "continue",
+        "parameters": {
+          "n_neighbors": 15,
+          "resolution": 1.2,
+          "n_pcs": 20
+        },
+        "reason": "20 PCs slightly outperformed 30 PCs on intrinsic metrics, and marker genes indicate coherent PBMC populations with plausible rare DC and platelet clusters. Separation remains modest (low silhouette, higher DBI). Increasing resolution moderately to 1.2 while holding n_neighbors and n_pcs constant should test whether finer-grained structure (e.g., T and B subpopulations, ISG-like subset) improves separation without excessive fragmentation.",
+        "llm_decision_time_seconds": 21.34261737500492
+      }
+    },
+    {
+      "iteration": 2,
+      "parameters": {
+        "n_neighbors": 15,
+        "resolution": 1.2,
+        "n_pcs": 20
+      },
+      "metrics": {
+        "silhouette_score": 0.0757366418838501,
+        "davies_bouldin_score": 2.9155992835430298,
+        "wc_dispersion_score": 370053.25,
+        "banfield_raftery_score": 12913.0439453125
+      },
+      "cluster_structure": {
+        "n_clusters": 11,
+        "cluster_sizes": {
+          "0": 576,
+          "1": 511,
+          "2": 342,
+          "3": 140,
+          "4": 469,
+          "5": 165,
+          "6": 73,
+          "7": 169,
+          "8": 148,
+          "9": 31,
+          "10": 14
+        },
+        "largest_cluster_size": 576,
+        "largest_cluster_fraction": 0.21834723275208492,
+        "number_of_small_clusters": 2,
+        "small_clusters": {
+          "9": 31,
+          "10": 14
+        }
+      },
+      "clustering_time_seconds": 2.66663341599633,
+      "evaluation_time_seconds": 0.17317716700199526,
+      "marker_genes": {
+        "0": [
+          "MALAT1",
+          "CD27",
+          "IL7R",
+          "SELL",
+          "LTB",
+          "NDFIP1",
+          "MAL",
+          "GIMAP5",
+          "GIMAP7",
+          "TRAF3IP3"
+        ],
+        "1": [
+          "IL32",
+          "LTB",
+          "IL7R",
+          "B2M",
+          "CD2",
+          "AQP3",
+          "ANXA1",
+          "GIMAP7",
+          "TRADD",
+          "VIM"
+        ],
+        "2": [
+          "CD74",
+          "CD79A",
+          "HLA-DRA",
+          "CD79B",
+          "HLA-DPB1",
+          "MS4A1",
+          "HLA-DQA1",
+          "CD37",
+          "HLA-DRB1",
+          "HLA-DQB1"
+        ],
+        "3": [
+          "CCL5",
+          "GZMK",
+          "IL32",
+          "NKG7",
+          "GZMA",
+          "B2M",
+          "CTSW",
+          "IL7R",
+          "LYAR",
+          "HOPX"
+        ],
+        "4": [
+          "LYZ",
+          "S100A9",
+          "S100A8",
+          "TYROBP",
+          "FTL",
+          "FCN1",
+          "CST3",
+          "LGALS2",
+          "S100A6",
+          "FTH1"
+        ],
+        "5": [
+          "NKG7",
+          "GNLY",
+          "CTSW",
+          "GZMB",
+          "PRF1",
+          "CST7",
+          "GZMA",
+          "B2M",
+          "FGFBP2",
+          "CD247"
+        ],
+        "6": [
+          "MALAT1",
+          "IFI6",
+          "MX1",
+          "IL32",
+          "IFIT1",
+          "ISG15",
+          "B2M",
+          "GIMAP7",
+          "LTB",
+          "LGALS3BP"
+        ],
+        "7": [
+          "LST1",
+          "FCER1G",
+          "AIF1",
+          "COTL1",
+          "FCGR3A",
+          "FTH1",
+          "IFITM3",
+          "IFITM2",
+          "SAT1",
+          "FTL"
+        ],
+        "8": [
+          "CCL5",
+          "NKG7",
+          "CST7",
+          "B2M",
+          "GZMA",
+          "GZMH",
+          "CTSW",
+          "IL32",
+          "FGFBP2",
+          "MALAT1"
+        ],
+        "9": [
+          "HLA-DPA1",
+          "HLA-DPB1",
+          "HLA-DRB1",
+          "HLA-DRA",
+          "CD74",
+          "CST3",
+          "HLA-DQA1",
+          "HLA-DRB5",
+          "HLA-DQB1",
+          "HLA-DMA"
+        ],
+        "10": [
+          "PF4",
+          "PPBP",
+          "NRGN",
+          "GPX1",
+          "RGS18",
+          "OAZ1",
+          "GP9",
+          "GNG11",
+          "SDPR",
+          "SPARC"
+        ]
+      }
+    }
+  ],
+  "termination_reason": "maximum_experiments_reached",
+  "total_runtime_seconds": 87.83244695900066,
+  "final_result": {
+    "termination_reason": "maximum_experiments_reached",
+    "best_iteration": 2,
+    "best_parameters": {
+      "n_neighbors": 15,
+      "resolution": 1.2,
+      "n_pcs": 20
+    },
+    "best_metrics": {
+      "n_neighbors": 15,
+      "resolution": 1.2,
+      "n_pcs": 20,
+      "random_state": 42,
+      "n_clusters": 11,
+      "cluster_sizes": {
+        "0": 576,
+        "1": 511,
+        "2": 342,
+        "3": 140,
+        "4": 469,
+        "5": 165,
+        "6": 73,
+        "7": 169,
+        "8": 148,
+        "9": 31,
+        "10": 14
+      },
+      "largest_cluster_size": 576,
+      "largest_cluster_fraction": 0.21834723275208492,
+      "number_of_small_clusters": 2,
+      "small_clusters": {
+        "9": 31,
+        "10": 14
+      },
+      "silhouette_score": 0.0757366418838501,
+      "davies_bouldin_score": 2.9155992835430298,
+      "wc_dispersion_score": 370053.25,
+      "banfield_raftery_score": 12913.0439453125,
+      "marker_genes": {
+        "0": [
+          "MALAT1",
+          "CD27",
+          "IL7R",
+          "SELL",
+          "LTB",
+          "NDFIP1",
+          "MAL",
+          "GIMAP5",
+          "GIMAP7",
+          "TRAF3IP3"
+        ],
+        "1": [
+          "IL32",
+          "LTB",
+          "IL7R",
+          "B2M",
+          "CD2",
+          "AQP3",
+          "ANXA1",
+          "GIMAP7",
+          "TRADD",
+          "VIM"
+        ],
+        "2": [
+          "CD74",
+          "CD79A",
+          "HLA-DRA",
+          "CD79B",
+          "HLA-DPB1",
+          "MS4A1",
+          "HLA-DQA1",
+          "CD37",
+          "HLA-DRB1",
+          "HLA-DQB1"
+        ],
+        "3": [
+          "CCL5",
+          "GZMK",
+          "IL32",
+          "NKG7",
+          "GZMA",
+          "B2M",
+          "CTSW",
+          "IL7R",
+          "LYAR",
+          "HOPX"
+        ],
+        "4": [
+          "LYZ",
+          "S100A9",
+          "S100A8",
+          "TYROBP",
+          "FTL",
+          "FCN1",
+          "CST3",
+          "LGALS2",
+          "S100A6",
+          "FTH1"
+        ],
+        "5": [
+          "NKG7",
+          "GNLY",
+          "CTSW",
+          "GZMB",
+          "PRF1",
+          "CST7",
+          "GZMA",
+          "B2M",
+          "FGFBP2",
+          "CD247"
+        ],
+        "6": [
+          "MALAT1",
+          "IFI6",
+          "MX1",
+          "IL32",
+          "IFIT1",
+          "ISG15",
+          "B2M",
+          "GIMAP7",
+          "LTB",
+          "LGALS3BP"
+        ],
+        "7": [
+          "LST1",
+          "FCER1G",
+          "AIF1",
+          "COTL1",
+          "FCGR3A",
+          "FTH1",
+          "IFITM3",
+          "IFITM2",
+          "SAT1",
+          "FTL"
+        ],
+        "8": [
+          "CCL5",
+          "NKG7",
+          "CST7",
+          "B2M",
+          "GZMA",
+          "GZMH",
+          "CTSW",
+          "IL32",
+          "FGFBP2",
+          "MALAT1"
+        ],
+        "9": [
+          "HLA-DPA1",
+          "HLA-DPB1",
+          "HLA-DRB1",
+          "HLA-DRA",
+          "CD74",
+          "CST3",
+          "HLA-DQA1",
+          "HLA-DRB5",
+          "HLA-DQB1",
+          "HLA-DMA"
+        ],
+        "10": [
+          "PF4",
+          "PPBP",
+          "NRGN",
+          "GPX1",
+          "RGS18",
+          "OAZ1",
+          "GP9",
+          "GNG11",
+          "SDPR",
+          "SPARC"
+        ]
+      }
+    },
+    "final_selection_reason": "1) Strongest intrinsic metrics: Iteration 2. It has the highest silhouette (0.0757), the lowest WC-dispersion and Banfield\u2013Raftery scores; although its Davies\u2013Bouldin index is higher than Iterations 0/1, the overall intrinsic profile is strongest. 2) Most reasonable cluster structure: Iteration 2. It yields 11 clusters with balanced sizes, only two very small clusters (\u224831-cell dendritic and 14-cell platelet populations), and no dominant cluster; Iteration 0 has an extra tiny cluster, suggesting slightly more fragmentation. 3) Strongest biological interpretation: Iteration 2. It recovers all major PBMC populations with coherent markers\u2014naive/memory CD4 T (IL7R, LTB, SELL), B cells (CD79A/B, MS4A1, HLA class II), CD14+ monocytes (LYZ, S100A8/A9, FCN1), FCGR3A+ monocytes (LST1, FCGR3A), distinct cytotoxic/NK states (NKG7, GNLY, GZMB/PRF1; FGFBP2/GZMH), a clear GZMK+ CD8 T subset (GZMK, CCL5, HOPX), an interferon-stimulated module (ISG15, IFI6, IFIT1) of non-tiny size, dendritic cells (FCER1A, HLA-DP/A), and platelets (PF4, PPBP). Iteration 1 likely merges the IFN-stimulated subset; Iteration 0 captures it but as a very small cluster. 4) Ultimately selected: Iteration 2. 5) Trade-off: Although Iteration 2\u2019s Davies\u2013Bouldin index is worse than Iterations 0/1, its superior silhouette, WC-dispersion, and Banfield\u2013Raftery\u2014together with clearer separation of known PBMC subpopulations (including IFN-stimulated and GZMK+ CD8 T, and plausible NK sub-states) with minimal tiny clusters\u2014provide the strongest overall evidence.",
+    "final_selection_time_seconds": 38.02518537499418
+  }
+}

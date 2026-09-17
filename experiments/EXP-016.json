@@ -1,0 +1,184 @@
+{
+  "experiment_id": "EXP-016",
+  "date": "2026-09-11T16:51:23.191698",
+  "dataset": "PBMC3K",
+  "method": "agentic_biology",
+  "agent_version": "v0.3-prompt-controlled",
+  "change": "Running using 20 Iterations to compare with gridsearch",
+  "reason_for_change": "To ensure LLM is using both mathematical internal metrics and biology information behind all the reasoning and suggestions",
+  "iterations": [
+    {
+      "iteration": 0,
+      "parameters": {
+        "n_neighbors": 15,
+        "resolution": 1.0,
+        "n_pcs": 20
+      },
+      "metrics": {
+        "silhouette_score": 0.07478884607553482,
+        "davies_bouldin_score": 2.666380841974742,
+        "wc_dispersion_score": 374182.5,
+        "banfield_raftery_score": 12939.826171875
+      },
+      "cluster_structure": {
+        "n_clusters": 10,
+        "cluster_sizes": {
+          "0": 574,
+          "1": 552,
+          "2": 347,
+          "3": 299,
+          "4": 164,
+          "5": 465,
+          "6": 168,
+          "7": 23,
+          "8": 32,
+          "9": 14
+        },
+        "largest_cluster_size": 574,
+        "largest_cluster_fraction": 0.2175890826383624,
+        "number_of_small_clusters": 3,
+        "small_clusters": {
+          "7": 23,
+          "8": 32,
+          "9": 14
+        }
+      },
+      "clustering_time_seconds": 2.9716405420331284,
+      "evaluation_time_seconds": 0.2228507089894265,
+      "decision": "continue",
+      "reason": "Current clustering shows weak separation (low silhouette, high DBI) and several very small clusters. Propose a substantially smoother graph (more neighbors), modestly more PCs to capture additional structure, and lower resolution to reduce over-fragmentation and potentially improve overall cohesion.",
+      "llm_decision_time_seconds": 26.152103083091788,
+      "next_parameters": {
+        "n_neighbors": 30,
+        "resolution": 0.6,
+        "n_pcs": 30
+      }
+    },
+    {
+      "iteration": 1,
+      "parameters": {
+        "n_neighbors": 30,
+        "resolution": 0.6,
+        "n_pcs": 30
+      },
+      "metrics": {
+        "silhouette_score": 0.1649409681558609,
+        "davies_bouldin_score": 1.9599506853912343,
+        "wc_dispersion_score": 393455.71875,
+        "banfield_raftery_score": 13083.3134765625
+      },
+      "cluster_structure": {
+        "n_clusters": 7,
+        "cluster_sizes": {
+          "0": 1170,
+          "1": 347,
+          "2": 474,
+          "3": 445,
+          "4": 163,
+          "5": 26,
+          "6": 13
+        },
+        "largest_cluster_size": 1170,
+        "largest_cluster_fraction": 0.44351781652767247,
+        "number_of_small_clusters": 2,
+        "small_clusters": {
+          "5": 26,
+          "6": 13
+        }
+      },
+      "clustering_time_seconds": 3.5164689579978585,
+      "evaluation_time_seconds": 0.1734636250184849
+    }
+  ],
+  "termination_reason": "maximum_experiments_reached",
+  "total_runtime_seconds": 80.5271214999957,
+  "final_result": {
+    "termination_reason": "maximum_experiments_reached",
+    "best_iteration": 1,
+    "best_parameters": {
+      "n_neighbors": 30,
+      "resolution": 0.6,
+      "n_pcs": 30
+    },
+    "best_metrics": {
+      "n_neighbors": 30,
+      "resolution": 0.6,
+      "n_pcs": 30,
+      "random_state": 42,
+      "n_clusters": 7,
+      "cluster_sizes": {
+        "0": 1170,
+        "1": 347,
+        "2": 474,
+        "3": 445,
+        "4": 163,
+        "5": 26,
+        "6": 13
+      },
+      "largest_cluster_size": 1170,
+      "largest_cluster_fraction": 0.44351781652767247,
+      "number_of_small_clusters": 2,
+      "small_clusters": {
+        "5": 26,
+        "6": 13
+      },
+      "silhouette_score": 0.1649409681558609,
+      "davies_bouldin_score": 1.9599506853912343,
+      "wc_dispersion_score": 393455.71875,
+      "banfield_raftery_score": 13083.3134765625,
+      "marker_genes": {
+        "0": [
+          "LTB",
+          "IL32",
+          "IL7R",
+          "MALAT1",
+          "CD2"
+        ],
+        "1": [
+          "CD74",
+          "HLA-DRA",
+          "CD79A",
+          "CD79B",
+          "HLA-DPB1"
+        ],
+        "2": [
+          "LYZ",
+          "S100A9",
+          "S100A8",
+          "TYROBP",
+          "FTL"
+        ],
+        "3": [
+          "NKG7",
+          "CST7",
+          "GZMA",
+          "B2M",
+          "CTSW"
+        ],
+        "4": [
+          "LST1",
+          "FCER1G",
+          "AIF1",
+          "COTL1",
+          "FCGR3A"
+        ],
+        "5": [
+          "HLA-DPA1",
+          "FCER1A",
+          "HLA-DPB1",
+          "HLA-DRB1",
+          "HLA-DRA"
+        ],
+        "6": [
+          "PF4",
+          "SDPR",
+          "GNG11",
+          "PPBP",
+          "NRGN"
+        ]
+      }
+    },
+    "final_selection_reason": "Iteration 1 shows markedly better global clustering structure: a higher silhouette (0.165 vs 0.075) and lower Davies\u2013Bouldin (1.96 vs 2.67) indicate improved separation and cohesion. While WC-dispersion is higher and Banfield\u2013Raftery slightly worse, these are expected with fewer clusters and are outweighed by the stronger primary metrics. The solution reduces over-fragmentation (fewer very small clusters) yet preserves biologically coherent cell types (T, B, NK/cytotoxic, classical/non-classical monocytes, DCs, platelets). A dominant T-cell cluster suggests some under-clustering, but overall evidence most strongly supports iteration 1.",
+    "final_selection_time_seconds": 47.35645512503106
+  }
+}

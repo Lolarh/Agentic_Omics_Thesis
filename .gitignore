@@ -3,11 +3,12 @@ __pycache__/
 .ipynb_checkpoints/
 data/
 results/
+baseline_note/
 .DS_Store
 # Scratch notebook
 adhoc.ipynb
 code_updates.ipynb
-No_LLM_rule_based_agent.ipynb
+code_updates2.ipynb
 Code_Note.md
 rule_based_agent.ipynb
 .Rproj.user
@@ -15,4 +16,19 @@ visualisation.py
 optimization.py
 manual_ref_node.py
 LLM_based_agent_conv.ipynb
+manual_search.ipynb
+No_LLM_rule_based_agent.ipynb
+Untitled.ipynb
+adhoc.py
 evaluation-Conv.py
+agent_baseline.py
+agent_wt_convergence.py
+agent-backup.py
+code_note.ipynb
+complex_python.ipynb
+evaluation_wt_convergence.py
+overclust_wt_biology_prompts.py
+stability.py
+~$*
+experiments/.DS_Store
+experiments/.ipynb_checkpoints/

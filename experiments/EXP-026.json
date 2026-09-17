@@ -1,0 +1,252 @@
+{
+  "experiment_id": "EXP-026",
+  "date": "2026-09-12T17:48:18.869623",
+  "dataset": "PBMC3K",
+  "method": "agentic_biology",
+  "condition": "biology",
+  "agent_version": "v0.4-exploration-controlled",
+  "change": "Limiting agentic exploration to two parameter-update iterations",
+  "reason_for_change": "To compare agentic parameter exploration with and without biological evidence under the same exploration budget.",
+  "iterations": [
+    {
+      "iteration": 0,
+      "parameters": {
+        "n_neighbors": 15,
+        "resolution": 1.0,
+        "n_pcs": 20
+      },
+      "metrics": {
+        "silhouette_score": 0.07478884607553482,
+        "davies_bouldin_score": 2.666380841974742,
+        "wc_dispersion_score": 374182.5,
+        "banfield_raftery_score": 12939.826171875
+      },
+      "cluster_structure": {
+        "n_clusters": 10,
+        "cluster_sizes": {
+          "0": 574,
+          "1": 552,
+          "2": 347,
+          "3": 299,
+          "4": 164,
+          "5": 465,
+          "6": 168,
+          "7": 23,
+          "8": 32,
+          "9": 14
+        },
+        "largest_cluster_size": 574,
+        "largest_cluster_fraction": 0.2175890826383624,
+        "number_of_small_clusters": 3,
+        "small_clusters": {
+          "7": 23,
+          "8": 32,
+          "9": 14
+        }
+      },
+      "clustering_time_seconds": 2.853092833000119,
+      "evaluation_time_seconds": 0.23226475000046776,
+      "decision": {
+        "decision": "continue",
+        "parameters": {
+          "n_neighbors": 30,
+          "resolution": 0.8,
+          "n_pcs": 20
+        },
+        "reason": "Biologically coherent PBMC populations are present (T subsets, B, NK, mono, DC, platelets, IFN-high), but intrinsic metrics indicate weak separation (low silhouette, high DB) and several very small clusters. Clusters 0 and 1 share overlapping T-cell markers (IL7R/LTB), suggesting potential over-splitting among closely related T states. Increasing n_neighbors to 30 should smooth the graph and improve cohesion, while a modest resolution decrease to 0.8 may reduce unnecessary fragmentation among similar T/NK subsets without forcing rare but biologically plausible clusters (platelets, DC, IFN-high) to disappear. Keep n_pcs at 20 to isolate the effect of neighborhood/resolution changes.",
+        "llm_decision_time_seconds": 20.615648125000007
+      }
+    },
+    {
+      "iteration": 1,
+      "parameters": {
+        "n_neighbors": 30,
+        "resolution": 0.8,
+        "n_pcs": 20
+      },
+      "metrics": {
+        "silhouette_score": 0.08012446761131287,
+        "davies_bouldin_score": 2.633756724188635,
+        "wc_dispersion_score": 374189.03125,
+        "banfield_raftery_score": 12951.6552734375
+      },
+      "cluster_structure": {
+        "n_clusters": 9,
+        "cluster_sizes": {
+          "0": 655,
+          "1": 519,
+          "2": 348,
+          "3": 469,
+          "4": 159,
+          "5": 281,
+          "6": 167,
+          "7": 27,
+          "8": 13
+        },
+        "largest_cluster_size": 655,
+        "largest_cluster_fraction": 0.24829416224412434,
+        "number_of_small_clusters": 2,
+        "small_clusters": {
+          "7": 27,
+          "8": 13
+        }
+      },
+      "clustering_time_seconds": 3.5656752079994476,
+      "evaluation_time_seconds": 0.1833539170002041,
+      "decision": {
+        "decision": "continue",
+        "parameters": {
+          "n_neighbors": 30,
+          "resolution": 1.0,
+          "n_pcs": 20
+        },
+        "reason": "Both evaluated settings yield similar, modest intrinsic metrics; the 30/0.8 configuration slightly improves silhouette and DB but appears to merge a plausible interferon-stimulated population seen at 15/1.0. With a smoother graph (n_neighbors=30), a modest resolution increase to 1.0 should test whether we can recover biologically coherent rare populations (e.g., ISG/DC subsets) without excessive fragmentation. Keeping n_pcs at 20 isolates the effect of resolution on structure and comparability.",
+        "llm_decision_time_seconds": 22.527169042001333
+      }
+    },
+    {
+      "iteration": 2,
+      "parameters": {
+        "n_neighbors": 30,
+        "resolution": 1.0,
+        "n_pcs": 20
+      },
+      "metrics": {
+        "silhouette_score": 0.07592421770095825,
+        "davies_bouldin_score": 2.642627108830443,
+        "wc_dispersion_score": 374449.28125,
+        "banfield_raftery_score": 12955.75390625
+      },
+      "cluster_structure": {
+        "n_clusters": 9,
+        "cluster_sizes": {
+          "0": 587,
+          "1": 589,
+          "2": 348,
+          "3": 471,
+          "4": 159,
+          "5": 279,
+          "6": 167,
+          "7": 25,
+          "8": 13
+        },
+        "largest_cluster_size": 589,
+        "largest_cluster_fraction": 0.22327520849128127,
+        "number_of_small_clusters": 2,
+        "small_clusters": {
+          "7": 25,
+          "8": 13
+        }
+      },
+      "clustering_time_seconds": 3.5617221249995055,
+      "evaluation_time_seconds": 0.19546837500092806
+    }
+  ],
+  "termination_reason": "maximum_experiments_reached",
+  "total_runtime_seconds": 81.44075062500087,
+  "final_result": {
+    "termination_reason": "maximum_experiments_reached",
+    "best_iteration": 1,
+    "best_parameters": {
+      "n_neighbors": 30,
+      "resolution": 0.8,
+      "n_pcs": 20
+    },
+    "best_metrics": {
+      "n_neighbors": 30,
+      "resolution": 0.8,
+      "n_pcs": 20,
+      "random_state": 42,
+      "n_clusters": 9,
+      "cluster_sizes": {
+        "0": 655,
+        "1": 519,
+        "2": 348,
+        "3": 469,
+        "4": 159,
+        "5": 281,
+        "6": 167,
+        "7": 27,
+        "8": 13
+      },
+      "largest_cluster_size": 655,
+      "largest_cluster_fraction": 0.24829416224412434,
+      "number_of_small_clusters": 2,
+      "small_clusters": {
+        "7": 27,
+        "8": 13
+      },
+      "silhouette_score": 0.08012446761131287,
+      "davies_bouldin_score": 2.633756724188635,
+      "wc_dispersion_score": 374189.03125,
+      "banfield_raftery_score": 12951.6552734375,
+      "marker_genes": {
+        "0": [
+          "MALAT1",
+          "IL7R",
+          "LTB",
+          "CD27",
+          "SELL"
+        ],
+        "1": [
+          "IL32",
+          "LTB",
+          "IL7R",
+          "B2M",
+          "CD2"
+        ],
+        "2": [
+          "CD74",
+          "HLA-DRA",
+          "CD79A",
+          "CD79B",
+          "HLA-DPB1"
+        ],
+        "3": [
+          "LYZ",
+          "S100A9",
+          "S100A8",
+          "TYROBP",
+          "FTL"
+        ],
+        "4": [
+          "NKG7",
+          "GNLY",
+          "GZMB",
+          "CTSW",
+          "PRF1"
+        ],
+        "5": [
+          "CCL5",
+          "NKG7",
+          "GZMA",
+          "CST7",
+          "B2M"
+        ],
+        "6": [
+          "LST1",
+          "FCER1G",
+          "AIF1",
+          "COTL1",
+          "FTH1"
+        ],
+        "7": [
+          "FCER1A",
+          "HLA-DPB1",
+          "HLA-DRB1",
+          "HLA-DPA1",
+          "HLA-DRA"
+        ],
+        "8": [
+          "PF4",
+          "SDPR",
+          "GNG11",
+          "PPBP",
+          "NRGN"
+        ]
+      }
+    },
+    "final_selection_reason": "1) Strongest intrinsic metrics: Iteration 1 has the highest silhouette (0.0801) and lowest Davies\u2013Bouldin (2.6338). Its WC-dispersion is only marginally higher than Iteration 0, and Banfield\u2013Raftery is close to the others, making Iteration 1 the overall intrinsic-metric winner. 2) Most reasonable cluster structure: Iteration 1 yields 9 clusters with a balanced size distribution (largest ~25%) and only two very small clusters that plausibly represent rare populations (dendritic cells and platelets). Iteration 0 shows three very small clusters, suggesting mild over-fragmentation, while Iteration 2 is similar to Iteration 1 but with worse compactness (higher WC). 3) Strongest biological interpretation: Iteration 1 cleanly recovers expected PBMC populations\u2014naive/CM T (0/1), B cells (2), classical monocytes (3), NK (4), cytotoxic T (5), non-classical/FCGR3A+ monocytes (6), dendritic cells (7), and platelets (8). Iteration 0 additionally separates a tiny interferon-stimulated cluster (ISG15/IFI6/MX1), which is biologically plausible but very small and likely reflects a shared activation program rather than a stable lineage; merging it in Iteration 1 improves robustness without losing core diversity. Iteration 2 offers no added biological resolution over Iteration 1. 4) Final selection: Iteration 1. 5) The final selection matches the intrinsic-metric winner, so no trade-off is required. Overall, Iteration 1 provides the strongest evidence by combining the best separation/compactness, a well-balanced cluster-size distribution, and clear, coherent PBMC marker patterns without unnecessary fragmentation\u2014whereas Iteration 0 is slightly over-fragmented and Iteration 2 is intrinsically weaker without biological gain.",
+    "final_selection_time_seconds": 27.590803749999395
+  }
+}

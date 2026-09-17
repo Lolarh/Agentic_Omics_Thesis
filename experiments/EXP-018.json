@@ -1,0 +1,879 @@
+{
+  "experiment_id": "EXP-018",
+  "date": "2026-09-12T09:00:33.137515",
+  "dataset": "PBMC3K",
+  "method": "agentic_biology",
+  "agent_version": "v0.3-prompt-controlled",
+  "change": "Adding overclustering evidence and biology to agent evaluation using 20 iteractions max",
+  "reason_for_change": "To compare agentic optimization with and without biological evidence",
+  "iterations": [
+    {
+      "iteration": 0,
+      "parameters": {
+        "n_neighbors": 15,
+        "resolution": 1.0,
+        "n_pcs": 20
+      },
+      "metrics": {
+        "silhouette_score": 0.07478884607553482,
+        "davies_bouldin_score": 2.666380841974742,
+        "wc_dispersion_score": 374182.5,
+        "banfield_raftery_score": 12939.826171875
+      },
+      "cluster_structure": {
+        "n_clusters": 10,
+        "cluster_sizes": {
+          "0": 574,
+          "1": 552,
+          "2": 347,
+          "3": 299,
+          "4": 164,
+          "5": 465,
+          "6": 168,
+          "7": 23,
+          "8": 32,
+          "9": 14
+        },
+        "largest_cluster_size": 574,
+        "largest_cluster_fraction": 0.2175890826383624,
+        "number_of_small_clusters": 3,
+        "small_clusters": {
+          "7": 23,
+          "8": 32,
+          "9": 14
+        }
+      },
+      "clustering_time_seconds": 2.814674250083044,
+      "evaluation_time_seconds": 0.17744945909362286,
+      "decision": "continue",
+      "reason": "Current solution shows biologically coherent PBMC populations but weak separation (low silhouette, high Davies-Bouldin) and several very small clusters. To test whether limited variance capture and graph sparsity are contributing, increase n_pcs to 30 and n_neighbors to 20 for a smoother, more informative neighborhood graph, and slightly lower resolution to 0.8 to reduce potential over-fragmentation. This explores a meaningfully different regime while preserving biological interpretability.",
+      "llm_decision_time_seconds": 13.097312957979739,
+      "next_parameters": {
+        "n_neighbors": 20,
+        "resolution": 0.8,
+        "n_pcs": 30
+      }
+    },
+    {
+      "iteration": 1,
+      "parameters": {
+        "n_neighbors": 20,
+        "resolution": 0.8,
+        "n_pcs": 30
+      },
+      "metrics": {
+        "silhouette_score": 0.07445840537548065,
+        "davies_bouldin_score": 2.6182458461564786,
+        "wc_dispersion_score": 374582.09375,
+        "banfield_raftery_score": 12961.0263671875
+      },
+      "cluster_structure": {
+        "n_clusters": 9,
+        "cluster_sizes": {
+          "0": 546,
+          "1": 346,
+          "2": 628,
+          "3": 474,
+          "4": 138,
+          "5": 303,
+          "6": 162,
+          "7": 28,
+          "8": 13
+        },
+        "largest_cluster_size": 628,
+        "largest_cluster_fraction": 0.23805913570887036,
+        "number_of_small_clusters": 2,
+        "small_clusters": {
+          "7": 28,
+          "8": 13
+        }
+      },
+      "clustering_time_seconds": 3.2956361670512706,
+      "evaluation_time_seconds": 0.26972054096404463,
+      "decision": "continue",
+      "reason": "Current and prior runs show similar low silhouette and high Davies\u2013Bouldin values, with no clear improvement. Biologically, the current configuration appears to have merged an interferon-stimulated cluster seen previously, suggesting slight under-resolution. Testing a moderately higher resolution (1.2) aims to recover meaningful substructure (e.g., ISG and T-cell subsets). Increasing n_pcs to 35 may capture additional variation (IFN/T-cell programs), while n_neighbors=25 provides a smoother graph to mitigate over-fragmentation at higher resolution.",
+      "llm_decision_time_seconds": 18.668016249896027,
+      "next_parameters": {
+        "n_neighbors": 25,
+        "resolution": 1.2,
+        "n_pcs": 35
+      }
+    },
+    {
+      "iteration": 2,
+      "parameters": {
+        "n_neighbors": 25,
+        "resolution": 1.2,
+        "n_pcs": 35
+      },
+      "metrics": {
+        "silhouette_score": 0.07403971999883652,
+        "davies_bouldin_score": 2.6235975055278855,
+        "wc_dispersion_score": 374390.96875,
+        "banfield_raftery_score": 12956.431640625
+      },
+      "cluster_structure": {
+        "n_clusters": 9,
+        "cluster_sizes": {
+          "0": 533,
+          "1": 632,
+          "2": 346,
+          "3": 295,
+          "4": 472,
+          "5": 154,
+          "6": 165,
+          "7": 28,
+          "8": 13
+        },
+        "largest_cluster_size": 632,
+        "largest_cluster_fraction": 0.2395754359363154,
+        "number_of_small_clusters": 2,
+        "small_clusters": {
+          "7": 28,
+          "8": 13
+        }
+      },
+      "clustering_time_seconds": 3.3523802501149476,
+      "evaluation_time_seconds": 0.16868591599632055,
+      "decision": "continue",
+      "reason": "Across three configs, silhouette and DBI are similar and biology is coherent, with consistent rare DC and platelet clusters. To probe potentially sharper local structure without excessive fragmentation, try a sparser graph (lower n_neighbors) and slightly fewer PCs to limit noise, paired with moderate resolution to control over-splitting.",
+      "llm_decision_time_seconds": 35.436479375115596,
+      "next_parameters": {
+        "n_neighbors": 12,
+        "resolution": 0.9,
+        "n_pcs": 25
+      }
+    },
+    {
+      "iteration": 3,
+      "parameters": {
+        "n_neighbors": 12,
+        "resolution": 0.9,
+        "n_pcs": 25
+      },
+      "metrics": {
+        "silhouette_score": 0.06901499629020691,
+        "davies_bouldin_score": 2.7091378847962684,
+        "wc_dispersion_score": 375313.125,
+        "banfield_raftery_score": 12954.8271484375
+      },
+      "cluster_structure": {
+        "n_clusters": 9,
+        "cluster_sizes": {
+          "0": 542,
+          "1": 620,
+          "2": 340,
+          "3": 314,
+          "4": 209,
+          "5": 140,
+          "6": 429,
+          "7": 31,
+          "8": 13
+        },
+        "largest_cluster_size": 620,
+        "largest_cluster_fraction": 0.2350265352539803,
+        "number_of_small_clusters": 2,
+        "small_clusters": {
+          "7": 31,
+          "8": 13
+        }
+      },
+      "clustering_time_seconds": 2.5672487089177594,
+      "evaluation_time_seconds": 0.26812816702295095,
+      "decision": "continue",
+      "reason": "Current config (12, 0.9, 25) has worse separation (lower silhouette, higher DB) than earlier runs, likely due to too-local neighborhoods and mild fragmentation (two very small clusters). Prior settings with n_neighbors 15\u201320 and ~30 PCs gave better metrics while preserving coherent PBMC marker patterns. Evaluate n_neighbors 20, n_pcs 30 at resolution 1.0 to modestly increase granularity over the 0.8 run and aim for improved cohesion/separation without over-fragmentation.",
+      "llm_decision_time_seconds": 44.77622825000435,
+      "next_parameters": {
+        "n_neighbors": 20,
+        "resolution": 1.0,
+        "n_pcs": 30
+      }
+    },
+    {
+      "iteration": 4,
+      "parameters": {
+        "n_neighbors": 20,
+        "resolution": 1.0,
+        "n_pcs": 30
+      },
+      "metrics": {
+        "silhouette_score": 0.07417775690555573,
+        "davies_bouldin_score": 2.7130225034012754,
+        "wc_dispersion_score": 377652.84375,
+        "banfield_raftery_score": 12972.5458984375
+      },
+      "cluster_structure": {
+        "n_clusters": 9,
+        "cluster_sizes": {
+          "0": 579,
+          "1": 568,
+          "2": 219,
+          "3": 346,
+          "4": 471,
+          "5": 248,
+          "6": 166,
+          "7": 28,
+          "8": 13
+        },
+        "largest_cluster_size": 579,
+        "largest_cluster_fraction": 0.21948445792266869,
+        "number_of_small_clusters": 2,
+        "small_clusters": {
+          "7": 28,
+          "8": 13
+        }
+      },
+      "clustering_time_seconds": 3.194464624975808,
+      "evaluation_time_seconds": 0.19607654097490013,
+      "decision": "continue",
+      "reason": "Current clustering shows coherent PBMC biology but the Davies-Bouldin is worst among trials and silhouette remains low. The prior 0.8 resolution gave the best DB with similar biology. Increasing n_neighbors to 30 should smooth the graph and may improve separation/compactness without over-fragmenting; keep n_pcs at 30 to balance signal vs noise.",
+      "llm_decision_time_seconds": 41.083783584064804,
+      "next_parameters": {
+        "n_neighbors": 30,
+        "resolution": 0.8,
+        "n_pcs": 30
+      }
+    },
+    {
+      "iteration": 5,
+      "parameters": {
+        "n_neighbors": 30,
+        "resolution": 0.8,
+        "n_pcs": 30
+      },
+      "metrics": {
+        "silhouette_score": 0.0749155730009079,
+        "davies_bouldin_score": 2.619893754959516,
+        "wc_dispersion_score": 374162.75,
+        "banfield_raftery_score": 12959.4248046875
+      },
+      "cluster_structure": {
+        "n_clusters": 9,
+        "cluster_sizes": {
+          "0": 541,
+          "1": 347,
+          "2": 630,
+          "3": 474,
+          "4": 143,
+          "5": 301,
+          "6": 162,
+          "7": 27,
+          "8": 13
+        },
+        "largest_cluster_size": 630,
+        "largest_cluster_fraction": 0.23881728582259287,
+        "number_of_small_clusters": 2,
+        "small_clusters": {
+          "7": 27,
+          "8": 13
+        }
+      },
+      "clustering_time_seconds": 3.8369169579818845,
+      "evaluation_time_seconds": 0.2315666249487549,
+      "decision": "continue",
+      "reason": "Metrics across prior runs are very similar with no clear winner; current solution is biologically coherent but shows two highly similar IL7R+ T clusters. Testing a smoother graph (higher n_neighbors) at the same resolution may improve silhouette/DB by reducing redundant splits without pushing over-fragmentation, while checking that rare DC and platelet clusters remain distinct.",
+      "llm_decision_time_seconds": 31.52515812497586,
+      "next_parameters": {
+        "n_neighbors": 40,
+        "resolution": 0.8,
+        "n_pcs": 30
+      }
+    },
+    {
+      "iteration": 6,
+      "parameters": {
+        "n_neighbors": 40,
+        "resolution": 0.8,
+        "n_pcs": 30
+      },
+      "metrics": {
+        "silhouette_score": 0.07403790950775146,
+        "davies_bouldin_score": 2.613057586808754,
+        "wc_dispersion_score": 374204.3125,
+        "banfield_raftery_score": 12958.79296875
+      },
+      "cluster_structure": {
+        "n_clusters": 9,
+        "cluster_sizes": {
+          "0": 528,
+          "1": 347,
+          "2": 641,
+          "3": 474,
+          "4": 142,
+          "5": 304,
+          "6": 163,
+          "7": 26,
+          "8": 13
+        },
+        "largest_cluster_size": 641,
+        "largest_cluster_fraction": 0.24298711144806673,
+        "number_of_small_clusters": 2,
+        "small_clusters": {
+          "7": 26,
+          "8": 13
+        }
+      },
+      "clustering_time_seconds": 3.894808208104223,
+      "evaluation_time_seconds": 0.20945716695860028,
+      "decision": "continue",
+      "reason": "Metrics have largely plateaued and biology is coherent at ~9 clusters, with best scores near n_neighbors=30. A modest increase in resolution with slightly more PCs can test for meaningful substructure (e.g., ISG-T, finer mono/DC splits) without pushing to extreme fragmentation. Evaluate n_neighbors=30, resolution=1.1, n_pcs=35 to probe added granularity while monitoring small-cluster proliferation and overall metrics.",
+      "llm_decision_time_seconds": 32.68231075000949,
+      "next_parameters": {
+        "n_neighbors": 30,
+        "resolution": 1.1,
+        "n_pcs": 35
+      }
+    },
+    {
+      "iteration": 7,
+      "parameters": {
+        "n_neighbors": 30,
+        "resolution": 1.1,
+        "n_pcs": 35
+      },
+      "metrics": {
+        "silhouette_score": 0.0750996321439743,
+        "davies_bouldin_score": 2.6125476883994976,
+        "wc_dispersion_score": 374424.03125,
+        "banfield_raftery_score": 12957.021484375
+      },
+      "cluster_structure": {
+        "n_clusters": 9,
+        "cluster_sizes": {
+          "0": 544,
+          "1": 623,
+          "2": 346,
+          "3": 293,
+          "4": 475,
+          "5": 154,
+          "6": 163,
+          "7": 27,
+          "8": 13
+        },
+        "largest_cluster_size": 623,
+        "largest_cluster_fraction": 0.23616376042456405,
+        "number_of_small_clusters": 2,
+        "small_clusters": {
+          "7": 27,
+          "8": 13
+        }
+      },
+      "clustering_time_seconds": 3.5863765419926494,
+      "evaluation_time_seconds": 0.18012045801151544,
+      "decision": "continue",
+      "reason": "Metrics are broadly similar across tested settings and the current 9-cluster solution shows plausible PBMC biology (T subsets, B, classical/non-classical monocytes, DC, platelets). To assess whether additional coherent substructure (e.g., ISG-high cells, finer T/NK or monocyte splits) can be resolved without the cohesion loss seen at very low n_neighbors, increase resolution to 1.4 with moderate n_neighbors=25 while keeping n_pcs=35. This targets modest extra granularity (~10\u201311 clusters) and checks for biologically supported splits while limiting over-fragmentation.",
+      "llm_decision_time_seconds": 31.96779529203195,
+      "next_parameters": {
+        "n_neighbors": 25,
+        "resolution": 1.4,
+        "n_pcs": 35
+      }
+    },
+    {
+      "iteration": 8,
+      "parameters": {
+        "n_neighbors": 25,
+        "resolution": 1.4,
+        "n_pcs": 35
+      },
+      "metrics": {
+        "silhouette_score": 0.06231945753097534,
+        "davies_bouldin_score": 2.784244672930162,
+        "wc_dispersion_score": 372893.625,
+        "banfield_raftery_score": 12938.291015625
+      },
+      "cluster_structure": {
+        "n_clusters": 10,
+        "cluster_sizes": {
+          "0": 295,
+          "1": 155,
+          "2": 531,
+          "3": 346,
+          "4": 468,
+          "5": 154,
+          "6": 166,
+          "7": 479,
+          "8": 30,
+          "9": 14
+        },
+        "largest_cluster_size": 531,
+        "largest_cluster_fraction": 0.2012888551933283,
+        "number_of_small_clusters": 2,
+        "small_clusters": {
+          "8": 30,
+          "9": 14
+        }
+      },
+      "clustering_time_seconds": 3.3568375000031665,
+      "evaluation_time_seconds": 0.17933804204221815,
+      "decision": "continue",
+      "reason": "Current higher resolution (1.4) yields poorer separation (silhouette 0.062, DB 2.78) and two very small clusters, suggesting over-fragmentation. Best metrics so far occur around n_neighbors 30\u201340, resolution ~1.0\u20131.1 with 35 PCs (silhouette ~0.075, DB ~2.61). Testing n_neighbors 35 at resolution 1.1 with 35 PCs should smooth the graph slightly to improve cohesion without increasing fragmentation, while maintaining biologically meaningful granularity.",
+      "llm_decision_time_seconds": 23.710398291936144,
+      "next_parameters": {
+        "n_neighbors": 35,
+        "resolution": 1.1,
+        "n_pcs": 35
+      }
+    },
+    {
+      "iteration": 9,
+      "parameters": {
+        "n_neighbors": 35,
+        "resolution": 1.1,
+        "n_pcs": 35
+      },
+      "metrics": {
+        "silhouette_score": 0.07565978914499283,
+        "davies_bouldin_score": 2.6158433530064027,
+        "wc_dispersion_score": 374254.96875,
+        "banfield_raftery_score": 12954.673828125
+      },
+      "cluster_structure": {
+        "n_clusters": 9,
+        "cluster_sizes": {
+          "0": 557,
+          "1": 613,
+          "2": 346,
+          "3": 289,
+          "4": 474,
+          "5": 155,
+          "6": 164,
+          "7": 27,
+          "8": 13
+        },
+        "largest_cluster_size": 613,
+        "largest_cluster_fraction": 0.23237300985595147,
+        "number_of_small_clusters": 2,
+        "small_clusters": {
+          "7": 27,
+          "8": 13
+        }
+      },
+      "clustering_time_seconds": 8.209124458022416,
+      "evaluation_time_seconds": 0.609423040994443,
+      "decision": "continue",
+      "reason": "Current configuration shows the best silhouette so far and near-best DBI with biologically coherent PBMC populations and only two expected small clusters (DCs, platelets). To probe for a modest improvement without altering granularity, increase n_pcs to 40 while keeping n_neighbors and resolution fixed; this may capture additional variance and slightly improve separation.",
+      "llm_decision_time_seconds": 31.28330599993933,
+      "next_parameters": {
+        "n_neighbors": 35,
+        "resolution": 1.1,
+        "n_pcs": 40
+      }
+    },
+    {
+      "iteration": 10,
+      "parameters": {
+        "n_neighbors": 35,
+        "resolution": 1.1,
+        "n_pcs": 40
+      },
+      "metrics": {
+        "silhouette_score": 0.07642955332994461,
+        "davies_bouldin_score": 2.6288259010515613,
+        "wc_dispersion_score": 374493.15625,
+        "banfield_raftery_score": 12957.8369140625
+      },
+      "cluster_structure": {
+        "n_clusters": 9,
+        "cluster_sizes": {
+          "0": 291,
+          "1": 584,
+          "2": 347,
+          "3": 475,
+          "4": 156,
+          "5": 163,
+          "6": 583,
+          "7": 26,
+          "8": 13
+        },
+        "largest_cluster_size": 584,
+        "largest_cluster_fraction": 0.221379833206975,
+        "number_of_small_clusters": 2,
+        "small_clusters": {
+          "7": 26,
+          "8": 13
+        }
+      },
+      "clustering_time_seconds": 4.564388583996333,
+      "evaluation_time_seconds": 0.22766466601751745,
+      "decision": "continue",
+      "reason": "Current setup achieves the best silhouette so far but with slightly higher DBI than the best. Prior runs show DBI improved at n_neighbors=30, and increasing PCs from 35 to 40 improved silhouette at similar resolution. Testing (30, 1.1, 40) targets a better balance of separation and compactness while likely retaining the coherent 9-cluster PBMC structure without over-fragmentation.",
+      "llm_decision_time_seconds": 26.379424834041856,
+      "next_parameters": {
+        "n_neighbors": 30,
+        "resolution": 1.1,
+        "n_pcs": 40
+      }
+    },
+    {
+      "iteration": 11,
+      "parameters": {
+        "n_neighbors": 30,
+        "resolution": 1.1,
+        "n_pcs": 40
+      },
+      "metrics": {
+        "silhouette_score": 0.07515997439622879,
+        "davies_bouldin_score": 2.647991847699527,
+        "wc_dispersion_score": 374830.25,
+        "banfield_raftery_score": 12961.8662109375
+      },
+      "cluster_structure": {
+        "n_clusters": 9,
+        "cluster_sizes": {
+          "0": 287,
+          "1": 346,
+          "2": 591,
+          "3": 175,
+          "4": 155,
+          "5": 582,
+          "6": 463,
+          "7": 26,
+          "8": 13
+        },
+        "largest_cluster_size": 591,
+        "largest_cluster_fraction": 0.22403335860500379,
+        "number_of_small_clusters": 2,
+        "small_clusters": {
+          "7": 26,
+          "8": 13
+        }
+      },
+      "clustering_time_seconds": 7.187558958074078,
+      "evaluation_time_seconds": 0.2845653750700876,
+      "decision": "continue",
+      "reason": "Best overall metrics so far are at n_neighbors=35, resolution=1.1, n_pcs=40 with coherent PBMC marker patterns and manageable small clusters. To test if additional informative variance can further improve separation without raising resolution (and risking fragmentation), keep the strong n_neighbors/resolution combo and increase n_pcs to 45.",
+      "llm_decision_time_seconds": 20.091071332921274,
+      "next_parameters": {
+        "n_neighbors": 35,
+        "resolution": 1.1,
+        "n_pcs": 45
+      }
+    },
+    {
+      "iteration": 12,
+      "parameters": {
+        "n_neighbors": 35,
+        "resolution": 1.1,
+        "n_pcs": 45
+      },
+      "metrics": {
+        "silhouette_score": 0.07750236243009567,
+        "davies_bouldin_score": 2.646210684048777,
+        "wc_dispersion_score": 374672.0625,
+        "banfield_raftery_score": 12961.20703125
+      },
+      "cluster_structure": {
+        "n_clusters": 9,
+        "cluster_sizes": {
+          "0": 612,
+          "1": 345,
+          "2": 564,
+          "3": 464,
+          "4": 171,
+          "5": 154,
+          "6": 285,
+          "7": 30,
+          "8": 13
+        },
+        "largest_cluster_size": 612,
+        "largest_cluster_fraction": 0.23199393479909022,
+        "number_of_small_clusters": 2,
+        "small_clusters": {
+          "7": 30,
+          "8": 13
+        }
+      },
+      "clustering_time_seconds": 4.141678708954714,
+      "evaluation_time_seconds": 0.3628482080530375,
+      "decision": "continue",
+      "reason": "Current setup yields the highest silhouette so far with coherent PBMC markers and acceptable DBI. Silhouette has improved monotonically as n_pcs increased (35\u219240\u219245), though DBI has slightly worsened. Testing n_pcs=50 while keeping n_neighbors=35 and resolution=1.1 isolates the PCA effect to see if the separation gain continues or plateaus without changing cluster granularity.",
+      "llm_decision_time_seconds": 18.228494749986567,
+      "next_parameters": {
+        "n_neighbors": 35,
+        "resolution": 1.1,
+        "n_pcs": 50
+      }
+    },
+    {
+      "iteration": 13,
+      "parameters": {
+        "n_neighbors": 35,
+        "resolution": 1.1,
+        "n_pcs": 50
+      },
+      "metrics": {
+        "silhouette_score": 0.06790301203727722,
+        "davies_bouldin_score": 2.6060858900510047,
+        "wc_dispersion_score": 388294.71875,
+        "banfield_raftery_score": 13035.583984375
+      },
+      "cluster_structure": {
+        "n_clusters": 8,
+        "cluster_sizes": {
+          "0": 601,
+          "1": 347,
+          "2": 577,
+          "3": 471,
+          "4": 436,
+          "5": 167,
+          "6": 26,
+          "7": 13
+        },
+        "largest_cluster_size": 601,
+        "largest_cluster_fraction": 0.22782410917361637,
+        "number_of_small_clusters": 2,
+        "small_clusters": {
+          "6": 26,
+          "7": 13
+        }
+      },
+      "clustering_time_seconds": 4.107863917015493,
+      "evaluation_time_seconds": 0.18636808404698968,
+      "decision": "continue",
+      "reason": "n_pcs=50 degraded separation (lower silhouette, higher WC-dispersion) versus prior runs. Best silhouette so far was at n_pcs=45 with similar resolution (1.1). Increasing n_neighbors to 45 should smooth the graph and may improve cluster compactness and DB without over-fragmentation, while retaining biologically coherent small DC and platelet clusters. This region (high neighbors, 45 PCs) remains unexplored.",
+      "llm_decision_time_seconds": 24.509536458994262,
+      "next_parameters": {
+        "n_neighbors": 45,
+        "resolution": 1.1,
+        "n_pcs": 45
+      }
+    },
+    {
+      "iteration": 14,
+      "parameters": {
+        "n_neighbors": 45,
+        "resolution": 1.1,
+        "n_pcs": 45
+      },
+      "metrics": {
+        "silhouette_score": 0.06950820237398148,
+        "davies_bouldin_score": 2.5868591539661305,
+        "wc_dispersion_score": 387438.875,
+        "banfield_raftery_score": 13024.2646484375
+      },
+      "cluster_structure": {
+        "n_clusters": 8,
+        "cluster_sizes": {
+          "0": 605,
+          "1": 587,
+          "2": 345,
+          "3": 465,
+          "4": 423,
+          "5": 170,
+          "6": 30,
+          "7": 13
+        },
+        "largest_cluster_size": 605,
+        "largest_cluster_fraction": 0.2293404094010614,
+        "number_of_small_clusters": 2,
+        "small_clusters": {
+          "6": 30,
+          "7": 13
+        }
+      },
+      "clustering_time_seconds": 4.491138333105482,
+      "evaluation_time_seconds": 0.2945664169965312,
+      "decision": "continue",
+      "reason": "The current setting (45, 1.1, 45) lowered silhouette and increased WC-dispersion/BR versus prior best around n_neighbors=35 and n_pcs=45, suggesting an overly smooth graph. To refine near the best-performing region while checking the resolution trade-off, test n_neighbors=35, n_pcs=45, and a slightly lower resolution (1.0). This may improve compactness and maintain biologically coherent PBMC populations without unnecessary fragmentation. This configuration has not yet been evaluated.",
+      "llm_decision_time_seconds": 25.253564874990843,
+      "next_parameters": {
+        "n_neighbors": 35,
+        "resolution": 1.0,
+        "n_pcs": 45
+      }
+    },
+    {
+      "iteration": 15,
+      "parameters": {
+        "n_neighbors": 35,
+        "resolution": 1.0,
+        "n_pcs": 45
+      },
+      "metrics": {
+        "silhouette_score": 0.06976676732301712,
+        "davies_bouldin_score": 2.5867780370833104,
+        "wc_dispersion_score": 387573.46875,
+        "banfield_raftery_score": 13026.9814453125
+      },
+      "cluster_structure": {
+        "n_clusters": 8,
+        "cluster_sizes": {
+          "0": 607,
+          "1": 588,
+          "2": 345,
+          "3": 469,
+          "4": 420,
+          "5": 169,
+          "6": 27,
+          "7": 13
+        },
+        "largest_cluster_size": 607,
+        "largest_cluster_fraction": 0.23009855951478392,
+        "number_of_small_clusters": 2,
+        "small_clusters": {
+          "6": 27,
+          "7": 13
+        }
+      },
+      "clustering_time_seconds": 6.555026583024301,
+      "evaluation_time_seconds": 0.2060319579904899,
+      "decision": "continue",
+      "reason": "Silhouette peaked at n_neighbors=35, n_pcs=45, resolution=1.1 with coherent PBMC markers, while lowering resolution to 1.0 reduced separation and merged to 8 clusters. A modest increase to resolution=1.2 (keeping the strong n_neighbors and n_pcs) will test for meaningful substructure without the over-fragmentation seen at 1.4, and may retain/improve silhouette with acceptable DBI.",
+      "llm_decision_time_seconds": 24.58806249999907,
+      "next_parameters": {
+        "n_neighbors": 35,
+        "resolution": 1.2,
+        "n_pcs": 45
+      }
+    },
+    {
+      "iteration": 16,
+      "parameters": {
+        "n_neighbors": 35,
+        "resolution": 1.2,
+        "n_pcs": 45
+      },
+      "metrics": {
+        "silhouette_score": 0.07497949153184891,
+        "davies_bouldin_score": 2.6388016460217276,
+        "wc_dispersion_score": 374703.625,
+        "banfield_raftery_score": 12959.8955078125
+      },
+      "cluster_structure": {
+        "n_clusters": 9,
+        "cluster_sizes": {
+          "0": 565,
+          "1": 606,
+          "2": 345,
+          "3": 469,
+          "4": 154,
+          "5": 290,
+          "6": 169,
+          "7": 27,
+          "8": 13
+        },
+        "largest_cluster_size": 606,
+        "largest_cluster_fraction": 0.22971948445792267,
+        "number_of_small_clusters": 2,
+        "small_clusters": {
+          "7": 27,
+          "8": 13
+        }
+      },
+      "clustering_time_seconds": 3.9209257500479,
+      "evaluation_time_seconds": 0.21238512510899454,
+      "decision": "stop",
+      "reason": "Best overall evidence was already achieved at n_neighbors=35, resolution=1.1, n_pcs=45 (highest silhouette ~0.0775 with coherent PBMC marker separation into ~9 clusters). The current (35, 1.2, 45) does not improve separation (lower silhouette, slightly worse DB), and explorations to higher resolution (e.g., 1.4) over-fragmented with worse metrics, while higher n_neighbors (e.g., 45) merged to 8 clusters with lower silhouette. Further small tweaks are unlikely to yield meaningful gains given consistent metrics and biology across the explored space.",
+      "llm_decision_time_seconds": 33.13829004194122,
+      "next_parameters": null
+    }
+  ],
+  "termination_reason": "agent_stopped",
+  "total_runtime_seconds": 603.335458708927,
+  "final_result": {
+    "termination_reason": "agent_stopped",
+    "best_iteration": 9,
+    "best_parameters": {
+      "n_neighbors": 35,
+      "resolution": 1.1,
+      "n_pcs": 35
+    },
+    "best_metrics": {
+      "n_neighbors": 35,
+      "resolution": 1.1,
+      "n_pcs": 35,
+      "random_state": 42,
+      "n_clusters": 9,
+      "cluster_sizes": {
+        "0": 557,
+        "1": 613,
+        "2": 346,
+        "3": 289,
+        "4": 474,
+        "5": 155,
+        "6": 164,
+        "7": 27,
+        "8": 13
+      },
+      "largest_cluster_size": 613,
+      "largest_cluster_fraction": 0.23237300985595147,
+      "number_of_small_clusters": 2,
+      "small_clusters": {
+        "7": 27,
+        "8": 13
+      },
+      "silhouette_score": 0.07565978914499283,
+      "davies_bouldin_score": 2.6158433530064027,
+      "wc_dispersion_score": 374254.96875,
+      "banfield_raftery_score": 12954.673828125,
+      "marker_genes": {
+        "0": [
+          "MALAT1",
+          "CD27",
+          "SELL",
+          "IL7R",
+          "LTB"
+        ],
+        "1": [
+          "IL32",
+          "LTB",
+          "IL7R",
+          "B2M",
+          "CD2"
+        ],
+        "2": [
+          "CD74",
+          "HLA-DRA",
+          "CD79A",
+          "CD79B",
+          "HLA-DPB1"
+        ],
+        "3": [
+          "CCL5",
+          "NKG7",
+          "CST7",
+          "B2M",
+          "GZMA"
+        ],
+        "4": [
+          "LYZ",
+          "S100A9",
+          "S100A8",
+          "TYROBP",
+          "FTL"
+        ],
+        "5": [
+          "NKG7",
+          "GNLY",
+          "GZMB",
+          "CTSW",
+          "PRF1"
+        ],
+        "6": [
+          "LST1",
+          "FCER1G",
+          "AIF1",
+          "COTL1",
+          "FCGR3A"
+        ],
+        "7": [
+          "HLA-DPA1",
+          "HLA-DPB1",
+          "HLA-DRB1",
+          "HLA-DRA",
+          "FCER1A"
+        ],
+        "8": [
+          "PF4",
+          "SDPR",
+          "GNG11",
+          "PPBP",
+          "NRGN"
+        ]
+      }
+    },
+    "final_selection_reason": "1) Strongest intrinsic metrics: Iteration 12 has the highest silhouette (0.0775) and iterations 14\u201315 the lowest DB (~2.587), but the best overall balance across intrinsic criteria is iteration 9: high silhouette (0.07566; top tier), low DB (2.6158; near-best among 9-cluster runs), low WC-dispersion for the 9-cluster family (374,255), and one of the lowest Banfield\u2013Raftery scores (12954.7). 2) Most reasonable cluster structure: Iteration 9 yields 9 clusters with a modest largest-cluster fraction (23.2%) and only two very small clusters (\u224827 and 13 cells), consistent with expected rare DC and platelet populations\u2014neither over-fragmented nor over-merged. 3) Strongest biological interpretation: Iteration 9 cleanly resolves canonical PBMC populations with coherent markers: naive/CM T (IL7R, LTB, MALAT1), additional T (IL32, LTB), B (CD79A/B, HLA-DRA), cytotoxic T (CCL5, GZMA, CST7), NK (GNLY, GZMB, PRF1), classical monocytes (LYZ, S100A8/A9, TYROBP), non-classical monocytes (LST1, FCGR3A, AIF1), dendritic cells (FCER1A, HLA-DP/DR), and platelets (PF4, PPBP). In contrast, 8-cluster solutions tend to merge cytotoxic T and NK, and the 10-cluster solution with the lowest WC shows poorer intrinsic metrics. 4) Ultimately selected: Iteration 9. 5) Trade-off: Although iteration 12 maximizes silhouette and 15 minimizes DB, iteration 9 offers a superior overall compromise without sacrificing clear separation of biologically distinct NK vs cytotoxic T and classical vs non-classical monocytes. This provides the strongest overall clustering evidence among the completed experiments.",
+    "final_selection_time_seconds": 49.177286415942945
+  }
+}
