@@ -7,6 +7,7 @@ baseline_note/
 .DS_Store
 # Scratch notebook
 adhoc.ipynb
+adhoc_biology.ipynb
 code_updates.ipynb
 code_updates2.ipynb
 Code_Note.md
@@ -29,6 +30,7 @@ code_note.ipynb
 complex_python.ipynb
 evaluation_wt_convergence.py
 overclust_wt_biology_prompts.py
+proj_defense.ipynb
 stability.py
 ~$*
 experiments/.DS_Store

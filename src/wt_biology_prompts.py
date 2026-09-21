@@ -84,8 +84,23 @@ CLUSTER STRUCTURE AND OVER-FRAGMENTATION:
 * Consider the number of clusters and the cluster-size distribution
   when assessing possible under-clustering or over-clustering.
 
-* Higher resolution may increase cluster granularity, but excessive
-  resolution can lead to unnecessary fragmentation.
+* Higher resolution may reveal finer biological structure, but it may
+  also produce unnecessary over-partitioning.
+
+* When a higher-resolution configuration produces additional clusters,
+  assess whether those additional clusters provide meaningful
+  improvement in intrinsic clustering evidence and/or are supported
+  by distinct biological evidence.
+
+* A small improvement in intrinsic metrics accompanied by a substantial
+  increase in the number of clusters, especially very small clusters,
+  should be interpreted cautiously because the improvement may reflect
+  increased partitioning rather than genuinely improved structure.
+
+* Conversely, a higher-resolution configuration should not be rejected
+  merely because it produces more clusters. Additional clusters may
+  represent meaningful biological subpopulations or cellular states
+  when supported by the available evidence.
 
 * Lower resolution may merge potentially distinct populations.
   Do not assume that fewer clusters are automatically better.
@@ -99,6 +114,14 @@ CLUSTER STRUCTURE AND OVER-FRAGMENTATION:
 
 * A highly dominant cluster may indicate under-clustering, but
   dominance alone is not sufficient evidence to reject a solution.
+
+* Treat the number of clusters as an indicator of clustering
+  granularity rather than as a target to maximize or minimize.
+
+* Evaluate whether changes in resolution produce a reasonable
+  balance between clustering quality, biological interpretability,
+  and clustering granularity.
+  
 
 BIOLOGICAL EVIDENCE:
 
@@ -154,6 +177,7 @@ PBMC BIOLOGICAL CONTEXT:
 * The expected number of broad populations should guide interpretation,
   not act as a fixed target for the clustering result.
 
+
 PARAMETER REASONING:
 
 * Consider the combined effects of n_neighbors, n_pcs, and resolution.
@@ -161,11 +185,35 @@ PARAMETER REASONING:
 * Do not assume that increasing or decreasing any individual
   parameter will always improve clustering.
 
+* When considering a change in resolution, explicitly consider the
+  trade-off between increased granularity and the possibility of
+  over-partitioning.
+
+* Consider higher resolution when the additional partitioning is
+  supported by meaningful improvements in the available evidence.
+
+* Be cautious about increasing resolution when the main effect is a
+  large increase in cluster number with only marginal improvement in
+  intrinsic metrics and weak biological support.
+
+* Likewise, be cautious about decreasing resolution when the evidence
+  suggests that biologically distinct populations are being merged.
+
 * Lower n_neighbors may emphasize local structure, while higher
   values may produce a smoother neighborhood graph.
 
 * Increasing n_pcs may capture additional variation but may also
   introduce less informative variation.
+
+* Recognize that the final clustering can be sensitive to upstream
+  parameter choices. When evaluating a candidate configuration,
+  consider whether the observed improvement appears robust to the
+  parameter changes explored so far or whether it depends strongly on
+  a particular configuration.
+
+* Do not assume that a single parameter configuration is universally
+  optimal. Interpret the current result in the context of the
+  configurations explored during optimization.
 
 * Consider the optimization history when choosing the next parameter
   configuration.
@@ -178,6 +226,7 @@ PARAMETER REASONING:
 
 * Avoid arbitrary parameter changes that are not supported by the
   current metrics, biological evidence, or optimization history.
+  
 
 PARAMETER CONSTRAINTS:
 
@@ -392,6 +441,35 @@ STRUCTURAL EVIDENCE:
 * Do not assume that more clusters are better simply because they
   represent finer partitioning.
 
+* When comparing experiments with different resolutions, assess the
+  marginal benefit of increased clustering granularity.
+
+* If a higher-resolution experiment produces substantially more
+  clusters, determine whether the additional partitioning is supported
+  by meaningful improvements in intrinsic metrics, cluster structure,
+  and/or biological evidence.
+
+* Do not treat an increase in the number of clusters as an improvement
+  by itself.
+
+* Do not treat a decrease in the number of clusters as an improvement
+  by itself.
+
+* If a higher-resolution configuration provides only marginal
+  improvement in intrinsic metrics while producing substantially more
+  small or weakly supported clusters, consider whether the additional
+  partitioning represents possible over-fragmentation.
+
+* If a higher-resolution configuration produces additional clusters
+  with coherent and distinct marker-gene evidence, the finer
+  resolution may be scientifically preferable despite the larger
+  number of clusters.
+
+* The preferred resolution is the level of granularity that provides
+  the strongest overall evidence, rather than simply the highest or
+  lowest resolution tested.
+  
+
 BIOLOGICAL EVIDENCE:
 
 * For PBMC3K, established biological knowledge may provide broad
@@ -444,6 +522,20 @@ OVERALL COMPARISON:
 * Select the experiment that provides the strongest overall scientific
   evidence, considering the trade-offs between these three types of
   evidence.
+
+* When experiments differ in resolution, explicitly consider the
+  trade-off between finer clustering and the possibility of
+  over-partitioning.
+
+* A higher-resolution experiment should be preferred over a
+  lower-resolution experiment only when the additional granularity is
+  sufficiently supported by the combined intrinsic, structural, and
+  biological evidence.
+
+* If the higher-resolution experiment provides only a marginal
+  improvement in intrinsic metrics but substantially increases the
+  number of weakly supported or very small clusters, this should count
+  as evidence against selecting the higher-resolution configuration.
 
 * Do not select an experiment solely because it has:
     * the highest Silhouette Score,

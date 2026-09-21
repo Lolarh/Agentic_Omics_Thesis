@@ -136,7 +136,7 @@ def calculate_banfield_raftery_score(adata, embedding="X_pca",):
 def get_cluster_marker_genes(
     adata,
     groupby="leiden",
-    n_genes=10,):
+    n_genes=5,):
     """
     Get the top marker genes for each cluster.
     """

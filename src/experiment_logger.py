@@ -11,7 +11,8 @@ def create_experiment_log(
     condition,
     agent_version=None,
     change="",
-    reason_for_change="",):
+    reason_for_change="",
+    llm_seed=None,):
     """Create a new experiment record."""
 
     return {
@@ -25,6 +26,7 @@ def create_experiment_log(
         "method": method,
         "condition": condition,
         "agent_version": agent_version,
+        "llm_seed": llm_seed,
         "change": change,
         "reason_for_change": reason_for_change,
         "iterations": [],}
