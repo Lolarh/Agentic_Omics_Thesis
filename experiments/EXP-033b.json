@@ -1,0 +1,1130 @@
+{
+  "experiment_id": "EXP-033b",
+  "date": "2026-10-03T13:12:57.368490",
+  "dataset": "Muraro",
+  "method": "agentic_biology",
+  "condition": "biology",
+  "agent_version": "v0.6-reproducibility",
+  "llm_seed": 5,
+  "change": "Applied the existing agentic optimization framework to the Muraro human pancreas scRNA-seq dataset as an external generalization experiment.",
+  "reason_for_change": "To evaluate whether the agentic parameter optimization framework generalizes beyond the PBMC3K dataset used during development.",
+  "iterations": [
+    {
+      "iteration": 0,
+      "parameters": {
+        "n_neighbors": 15,
+        "resolution": 1.0,
+        "n_pcs": 20
+      },
+      "metrics": {
+        "silhouette_score": 0.17319414019584656,
+        "davies_bouldin_score": 1.6795932797328401,
+        "wc_dispersion_score": 572764.125,
+        "banfield_raftery_score": 13277.4697265625
+      },
+      "cluster_structure": {
+        "n_clusters": 19,
+        "cluster_sizes": {
+          "0": 248,
+          "1": 255,
+          "2": 22,
+          "3": 196,
+          "4": 254,
+          "5": 148,
+          "6": 261,
+          "7": 192,
+          "8": 22,
+          "9": 233,
+          "10": 44,
+          "11": 6,
+          "12": 92,
+          "13": 159,
+          "14": 83,
+          "15": 202,
+          "16": 10,
+          "17": 142,
+          "18": 111
+        },
+        "largest_cluster_size": 261,
+        "largest_cluster_fraction": 0.09738805970149254,
+        "number_of_small_clusters": 5,
+        "small_clusters": {
+          "2": 22,
+          "8": 22,
+          "10": 44,
+          "11": 6,
+          "16": 10
+        }
+      },
+      "clustering_time_seconds": 8.192024959018454,
+      "evaluation_time_seconds": 0.5724255000241101,
+      "marker_genes": {
+        "0": [
+          "CHGB__chr20",
+          "SCG5__chr15",
+          "ALDH1A1__chr9",
+          "CFC1__chr2",
+          "CPE__chr4"
+        ],
+        "1": [
+          "TTR__chr18",
+          "GCG__chr2",
+          "TM4SF4__chr3",
+          "FAP__chr2",
+          "SCG5__chr15"
+        ],
+        "2": [
+          "ELTD1__chr1",
+          "PLVAP__chr19",
+          "ACVRL1__chr12",
+          "EMCN__chr4",
+          "KDR__chr4"
+        ],
+        "3": [
+          "LEPR__chr1",
+          "RBP4__chr10",
+          "PCSK1__chr5",
+          "HHEX__chr10",
+          "TENM3__chr4"
+        ],
+        "4": [
+          "NPTX2__chr7",
+          "SYT13__chr11",
+          "INS__chr11",
+          "MAFA__chr8",
+          "SCGN__chr6"
+        ],
+        "5": [
+          "MAFA__chr8",
+          "HADH__chr4",
+          "ERO1LB__chr1",
+          "INS__chr11",
+          "ABCC8__chr11"
+        ],
+        "6": [
+          "CFTR__chr7",
+          "CLDN1__chr3",
+          "ANXA4__chr2",
+          "SERPING1__chr11",
+          "ANXA2__chr15"
+        ],
+        "7": [
+          "ERCC-00171",
+          "ERCC-00113",
+          "ERCC-00003",
+          "ERCC-00108",
+          "ERCC-00042"
+        ],
+        "8": [
+          "IFI30__chr19",
+          "TYROBP__chr19",
+          "CTSS__chr1",
+          "SRGN__chr10",
+          "MS4A7__chr11"
+        ],
+        "9": [
+          "REG1A__chr2",
+          "GSTA2__chr6",
+          "GSTA1__chr6",
+          "SPINK1__chr5",
+          "BCAT1__chr12"
+        ],
+        "10": [
+          "PLA2G1B__chr12",
+          "PRSS1__chr7",
+          "CELA3A__chr1",
+          "GP2__chr16",
+          "PRSS3P2__chr7"
+        ],
+        "11": [
+          "UBE2C__chr20",
+          "TOP2A__chr17",
+          "CDK1__chr10",
+          "PRC1__chr15",
+          "NUSAP1__chr15"
+        ],
+        "12": [
+          "ERCC-00171",
+          "ERCC-00113",
+          "ERCC-00003",
+          "ERCC-00108",
+          "GCG__chr2"
+        ],
+        "13": [
+          "GCG__chr2",
+          "TTR__chr18",
+          "PCSK2__chr20",
+          "IRX2__chr5",
+          "GC__chr4"
+        ],
+        "14": [
+          "CEBPG__chr19",
+          "DDIT3__chr12",
+          "SRXN1__chr20",
+          "RRAGD__chr6",
+          "ARG2__chr14"
+        ],
+        "15": [
+          "PCSK2__chr20",
+          "PEMT__chr17",
+          "SLC7A2__chr8",
+          "GPX3__chr5",
+          "TMEM176A__chr7"
+        ],
+        "16": [
+          "TPSB2__chr16",
+          "CPA3__chr3",
+          "KIT__chr4",
+          "TPSAB1__chr16",
+          "SAMSN1__chr21"
+        ],
+        "17": [
+          "PPY__chr17",
+          "ETV1__chr7",
+          "MEIS2__chr15",
+          "PAX6__chr11",
+          "THSD7A__chr7"
+        ],
+        "18": [
+          "COL5A2__chr2",
+          "SPARC__chr5",
+          "COL6A1__chr21",
+          "LGALS1__chr22",
+          "NID1__chr1"
+        ]
+      },
+      "decision": {
+        "decision": "continue",
+        "parameters": {
+          "n_neighbors": 15,
+          "resolution": 0.8,
+          "n_pcs": 20
+        },
+        "reason": "Intrinsic evidence: Silhouette 0.173 is modest and Davies\u2013Bouldin 1.68 is relatively high, indicating limited separation/cohesion. Structural evidence: 19 clusters with several very small clusters (6\u201322 cells) suggests possible over-fragmentation; the largest cluster is only ~9.7%, so some merging is unlikely to create dominance. Biological evidence (supporting only): multiple clusters show overlapping endocrine/related marker patterns (e.g., two INS/MAFA-enriched groups; two GCG/PCSK2/TTR-enriched groups; ERCC-enriched groups; a proliferative cluster), consistent with fine splits and state/technical partitions rather than clearly distinct compartments. Slightly lowering resolution should test whether merging improves intrinsic metrics and overall structure without imposing a predefined outcome.",
+        "llm_decision_time_seconds": 29.104637624986935
+      }
+    },
+    {
+      "iteration": 1,
+      "parameters": {
+        "n_neighbors": 15,
+        "resolution": 0.8,
+        "n_pcs": 20
+      },
+      "metrics": {
+        "silhouette_score": 0.24003678560256958,
+        "davies_bouldin_score": 1.2671507069630585,
+        "wc_dispersion_score": 606729.3125,
+        "banfield_raftery_score": 13537.513671875
+      },
+      "cluster_structure": {
+        "n_clusters": 15,
+        "cluster_sizes": {
+          "0": 248,
+          "1": 362,
+          "2": 22,
+          "3": 196,
+          "4": 407,
+          "5": 261,
+          "6": 280,
+          "7": 277,
+          "8": 6,
+          "9": 83,
+          "10": 254,
+          "11": 10,
+          "12": 142,
+          "13": 111,
+          "14": 21
+        },
+        "largest_cluster_size": 407,
+        "largest_cluster_fraction": 0.15186567164179104,
+        "number_of_small_clusters": 4,
+        "small_clusters": {
+          "2": 22,
+          "8": 6,
+          "11": 10,
+          "14": 21
+        }
+      },
+      "clustering_time_seconds": 2.68666241603205,
+      "evaluation_time_seconds": 0.3924545419868082,
+      "marker_genes": {
+        "0": [
+          "CHGB__chr20",
+          "SCG5__chr15",
+          "ALDH1A1__chr9",
+          "CFC1__chr2",
+          "TM4SF4__chr3"
+        ],
+        "1": [
+          "TTR__chr18",
+          "GCG__chr2",
+          "TM4SF4__chr3",
+          "GC__chr4",
+          "FAP__chr2"
+        ],
+        "2": [
+          "ELTD1__chr1",
+          "PLVAP__chr19",
+          "ACVRL1__chr12",
+          "EMCN__chr4",
+          "KDR__chr4"
+        ],
+        "3": [
+          "LEPR__chr1",
+          "RBP4__chr10",
+          "PCSK1__chr5",
+          "HHEX__chr10",
+          "TENM3__chr4"
+        ],
+        "4": [
+          "INS__chr11",
+          "MAFA__chr8",
+          "SYT13__chr11",
+          "NPTX2__chr7",
+          "ERO1LB__chr1"
+        ],
+        "5": [
+          "CFTR__chr7",
+          "CLDN1__chr3",
+          "ANXA4__chr2",
+          "SERPING1__chr11",
+          "ANXA2__chr15"
+        ],
+        "6": [
+          "ERCC-00171",
+          "ERCC-00113",
+          "ERCC-00003",
+          "ERCC-00108",
+          "ERCC-00042"
+        ],
+        "7": [
+          "REG1A__chr2",
+          "SPINK1__chr5",
+          "CTRB2__chr16",
+          "PRSS3P2__chr7",
+          "PRSS1__chr7"
+        ],
+        "8": [
+          "UBE2C__chr20",
+          "TOP2A__chr17",
+          "CDK1__chr10",
+          "PRC1__chr15",
+          "NUSAP1__chr15"
+        ],
+        "9": [
+          "CEBPG__chr19",
+          "DDIT3__chr12",
+          "SRXN1__chr20",
+          "RRAGD__chr6",
+          "ARG2__chr14"
+        ],
+        "10": [
+          "PCSK2__chr20",
+          "SLC7A2__chr8",
+          "IRX2__chr5",
+          "PEMT__chr17",
+          "GPX3__chr5"
+        ],
+        "11": [
+          "TPSB2__chr16",
+          "CPA3__chr3",
+          "KIT__chr4",
+          "TPSAB1__chr16",
+          "SAMSN1__chr21"
+        ],
+        "12": [
+          "PPY__chr17",
+          "ETV1__chr7",
+          "MEIS2__chr15",
+          "PAX6__chr11",
+          "THSD7A__chr7"
+        ],
+        "13": [
+          "COL5A2__chr2",
+          "SPARC__chr5",
+          "COL6A1__chr21",
+          "LGALS1__chr22",
+          "NID1__chr1"
+        ],
+        "14": [
+          "MS4A7__chr11",
+          "IFI30__chr19",
+          "TYROBP__chr19",
+          "CTSS__chr1",
+          "SRGN__chr10"
+        ]
+      },
+      "decision": {
+        "decision": "continue",
+        "parameters": {
+          "n_neighbors": 15,
+          "resolution": 0.6,
+          "n_pcs": 20
+        },
+        "reason": "Intrinsic evidence: Lowering resolution from 1.0 to 0.8 improved silhouette (0.173\u21920.240) and reduced Davies\u2013Bouldin (1.68\u21921.27), indicating better separation/cohesion. WC-dispersion and Banfield\u2013Raftery increased somewhat, so gains are not uniformly monotonic. A modest further decrease in resolution (0.6) may continue improving separation/cohesion or reduce residual fragmentation; we will monitor WC/BR for trade-offs. Structural evidence: Clusters decreased from 19 to 15 with fewer very small clusters (5\u21924) and no dominant cluster (largest fraction ~0.15), suggesting reduced over-fragmentation without obvious over-merging. A small further decrease may absorb spurious micro-splits if present. Biological evidence (supporting only): Marker patterns are broadly compatible with diverse pancreatic compartments (endocrine-/exocrine-/stromal-/immune-/endothelial-like, cycling, and a spike-in/technical-like cluster). Small cycling/technical-like clusters suggest that slight merging at lower resolution could be reasonable if intrinsic metrics support it. Therefore, test resolution 0.6 with the same n_neighbors and n_pcs to probe whether intrinsic quality improves without excessive merging.",
+        "llm_decision_time_seconds": 29.850299833982717
+      }
+    },
+    {
+      "iteration": 2,
+      "parameters": {
+        "n_neighbors": 15,
+        "resolution": 0.6,
+        "n_pcs": 20
+      },
+      "metrics": {
+        "silhouette_score": 0.23794838786125183,
+        "davies_bouldin_score": 1.2484832786155962,
+        "wc_dispersion_score": 606259.4375,
+        "banfield_raftery_score": 13522.943359375
+      },
+      "cluster_structure": {
+        "n_clusters": 15,
+        "cluster_sizes": {
+          "0": 248,
+          "1": 423,
+          "2": 6,
+          "3": 22,
+          "4": 196,
+          "5": 407,
+          "6": 261,
+          "7": 280,
+          "8": 277,
+          "9": 83,
+          "10": 193,
+          "11": 10,
+          "12": 21,
+          "13": 142,
+          "14": 111
+        },
+        "largest_cluster_size": 423,
+        "largest_cluster_fraction": 0.1578358208955224,
+        "number_of_small_clusters": 4,
+        "small_clusters": {
+          "2": 6,
+          "3": 22,
+          "11": 10,
+          "12": 21
+        }
+      },
+      "clustering_time_seconds": 2.626664959010668,
+      "evaluation_time_seconds": 0.4447672499809414,
+      "marker_genes": {
+        "0": [
+          "CHGB__chr20",
+          "CFC1__chr2",
+          "ALDH1A1__chr9",
+          "SCG5__chr15",
+          "CPE__chr4"
+        ],
+        "1": [
+          "GCG__chr2",
+          "TTR__chr18",
+          "TM4SF4__chr3",
+          "GC__chr4",
+          "PCSK2__chr20"
+        ],
+        "2": [
+          "UBE2C__chr20",
+          "TOP2A__chr17",
+          "CDK1__chr10",
+          "PRC1__chr15",
+          "NUSAP1__chr15"
+        ],
+        "3": [
+          "ELTD1__chr1",
+          "PLVAP__chr19",
+          "ACVRL1__chr12",
+          "EMCN__chr4",
+          "KDR__chr4"
+        ],
+        "4": [
+          "LEPR__chr1",
+          "RBP4__chr10",
+          "PCSK1__chr5",
+          "HHEX__chr10",
+          "TENM3__chr4"
+        ],
+        "5": [
+          "INS__chr11",
+          "MAFA__chr8",
+          "SYT13__chr11",
+          "NPTX2__chr7",
+          "ERO1LB__chr1"
+        ],
+        "6": [
+          "CFTR__chr7",
+          "CLDN1__chr3",
+          "ANXA4__chr2",
+          "SERPING1__chr11",
+          "ANXA2__chr15"
+        ],
+        "7": [
+          "ERCC-00171",
+          "ERCC-00113",
+          "ERCC-00003",
+          "ERCC-00108",
+          "ERCC-00042"
+        ],
+        "8": [
+          "REG1A__chr2",
+          "SPINK1__chr5",
+          "CTRB2__chr16",
+          "PRSS3P2__chr7",
+          "PRSS1__chr7"
+        ],
+        "9": [
+          "CEBPG__chr19",
+          "DDIT3__chr12",
+          "SRXN1__chr20",
+          "RRAGD__chr6",
+          "ARG2__chr14"
+        ],
+        "10": [
+          "PCSK2__chr20",
+          "PEMT__chr17",
+          "SLC7A2__chr8",
+          "GPX3__chr5",
+          "TMEM176A__chr7"
+        ],
+        "11": [
+          "TPSB2__chr16",
+          "CPA3__chr3",
+          "KIT__chr4",
+          "TPSAB1__chr16",
+          "SAMSN1__chr21"
+        ],
+        "12": [
+          "MS4A7__chr11",
+          "IFI30__chr19",
+          "TYROBP__chr19",
+          "CTSS__chr1",
+          "SRGN__chr10"
+        ],
+        "13": [
+          "PPY__chr17",
+          "ETV1__chr7",
+          "MEIS2__chr15",
+          "PAX6__chr11",
+          "THSD7A__chr7"
+        ],
+        "14": [
+          "COL5A2__chr2",
+          "SPARC__chr5",
+          "COL6A1__chr21",
+          "LGALS1__chr22",
+          "NID1__chr1"
+        ]
+      },
+      "decision": {
+        "decision": "continue",
+        "parameters": {
+          "n_neighbors": 30,
+          "resolution": 0.6,
+          "n_pcs": 30
+        },
+        "reason": "Intrinsic: Resolution 0.6 and 0.8 have similar silhouette (~0.24), with the best Davies\u2013Bouldin at 0.6; resolution 1.0 degrades both. Further resolution-only tuning is unlikely to yield clear gains. Structural: Both 0.6 and 0.8 produce 15 clusters with several very small clusters, suggesting the graph may benefit from increased neighborhood connectivity and slightly richer signal to improve cohesion without over-splitting. Biological (supporting): Marker patterns are broadly compatible with plausible pancreatic compartments and include technical/state-associated signals (e.g., ERCC, proliferative), but do not dictate different granularity. Therefore, test a denser graph and more PCs at the better-performing resolution (0.6): n_neighbors=30, n_pcs=30.",
+        "llm_decision_time_seconds": 41.04770587501116
+      }
+    },
+    {
+      "iteration": 3,
+      "parameters": {
+        "n_neighbors": 30,
+        "resolution": 0.6,
+        "n_pcs": 30
+      },
+      "metrics": {
+        "silhouette_score": 0.23222847282886505,
+        "davies_bouldin_score": 1.2660956457204346,
+        "wc_dispersion_score": 620863.4375,
+        "banfield_raftery_score": 13793.447265625
+      },
+      "cluster_structure": {
+        "n_clusters": 13,
+        "cluster_sizes": {
+          "0": 628,
+          "1": 22,
+          "2": 195,
+          "3": 413,
+          "4": 77,
+          "5": 258,
+          "6": 286,
+          "7": 280,
+          "8": 10,
+          "9": 143,
+          "10": 105,
+          "11": 20,
+          "12": 243
+        },
+        "largest_cluster_size": 628,
+        "largest_cluster_fraction": 0.23432835820895523,
+        "number_of_small_clusters": 3,
+        "small_clusters": {
+          "1": 22,
+          "8": 10,
+          "11": 20
+        }
+      },
+      "clustering_time_seconds": 3.3994341669604182,
+      "evaluation_time_seconds": 0.37196095898980275,
+      "marker_genes": {
+        "0": [
+          "TTR__chr18",
+          "TM4SF4__chr3",
+          "GCG__chr2",
+          "IRX2__chr5",
+          "ALDH1A1__chr9"
+        ],
+        "1": [
+          "ELTD1__chr1",
+          "PLVAP__chr19",
+          "ACVRL1__chr12",
+          "EMCN__chr4",
+          "KDR__chr4"
+        ],
+        "2": [
+          "LEPR__chr1",
+          "RBP4__chr10",
+          "PCSK1__chr5",
+          "HHEX__chr10",
+          "TENM3__chr4"
+        ],
+        "3": [
+          "INS__chr11",
+          "MAFA__chr8",
+          "SYT13__chr11",
+          "NPTX2__chr7",
+          "ERO1LB__chr1"
+        ],
+        "4": [
+          "CEBPG__chr19",
+          "DDIT3__chr12",
+          "RRAGD__chr6",
+          "SRXN1__chr20",
+          "ARG2__chr14"
+        ],
+        "5": [
+          "CFTR__chr7",
+          "SLC4A4__chr4",
+          "ANXA4__chr2",
+          "CLDN1__chr3",
+          "SERPING1__chr11"
+        ],
+        "6": [
+          "ERCC-00171",
+          "ERCC-00113",
+          "ERCC-00003",
+          "ERCC-00108",
+          "ERCC-00042"
+        ],
+        "7": [
+          "REG1A__chr2",
+          "CTRB2__chr16",
+          "SPINK1__chr5",
+          "PRSS1__chr7",
+          "PRSS3P2__chr7"
+        ],
+        "8": [
+          "TPSB2__chr16",
+          "CPA3__chr3",
+          "KIT__chr4",
+          "TPSAB1__chr16",
+          "SAMSN1__chr21"
+        ],
+        "9": [
+          "PPY__chr17",
+          "ETV1__chr7",
+          "MEIS2__chr15",
+          "PAX6__chr11",
+          "THSD7A__chr7"
+        ],
+        "10": [
+          "COL6A1__chr21",
+          "COL12A1__chr6",
+          "COL5A2__chr2",
+          "COL6A2__chr21",
+          "COL1A1__chr17"
+        ],
+        "11": [
+          "IFI30__chr19",
+          "MS4A7__chr11",
+          "TYROBP__chr19",
+          "LAPTM5__chr1",
+          "CTSS__chr1"
+        ],
+        "12": [
+          "PCSK2__chr20",
+          "SLC7A2__chr8",
+          "PEMT__chr17",
+          "IRX2__chr5",
+          "TMEM176A__chr7"
+        ]
+      },
+      "decision": {
+        "decision": "continue",
+        "parameters": {
+          "n_neighbors": 30,
+          "resolution": 0.8,
+          "n_pcs": 30
+        },
+        "reason": "Intrinsic evidence: The current run (n_neighbors=30, n_pcs=30, resolution=0.6) yields a silhouette of 0.232 and DB of 1.266, slightly weaker separation than prior configurations with resolution 0.8 at lower neighbors/PCs (silhouette ~0.24). WC-dispersion is also higher than in prior lower-parameter runs, suggesting no intrinsic gain from the current lower resolution. Testing a moderate increase in resolution at the same graph (n_neighbors, n_pcs held) is likely to improve separation as previously observed. Structural evidence: The present solution has a dominant cluster (~23%) and a few very small clusters; a modest resolution increase may reduce dominance and refine partitions without excessive fragmentation (earlier resolution 0.8 produced only a small increase in small clusters). Biological evidence (supporting only): Marker patterns are broadly compatible with heterogeneous pancreatic compartments (endocrine, exocrine, ductal, stromal, immune), so a slight increase in granularity is biologically plausible, but this is secondary to the intrinsic/structural rationale.",
+        "llm_decision_time_seconds": 28.762309374986216
+      }
+    },
+    {
+      "iteration": 4,
+      "parameters": {
+        "n_neighbors": 30,
+        "resolution": 0.8,
+        "n_pcs": 30
+      },
+      "metrics": {
+        "silhouette_score": 0.23852647840976715,
+        "davies_bouldin_score": 1.3220603826526176,
+        "wc_dispersion_score": 613010.25,
+        "banfield_raftery_score": 13732.3701171875
+      },
+      "cluster_structure": {
+        "n_clusters": 14,
+        "cluster_sizes": {
+          "0": 281,
+          "1": 22,
+          "2": 195,
+          "3": 414,
+          "4": 254,
+          "5": 286,
+          "6": 354,
+          "7": 280,
+          "8": 75,
+          "9": 10,
+          "10": 143,
+          "11": 105,
+          "12": 20,
+          "13": 241
+        },
+        "largest_cluster_size": 414,
+        "largest_cluster_fraction": 0.15447761194029852,
+        "number_of_small_clusters": 3,
+        "small_clusters": {
+          "1": 22,
+          "9": 10,
+          "12": 20
+        }
+      },
+      "clustering_time_seconds": 3.415321499982383,
+      "evaluation_time_seconds": 0.41537170798983425,
+      "marker_genes": {
+        "0": [
+          "CHGB__chr20",
+          "TM4SF4__chr3",
+          "ALDH1A1__chr9",
+          "CFC1__chr2",
+          "SCG5__chr15"
+        ],
+        "1": [
+          "ELTD1__chr1",
+          "PLVAP__chr19",
+          "ACVRL1__chr12",
+          "EMCN__chr4",
+          "KDR__chr4"
+        ],
+        "2": [
+          "LEPR__chr1",
+          "RBP4__chr10",
+          "PCSK1__chr5",
+          "HHEX__chr10",
+          "TENM3__chr4"
+        ],
+        "3": [
+          "INS__chr11",
+          "MAFA__chr8",
+          "SYT13__chr11",
+          "NPTX2__chr7",
+          "ERO1LB__chr1"
+        ],
+        "4": [
+          "CFTR__chr7",
+          "SLC4A4__chr4",
+          "ANXA4__chr2",
+          "CLDN1__chr3",
+          "SERPING1__chr11"
+        ],
+        "5": [
+          "ERCC-00171",
+          "ERCC-00113",
+          "ERCC-00003",
+          "ERCC-00108",
+          "ERCC-00042"
+        ],
+        "6": [
+          "TTR__chr18",
+          "GCG__chr2",
+          "TM4SF4__chr3",
+          "GC__chr4",
+          "FAP__chr2"
+        ],
+        "7": [
+          "REG1A__chr2",
+          "CTRB2__chr16",
+          "SPINK1__chr5",
+          "PRSS1__chr7",
+          "PRSS3P2__chr7"
+        ],
+        "8": [
+          "DDIT3__chr12",
+          "CEBPG__chr19",
+          "RRAGD__chr6",
+          "SRXN1__chr20",
+          "ARG2__chr14"
+        ],
+        "9": [
+          "TPSB2__chr16",
+          "CPA3__chr3",
+          "KIT__chr4",
+          "TPSAB1__chr16",
+          "SAMSN1__chr21"
+        ],
+        "10": [
+          "PPY__chr17",
+          "ETV1__chr7",
+          "MEIS2__chr15",
+          "PAX6__chr11",
+          "THSD7A__chr7"
+        ],
+        "11": [
+          "COL6A1__chr21",
+          "COL12A1__chr6",
+          "COL5A2__chr2",
+          "COL6A2__chr21",
+          "COL1A1__chr17"
+        ],
+        "12": [
+          "IFI30__chr19",
+          "MS4A7__chr11",
+          "TYROBP__chr19",
+          "LAPTM5__chr1",
+          "CTSS__chr1"
+        ],
+        "13": [
+          "PCSK2__chr20",
+          "SLC7A2__chr8",
+          "PEMT__chr17",
+          "IRX2__chr5",
+          "TMEM176A__chr7"
+        ]
+      },
+      "decision": {
+        "decision": "continue",
+        "parameters": {
+          "n_neighbors": 20,
+          "resolution": 0.7,
+          "n_pcs": 25
+        },
+        "reason": "Intrinsic evidence: Lower n_neighbors/n_pcs (15,20) yielded the strongest silhouette (~0.24) and best Davies\u2013Bouldin (down to ~1.25 at res=0.6) compared with the current 30/30 graph (silhouette 0.2385, DB 1.322). This suggests a benefit from a less-smoothed graph and fewer PCs. Across tested settings, decreasing resolution improved DB but slightly reduced silhouette, indicating a potential trade-off where an intermediate resolution may balance both metrics. Structural evidence: With 30/30 at res=0.6, one cluster became dominant, while 15/20 at res=0.8 introduced very small clusters (down to 6 cells). A moderate graph (n_neighbors=20, n_pcs=25) and intermediate resolution (0.7) may reduce over-fragmentation versus 15/20 while avoiding under-clustering seen at 30/30 with low resolution. Biological evidence (supporting only): Marker patterns across clusters appear broadly compatible with heterogeneous pancreatic compartments and some state-associated signals; this supports maintaining moderate granularity but does not dictate a specific number of clusters. Therefore, trying an intermediate graph size and resolution is likely to improve the overall metric balance without forcing over- or under-partitioning.",
+        "llm_decision_time_seconds": 30.486943916999735
+      }
+    },
+    {
+      "iteration": 5,
+      "parameters": {
+        "n_neighbors": 20,
+        "resolution": 0.7,
+        "n_pcs": 25
+      },
+      "metrics": {
+        "silhouette_score": 0.24267862737178802,
+        "davies_bouldin_score": 1.3126501065636298,
+        "wc_dispersion_score": 614982.8125,
+        "banfield_raftery_score": 13661.2861328125
+      },
+      "cluster_structure": {
+        "n_clusters": 14,
+        "cluster_sizes": {
+          "0": 254,
+          "1": 22,
+          "2": 195,
+          "3": 425,
+          "4": 258,
+          "5": 279,
+          "6": 10,
+          "7": 372,
+          "8": 281,
+          "9": 66,
+          "10": 143,
+          "11": 111,
+          "12": 20,
+          "13": 244
+        },
+        "largest_cluster_size": 425,
+        "largest_cluster_fraction": 0.15858208955223882,
+        "number_of_small_clusters": 3,
+        "small_clusters": {
+          "1": 22,
+          "6": 10,
+          "12": 20
+        }
+      },
+      "clustering_time_seconds": 2.9543705830001272,
+      "evaluation_time_seconds": 0.4227692079730332,
+      "marker_genes": {
+        "0": [
+          "CHGB__chr20",
+          "ALDH1A1__chr9",
+          "SCG5__chr15",
+          "CFC1__chr2",
+          "SLC38A4__chr12"
+        ],
+        "1": [
+          "ELTD1__chr1",
+          "PLVAP__chr19",
+          "ACVRL1__chr12",
+          "EMCN__chr4",
+          "KDR__chr4"
+        ],
+        "2": [
+          "LEPR__chr1",
+          "RBP4__chr10",
+          "PCSK1__chr5",
+          "HHEX__chr10",
+          "TENM3__chr4"
+        ],
+        "3": [
+          "INS__chr11",
+          "MAFA__chr8",
+          "SYT13__chr11",
+          "NPTX2__chr7",
+          "HADH__chr4"
+        ],
+        "4": [
+          "CFTR__chr7",
+          "SLC4A4__chr4",
+          "ANXA4__chr2",
+          "CLDN1__chr3",
+          "SERPING1__chr11"
+        ],
+        "5": [
+          "ERCC-00171",
+          "ERCC-00113",
+          "ERCC-00003",
+          "ERCC-00108",
+          "ERCC-00042"
+        ],
+        "6": [
+          "TPSB2__chr16",
+          "CPA3__chr3",
+          "KIT__chr4",
+          "TPSAB1__chr16",
+          "SAMSN1__chr21"
+        ],
+        "7": [
+          "TTR__chr18",
+          "GCG__chr2",
+          "TM4SF4__chr3",
+          "GC__chr4",
+          "FAP__chr2"
+        ],
+        "8": [
+          "REG1A__chr2",
+          "CTRB2__chr16",
+          "SPINK1__chr5",
+          "PRSS1__chr7",
+          "PRSS3P2__chr7"
+        ],
+        "9": [
+          "DDIT3__chr12",
+          "CEBPG__chr19",
+          "CDKN1A__chr6",
+          "RRAGD__chr6",
+          "SRXN1__chr20"
+        ],
+        "10": [
+          "PPY__chr17",
+          "ETV1__chr7",
+          "MEIS2__chr15",
+          "PAX6__chr11",
+          "THSD7A__chr7"
+        ],
+        "11": [
+          "COL5A2__chr2",
+          "SPARC__chr5",
+          "COL6A1__chr21",
+          "LGALS1__chr22",
+          "NID1__chr1"
+        ],
+        "12": [
+          "IFI30__chr19",
+          "MS4A7__chr11",
+          "TYROBP__chr19",
+          "LAPTM5__chr1",
+          "CTSS__chr1"
+        ],
+        "13": [
+          "PCSK2__chr20",
+          "SLC7A2__chr8",
+          "PEMT__chr17",
+          "IRX2__chr5",
+          "GPX3__chr5"
+        ]
+      }
+    }
+  ],
+  "termination_reason": "maximum_experiments_reached",
+  "total_runtime_seconds": 266.9212873749784,
+  "final_result": {
+    "termination_reason": "maximum_experiments_reached",
+    "best_iteration": 2,
+    "best_parameters": {
+      "n_neighbors": 15,
+      "resolution": 0.6,
+      "n_pcs": 20
+    },
+    "best_metrics": {
+      "n_neighbors": 15,
+      "resolution": 0.6,
+      "n_pcs": 20,
+      "random_state": 42,
+      "n_clusters": 15,
+      "cluster_sizes": {
+        "0": 248,
+        "1": 423,
+        "2": 6,
+        "3": 22,
+        "4": 196,
+        "5": 407,
+        "6": 261,
+        "7": 280,
+        "8": 277,
+        "9": 83,
+        "10": 193,
+        "11": 10,
+        "12": 21,
+        "13": 142,
+        "14": 111
+      },
+      "largest_cluster_size": 423,
+      "largest_cluster_fraction": 0.1578358208955224,
+      "number_of_small_clusters": 4,
+      "small_clusters": {
+        "2": 6,
+        "3": 22,
+        "11": 10,
+        "12": 21
+      },
+      "silhouette_score": 0.23794838786125183,
+      "davies_bouldin_score": 1.2484832786155962,
+      "wc_dispersion_score": 606259.4375,
+      "banfield_raftery_score": 13522.943359375,
+      "marker_genes": {
+        "0": [
+          "CHGB__chr20",
+          "CFC1__chr2",
+          "ALDH1A1__chr9",
+          "SCG5__chr15",
+          "CPE__chr4"
+        ],
+        "1": [
+          "GCG__chr2",
+          "TTR__chr18",
+          "TM4SF4__chr3",
+          "GC__chr4",
+          "PCSK2__chr20"
+        ],
+        "2": [
+          "UBE2C__chr20",
+          "TOP2A__chr17",
+          "CDK1__chr10",
+          "PRC1__chr15",
+          "NUSAP1__chr15"
+        ],
+        "3": [
+          "ELTD1__chr1",
+          "PLVAP__chr19",
+          "ACVRL1__chr12",
+          "EMCN__chr4",
+          "KDR__chr4"
+        ],
+        "4": [
+          "LEPR__chr1",
+          "RBP4__chr10",
+          "PCSK1__chr5",
+          "HHEX__chr10",
+          "TENM3__chr4"
+        ],
+        "5": [
+          "INS__chr11",
+          "MAFA__chr8",
+          "SYT13__chr11",
+          "NPTX2__chr7",
+          "ERO1LB__chr1"
+        ],
+        "6": [
+          "CFTR__chr7",
+          "CLDN1__chr3",
+          "ANXA4__chr2",
+          "SERPING1__chr11",
+          "ANXA2__chr15"
+        ],
+        "7": [
+          "ERCC-00171",
+          "ERCC-00113",
+          "ERCC-00003",
+          "ERCC-00108",
+          "ERCC-00042"
+        ],
+        "8": [
+          "REG1A__chr2",
+          "SPINK1__chr5",
+          "CTRB2__chr16",
+          "PRSS3P2__chr7",
+          "PRSS1__chr7"
+        ],
+        "9": [
+          "CEBPG__chr19",
+          "DDIT3__chr12",
+          "SRXN1__chr20",
+          "RRAGD__chr6",
+          "ARG2__chr14"
+        ],
+        "10": [
+          "PCSK2__chr20",
+          "PEMT__chr17",
+          "SLC7A2__chr8",
+          "GPX3__chr5",
+          "TMEM176A__chr7"
+        ],
+        "11": [
+          "TPSB2__chr16",
+          "CPA3__chr3",
+          "KIT__chr4",
+          "TPSAB1__chr16",
+          "SAMSN1__chr21"
+        ],
+        "12": [
+          "MS4A7__chr11",
+          "IFI30__chr19",
+          "TYROBP__chr19",
+          "CTSS__chr1",
+          "SRGN__chr10"
+        ],
+        "13": [
+          "PPY__chr17",
+          "ETV1__chr7",
+          "MEIS2__chr15",
+          "PAX6__chr11",
+          "THSD7A__chr7"
+        ],
+        "14": [
+          "COL5A2__chr2",
+          "SPARC__chr5",
+          "COL6A1__chr21",
+          "LGALS1__chr22",
+          "NID1__chr1"
+        ]
+      }
+    },
+    "final_selection_reason": "1) Strongest intrinsic evidence: Iteration 2 has the lowest Davies\u2013Bouldin (1.248, best), competitive silhouette (0.238, within ~0.005 of the best), and the lowest WC-dispersion and Banfield\u2013Raftery among the mid-resolution runs (excluding iter 0, which has poor separation). This combination provides the best overall intrinsic support. 2) Cluster structure: Iteration 5 has slightly fewer very small clusters (3 vs 4) and a marginally higher silhouette, suggesting a slightly cleaner structure. However, iteration 2 still shows a reasonable, balanced size distribution (no dominant cluster; largest ~15.8%) with only four small clusters, and avoids the more dominant cluster seen in iteration 3. 3) Biological evidence: Marker patterns across both iterations 2 and 5 are consistent with expected pancreatic compartments (endocrine, acinar, ductal, endothelial, stromal, immune, PP-like, stress/proliferative), providing supporting context without contradiction. 4) Final selection: Iteration 2. Although iteration 5 has a marginally smoother small-cluster profile, iteration 2\u2019s superior overall intrinsic metrics (notably the best DB index with comparable silhouette and better WC/BR) and reasonable cluster structure justify selecting it as the preferred experiment.",
+    "final_selection_time_seconds": 71.89254933298798
+  }
+}

@@ -1,9 +1,66 @@
-def build_reflection_prompt(
+MURARO_BIOLOGICAL_CONTEXT = """
+DATASET-SPECIFIC BIOLOGICAL CONTEXT:
+
+The dataset is the Muraro human pancreas single-cell RNA-seq
+dataset.
+
+The dataset contains heterogeneous pancreatic cell populations
+spanning multiple broad biological compartments.
+
+Broad knowledge of pancreatic biology may be used only as contextual
+information when interpreting the supplied marker-gene patterns.
+
+Do not use a predefined list of pancreatic cell types as optimization
+targets.
+
+Do not assume that every known pancreatic population must appear as a
+separate cluster.
+
+Do not force the clustering toward a predetermined number of
+clusters or biological populations.
+
+Do not infer the identity of an individual cluster unless the
+supplied marker-gene pattern provides reasonable supporting evidence.
+
+The biological context does not establish the identity of any
+individual cluster and must not be treated as ground-truth
+annotation.
+"""
+
+
+PBMC3K_BIOLOGICAL_CONTEXT = """
+DATASET-SPECIFIC BIOLOGICAL CONTEXT:
+
+The dataset is the PBMC3K single-cell RNA-seq dataset.
+
+Broad knowledge of PBMC biology may be used only as contextual
+information when interpreting the supplied marker-gene patterns.
+
+Do not use a predefined list of expected cell types as optimization
+targets.
+
+Do not assume that every known PBMC population must appear as a
+separate cluster.
+
+Do not force the clustering toward a predetermined number of
+clusters or biological populations.
+
+Do not infer the identity of an individual cluster unless the
+supplied marker-gene pattern provides reasonable supporting evidence.
+
+The biological context does not establish the identity of any
+individual cluster and must not be treated as ground-truth
+annotation.
+"""
+
+
+def build_biology_reflection_prompt(
     history,
     parameters,
     metrics,
     evaluated_configs,
     max_iterations,
+    dataset_context,
 ):
     return f"""
 You are an expert in single-cell RNA-seq clustering optimization.
@@ -14,25 +71,48 @@ evidence while avoiding unnecessary over-fragmentation or
 under-clustering.
 
 The optimization should balance potential improvement against the
-cost of additional experiments. Do not continue exploring merely for
-the sake of using the available experiment budget.
+cost of additional experiments.
 
 BIOLOGY-INFORMED EXPERIMENTAL CONDITION:
 
-This is the biology-informed experimental condition.
+This is a biology-informed clustering optimization experiment.
 
-* Use intrinsic clustering metrics, cluster-structure information,
-  and biological evidence provided in the prompt when making
-  optimization decisions.
+The optimization uses three sources of information:
 
-* Biological evidence may be used to assess whether clusters appear
-  biologically coherent, whether potentially distinct populations may
-  have been merged, and whether small clusters may represent
-  meaningful biological structure rather than unnecessary
-  fragmentation.
+1. intrinsic clustering metrics,
+2. cluster structure, and
+3. limited biological evidence from marker genes.
 
-* Do not force the clustering toward a predetermined number of
-  clusters or a predetermined biological outcome.
+These sources of information have different roles.
+
+Intrinsic clustering metrics are the primary quantitative evidence.
+
+Cluster structure is secondary structural evidence used to interpret
+the clustering solution.
+
+Marker genes are secondary biological evidence used only to provide
+context for the observed clustering.
+
+Biological evidence must never be treated as ground-truth annotation
+or as a predefined target for the optimization.
+
+Do not force the clustering toward a predetermined number of
+clusters, cell types, lineages, or expected biological outcome.
+
+DATASET-SPECIFIC BIOLOGICAL CONTEXT:
+
+{dataset_context}
+
+Use the dataset-specific context only as broad background for
+interpreting the supplied marker-gene patterns.
+
+Do not treat this context as evidence that a particular population
+must exist.
+
+Do not use this context to determine the desired number of clusters.
+
+Do not use this context to select a parameter configuration in the
+absence of supporting intrinsic or structural evidence.
 
 CURRENT EXPERIMENT:
 
@@ -50,344 +130,268 @@ Already evaluated parameter configurations:
 
 EVALUATION PRINCIPLES:
 
-* Use Silhouette Score as evidence of cluster separation and cohesion,
-  where higher values are generally favorable.
+Use the intrinsic metrics together rather than optimizing any single
+metric in isolation.
 
-* Use Davies-Bouldin Index as additional evidence of cluster quality,
-  where lower values are generally favorable.
+* Silhouette Score provides evidence about cluster separation and
+  cohesion. Higher values are generally favorable.
 
-* Use WC-dispersion as evidence of within-cluster dispersion. Lower
-  values indicate more compact clusters, but do not optimize
-  WC-dispersion in isolation because cluster subdivision can reduce
-  within-cluster dispersion.
+* Davies-Bouldin Index provides additional evidence about cluster
+  separation and cohesion. Lower values are generally favorable.
 
-* Use Banfield-Raftery as an additional intrinsic clustering criterion
-  related to within-cluster compactness and partition quality. Lower
-  values may be favorable according to this criterion, but do not
-  optimize it in isolation because it may also be influenced by the
-  number and partitioning of clusters.
+* WC-dispersion provides evidence about within-cluster dispersion.
 
-* Evaluate Silhouette Score, Davies-Bouldin Index, WC-dispersion,
-  Banfield-Raftery, number of clusters, cluster-size distribution,
-  and biological evidence together.
+* Banfield-Raftery provides an additional intrinsic clustering
+  criterion.
 
-* Do not automatically consider a configuration better simply because
-  one metric improves. Look for agreement and disagreement among the
-  available evidence and consider relevant trade-offs.
+Metric values must be interpreted relative to the other evaluated
+configurations rather than in isolation.
 
-* Compare configurations across the optimization history. Consider
-  whether parameter changes produce meaningful overall improvements
-  rather than interpreting individual metric values in isolation.
+When metrics disagree, explicitly acknowledge the trade-off.
 
-CLUSTER STRUCTURE AND OVER-FRAGMENTATION:
+Do not assume that improvement in one metric necessarily means that
+the overall clustering solution has improved.
 
-* Consider the number of clusters and the cluster-size distribution
-  when assessing possible under-clustering or over-clustering.
+CLUSTER STRUCTURE:
 
-* Higher resolution may reveal finer biological structure, but it may
-  also produce unnecessary over-partitioning.
+Consider cluster structure as contextual evidence alongside the
+intrinsic metrics.
 
-* When a higher-resolution configuration produces additional clusters,
-  assess whether those additional clusters provide meaningful
-  improvement in intrinsic clustering evidence and/or are supported
-  by distinct biological evidence.
+* The number of clusters represents clustering granularity, not a
+  target.
 
-* A small improvement in intrinsic metrics accompanied by a substantial
-  increase in the number of clusters, especially very small clusters,
-  should be interpreted cautiously because the improvement may reflect
-  increased partitioning rather than genuinely improved structure.
+* Higher resolution may increase granularity but may also introduce
+  unnecessary fragmentation.
 
-* Conversely, a higher-resolution configuration should not be rejected
-  merely because it produces more clusters. Additional clusters may
-  represent meaningful biological subpopulations or cellular states
-  when supported by the available evidence.
+* Lower resolution may merge structure but fewer clusters are not
+  automatically preferable.
 
-* Lower resolution may merge potentially distinct populations.
-  Do not assume that fewer clusters are automatically better.
+* Small clusters are not automatically artifacts.
 
-* Use cluster sizes, largest_cluster_fraction, and
-  number_of_small_clusters as diagnostic evidence rather than
-  automatic rejection criteria.
+* Small clusters are also not automatically biologically meaningful.
 
-* Extremely small clusters may indicate over-fragmentation, but rare
-  biological populations may also form meaningful small clusters.
-
-* A highly dominant cluster may indicate under-clustering, but
+* A dominant cluster may indicate possible under-clustering, but
   dominance alone is not sufficient evidence to reject a solution.
 
-* Treat the number of clusters as an indicator of clustering
-  granularity rather than as a target to maximize or minimize.
+* Consider the complete cluster-size distribution rather than focusing
+  only on the smallest or largest cluster.
 
-* Evaluate whether changes in resolution produce a reasonable
-  balance between clustering quality, biological interpretability,
-  and clustering granularity.
-  
+* Interpret structural changes together with changes in intrinsic
+  metrics.
 
 BIOLOGICAL EVIDENCE:
 
-The evaluation may include top-ranked marker genes for each cluster:
+The evaluation may include a small number of top-ranked marker genes
+for each cluster:
 
 {metrics.get("marker_genes", {})}
 
-Use these marker genes as biological evidence when assessing the
-clustering configuration.
+Marker genes are supporting biological evidence only.
 
-Consider:
+IMPORTANT:
 
-* whether marker genes within a cluster suggest a coherent
-  cellular population;
+The marker genes are derived from the clustering solution currently
+being evaluated.
 
-* whether different clusters show distinct marker patterns;
+Therefore, they describe characteristics of the resulting clusters
+and must not be treated as independent validation of those clusters.
 
-* whether a configuration may be merging biologically distinct
-  populations;
+Use marker genes cautiously to assess whether the observed clustering
+appears broadly compatible with plausible biological structure.
 
-* whether additional clusters appear to represent plausible
-  biological structure or simply fragmentation.
-  
-Interpret groups of marker genes together rather than relying on a
-single marker gene.
+Do not treat marker genes as cell-type annotations.
 
-Do not treat marker genes as definitive cell-type labels.
+Do not assign definitive cell-type identities based only on the
+supplied marker genes.
 
-Do not force the clustering toward a predetermined number of
-clusters. Biological evidence should be considered together with
-the mathematical and structural evidence.
+Do not infer biological identity from a single marker gene.
 
-PBMC BIOLOGICAL CONTEXT:
+Consider patterns across multiple genes when interpreting biological
+evidence.
 
-* PBMC3K contains several broad immune-cell populations.
-  Canonical marker-gene patterns can therefore provide useful context
-  when assessing whether clusters represent distinct biological
-  populations.
+Do not assume that shared markers mean that two clusters represent
+the same biological population.
 
-* This context is a soft biological prior and should not be treated
-  as a fixed target for the number of clusters.
+Do not assume that different marker genes prove that two clusters are
+biologically distinct.
 
-* Use the expected broad cellular diversity of PBMC3K as contextual
-  evidence when assessing clustering granularity. If a configuration
-  produces substantially more clusters than the expected broad
-  population structure, assess whether the additional clusters are
-  supported by distinct marker-gene patterns or instead indicate
-  unnecessary splitting of similar populations.
+Do not describe clusters as duplicated, redundant, or biologically
+identical unless the available evidence strongly supports that
+interpretation.
 
-* Likewise, if substantially fewer clusters are produced, assess
-  whether biologically distinct populations may have been merged.
+Do not describe a cluster as a specific biological population unless
+the supplied marker pattern provides reasonable support.
 
-* The expected number of broad populations should guide interpretation,
-  not act as a fixed target for the clustering result.
+Use cautious language such as:
 
+* "consistent with"
+* "suggestive of"
+* "compatible with"
+* "may reflect"
+* "uncertain"
+
+If the biological interpretation is ambiguous, explicitly state that
+it is ambiguous.
+
+Technical, stress-related, proliferative, mitochondrial,
+housekeeping, spike-in, or other state-associated signals may
+contribute to marker patterns.
+
+Do not interpret such signals as independent biological populations
+without additional supporting evidence.
+
+Do not invent biological explanations that are not supported by the
+supplied marker genes.
+
+BIOLOGICAL EVIDENCE MUST REMAIN SECONDARY:
+
+Biological evidence must not independently determine the optimization
+decision.
+
+* Do not recommend a parameter configuration solely because its
+  marker genes appear biologically interesting.
+
+* Do not reject a configuration solely because a cluster is small.
+
+* Do not prefer a configuration solely because it appears to contain
+  a recognizable biological population.
+
+* Do not use biological plausibility to compensate for clear
+  deterioration in the intrinsic clustering evidence.
+
+* Biological evidence may support, weaken, or leave unchanged an
+  interpretation based on intrinsic metrics and cluster structure.
+
+* When biological and intrinsic evidence disagree, explicitly state
+  the disagreement.
+
+* When biological evidence is ambiguous, do not resolve the
+  ambiguity by assuming a biological explanation.
 
 PARAMETER REASONING:
 
-* Consider the combined effects of n_neighbors, n_pcs, and resolution.
+Consider the combined effects of n_neighbors, n_pcs, and resolution.
 
-* Do not assume that increasing or decreasing any individual
-  parameter will always improve clustering.
+Do not assume that changing one parameter will always improve
+clustering.
 
-* When considering a change in resolution, explicitly consider the
-  trade-off between increased granularity and the possibility of
-  over-partitioning.
+Consider higher resolution when additional partitioning is supported
+by improvement or meaningful trade-offs in intrinsic metrics and
+reasonable cluster structure.
 
-* Consider higher resolution when the additional partitioning is
-  supported by meaningful improvements in the available evidence.
+Be cautious about increasing resolution when the main effect is an
+increase in cluster number without meaningful improvement in
+intrinsic evidence.
 
-* Be cautious about increasing resolution when the main effect is a
-  large increase in cluster number with only marginal improvement in
-  intrinsic metrics and weak biological support.
+Be cautious about decreasing resolution when intrinsic or structural
+evidence suggests that meaningful structure may be excessively
+merged.
 
-* Likewise, be cautious about decreasing resolution when the evidence
-  suggests that biologically distinct populations are being merged.
+Biological evidence may provide additional context for a parameter
+change, but it must not be the sole justification for that change.
 
-* Lower n_neighbors may emphasize local structure, while higher
-  values may produce a smoother neighborhood graph.
-
-* Increasing n_pcs may capture additional variation but may also
-  introduce less informative variation.
-
-* Recognize that the final clustering can be sensitive to upstream
-  parameter choices. When evaluating a candidate configuration,
-  consider whether the observed improvement appears robust to the
-  parameter changes explored so far or whether it depends strongly on
-  a particular configuration.
-
-* Do not assume that a single parameter configuration is universally
-  optimal. Interpret the current result in the context of the
-  configurations explored during optimization.
-
-* Consider the optimization history when choosing the next parameter
-  configuration.
-
-* Prefer parameter changes that provide an informative test of the
-  current clustering evidence.
-
-* Changing one parameter while holding others constant can be useful
-  when it helps isolate the effect of that parameter.
-
-* Avoid arbitrary parameter changes that are not supported by the
-  current metrics, biological evidence, or optimization history.
-  
+When selecting a new configuration, prefer an experiment that tests a
+specific uncertainty identified from the previous results rather than
+making multiple arbitrary parameter changes.
 
 PARAMETER CONSTRAINTS:
 
 * n_neighbors must be between 10 and 50.
 
-* n_pcs must be between 10 and 50 because only 50 PCA components are
-  available.
+* n_pcs must be between 10 and 50.
 
 * resolution must be between 0.1 and 2.0.
 
-* The resolution range of 0.1 to 2.0 is the experimental search space
-  defined for this study. It is not an inherent limitation of the
-  Leiden algorithm.
-
-* Do not assume that higher resolution is better simply because it
-  produces more clusters.
-
 * Do not propose parameter values outside these ranges.
-
-* Do not propose a parameter configuration that has already been
-  evaluated.
-
-STABILITY:
-
-* Do not claim that a clustering solution is formally stable or
-  reproducible unless stability has been explicitly assessed through
-  repeated clustering under different random seeds or data
-  perturbations.
-
-* Consistency across different parameter configurations is not itself
-  a formal stability assessment.
-
-EXPLORATION BUDGET:
-
-* The optimization has a maximum exploration budget defined by the
-  agent.
-
-* The maximum number of completed clustering evaluations is provided
-  by the agent's experiment configuration.
-
-* Iteration 0 represents the initial clustering configuration.
-
-* Subsequent iterations represent agentic parameter updates based on
-  the evidence from previous experiments.
-
-* The maximum exploration budget is a limit, not a requirement to use
-  all available experiments.
-
-* The optimization may terminate before the maximum budget is reached
-  if the available evidence suggests that further parameter
-  exploration is unlikely to provide meaningful improvement.
-
-* Do not assume that reaching the maximum number of experiments is
-  necessary for a good result.
-
-* At each reflection step, consider whether another parameter
-  configuration is likely to provide useful additional information.
 
 * Do not propose a configuration that has already been evaluated.
 
-* The purpose of the exploration budget is to provide the agent with
-  sufficient opportunity to explore the parameter space while
-  preventing unnecessarily long optimization runs.
+STABILITY:
+
+Do not claim that a clustering solution is formally stable or
+reproducible unless stability has explicitly been assessed through
+repeated clustering under different random seeds or data
+perturbations.
+
+EXPLORATION BUDGET:
+
+The optimization has a maximum exploration budget defined by the
+agent.
+
+The maximum budget is a limit, not a requirement to use all available
+experiments.
+
+Stop when the available evidence is sufficient or when further
+exploration is unlikely to provide meaningful additional information.
 
 DECISION:
 
-* Decide whether the optimization should continue or stop based on
-  the evidence available in the completed experiment history.
+Return "continue" when another unevaluated configuration is likely to
+provide useful information about the optimization landscape or
+meaningfully improve the clustering solution.
 
-* Return "continue" when another unevaluated parameter configuration
-  is likely to provide useful information or potentially improve the
-  clustering solution.
+Return "stop" when the available evidence is sufficient or further
+exploration is unlikely to provide meaningful additional information.
 
-* When deciding whether to stop, consider whether recent parameter
-  changes have produced meaningful improvement and whether additional
-  exploration is likely to provide useful new information.
-
-* Do not stop simply because the most recent experiment is not better
-  than the previous experiment.
-
-* Likewise, do not continue simply because unused experiment budget
-  remains.
-
-* Return "stop" when the current experiment history provides sufficient
-  evidence and further exploration is unlikely to provide a meaningful
-  improvement.
-
-* Do not stop solely because one metric has failed to improve in a
-  single iteration.
-
-* Consider the overall pattern across the optimization history,
-  including intrinsic metrics, cluster structure, biological evidence,
-  and the changes produced by previous parameter configurations.
-
-* If the exploration budget has been reached, return "stop".
-
-* If the exploration budget has not been reached, "stop" is still
-  allowed when the evidence supports termination.
-
-* When selecting "continue", propose exactly one new, unevaluated
-  parameter configuration.
-
-* When selecting "continue", briefly explain why the proposed
-  parameter change is informative given the current intrinsic metrics,
-  cluster structure, biological evidence, and previous optimization
-  history.
-
-* When selecting "stop", briefly explain why the completed experiments
-  provide sufficient evidence to terminate the optimization.
+When continuing, propose exactly one new, unevaluated configuration.
 
 OUTPUT REQUIREMENTS:
 
-Return a structured optimization decision containing:
+Return:
 
 1. decision:
-   "continue" if further exploration is likely to provide useful
-   information or improve the clustering solution.
-
-   "stop" if the current evidence is sufficient or the maximum
-   exploration budget has been reached.
+   "continue" or "stop"
 
 2. reason:
-   A concise explanation of what the completed experiments indicate
-   and why the optimization should continue or stop.
+   A concise explanation based primarily on intrinsic metrics and
+   cluster structure, with biological evidence used only as
+   supporting context.
 
 3. parameters:
-   If decision is "continue", provide a valid new parameter
-   configuration that has not already been evaluated.
+   If continuing, provide one valid unevaluated configuration.
 
-   If decision is "stop", the parameter values are not used for
-   further clustering.
+The reasoning should distinguish clearly between:
 
-Do not treat biological evidence as an absolute rule.
+* intrinsic evidence,
+* structural evidence, and
+* biological evidence.
 
-Do not invent biological explanations that are unsupported by the
-provided marker-gene evidence.
+Do not present uncertain biological interpretations as established
+facts.
+
+Do not invent biological explanations unsupported by the supplied
+marker-gene evidence.
 """
 
+    
+# ============================================================
+# BIOLOGY-INFORMED FINAL SELECTION PROMPT
+# ============================================================
 
-def build_final_selection_prompt(history):
-    """
-    Build the prompt used by the LLM to select the preferred
-    experiment from the completed biology-informed experiment history.
-    """
-
+def build_biology_final_selection_prompt(
+    history,
+    dataset_context,
+):
     return f"""
-You are an expert in clustering evaluation and single-cell RNA-seq
-data analysis.
+You are an expert in single-cell RNA-seq clustering evaluation.
 
 Your task is to select the preferred clustering experiment from the
 completed experiment history.
 
-BIOLOGY-INFORMED EXPERIMENTAL CONDITION:
+This is a biology-informed experimental condition.
 
-This is the biology-informed experimental condition.
+Biological information is intentionally limited and must not be
+treated as ground-truth annotation.
 
-* Use intrinsic clustering metrics, cluster-structure information,
-  and biological evidence when selecting the preferred experiment.
+DATASET-SPECIFIC BIOLOGICAL CONTEXT:
 
-* Do not force the selected experiment toward a predetermined number
-  of clusters or a predetermined biological outcome.
+{dataset_context}
+
+Use this context only as broad background for interpreting the
+supplied marker-gene evidence.
+
+Do not use it as a predefined target for the number of clusters,
+cell types, or biological populations.
 
 COMPLETED EXPERIMENT HISTORY:
 
@@ -395,176 +399,182 @@ COMPLETED EXPERIMENT HISTORY:
 
 FINAL SELECTION PRINCIPLES:
 
-* Select only one experiment that already exists in the completed
-  experiment history.
+Select exactly one experiment that already exists in the completed
+experiment history.
 
-* Your selected_iteration must exactly match the iteration number of
-  one completed experiment.
+The selected_iteration must exactly match the iteration number of one
+completed experiment.
 
-* Do not propose new clustering parameters.
+Do not propose new clustering parameters.
 
-* Evaluate the experiments comparatively rather than judging any
-  metric in isolation.
+Evaluate the completed experiments using the following hierarchy:
+
+1. Intrinsic clustering evidence.
+2. Cluster structure.
+3. Biological evidence from marker genes.
+
+Biological evidence is supporting context and must not independently
+determine the final selection.
 
 INTRINSIC CLUSTERING EVIDENCE:
 
-* Consider Silhouette Score as evidence of cluster separation and
-  cohesion, where higher values are generally favorable.
+Consider the intrinsic metrics together.
 
-* Consider Davies-Bouldin Index as additional evidence of clustering
-  quality, where lower values are generally favorable.
+* Silhouette Score: higher values are generally favorable.
 
-* Consider WC-dispersion as evidence of within-cluster compactness.
-  Lower values may indicate more compact clusters, but do not select
-  an experiment solely because it has the lowest WC-dispersion because
-  partitioning into more clusters can reduce within-cluster
-  dispersion.
+* Davies-Bouldin Index: lower values are generally favorable.
 
-* Consider Banfield-Raftery as an additional intrinsic clustering
-  criterion. Interpret it alongside the other metrics rather than
-  selecting an experiment solely because of this value.
+* WC-dispersion: lower values generally indicate lower
+  within-cluster dispersion.
 
-STRUCTURAL EVIDENCE:
+* Banfield-Raftery: use as an additional intrinsic criterion.
 
-* Consider the number of clusters and the complete cluster-size
-  distribution as contextual evidence.
+Do not select an experiment based on a single metric.
 
-* Extremely small clusters may indicate over-fragmentation, but rare
-  biological populations may also form meaningful small clusters.
+Explicitly acknowledge important metric trade-offs.
 
-* A highly dominant cluster may indicate under-clustering, but this
-  alone is not sufficient evidence to reject an experiment.
+Prefer the configuration with the strongest overall intrinsic
+evidence rather than automatically selecting the configuration with
+the best value for one metric.
 
-* Do not assume that fewer clusters are better simply because they
-  produce better intrinsic metrics.
+CLUSTER STRUCTURE:
 
-* Do not assume that more clusters are better simply because they
-  represent finer partitioning.
+Consider the number of clusters and complete cluster-size
+distribution.
 
-* When comparing experiments with different resolutions, assess the
-  marginal benefit of increased clustering granularity.
+* Do not assume fewer clusters are better.
 
-* If a higher-resolution experiment produces substantially more
-  clusters, determine whether the additional partitioning is supported
-  by meaningful improvements in intrinsic metrics, cluster structure,
-  and/or biological evidence.
+* Do not assume more clusters are better.
 
-* Do not treat an increase in the number of clusters as an improvement
-  by itself.
+* Small clusters are not automatically artifacts.
 
-* Do not treat a decrease in the number of clusters as an improvement
-  by itself.
+* Small clusters are not automatically biologically meaningful.
 
-* If a higher-resolution configuration provides only marginal
-  improvement in intrinsic metrics while producing substantially more
-  small or weakly supported clusters, consider whether the additional
-  partitioning represents possible over-fragmentation.
+* A dominant cluster may indicate possible under-clustering, but
+  should not determine the selection by itself.
 
-* If a higher-resolution configuration produces additional clusters
-  with coherent and distinct marker-gene evidence, the finer
-  resolution may be scientifically preferable despite the larger
-  number of clusters.
-
-* The preferred resolution is the level of granularity that provides
-  the strongest overall evidence, rather than simply the highest or
-  lowest resolution tested.
-  
+* Consider whether changes in resolution or graph parameters produce
+  meaningful structural changes relative to changes in intrinsic
+  metrics.
 
 BIOLOGICAL EVIDENCE:
 
-* For PBMC3K, established biological knowledge may provide broad
-  context regarding expected cellular diversity.
+The experiment history may contain a small number of top-ranked
+marker genes for each cluster.
 
-* Use the marker-gene evidence provided in the experiment history to
-  assess whether clusters have biologically coherent identities.
+Marker genes must be treated as secondary biological evidence.
 
-* Consider whether marker genes support plausible PBMC populations.
+Importantly, these marker genes are derived from the corresponding
+clustering solutions.
 
-* Consider whether an experiment appears to merge biologically
-  distinct populations.
+They therefore describe the resulting clusters and should not be
+treated as independent validation or ground-truth annotation.
 
-* Consider whether additional clusters represent meaningful
-  biological structure or unnecessary fragmentation.
+* Do not assign definitive cell-type identities based only on marker
+  genes.
 
-* Interpret groups of marker genes together rather than relying on a
-  single marker gene.
+* Do not infer biological identity from a single marker.
 
-* Do not treat marker genes as definitive cell-type labels.
+* Interpret marker patterns cautiously and in groups.
 
-* Do not force the selected experiment toward a predetermined number
-  of clusters.
+* Do not treat shared markers as automatic evidence that two clusters
+  are the same population.
 
-* A higher or lower number of clusters alone does not determine which
-  experiment is preferable.
+* Do not treat different markers as proof that two clusters are
+  biologically distinct.
 
-* Marker-gene evidence should be interpreted together with intrinsic
-  and structural evidence rather than treated as an absolute rule.
+* Do not describe clusters as duplicated or redundant solely from
+  overlapping marker genes.
+
+* Do not treat small clusters as biologically meaningful solely
+  because recognizable markers are present.
+
+* Do not treat small clusters as artifacts solely because they are
+  small.
+
+* Technical, stress-related, proliferative, mitochondrial,
+  housekeeping, spike-in, or other state-associated signals should
+  not by themselves be interpreted as distinct biological
+  populations.
+
+Use cautious language such as "consistent with", "suggestive of",
+"compatible with", or "uncertain".
+
+If biological evidence is ambiguous, state that it is ambiguous.
+
+OVER-FRAGMENTATION:
+
+A higher-resolution experiment should not be preferred simply because
+it produces more biologically interpretable clusters.
+
+A lower-resolution experiment should not be preferred simply because
+it produces fewer clusters.
+
+Additional clusters may be beneficial when supported by improved
+intrinsic evidence and reasonable cluster structure.
+
+If additional clusters provide little intrinsic improvement and
+mainly introduce very small or weakly supported groups, this may
+provide evidence for over-fragmentation.
+
+Do not use biological marker patterns to manufacture a justification
+for additional clusters.
 
 OVERALL COMPARISON:
 
-* First identify the experiment with the strongest intrinsic
-  clustering evidence.
+Evaluate the experiments in this order:
 
-* Then identify which experiments provide the most reasonable cluster
-  structure.
+1. Compare intrinsic clustering evidence.
 
-* Then identify which experiment provides the strongest biological
-  interpretation based on the available marker-gene evidence.
+2. Compare cluster structure and potential fragmentation.
 
-* These three preferences do not have to point to the same experiment.
+3. Determine whether marker-gene evidence provides:
+   - supporting evidence,
+   - contradictory evidence, or
+   - no meaningful additional evidence.
 
-* If the intrinsic-metric winner differs from the biologically
-  preferred experiment, explicitly explain why.
+Biological evidence does not have to agree with the intrinsic
+metric winner.
 
-* Do not artificially force agreement between intrinsic metrics,
-  cluster structure, and biological evidence.
+If biological evidence conflicts with intrinsic evidence, describe
+the conflict explicitly.
 
-* Select the experiment that provides the strongest overall scientific
-  evidence, considering the trade-offs between these three types of
-  evidence.
+Do not allow biological plausibility alone to overturn substantially
+stronger intrinsic evidence.
 
-* When experiments differ in resolution, explicitly consider the
-  trade-off between finer clustering and the possibility of
-  over-partitioning.
-
-* A higher-resolution experiment should be preferred over a
-  lower-resolution experiment only when the additional granularity is
-  sufficiently supported by the combined intrinsic, structural, and
-  biological evidence.
-
-* If the higher-resolution experiment provides only a marginal
-  improvement in intrinsic metrics but substantially increases the
-  number of weakly supported or very small clusters, this should count
-  as evidence against selecting the higher-resolution configuration.
-
-* Do not select an experiment solely because it has:
-    * the highest Silhouette Score,
-    * the lowest Davies-Bouldin Index,
-    * the lowest WC-dispersion,
-    * the lowest Banfield-Raftery score,
-    * the fewest clusters,
-    * or the most clusters.
+If the intrinsic-metric winner also has reasonable cluster structure
+and there is no strong contradictory evidence, prefer it.
 
 FINAL DECISION:
 
-* Select exactly one completed experiment.
+Select exactly one completed experiment.
 
-* Return the iteration number of the selected experiment.
+In the reasoning, explicitly state:
 
-* In your reasoning, explicitly state:
+1. Which experiment has the strongest overall intrinsic evidence.
 
-    1. Which experiment has the strongest intrinsic metrics.
+2. Which experiment has the most reasonable cluster structure.
 
-    2. Which experiment has the most reasonable cluster structure.
+3. Whether the biological evidence provides:
+   - supporting evidence,
+   - contradictory evidence, or
+   - no meaningful additional evidence.
 
-    3. Which experiment has the strongest biological interpretation.
+4. Which experiment is ultimately selected.
 
-    4. Which experiment you ultimately selected.
+5. If the final selection differs from the strongest intrinsic
+   candidate, explain the structural evidence or other strong evidence
+   that justifies the difference.
 
-    5. If the final selection differs from the intrinsic-metric winner,
-       explain the scientific trade-off that justifies the difference.
+Do not select an experiment solely because it has:
 
-* Briefly explain why the selected experiment provides the strongest
-  overall evidence compared with the alternatives.
+* the highest Silhouette Score;
+* the lowest Davies-Bouldin Index;
+* the lowest WC-dispersion;
+* the lowest Banfield-Raftery score;
+* the fewest clusters;
+* the most clusters; or
+* the most recognizable biological marker genes.
+
+Return only one completed iteration as the final selection.
 """
-

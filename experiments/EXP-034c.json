@@ -1,0 +1,383 @@
+{
+  "experiment_id": "EXP-034c",
+  "date": "2026-10-03T14:28:21.926980",
+  "dataset": "Muraro",
+  "method": "agentic_no_biology",
+  "condition": "no_biology",
+  "agent_version": "v0.6-reproducibility",
+  "llm_seed": 5,
+  "change": "Applied the existing agentic optimization framework to the Muraro human pancreas scRNA-seq dataset as an external generalization experiment.",
+  "reason_for_change": "To reduce the number of biological infromation the LLM gets",
+  "iterations": [
+    {
+      "iteration": 0,
+      "parameters": {
+        "n_neighbors": 15,
+        "resolution": 1.0,
+        "n_pcs": 20
+      },
+      "metrics": {
+        "silhouette_score": 0.17319414019584656,
+        "davies_bouldin_score": 1.6795932797328401,
+        "wc_dispersion_score": 572764.125,
+        "banfield_raftery_score": 13277.4697265625
+      },
+      "cluster_structure": {
+        "n_clusters": 19,
+        "cluster_sizes": {
+          "0": 248,
+          "1": 255,
+          "2": 22,
+          "3": 196,
+          "4": 254,
+          "5": 148,
+          "6": 261,
+          "7": 192,
+          "8": 22,
+          "9": 233,
+          "10": 44,
+          "11": 6,
+          "12": 92,
+          "13": 159,
+          "14": 83,
+          "15": 202,
+          "16": 10,
+          "17": 142,
+          "18": 111
+        },
+        "largest_cluster_size": 261,
+        "largest_cluster_fraction": 0.09738805970149254,
+        "number_of_small_clusters": 5,
+        "small_clusters": {
+          "2": 22,
+          "8": 22,
+          "10": 44,
+          "11": 6,
+          "16": 10
+        }
+      },
+      "clustering_time_seconds": 7.194549875042867,
+      "evaluation_time_seconds": 0.1159756249981001,
+      "decision": {
+        "decision": "continue",
+        "parameters": {
+          "n_neighbors": 15,
+          "resolution": 0.8,
+          "n_pcs": 20
+        },
+        "reason": "Current solution shows modest separation (silhouette 0.173, DB 1.68) with 5 small clusters including very small ones (sizes 6 and 10), suggesting over-fragmentation. Lowering resolution should merge overly small clusters and may improve silhouette/DBI. Keep n_neighbors and n_pcs fixed to isolate resolution\u2019s effect.",
+        "llm_decision_time_seconds": 29.062557791010477
+      }
+    },
+    {
+      "iteration": 1,
+      "parameters": {
+        "n_neighbors": 15,
+        "resolution": 0.8,
+        "n_pcs": 20
+      },
+      "metrics": {
+        "silhouette_score": 0.24003678560256958,
+        "davies_bouldin_score": 1.2671507069630585,
+        "wc_dispersion_score": 606729.3125,
+        "banfield_raftery_score": 13537.513671875
+      },
+      "cluster_structure": {
+        "n_clusters": 15,
+        "cluster_sizes": {
+          "0": 248,
+          "1": 362,
+          "2": 22,
+          "3": 196,
+          "4": 407,
+          "5": 261,
+          "6": 280,
+          "7": 277,
+          "8": 6,
+          "9": 83,
+          "10": 254,
+          "11": 10,
+          "12": 142,
+          "13": 111,
+          "14": 21
+        },
+        "largest_cluster_size": 407,
+        "largest_cluster_fraction": 0.15186567164179104,
+        "number_of_small_clusters": 4,
+        "small_clusters": {
+          "2": 22,
+          "8": 6,
+          "11": 10,
+          "14": 21
+        }
+      },
+      "clustering_time_seconds": 2.661418167001102,
+      "evaluation_time_seconds": 0.07285437500104308,
+      "decision": {
+        "decision": "continue",
+        "parameters": {
+          "n_neighbors": 15,
+          "resolution": 0.6,
+          "n_pcs": 20
+        },
+        "reason": "Lowering resolution from 1.0 to 0.8 substantially improved silhouette (0.173\u21920.240) and Davies\u2013Bouldin (1.68\u21921.27) and reduced over-fragmentation, but several very small clusters remain and silhouette is moderate. A further controlled decrease in resolution to 0.6 (keeping n_neighbors and n_pcs fixed) is a focused test likely to merge spurious fragments and potentially improve separation without clear risk of under-clustering (largest cluster only 15%).",
+        "llm_decision_time_seconds": 34.59209137497237
+      }
+    },
+    {
+      "iteration": 2,
+      "parameters": {
+        "n_neighbors": 15,
+        "resolution": 0.6,
+        "n_pcs": 20
+      },
+      "metrics": {
+        "silhouette_score": 0.23794838786125183,
+        "davies_bouldin_score": 1.2484832786155962,
+        "wc_dispersion_score": 606259.4375,
+        "banfield_raftery_score": 13522.943359375
+      },
+      "cluster_structure": {
+        "n_clusters": 15,
+        "cluster_sizes": {
+          "0": 248,
+          "1": 423,
+          "2": 6,
+          "3": 22,
+          "4": 196,
+          "5": 407,
+          "6": 261,
+          "7": 280,
+          "8": 277,
+          "9": 83,
+          "10": 193,
+          "11": 10,
+          "12": 21,
+          "13": 142,
+          "14": 111
+        },
+        "largest_cluster_size": 423,
+        "largest_cluster_fraction": 0.1578358208955224,
+        "number_of_small_clusters": 4,
+        "small_clusters": {
+          "2": 6,
+          "3": 22,
+          "11": 10,
+          "12": 21
+        }
+      },
+      "clustering_time_seconds": 2.704502417007461,
+      "evaluation_time_seconds": 0.07289499999023974,
+      "decision": {
+        "decision": "continue",
+        "parameters": {
+          "n_neighbors": 30,
+          "resolution": 0.6,
+          "n_pcs": 20
+        },
+        "reason": "Lowering resolution from 1.0 to 0.6 improved separation (higher silhouette, lower DBI), with 0.6 slightly better than 0.8, but several very small clusters remain. Increasing n_neighbors should smooth the graph, potentially improving cohesion and reducing tiny clusters while keeping resolution and PCs fixed to isolate the effect.",
+        "llm_decision_time_seconds": 25.058751083968673
+      }
+    },
+    {
+      "iteration": 3,
+      "parameters": {
+        "n_neighbors": 30,
+        "resolution": 0.6,
+        "n_pcs": 20
+      },
+      "metrics": {
+        "silhouette_score": 0.23418164253234863,
+        "davies_bouldin_score": 1.367312842909323,
+        "wc_dispersion_score": 665609.875,
+        "banfield_raftery_score": 13761.4033203125
+      },
+      "cluster_structure": {
+        "n_clusters": 12,
+        "cluster_sizes": {
+          "0": 619,
+          "1": 22,
+          "2": 196,
+          "3": 430,
+          "4": 258,
+          "5": 281,
+          "6": 279,
+          "7": 60,
+          "8": 251,
+          "9": 31,
+          "10": 142,
+          "11": 111
+        },
+        "largest_cluster_size": 619,
+        "largest_cluster_fraction": 0.23097014925373135,
+        "number_of_small_clusters": 2,
+        "small_clusters": {
+          "1": 22,
+          "9": 31
+        }
+      },
+      "clustering_time_seconds": 4.325571375025902,
+      "evaluation_time_seconds": 0.09576862497488037,
+      "decision": {
+        "decision": "continue",
+        "parameters": {
+          "n_neighbors": 15,
+          "resolution": 0.6,
+          "n_pcs": 30
+        },
+        "reason": "n_neighbors=15 with resolution 0.6\u20130.8 gave the strongest overall intrinsic metrics; raising n_neighbors to 30 degraded silhouette, DB, WC, and BR and increased dominance. To seek potential improvement without over-fragmentation, vary only n_pcs (to 30) while keeping the better-performing n_neighbors and resolution fixed to isolate the effect of additional variance.",
+        "llm_decision_time_seconds": 49.728454041993245
+      }
+    },
+    {
+      "iteration": 4,
+      "parameters": {
+        "n_neighbors": 15,
+        "resolution": 0.6,
+        "n_pcs": 30
+      },
+      "metrics": {
+        "silhouette_score": 0.24295319616794586,
+        "davies_bouldin_score": 1.2268945943582592,
+        "wc_dispersion_score": 607114.0,
+        "banfield_raftery_score": 13550.4892578125
+      },
+      "cluster_structure": {
+        "n_clusters": 15,
+        "cluster_sizes": {
+          "0": 433,
+          "1": 231,
+          "2": 22,
+          "3": 195,
+          "4": 430,
+          "5": 258,
+          "6": 281,
+          "7": 111,
+          "8": 201,
+          "9": 6,
+          "10": 281,
+          "11": 58,
+          "12": 10,
+          "13": 143,
+          "14": 20
+        },
+        "largest_cluster_size": 433,
+        "largest_cluster_fraction": 0.16156716417910447,
+        "number_of_small_clusters": 4,
+        "small_clusters": {
+          "2": 22,
+          "9": 6,
+          "12": 10,
+          "14": 20
+        }
+      },
+      "clustering_time_seconds": 2.708725249976851,
+      "evaluation_time_seconds": 0.08216329198330641,
+      "decision": {
+        "decision": "continue",
+        "parameters": {
+          "n_neighbors": 15,
+          "resolution": 0.7,
+          "n_pcs": 30
+        },
+        "reason": "The current configuration (15, 0.6, 30) yields the best separation metrics so far (highest silhouette, lowest Davies-Bouldin) with a reasonable cluster structure. With one experiment left, a focused test varying only resolution around this apparent optimum is most informative. Increasing resolution slightly to 0.7 at the same n_neighbors and n_pcs may improve separation further without excessive fragmentation, while keeping other parameters fixed isolates the effect of resolution.",
+        "llm_decision_time_seconds": 42.4172035829979
+      }
+    },
+    {
+      "iteration": 5,
+      "parameters": {
+        "n_neighbors": 15,
+        "resolution": 0.7,
+        "n_pcs": 30
+      },
+      "metrics": {
+        "silhouette_score": 0.23513545095920563,
+        "davies_bouldin_score": 1.254975804182084,
+        "wc_dispersion_score": 606711.75,
+        "banfield_raftery_score": 13548.5380859375
+      },
+      "cluster_structure": {
+        "n_clusters": 15,
+        "cluster_sizes": {
+          "0": 434,
+          "1": 22,
+          "2": 195,
+          "3": 403,
+          "4": 258,
+          "5": 281,
+          "6": 202,
+          "7": 229,
+          "8": 281,
+          "9": 6,
+          "10": 85,
+          "11": 10,
+          "12": 143,
+          "13": 111,
+          "14": 20
+        },
+        "largest_cluster_size": 434,
+        "largest_cluster_fraction": 0.1619402985074627,
+        "number_of_small_clusters": 4,
+        "small_clusters": {
+          "1": 22,
+          "9": 6,
+          "11": 10,
+          "14": 20
+        }
+      },
+      "clustering_time_seconds": 2.654861917020753,
+      "evaluation_time_seconds": 0.07273529103258625
+    }
+  ],
+  "termination_reason": "maximum_experiments_reached",
+  "total_runtime_seconds": 237.05765720800264,
+  "final_result": {
+    "termination_reason": "maximum_experiments_reached",
+    "best_iteration": 4,
+    "best_parameters": {
+      "n_neighbors": 15,
+      "resolution": 0.6,
+      "n_pcs": 30
+    },
+    "best_metrics": {
+      "n_neighbors": 15,
+      "resolution": 0.6,
+      "n_pcs": 30,
+      "random_state": 42,
+      "n_clusters": 15,
+      "cluster_sizes": {
+        "0": 433,
+        "1": 231,
+        "2": 22,
+        "3": 195,
+        "4": 430,
+        "5": 258,
+        "6": 281,
+        "7": 111,
+        "8": 201,
+        "9": 6,
+        "10": 281,
+        "11": 58,
+        "12": 10,
+        "13": 143,
+        "14": 20
+      },
+      "largest_cluster_size": 433,
+      "largest_cluster_fraction": 0.16156716417910447,
+      "number_of_small_clusters": 4,
+      "small_clusters": {
+        "2": 22,
+        "9": 6,
+        "12": 10,
+        "14": 20
+      },
+      "silhouette_score": 0.24295319616794586,
+      "davies_bouldin_score": 1.2268945943582592,
+      "wc_dispersion_score": 607114.0,
+      "banfield_raftery_score": 13550.4892578125
+    },
+    "final_selection_reason": "Iteration 4 provides the strongest overall intrinsic evidence: it achieves the highest Silhouette (0.2429) and the lowest Davies\u2013Bouldin (1.2269), indicating the best combination of separation and compactness. Its WC-dispersion is comparable to the other 15-cluster solutions, avoiding the misleadingly low dispersion seen with the over-fragmented 19-cluster run (iteration 0). While its Banfield\u2013Raftery score is slightly higher than some alternatives, the difference is minor and outweighed by clear gains in Silhouette and DB. Structurally, it maintains 15 clusters with a manageable number of small clusters and no overly dominant cluster, offering a balanced partition compared with the under-clustered 12-cluster solution (iteration 3).",
+    "final_selection_time_seconds": 29.77696512499824
+  }
+}
