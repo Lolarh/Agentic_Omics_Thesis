@@ -1,7 +1,11 @@
 import numpy as np
 from itertools import combinations
-from sklearn.metrics import adjusted_rand_score
+from sklearn.metrics import (
+    adjusted_rand_score,
+    normalized_mutual_info_score,
+)
 from src.clustering import run_clustering
+from scipy.optimize import linear_sum_assignment
 
 
 def run_stability_analysis(
@@ -64,12 +68,33 @@ def calculate_pairwise_ari(assignments):
 
     return ari_scores
 
+def calculate_pairwise_nmi(assignments):
+    """
+    Calculate pairwise Normalized Mutual Information (NMI)
+    between repeated clustering runs.
+    """
 
+    nmi_scores = []
+
+    for i, j in combinations(range(len(assignments)), 2):
+
+        nmi = normalized_mutual_info_score(
+            assignments[i],
+            assignments[j],
+        )
+
+        nmi_scores.append(nmi)
+
+    return nmi_scores
+    
 
 def calculate_cluster_jaccard(assignments, reference_run=0):
     """
-    Match clusters from other runs to clusters in a reference run
-    using Jaccard similarity of cell memberships.
+    Calculate cluster-level Jaccard similarity between
+    a reference clustering and all other runs.
+
+    Clusters are matched one-to-one using the Hungarian
+    assignment algorithm to maximize total Jaccard similarity.
     """
 
     reference_labels = assignments[reference_run]
@@ -82,31 +107,100 @@ def calculate_cluster_jaccard(assignments, reference_run=0):
         if run_index == reference_run:
             continue
 
-        for reference_cluster in reference_clusters:
+        candidate_clusters = np.unique(labels)
 
-            reference_cells = set(np.where(reference_labels == reference_cluster)[0])
+        # Jaccard similarity matrix
+        jaccard_matrix = np.zeros(
+            (len(reference_clusters), len(candidate_clusters))
+        )
 
-            best_match = None
-            best_jaccard = 0.0
+        for i, reference_cluster in enumerate(reference_clusters):
 
-            for candidate_cluster in np.unique(labels):
+            reference_cells = set(
+                np.where(reference_labels == reference_cluster)[0]
+            )
 
-                candidate_cells = set(np.where(labels == candidate_cluster)[0])
+            for j, candidate_cluster in enumerate(candidate_clusters):
 
-                intersection = len(reference_cells & candidate_cells)
+                candidate_cells = set(
+                    np.where(labels == candidate_cluster)[0]
+                )
 
-                union = len(reference_cells | candidate_cells)
+                intersection = len(
+                    reference_cells & candidate_cells
+                )
 
-                jaccard = intersection / union
+                union = len(
+                    reference_cells | candidate_cells
+                )
 
-                if jaccard > best_jaccard:
-                    best_jaccard = jaccard
-                    best_match = candidate_cluster
+                jaccard_matrix[i, j] = (
+                    intersection / union
+                    if union > 0 else 0
+                )
+
+        # Hungarian algorithm maximizes Jaccard
+        row_ind, col_ind = linear_sum_assignment(
+            -jaccard_matrix
+        )
+
+        for i, j in zip(row_ind, col_ind):
 
             results.append({
                 "run": run_index,
-                "reference_cluster": reference_cluster,
-                "matched_cluster": best_match,
-                "jaccard": best_jaccard,})
+                "reference_cluster": reference_clusters[i],
+                "matched_cluster": candidate_clusters[j],
+                "jaccard": jaccard_matrix[i, j],
+            })
 
     return results
+
+
+def calculate_ari_vs_reference(
+    assignments,
+    reference_index=0
+):
+    """
+    Calculate ARI of each clustering relative to
+    a reference clustering.
+    """
+
+    reference_labels = assignments[reference_index]
+
+    ari_scores = []
+
+    for labels in assignments:
+
+        ari = adjusted_rand_score(
+            reference_labels,
+            labels
+        )
+
+        ari_scores.append(ari)
+
+    return ari_scores
+
+
+def calculate_nmi_vs_reference(
+    assignments,
+    reference_index=0
+):
+    """
+    Calculate NMI of each clustering relative to
+    a reference clustering.
+    """
+
+    reference_labels = assignments[reference_index]
+
+    nmi_scores = []
+
+    for labels in assignments:
+
+        nmi = normalized_mutual_info_score(
+            reference_labels,
+            labels
+        )
+
+        nmi_scores.append(nmi)
+
+    return nmi_scores

@@ -11,8 +11,9 @@ from src.no_biology_prompt import (
 )
 
 from src.wt_biology_prompts import (
-    build_reflection_prompt as build_biology_reflection_prompt,
-    build_final_selection_prompt as build_biology_final_selection_prompt,
+    build_biology_reflection_prompt,
+    build_biology_final_selection_prompt,
+    MURARO_BIOLOGICAL_CONTEXT, # change biology data context
 )
 
 from src.decision import (
@@ -29,7 +30,7 @@ from src.timing import start_timer, stop_timer
 # CONFIGURATION
 # -----------------------------------------------------
 
-MAX_ITERATIONS = 3
+MAX_ITERATIONS = 6
 MAX_LLM_ATTEMPTS = 3
 
 
@@ -151,9 +152,10 @@ def build_reflection_prompt(state: State):
     history_for_llm = [
         experiment
         for experiment in state["history"]
-        if experiment["iteration"] < state["iteration"]]
+        if experiment["iteration"] < state["iteration"]
+    ]
 
-    evaluated_configs = (state["evaluated_configs"].copy())
+    evaluated_configs = state["evaluated_configs"].copy()
 
     if state["condition"] == "biology":
 
@@ -162,7 +164,9 @@ def build_reflection_prompt(state: State):
             parameters,
             metrics,
             evaluated_configs,
-            MAX_ITERATIONS,)
+            MAX_ITERATIONS,
+            dataset_context=MURARO_BIOLOGICAL_CONTEXT, # change biology data context
+        )
 
     return build_no_biology_reflection_prompt(
         history_for_llm,
@@ -183,10 +187,11 @@ def build_final_selection_prompt(state: State):
 
     if state["condition"] == "biology":
 
-        return build_biology_final_selection_prompt(history)
+        return build_biology_final_selection_prompt(
+            history,
+            dataset_context=MURARO_BIOLOGICAL_CONTEXT,) # change biology data context
 
     return build_no_biology_final_selection_prompt(history)
-
 
 # -----------------------------------------------------
 # CLUSTERING NODE
