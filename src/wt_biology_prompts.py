@@ -1,32 +1,3 @@
-MURARO_BIOLOGICAL_CONTEXT = """
-DATASET-SPECIFIC BIOLOGICAL CONTEXT:
-
-The dataset is the Muraro human pancreas single-cell RNA-seq
-dataset.
-
-The dataset contains heterogeneous pancreatic cell populations
-spanning multiple broad biological compartments.
-
-Broad knowledge of pancreatic biology may be used only as contextual
-information when interpreting the supplied marker-gene patterns.
-
-Do not use a predefined list of pancreatic cell types as optimization
-targets.
-
-Do not assume that every known pancreatic population must appear as a
-separate cluster.
-
-Do not force the clustering toward a predetermined number of
-clusters or biological populations.
-
-Do not infer the identity of an individual cluster unless the
-supplied marker-gene pattern provides reasonable supporting evidence.
-
-The biological context does not establish the identity of any
-individual cluster and must not be treated as ground-truth
-annotation.
-"""
-
 
 PBMC3K_BIOLOGICAL_CONTEXT = """
 DATASET-SPECIFIC BIOLOGICAL CONTEXT:
@@ -141,11 +112,8 @@ metric in isolation.
 
 * WC-dispersion provides evidence about within-cluster dispersion.
 
-* Banfield-Raftery provides an additional intrinsic clustering
-  criterion.
-
-Metric values must be interpreted relative to the other evaluated
-configurations rather than in isolation.
+* Metric values must be interpreted relative to the other evaluated
+  configurations rather than in isolation.
 
 When metrics disagree, explicitly acknowledge the trade-off.
 
@@ -426,8 +394,6 @@ Consider the intrinsic metrics together.
 
 * WC-dispersion: lower values generally indicate lower
   within-cluster dispersion.
-
-* Banfield-Raftery: use as an additional intrinsic criterion.
 
 Do not select an experiment based on a single metric.
 

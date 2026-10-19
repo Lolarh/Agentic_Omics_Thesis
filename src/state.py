@@ -14,7 +14,6 @@ class Metrics(TypedDict, total=False):
     silhouette_score: float
     davies_bouldin_score: float
     wc_dispersion_score: float
-    banfield_raftery_score: float
     n_clusters: int
     cluster_sizes: dict
     largest_cluster_size: int
@@ -52,7 +51,18 @@ class State(TypedDict):
     # "biology" = optimization with biological evidence
     condition: str
 
+    # Fixed Leiden random seed for reproducible clustering
+    leiden_seed: int
+
+    dataset_context: str
+
+    cluster_assignments: dict[int, list[str]]
+
     metrics: Metrics
+
+    # Evaluation metadata
+    metric_embedding: str
+    metric_n_pcs: int
 
     # Stores every experiment performed by the agent
     history: list[Experiment]

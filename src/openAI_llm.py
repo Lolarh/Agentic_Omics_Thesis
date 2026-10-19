@@ -1,6 +1,6 @@
 from langchain_openai import ChatOpenAI
 
-LLM_SEED = 3
+LLM_SEED = 42
 
 llm = ChatOpenAI(
     model="gpt-5",

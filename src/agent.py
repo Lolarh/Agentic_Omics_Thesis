@@ -11,8 +11,9 @@ from src.no_biology_prompt import (
 )
 
 from src.wt_biology_prompts import (
-    build_reflection_prompt as build_biology_reflection_prompt,
-    build_final_selection_prompt as build_biology_final_selection_prompt,
+    build_biology_reflection_prompt,
+    build_biology_final_selection_prompt,
+    PBMC3K_BIOLOGICAL_CONTEXT,
 )
 
 from src.decision import (
@@ -29,8 +30,9 @@ from src.timing import start_timer, stop_timer
 # CONFIGURATION
 # -----------------------------------------------------
 
-MAX_ITERATIONS = 3
+MAX_ITERATIONS = 16
 MAX_LLM_ATTEMPTS = 3
+MAX_FINAL_SELECTION_ATTEMPTS = 3
 
 
 # -----------------------------------------------------
@@ -151,18 +153,23 @@ def build_reflection_prompt(state: State):
     history_for_llm = [
         experiment
         for experiment in state["history"]
-        if experiment["iteration"] < state["iteration"]]
+        if experiment["iteration"] < state["iteration"]
+    ]
 
-    evaluated_configs = (state["evaluated_configs"].copy())
+    evaluated_configs = state["evaluated_configs"].copy()
 
     if state["condition"] == "biology":
+        dataset_context = state["dataset_context"]
 
         return build_biology_reflection_prompt(
             history_for_llm,
             parameters,
             metrics,
             evaluated_configs,
-            MAX_ITERATIONS,)
+            MAX_ITERATIONS,
+            dataset_context=state["dataset_context"],
+        )
+
 
     return build_no_biology_reflection_prompt(
         history_for_llm,
@@ -171,6 +178,7 @@ def build_reflection_prompt(state: State):
         evaluated_configs,
         MAX_ITERATIONS,
     )
+
 
 
 def build_final_selection_prompt(state: State):
@@ -182,48 +190,57 @@ def build_final_selection_prompt(state: State):
     history = state["history"]
 
     if state["condition"] == "biology":
+        dataset_context = state["dataset_context"]
 
-        return build_biology_final_selection_prompt(history)
+        return build_biology_final_selection_prompt(
+            history,
+            dataset_context=state["dataset_context"],
+        )
 
     return build_no_biology_final_selection_prompt(history)
-
 
 # -----------------------------------------------------
 # CLUSTERING NODE
 # -----------------------------------------------------
 
+
 def cluster_node(state: State):
     """
     Run Leiden clustering using the current parameters
-    and measure clustering runtime.
+    and the fixed seed assigned to this agent run.
     """
 
     start_time = time.perf_counter()
 
     adata = state["adata"]
     parameters = state["parameters"]
+    leiden_seed = state["leiden_seed"]
 
     adata = run_clustering(
         adata,
         n_neighbors=parameters["n_neighbors"],
         resolution=parameters["resolution"],
-        n_pcs=parameters["n_pcs"],)
+        n_pcs=parameters["n_pcs"],
+        random_state=leiden_seed,
+    )
 
-    clustering_time = (time.perf_counter() - start_time)
+    clustering_time = time.perf_counter() - start_time
 
     return {
         "adata": adata,
-        "clustering_time": clustering_time,}
+        "clustering_time": clustering_time,
+    }
 
 
 # -----------------------------------------------------
 # EVALUATION NODE
 # -----------------------------------------------------
 
+
 def evaluate_node(state: State):
     """
-    Evaluate the current clustering and store the
-    resulting experiment in the history and experiment log.
+    Evaluate the current clustering and store experiment
+    metadata, metrics, and cell-level labels separately.
     """
 
     adata = state["adata"]
@@ -234,25 +251,41 @@ def evaluate_node(state: State):
 
     start_time = start_timer()
 
-    include_markers = (state["condition"] == "biology")
+    include_markers = state["condition"] == "biology"
 
     metrics = evaluate_clustering(
         adata,
-        include_markers=include_markers,)
+        include_markers=include_markers,
+    )
 
     evaluation_time = stop_timer(start_time)
 
     # --------------------------------------------------------
     # Create experiment history entry
+    # Keep this lightweight for LLM prompts.
     # --------------------------------------------------------
 
     experiment = {
         "iteration": state["iteration"],
         "parameters": state["parameters"].copy(),
-        "metrics": metrics,}
+        "metrics": metrics,
+    }
 
     history = state["history"].copy()
     history.append(experiment)
+
+    # --------------------------------------------------------
+    # Store cell-level cluster assignments separately
+    # --------------------------------------------------------
+
+    cluster_assignments = state["cluster_assignments"].copy()
+
+    cluster_assignments[state["iteration"]] = (
+        adata.obs["leiden"]
+        .astype(str)
+        .to_numpy()
+        .tolist()
+    )
 
     # --------------------------------------------------------
     # Create detailed iteration log
@@ -260,28 +293,22 @@ def evaluate_node(state: State):
 
     iteration_log = {
         "iteration": state["iteration"],
+        "leiden_seed": state["leiden_seed"],
+        "parameters": state["parameters"].copy(),
 
-        "parameters": (state["parameters"].copy()),
-
-        "metrics": {
-            "silhouette_score": (metrics["silhouette_score"]),
-            "davies_bouldin_score": (metrics["davies_bouldin_score"]),
-            "wc_dispersion_score": (metrics["wc_dispersion_score"]),
-            "banfield_raftery_score": (metrics["banfield_raftery_score"]),
-        },
+        "metrics": metrics.copy(),
 
         "cluster_structure": {
             "n_clusters": metrics["n_clusters"],
-            "cluster_sizes": (metrics["cluster_sizes"]),
-            "largest_cluster_size": (metrics["largest_cluster_size"]),
-            "largest_cluster_fraction": (metrics["largest_cluster_fraction"]),
-            "number_of_small_clusters": (metrics["number_of_small_clusters"]),
-            "small_clusters": (metrics["small_clusters"]),
+            "cluster_sizes": metrics["cluster_sizes"],
+            "largest_cluster_size": metrics["largest_cluster_size"],
+            "largest_cluster_fraction": metrics["largest_cluster_fraction"],
+            "number_of_small_clusters": metrics["number_of_small_clusters"],
+            "small_clusters": metrics["small_clusters"],
         },
 
-        "clustering_time_seconds": (state["clustering_time"]),
-
-        "evaluation_time_seconds": (evaluation_time),
+        "clustering_time_seconds": state["clustering_time"],
+        "evaluation_time_seconds": evaluation_time,
     }
 
     # --------------------------------------------------------
@@ -289,15 +316,13 @@ def evaluate_node(state: State):
     # --------------------------------------------------------
 
     if state["condition"] == "biology":
-
-        iteration_log["marker_genes"] = (metrics["marker_genes"])
+        iteration_log["marker_genes"] = metrics["marker_genes"]
 
     # --------------------------------------------------------
     # Update experiment log
     # --------------------------------------------------------
 
-    experiment_log = (state["experiment_log"].copy())
-
+    experiment_log = state["experiment_log"].copy()
     experiment_log["iterations"].append(iteration_log)
 
     # --------------------------------------------------------
@@ -306,10 +331,9 @@ def evaluate_node(state: State):
 
     config_key = get_config_key(state["parameters"])
 
-    evaluated_configs = (state["evaluated_configs"].copy())
+    evaluated_configs = state["evaluated_configs"].copy()
 
     if config_key not in evaluated_configs:
-
         evaluated_configs.append(config_key)
 
     # --------------------------------------------------------
@@ -319,9 +343,11 @@ def evaluate_node(state: State):
     return {
         "metrics": metrics,
         "history": history,
+        "cluster_assignments": cluster_assignments,
         "evaluated_configs": evaluated_configs,
         "experiment_log": experiment_log,
-        "evaluation_time": evaluation_time,}
+        "evaluation_time": evaluation_time,
+    }
 
 
 # -----------------------------------------------------
@@ -407,17 +433,13 @@ def reflection_node(state: State):
         f"WC-dispersion: "
         f"{metrics['wc_dispersion_score']:.4f}")
 
-    print(
-        f"Banfield-Raftery: "
-        f"{metrics['banfield_raftery_score']:.4f}")
+    #if state["iteration"] == 0:
 
-    if state["iteration"] == 0:
+        #print("\n==============================")
+        #print("LLM PROMPT")
+        #print("==============================")
 
-        print("\n==============================")
-        print("LLM PROMPT")
-        print("==============================")
-
-        print(prompt)
+        #print(prompt)
 
     # -----------------------------------------------------
     # 4. REQUEST LLM DECISION
@@ -744,79 +766,82 @@ def final_selection_node(state: State):
         "experiments.")
 
     # -----------------------------------------------------
-    # 4. REQUEST FINAL LLM SELECTION
+    # 4. REQUEST AND VALIDATE FINAL LLM SELECTION
     # -----------------------------------------------------
 
-    start_time = start_timer()
-
-    final_decision = (final_selection_llm.invoke(prompt))
-
-    final_selection_time = (stop_timer(start_time))
-
-    # -----------------------------------------------------
-    # 5. VALIDATE FINAL LLM RESPONSE
-    # -----------------------------------------------------
-
-    if final_decision is None:
-
-        raise RuntimeError(
-            "The final selection LLM returned "
-            "no decision.")
-
-    selected_iteration = (final_decision.selected_iteration)
-
+    final_selection_time = 0.0
+    selected_iteration = None
+    selection_reason = None
+    final_decision = None
     available_iterations = {experiment["iteration"] for experiment in history}
+    last_selection_error = None
 
-    if (
-        selected_iteration
-        not in available_iterations
-    ):
+    for attempt in range(MAX_FINAL_SELECTION_ATTEMPTS):
+        try:
+            start_time = start_timer()
+            candidate_decision = final_selection_llm.invoke(prompt)
+            final_selection_time += stop_timer(start_time)
 
-        print("\n==============================")
-        print("INVALID FINAL SELECTION")
-        print("==============================")
+            if candidate_decision is None:
+                raise ValueError("The final selection LLM returned no decision.")
 
-        print(
-            f"LLM selected iteration "
-            f"{selected_iteration}, but this "
-            "iteration does not exist in the "
-            "completed experiment history."
+            candidate_iteration = candidate_decision.selected_iteration
+            if candidate_iteration not in available_iterations:
+                raise ValueError(
+                    f"The LLM selected iteration {candidate_iteration}, "
+                    "which is not present in the completed history."
+                )
+
+            final_decision = candidate_decision
+            selected_iteration = candidate_iteration
+            selection_reason = candidate_decision.reason
+            break
+
+        except Exception as exc:
+            last_selection_error = exc
+            print(
+                f"Final selection attempt {attempt + 1}/"
+                f"{MAX_FINAL_SELECTION_ATTEMPTS} failed: "
+                f"{type(exc).__name__}: {exc}"
+            )
+
+    # -----------------------------------------------------
+    # 5. DETERMINISTIC FALLBACK IF LLM SELECTION FAILS
+    # -----------------------------------------------------
+
+    if selected_iteration is None:
+        # Transparent fallback: highest silhouette, then lowest DBI,
+        # then earliest iteration. This is used only if all LLM attempts fail.
+        # It is not presented as independent biological validation.
+        def fallback_key(experiment):
+            metrics = experiment.get("metrics", {})
+            silhouette = metrics.get("silhouette_score")
+            dbi = metrics.get("davies_bouldin_score")
+
+            # Missing metrics rank below valid metric values.
+            silhouette_rank = (
+                float(silhouette) if silhouette is not None else float("-inf")
+            )
+            dbi_rank = float(dbi) if dbi is not None else float("inf")
+            return (
+                silhouette_rank,
+                -dbi_rank,
+                -int(experiment["iteration"]),
+            )
+
+        fallback_experiment = max(history, key=fallback_key)
+        selected_iteration = fallback_experiment["iteration"]
+        selection_reason = (
+            "Fallback selection used after "
+            f"{MAX_FINAL_SELECTION_ATTEMPTS} final-LLM attempts failed. "
+            "Rule: highest silhouette score, then lowest Davies-Bouldin "
+            "Index, then earliest iteration. Last error: "
+            f"{type(last_selection_error).__name__}: {last_selection_error}"
         )
+        print("\nFINAL LLM SELECTION FAILED; USING DOCUMENTED FALLBACK.")
+        print(selection_reason)
 
-        invalid_reason = (
-            "The LLM selected an iteration that "
-            "does not exist in the completed "
-            "experiment history."
-        )
-
-        experiment_log = (
-            state["experiment_log"].copy()
-        )
-
-        experiment_log = add_final_result(
-            experiment_log,
-            None,
-            final_selection_reason=(
-                invalid_reason
-            ),
-            final_selection_time=(
-                final_selection_time
-            ),
-        )
-
-        return {
-            "selected_iteration": None,
-            "best_experiment": None,
-            "final_selection_reason": (
-                invalid_reason
-            ),
-            "final_selection_time": (
-                final_selection_time
-            ),
-            "experiment_log": (
-                experiment_log
-            ),
-        }
+    final_selection_time = float(final_selection_time)
 
     # -----------------------------------------------------
     # 6. RETRIEVE SELECTED EXPERIMENT
@@ -849,7 +874,7 @@ def final_selection_node(state: State):
 
     print(
         f"Reason: "
-        f"{final_decision.reason}"
+        f"{selection_reason}"
     )
 
     print(
@@ -869,7 +894,7 @@ def final_selection_node(state: State):
         experiment_log,
         best_experiment,
         final_selection_reason=(
-            final_decision.reason
+            selection_reason
         ),
         final_selection_time=(
             final_selection_time
@@ -890,7 +915,7 @@ def final_selection_node(state: State):
         ),
 
         "final_selection_reason": (
-            final_decision.reason
+            selection_reason
         ),
 
         "final_selection_time": (
