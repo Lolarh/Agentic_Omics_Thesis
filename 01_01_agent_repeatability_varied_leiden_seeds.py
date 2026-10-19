@@ -1,23 +1,11 @@
 #!/usr/bin/env python3
-"""Smoke-test the biology-informed PBMC3k agent with candidate-specific PCA metrics.
-
+"""
 Run from the Agentic_Thesis project root:
-    python 01_01_agent_repeatability_candidate_pcs_smoke_test.py
+    python 01_01_agent_repeatability_varied_leiden_seeds.py
 
-Default smoke-test design:
-- Two independent executions, with at most two completed evaluations each
-- GPT-5 LLM seed = 42 (best-effort reproducibility, not a guarantee)
-- Leiden random_state varies by repeated run (one configured seed per run)
-- Candidate-specific evaluation uses the first n_pcs PCs for silhouette, DBI,
-  and within-cluster dispersion; metric_n_pcs is logged for interpretation
-- Cell IDs are saved beside selected and per-iteration labels for alignment
-
-After the smoke test succeeds, increase N_REPEATED_RUNS and
-MAX_AGENT_ITERATIONS below for the full repeatability experiment.
-
-This script creates a new timestamped output folder under experiments/ and
-never overwrites existing experiment records. It makes LLM API calls and may
-incur API costs.
+This script creates a new timestamped output folder and
+never overwrites existing experiment records. 
+It makes LLM API calls and may incur API costs.
 """
 from __future__ import annotations
 
@@ -234,7 +222,7 @@ def main() -> dict:
             agent_version=AGENT_VERSION,
             change="Agent repeatability with fixed seeds and candidate-specific PCA metric evaluation",
             reason_for_change=(
-                "Smoke-test the adaptive agent workflow while keeping the configured LLM seed, "
+                "Run adaptive agent workflow while keeping the configured LLM seed, "
                 "Leiden seed, initial parameters, dataset, and preprocessing fixed. Evaluation "
                 "metrics use the first n_pcs PCs specified by each candidate and log metric_n_pcs."
             ),
