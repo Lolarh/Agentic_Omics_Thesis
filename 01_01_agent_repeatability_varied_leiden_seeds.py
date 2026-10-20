@@ -21,7 +21,6 @@ from dotenv import load_dotenv
 load_dotenv(override=True)
 
 from langchain_openai import ChatOpenAI
-from langchain_core.callbacks import BaseCallbackHandler
 from src import data_load as dl
 from src import preprocessing_pipeline as prp
 from src import agent as agent_module
@@ -39,7 +38,7 @@ from src.wt_biology_prompts import PBMC3K_BIOLOGICAL_CONTEXT
 LEIDEN_SEEDS = [1, 2, 3, 7, 11, 17, 23, 42]
 N_REPEATED_RUNS = len(LEIDEN_SEEDS)
 LLM_SEED = 42
-MAX_AGENT_ITERATIONS = 16  
+MAX_AGENT_ITERATIONS = 16
 MODEL_NAME = "gpt-5"
 DATASET_NAME = "PBMC3k"
 CONDITION = "biology"
@@ -53,43 +52,12 @@ OUTPUT_ROOT = Path("experiments")
 TEMPERATURE = 0.0
 
 
-class FingerprintLoggingHandler(BaseCallbackHandler):
-    """Capture response metadata exposed by LangChain for each LLM call."""
-
-    def __init__(self):
-        self.current_run_index = None
-        self.records = []
-
-    def on_llm_end(self, response, **kwargs):
-        # Chat generations normally expose the raw provider metadata on the message.
-        for generation_group in getattr(response, "generations", []) or []:
-            for generation in generation_group or []:
-                message = getattr(generation, "message", None)
-                metadata = getattr(message, "response_metadata", {}) or {}
-                generation_info = getattr(generation, "generation_info", {}) or {}
-                llm_output = getattr(response, "llm_output", {}) or {}
-                fingerprint = (
-                    metadata.get("system_fingerprint")
-                    or generation_info.get("system_fingerprint")
-                    or llm_output.get("system_fingerprint")
-                )
-                self.records.append({
-                    "run_index": self.current_run_index,
-                    "system_fingerprint": fingerprint,
-                    "model_name": metadata.get("model_name") or llm_output.get("model_name"),
-                    "response_metadata_keys": sorted(str(key) for key in metadata.keys()),
-                    "generation_info_keys": sorted(str(key) for key in generation_info.keys()),
-                    "llm_output_keys": sorted(str(key) for key in llm_output.keys()),
-                })
-
-
-def configure_agent_for_this_run(fingerprint_handler) -> None:
+def configure_agent_for_this_run() -> None:
     """Configure the LLM client and agent budget without editing src files."""
     client = ChatOpenAI(
         model=MODEL_NAME,
         temperature=TEMPERATURE,
         seed=LLM_SEED,
-        callbacks=[fingerprint_handler],
     )
     agent_module.llm = client
     agent_module.structured_llm = client.with_structured_output(OptimizationDecision)
@@ -118,8 +86,7 @@ def _write_json(path: Path, data: dict) -> None:
 
 
 def main() -> dict:
-    fingerprint_handler = FingerprintLoggingHandler()
-    configure_agent_for_this_run(fingerprint_handler)
+    configure_agent_for_this_run()
 
     if N_REPEATED_RUNS < 2:
         raise ValueError("N_REPEATED_RUNS must be at least 2 for a repeatability experiment.")
@@ -208,7 +175,6 @@ def main() -> dict:
 
     for run_index in range(1, N_REPEATED_RUNS + 1):
         leiden_seed = LEIDEN_SEEDS[run_index - 1]
-        fingerprint_handler.current_run_index = run_index
         experiment_id = f"{run_id}_PBMC3k_AGENT_BIOLOGY_REPEAT_{run_index:02d}_LSEED_{leiden_seed:02d}"
         print("\n" + "=" * 72)
         print(f"Starting repeat {run_index}/{N_REPEATED_RUNS}: {experiment_id}")
@@ -258,7 +224,6 @@ def main() -> dict:
         }
 
         try:
-            fingerprint_handler.current_run_index = run_index
             result_run = graph.invoke(state_run)
             save_experiment_log(result_run["experiment_log"], output_dir=str(output_dir))
 
@@ -392,21 +357,6 @@ def main() -> dict:
         "successful_runs": successful_runs,
         "failed_runs": failed_runs,
     }
-    # Save all fingerprint metadata exposed by the installed LangChain integration.
-    # A null fingerprint means it was not present in the callback-visible response metadata.
-    fingerprint_records = fingerprint_handler.records
-    _write_json(output_dir / "llm_response_metadata.json", {
-        "note": (
-            "system_fingerprint is recorded only when exposed by LangChain response metadata. "
-            "A null value does not prove the provider omitted it; the installed integration may "
-            "not expose it through this callback."
-        ),
-        "n_llm_responses_observed": len(fingerprint_records),
-        "n_responses_with_fingerprint": sum(
-            record.get("system_fingerprint") is not None for record in fingerprint_records
-        ),
-        "records": fingerprint_records,
-    })
     _write_json(output_dir / "run_summary.json", summary)
 
     print("\n" + "=" * 72)
