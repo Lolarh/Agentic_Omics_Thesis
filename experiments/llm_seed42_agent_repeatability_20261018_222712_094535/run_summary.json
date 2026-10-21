@@ -1,0 +1,1723 @@
+{
+  "run_id": "llm_seed42_agent_repeatability_20261018_222712_094535",
+  "dataset": "PBMC3k",
+  "condition": "biology",
+  "agent_version": "v0.10-candidate-pcs-llm-seed42-repeatability",
+  "model": "gpt-5",
+  "llm_seed": 42,
+  "llm_seed_best_effort_only": true,
+  "leiden_seed_fixed": 42,
+  "max_completed_clustering_evaluations_per_run": 16,
+  "n_requested": 8,
+  "n_successful": 8,
+  "n_failed": 0,
+  "elapsed_seconds": 2676.715,
+  "successful_runs": [
+    {
+      "experiment_id": "llm_seed42_agent_repeatability_20261018_222712_094535_PBMC3k_AGENT_BIOLOGY_REPEAT_01_LSEED_42",
+      "run_index": 1,
+      "leiden_seed": 42,
+      "llm_seed": 42,
+      "selected_iteration": 6,
+      "selected_parameters": {
+        "n_neighbors": 20,
+        "resolution": 0.6,
+        "n_pcs": 25
+      },
+      "selected_metrics": {
+        "n_neighbors": 20,
+        "resolution": 0.6,
+        "n_pcs": 25,
+        "random_state": 42,
+        "n_clusters": 8,
+        "cluster_sizes": {
+          "0": 1168,
+          "1": 346,
+          "2": 474,
+          "3": 136,
+          "4": 311,
+          "5": 164,
+          "6": 26,
+          "7": 13
+        },
+        "largest_cluster_size": 1168,
+        "largest_cluster_fraction": 0.44275966641395,
+        "number_of_small_clusters": 2,
+        "small_clusters": {
+          "6": 26,
+          "7": 13
+        },
+        "metric_embedding": "X_pca",
+        "metric_n_pcs": 25,
+        "silhouette_score": 0.2296525090932846,
+        "davies_bouldin_score": 1.5219135493688616,
+        "wc_dispersion_score": 196028.453125,
+        "marker_genes": {
+          "0": [
+            "LTB",
+            "IL32",
+            "IL7R",
+            "MALAT1",
+            "CD2"
+          ],
+          "1": [
+            "CD74",
+            "HLA-DRA",
+            "CD79A",
+            "CD79B",
+            "HLA-DPB1"
+          ],
+          "2": [
+            "LYZ",
+            "S100A9",
+            "S100A8",
+            "TYROBP",
+            "FTL"
+          ],
+          "3": [
+            "NKG7",
+            "GZMB",
+            "PRF1",
+            "GNLY",
+            "CST7"
+          ],
+          "4": [
+            "CCL5",
+            "NKG7",
+            "GZMA",
+            "CST7",
+            "B2M"
+          ],
+          "5": [
+            "LST1",
+            "FCER1G",
+            "AIF1",
+            "COTL1",
+            "FCGR3A"
+          ],
+          "6": [
+            "HLA-DPA1",
+            "HLA-DPB1",
+            "HLA-DRB1",
+            "HLA-DRA",
+            "CST3"
+          ],
+          "7": [
+            "PF4",
+            "SDPR",
+            "GNG11",
+            "PPBP",
+            "NRGN"
+          ]
+        }
+      },
+      "n_cells": 2638,
+      "n_clusters": 8,
+      "n_evaluated_iterations": 8,
+      "saved_iterations": [
+        {
+          "iteration": 0,
+          "labels_file": "llm_seed42_agent_repeatability_20261018_222712_094535_PBMC3k_AGENT_BIOLOGY_REPEAT_01_LSEED_42_ITER_00_labels.npy",
+          "cell_ids_file": "llm_seed42_agent_repeatability_20261018_222712_094535_PBMC3k_AGENT_BIOLOGY_REPEAT_01_LSEED_42_ITER_00_cell_ids.npy",
+          "n_cells": 2638,
+          "n_clusters": 9,
+          "is_selected": false
+        },
+        {
+          "iteration": 1,
+          "labels_file": "llm_seed42_agent_repeatability_20261018_222712_094535_PBMC3k_AGENT_BIOLOGY_REPEAT_01_LSEED_42_ITER_01_labels.npy",
+          "cell_ids_file": "llm_seed42_agent_repeatability_20261018_222712_094535_PBMC3k_AGENT_BIOLOGY_REPEAT_01_LSEED_42_ITER_01_cell_ids.npy",
+          "n_cells": 2638,
+          "n_clusters": 9,
+          "is_selected": false
+        },
+        {
+          "iteration": 2,
+          "labels_file": "llm_seed42_agent_repeatability_20261018_222712_094535_PBMC3k_AGENT_BIOLOGY_REPEAT_01_LSEED_42_ITER_02_labels.npy",
+          "cell_ids_file": "llm_seed42_agent_repeatability_20261018_222712_094535_PBMC3k_AGENT_BIOLOGY_REPEAT_01_LSEED_42_ITER_02_cell_ids.npy",
+          "n_cells": 2638,
+          "n_clusters": 9,
+          "is_selected": false
+        },
+        {
+          "iteration": 3,
+          "labels_file": "llm_seed42_agent_repeatability_20261018_222712_094535_PBMC3k_AGENT_BIOLOGY_REPEAT_01_LSEED_42_ITER_03_labels.npy",
+          "cell_ids_file": "llm_seed42_agent_repeatability_20261018_222712_094535_PBMC3k_AGENT_BIOLOGY_REPEAT_01_LSEED_42_ITER_03_cell_ids.npy",
+          "n_cells": 2638,
+          "n_clusters": 8,
+          "is_selected": false
+        },
+        {
+          "iteration": 4,
+          "labels_file": "llm_seed42_agent_repeatability_20261018_222712_094535_PBMC3k_AGENT_BIOLOGY_REPEAT_01_LSEED_42_ITER_04_labels.npy",
+          "cell_ids_file": "llm_seed42_agent_repeatability_20261018_222712_094535_PBMC3k_AGENT_BIOLOGY_REPEAT_01_LSEED_42_ITER_04_cell_ids.npy",
+          "n_cells": 2638,
+          "n_clusters": 8,
+          "is_selected": false
+        },
+        {
+          "iteration": 5,
+          "labels_file": "llm_seed42_agent_repeatability_20261018_222712_094535_PBMC3k_AGENT_BIOLOGY_REPEAT_01_LSEED_42_ITER_05_labels.npy",
+          "cell_ids_file": "llm_seed42_agent_repeatability_20261018_222712_094535_PBMC3k_AGENT_BIOLOGY_REPEAT_01_LSEED_42_ITER_05_cell_ids.npy",
+          "n_cells": 2638,
+          "n_clusters": 9,
+          "is_selected": false
+        },
+        {
+          "iteration": 6,
+          "labels_file": "llm_seed42_agent_repeatability_20261018_222712_094535_PBMC3k_AGENT_BIOLOGY_REPEAT_01_LSEED_42_ITER_06_labels.npy",
+          "cell_ids_file": "llm_seed42_agent_repeatability_20261018_222712_094535_PBMC3k_AGENT_BIOLOGY_REPEAT_01_LSEED_42_ITER_06_cell_ids.npy",
+          "n_cells": 2638,
+          "n_clusters": 8,
+          "is_selected": true
+        },
+        {
+          "iteration": 7,
+          "labels_file": "llm_seed42_agent_repeatability_20261018_222712_094535_PBMC3k_AGENT_BIOLOGY_REPEAT_01_LSEED_42_ITER_07_labels.npy",
+          "cell_ids_file": "llm_seed42_agent_repeatability_20261018_222712_094535_PBMC3k_AGENT_BIOLOGY_REPEAT_01_LSEED_42_ITER_07_cell_ids.npy",
+          "n_cells": 2638,
+          "n_clusters": 8,
+          "is_selected": false
+        }
+      ],
+      "termination_reason": "llm_stop_decision",
+      "status": "success"
+    },
+    {
+      "experiment_id": "llm_seed42_agent_repeatability_20261018_222712_094535_PBMC3k_AGENT_BIOLOGY_REPEAT_02_LSEED_42",
+      "run_index": 2,
+      "leiden_seed": 42,
+      "llm_seed": 42,
+      "selected_iteration": 15,
+      "selected_parameters": {
+        "n_neighbors": 25,
+        "resolution": 1.1,
+        "n_pcs": 12
+      },
+      "selected_metrics": {
+        "n_neighbors": 25,
+        "resolution": 1.1,
+        "n_pcs": 12,
+        "random_state": 42,
+        "n_clusters": 11,
+        "cluster_sizes": {
+          "0": 92,
+          "1": 312,
+          "2": 541,
+          "3": 11,
+          "4": 344,
+          "5": 467,
+          "6": 157,
+          "7": 157,
+          "8": 498,
+          "9": 45,
+          "10": 14
+        },
+        "largest_cluster_size": 541,
+        "largest_cluster_fraction": 0.20507960576194087,
+        "number_of_small_clusters": 3,
+        "small_clusters": {
+          "3": 11,
+          "9": 45,
+          "10": 14
+        },
+        "metric_embedding": "X_pca",
+        "metric_n_pcs": 12,
+        "silhouette_score": 0.22892877459526062,
+        "davies_bouldin_score": 1.2494641478596782,
+        "wc_dispersion_score": 85592.03125,
+        "marker_genes": {
+          "0": [
+            "LTB",
+            "IL7R",
+            "CD2",
+            "IL32",
+            "AQP3"
+          ],
+          "1": [
+            "CCL5",
+            "NKG7",
+            "B2M",
+            "CST7",
+            "GZMA"
+          ],
+          "2": [
+            "IL32",
+            "LTB",
+            "IL7R",
+            "B2M",
+            "CD2"
+          ],
+          "3": [
+            "MALAT1",
+            "UBB",
+            "ERGIC3",
+            "FKBP5",
+            "NEMF"
+          ],
+          "4": [
+            "CD74",
+            "CD79A",
+            "HLA-DRA",
+            "CD79B",
+            "HLA-DPB1"
+          ],
+          "5": [
+            "S100A9",
+            "LYZ",
+            "S100A8",
+            "TYROBP",
+            "FTL"
+          ],
+          "6": [
+            "NKG7",
+            "GNLY",
+            "GZMB",
+            "CTSW",
+            "PRF1"
+          ],
+          "7": [
+            "LST1",
+            "FCER1G",
+            "AIF1",
+            "FCGR3A",
+            "COTL1"
+          ],
+          "8": [
+            "MALAT1",
+            "CD27",
+            "SELL",
+            "IL7R",
+            "NDFIP1"
+          ],
+          "9": [
+            "HLA-DPB1",
+            "HLA-DPA1",
+            "HLA-DRB1",
+            "CST3",
+            "HLA-DRA"
+          ],
+          "10": [
+            "PF4",
+            "PPBP",
+            "NRGN",
+            "GPX1",
+            "RGS18"
+          ]
+        }
+      },
+      "n_cells": 2638,
+      "n_clusters": 11,
+      "n_evaluated_iterations": 16,
+      "saved_iterations": [
+        {
+          "iteration": 0,
+          "labels_file": "llm_seed42_agent_repeatability_20261018_222712_094535_PBMC3k_AGENT_BIOLOGY_REPEAT_02_LSEED_42_ITER_00_labels.npy",
+          "cell_ids_file": "llm_seed42_agent_repeatability_20261018_222712_094535_PBMC3k_AGENT_BIOLOGY_REPEAT_02_LSEED_42_ITER_00_cell_ids.npy",
+          "n_cells": 2638,
+          "n_clusters": 9,
+          "is_selected": false
+        },
+        {
+          "iteration": 1,
+          "labels_file": "llm_seed42_agent_repeatability_20261018_222712_094535_PBMC3k_AGENT_BIOLOGY_REPEAT_02_LSEED_42_ITER_01_labels.npy",
+          "cell_ids_file": "llm_seed42_agent_repeatability_20261018_222712_094535_PBMC3k_AGENT_BIOLOGY_REPEAT_02_LSEED_42_ITER_01_cell_ids.npy",
+          "n_cells": 2638,
+          "n_clusters": 9,
+          "is_selected": false
+        },
+        {
+          "iteration": 2,
+          "labels_file": "llm_seed42_agent_repeatability_20261018_222712_094535_PBMC3k_AGENT_BIOLOGY_REPEAT_02_LSEED_42_ITER_02_labels.npy",
+          "cell_ids_file": "llm_seed42_agent_repeatability_20261018_222712_094535_PBMC3k_AGENT_BIOLOGY_REPEAT_02_LSEED_42_ITER_02_cell_ids.npy",
+          "n_cells": 2638,
+          "n_clusters": 9,
+          "is_selected": false
+        },
+        {
+          "iteration": 3,
+          "labels_file": "llm_seed42_agent_repeatability_20261018_222712_094535_PBMC3k_AGENT_BIOLOGY_REPEAT_02_LSEED_42_ITER_03_labels.npy",
+          "cell_ids_file": "llm_seed42_agent_repeatability_20261018_222712_094535_PBMC3k_AGENT_BIOLOGY_REPEAT_02_LSEED_42_ITER_03_cell_ids.npy",
+          "n_cells": 2638,
+          "n_clusters": 10,
+          "is_selected": false
+        },
+        {
+          "iteration": 4,
+          "labels_file": "llm_seed42_agent_repeatability_20261018_222712_094535_PBMC3k_AGENT_BIOLOGY_REPEAT_02_LSEED_42_ITER_04_labels.npy",
+          "cell_ids_file": "llm_seed42_agent_repeatability_20261018_222712_094535_PBMC3k_AGENT_BIOLOGY_REPEAT_02_LSEED_42_ITER_04_cell_ids.npy",
+          "n_cells": 2638,
+          "n_clusters": 10,
+          "is_selected": false
+        },
+        {
+          "iteration": 5,
+          "labels_file": "llm_seed42_agent_repeatability_20261018_222712_094535_PBMC3k_AGENT_BIOLOGY_REPEAT_02_LSEED_42_ITER_05_labels.npy",
+          "cell_ids_file": "llm_seed42_agent_repeatability_20261018_222712_094535_PBMC3k_AGENT_BIOLOGY_REPEAT_02_LSEED_42_ITER_05_cell_ids.npy",
+          "n_cells": 2638,
+          "n_clusters": 10,
+          "is_selected": false
+        },
+        {
+          "iteration": 6,
+          "labels_file": "llm_seed42_agent_repeatability_20261018_222712_094535_PBMC3k_AGENT_BIOLOGY_REPEAT_02_LSEED_42_ITER_06_labels.npy",
+          "cell_ids_file": "llm_seed42_agent_repeatability_20261018_222712_094535_PBMC3k_AGENT_BIOLOGY_REPEAT_02_LSEED_42_ITER_06_cell_ids.npy",
+          "n_cells": 2638,
+          "n_clusters": 10,
+          "is_selected": false
+        },
+        {
+          "iteration": 7,
+          "labels_file": "llm_seed42_agent_repeatability_20261018_222712_094535_PBMC3k_AGENT_BIOLOGY_REPEAT_02_LSEED_42_ITER_07_labels.npy",
+          "cell_ids_file": "llm_seed42_agent_repeatability_20261018_222712_094535_PBMC3k_AGENT_BIOLOGY_REPEAT_02_LSEED_42_ITER_07_cell_ids.npy",
+          "n_cells": 2638,
+          "n_clusters": 10,
+          "is_selected": false
+        },
+        {
+          "iteration": 8,
+          "labels_file": "llm_seed42_agent_repeatability_20261018_222712_094535_PBMC3k_AGENT_BIOLOGY_REPEAT_02_LSEED_42_ITER_08_labels.npy",
+          "cell_ids_file": "llm_seed42_agent_repeatability_20261018_222712_094535_PBMC3k_AGENT_BIOLOGY_REPEAT_02_LSEED_42_ITER_08_cell_ids.npy",
+          "n_cells": 2638,
+          "n_clusters": 10,
+          "is_selected": false
+        },
+        {
+          "iteration": 9,
+          "labels_file": "llm_seed42_agent_repeatability_20261018_222712_094535_PBMC3k_AGENT_BIOLOGY_REPEAT_02_LSEED_42_ITER_09_labels.npy",
+          "cell_ids_file": "llm_seed42_agent_repeatability_20261018_222712_094535_PBMC3k_AGENT_BIOLOGY_REPEAT_02_LSEED_42_ITER_09_cell_ids.npy",
+          "n_cells": 2638,
+          "n_clusters": 9,
+          "is_selected": false
+        },
+        {
+          "iteration": 10,
+          "labels_file": "llm_seed42_agent_repeatability_20261018_222712_094535_PBMC3k_AGENT_BIOLOGY_REPEAT_02_LSEED_42_ITER_10_labels.npy",
+          "cell_ids_file": "llm_seed42_agent_repeatability_20261018_222712_094535_PBMC3k_AGENT_BIOLOGY_REPEAT_02_LSEED_42_ITER_10_cell_ids.npy",
+          "n_cells": 2638,
+          "n_clusters": 9,
+          "is_selected": false
+        },
+        {
+          "iteration": 11,
+          "labels_file": "llm_seed42_agent_repeatability_20261018_222712_094535_PBMC3k_AGENT_BIOLOGY_REPEAT_02_LSEED_42_ITER_11_labels.npy",
+          "cell_ids_file": "llm_seed42_agent_repeatability_20261018_222712_094535_PBMC3k_AGENT_BIOLOGY_REPEAT_02_LSEED_42_ITER_11_cell_ids.npy",
+          "n_cells": 2638,
+          "n_clusters": 10,
+          "is_selected": false
+        },
+        {
+          "iteration": 12,
+          "labels_file": "llm_seed42_agent_repeatability_20261018_222712_094535_PBMC3k_AGENT_BIOLOGY_REPEAT_02_LSEED_42_ITER_12_labels.npy",
+          "cell_ids_file": "llm_seed42_agent_repeatability_20261018_222712_094535_PBMC3k_AGENT_BIOLOGY_REPEAT_02_LSEED_42_ITER_12_cell_ids.npy",
+          "n_cells": 2638,
+          "n_clusters": 10,
+          "is_selected": false
+        },
+        {
+          "iteration": 13,
+          "labels_file": "llm_seed42_agent_repeatability_20261018_222712_094535_PBMC3k_AGENT_BIOLOGY_REPEAT_02_LSEED_42_ITER_13_labels.npy",
+          "cell_ids_file": "llm_seed42_agent_repeatability_20261018_222712_094535_PBMC3k_AGENT_BIOLOGY_REPEAT_02_LSEED_42_ITER_13_cell_ids.npy",
+          "n_cells": 2638,
+          "n_clusters": 10,
+          "is_selected": false
+        },
+        {
+          "iteration": 14,
+          "labels_file": "llm_seed42_agent_repeatability_20261018_222712_094535_PBMC3k_AGENT_BIOLOGY_REPEAT_02_LSEED_42_ITER_14_labels.npy",
+          "cell_ids_file": "llm_seed42_agent_repeatability_20261018_222712_094535_PBMC3k_AGENT_BIOLOGY_REPEAT_02_LSEED_42_ITER_14_cell_ids.npy",
+          "n_cells": 2638,
+          "n_clusters": 12,
+          "is_selected": false
+        },
+        {
+          "iteration": 15,
+          "labels_file": "llm_seed42_agent_repeatability_20261018_222712_094535_PBMC3k_AGENT_BIOLOGY_REPEAT_02_LSEED_42_ITER_15_labels.npy",
+          "cell_ids_file": "llm_seed42_agent_repeatability_20261018_222712_094535_PBMC3k_AGENT_BIOLOGY_REPEAT_02_LSEED_42_ITER_15_cell_ids.npy",
+          "n_cells": 2638,
+          "n_clusters": 11,
+          "is_selected": true
+        }
+      ],
+      "termination_reason": "maximum_experiments_reached",
+      "status": "success"
+    },
+    {
+      "experiment_id": "llm_seed42_agent_repeatability_20261018_222712_094535_PBMC3k_AGENT_BIOLOGY_REPEAT_03_LSEED_42",
+      "run_index": 3,
+      "leiden_seed": 42,
+      "llm_seed": 42,
+      "selected_iteration": 7,
+      "selected_parameters": {
+        "n_neighbors": 30,
+        "resolution": 0.8,
+        "n_pcs": 10
+      },
+      "selected_metrics": {
+        "n_neighbors": 30,
+        "resolution": 0.8,
+        "n_pcs": 10,
+        "random_state": 42,
+        "n_clusters": 10,
+        "cluster_sizes": {
+          "0": 164,
+          "1": 344,
+          "2": 389,
+          "3": 482,
+          "4": 142,
+          "5": 302,
+          "6": 156,
+          "7": 614,
+          "8": 32,
+          "9": 13
+        },
+        "largest_cluster_size": 614,
+        "largest_cluster_fraction": 0.23275208491281274,
+        "number_of_small_clusters": 2,
+        "small_clusters": {
+          "8": 32,
+          "9": 13
+        },
+        "metric_embedding": "X_pca",
+        "metric_n_pcs": 10,
+        "silhouette_score": 0.27970919013023376,
+        "davies_bouldin_score": 1.1386346375516738,
+        "wc_dispersion_score": 67721.7265625,
+        "marker_genes": {
+          "0": [
+            "LTB",
+            "IL7R",
+            "IL32",
+            "AQP3",
+            "CD2"
+          ],
+          "1": [
+            "CD74",
+            "CD79A",
+            "HLA-DRA",
+            "CD79B",
+            "HLA-DPB1"
+          ],
+          "2": [
+            "IL32",
+            "LTB",
+            "B2M",
+            "IL7R",
+            "CD2"
+          ],
+          "3": [
+            "LYZ",
+            "S100A9",
+            "S100A8",
+            "TYROBP",
+            "FTL"
+          ],
+          "4": [
+            "NKG7",
+            "GZMB",
+            "PRF1",
+            "GNLY",
+            "CTSW"
+          ],
+          "5": [
+            "CCL5",
+            "NKG7",
+            "CST7",
+            "GZMA",
+            "B2M"
+          ],
+          "6": [
+            "LST1",
+            "FCER1G",
+            "AIF1",
+            "FCGR3A",
+            "COTL1"
+          ],
+          "7": [
+            "MALAT1",
+            "IL7R",
+            "SELL",
+            "LTB",
+            "CD27"
+          ],
+          "8": [
+            "HLA-DPA1",
+            "HLA-DPB1",
+            "HLA-DRB1",
+            "HLA-DRA",
+            "CD74"
+          ],
+          "9": [
+            "PF4",
+            "SDPR",
+            "GNG11",
+            "PPBP",
+            "NRGN"
+          ]
+        }
+      },
+      "n_cells": 2638,
+      "n_clusters": 10,
+      "n_evaluated_iterations": 11,
+      "saved_iterations": [
+        {
+          "iteration": 0,
+          "labels_file": "llm_seed42_agent_repeatability_20261018_222712_094535_PBMC3k_AGENT_BIOLOGY_REPEAT_03_LSEED_42_ITER_00_labels.npy",
+          "cell_ids_file": "llm_seed42_agent_repeatability_20261018_222712_094535_PBMC3k_AGENT_BIOLOGY_REPEAT_03_LSEED_42_ITER_00_cell_ids.npy",
+          "n_cells": 2638,
+          "n_clusters": 9,
+          "is_selected": false
+        },
+        {
+          "iteration": 1,
+          "labels_file": "llm_seed42_agent_repeatability_20261018_222712_094535_PBMC3k_AGENT_BIOLOGY_REPEAT_03_LSEED_42_ITER_01_labels.npy",
+          "cell_ids_file": "llm_seed42_agent_repeatability_20261018_222712_094535_PBMC3k_AGENT_BIOLOGY_REPEAT_03_LSEED_42_ITER_01_cell_ids.npy",
+          "n_cells": 2638,
+          "n_clusters": 9,
+          "is_selected": false
+        },
+        {
+          "iteration": 2,
+          "labels_file": "llm_seed42_agent_repeatability_20261018_222712_094535_PBMC3k_AGENT_BIOLOGY_REPEAT_03_LSEED_42_ITER_02_labels.npy",
+          "cell_ids_file": "llm_seed42_agent_repeatability_20261018_222712_094535_PBMC3k_AGENT_BIOLOGY_REPEAT_03_LSEED_42_ITER_02_cell_ids.npy",
+          "n_cells": 2638,
+          "n_clusters": 9,
+          "is_selected": false
+        },
+        {
+          "iteration": 3,
+          "labels_file": "llm_seed42_agent_repeatability_20261018_222712_094535_PBMC3k_AGENT_BIOLOGY_REPEAT_03_LSEED_42_ITER_03_labels.npy",
+          "cell_ids_file": "llm_seed42_agent_repeatability_20261018_222712_094535_PBMC3k_AGENT_BIOLOGY_REPEAT_03_LSEED_42_ITER_03_cell_ids.npy",
+          "n_cells": 2638,
+          "n_clusters": 9,
+          "is_selected": false
+        },
+        {
+          "iteration": 4,
+          "labels_file": "llm_seed42_agent_repeatability_20261018_222712_094535_PBMC3k_AGENT_BIOLOGY_REPEAT_03_LSEED_42_ITER_04_labels.npy",
+          "cell_ids_file": "llm_seed42_agent_repeatability_20261018_222712_094535_PBMC3k_AGENT_BIOLOGY_REPEAT_03_LSEED_42_ITER_04_cell_ids.npy",
+          "n_cells": 2638,
+          "n_clusters": 9,
+          "is_selected": false
+        },
+        {
+          "iteration": 5,
+          "labels_file": "llm_seed42_agent_repeatability_20261018_222712_094535_PBMC3k_AGENT_BIOLOGY_REPEAT_03_LSEED_42_ITER_05_labels.npy",
+          "cell_ids_file": "llm_seed42_agent_repeatability_20261018_222712_094535_PBMC3k_AGENT_BIOLOGY_REPEAT_03_LSEED_42_ITER_05_cell_ids.npy",
+          "n_cells": 2638,
+          "n_clusters": 9,
+          "is_selected": false
+        },
+        {
+          "iteration": 6,
+          "labels_file": "llm_seed42_agent_repeatability_20261018_222712_094535_PBMC3k_AGENT_BIOLOGY_REPEAT_03_LSEED_42_ITER_06_labels.npy",
+          "cell_ids_file": "llm_seed42_agent_repeatability_20261018_222712_094535_PBMC3k_AGENT_BIOLOGY_REPEAT_03_LSEED_42_ITER_06_cell_ids.npy",
+          "n_cells": 2638,
+          "n_clusters": 10,
+          "is_selected": false
+        },
+        {
+          "iteration": 7,
+          "labels_file": "llm_seed42_agent_repeatability_20261018_222712_094535_PBMC3k_AGENT_BIOLOGY_REPEAT_03_LSEED_42_ITER_07_labels.npy",
+          "cell_ids_file": "llm_seed42_agent_repeatability_20261018_222712_094535_PBMC3k_AGENT_BIOLOGY_REPEAT_03_LSEED_42_ITER_07_cell_ids.npy",
+          "n_cells": 2638,
+          "n_clusters": 10,
+          "is_selected": true
+        },
+        {
+          "iteration": 8,
+          "labels_file": "llm_seed42_agent_repeatability_20261018_222712_094535_PBMC3k_AGENT_BIOLOGY_REPEAT_03_LSEED_42_ITER_08_labels.npy",
+          "cell_ids_file": "llm_seed42_agent_repeatability_20261018_222712_094535_PBMC3k_AGENT_BIOLOGY_REPEAT_03_LSEED_42_ITER_08_cell_ids.npy",
+          "n_cells": 2638,
+          "n_clusters": 10,
+          "is_selected": false
+        },
+        {
+          "iteration": 9,
+          "labels_file": "llm_seed42_agent_repeatability_20261018_222712_094535_PBMC3k_AGENT_BIOLOGY_REPEAT_03_LSEED_42_ITER_09_labels.npy",
+          "cell_ids_file": "llm_seed42_agent_repeatability_20261018_222712_094535_PBMC3k_AGENT_BIOLOGY_REPEAT_03_LSEED_42_ITER_09_cell_ids.npy",
+          "n_cells": 2638,
+          "n_clusters": 10,
+          "is_selected": false
+        },
+        {
+          "iteration": 10,
+          "labels_file": "llm_seed42_agent_repeatability_20261018_222712_094535_PBMC3k_AGENT_BIOLOGY_REPEAT_03_LSEED_42_ITER_10_labels.npy",
+          "cell_ids_file": "llm_seed42_agent_repeatability_20261018_222712_094535_PBMC3k_AGENT_BIOLOGY_REPEAT_03_LSEED_42_ITER_10_cell_ids.npy",
+          "n_cells": 2638,
+          "n_clusters": 10,
+          "is_selected": false
+        }
+      ],
+      "termination_reason": "llm_stop_decision",
+      "status": "success"
+    },
+    {
+      "experiment_id": "llm_seed42_agent_repeatability_20261018_222712_094535_PBMC3k_AGENT_BIOLOGY_REPEAT_04_LSEED_42",
+      "run_index": 4,
+      "leiden_seed": 42,
+      "llm_seed": 42,
+      "selected_iteration": 12,
+      "selected_parameters": {
+        "n_neighbors": 20,
+        "resolution": 0.5,
+        "n_pcs": 40
+      },
+      "selected_metrics": {
+        "n_neighbors": 20,
+        "resolution": 0.5,
+        "n_pcs": 40,
+        "random_state": 42,
+        "n_clusters": 7,
+        "cluster_sizes": {
+          "0": 1205,
+          "1": 346,
+          "2": 480,
+          "3": 410,
+          "4": 158,
+          "5": 26,
+          "6": 13
+        },
+        "largest_cluster_size": 1205,
+        "largest_cluster_fraction": 0.4567854435178165,
+        "number_of_small_clusters": 2,
+        "small_clusters": {
+          "5": 26,
+          "6": 13
+        },
+        "metric_embedding": "X_pca",
+        "metric_n_pcs": 40,
+        "silhouette_score": 0.1967923641204834,
+        "davies_bouldin_score": 1.7427379009557493,
+        "wc_dispersion_score": 320380.65625,
+        "marker_genes": {
+          "0": [
+            "LTB",
+            "IL32",
+            "IL7R",
+            "MALAT1",
+            "CD2"
+          ],
+          "1": [
+            "CD74",
+            "HLA-DRA",
+            "CD79A",
+            "CD79B",
+            "HLA-DPB1"
+          ],
+          "2": [
+            "LYZ",
+            "S100A9",
+            "S100A8",
+            "TYROBP",
+            "FTL"
+          ],
+          "3": [
+            "NKG7",
+            "CST7",
+            "GZMA",
+            "CTSW",
+            "B2M"
+          ],
+          "4": [
+            "LST1",
+            "FCER1G",
+            "AIF1",
+            "FCGR3A",
+            "COTL1"
+          ],
+          "5": [
+            "HLA-DPA1",
+            "HLA-DPB1",
+            "HLA-DRB1",
+            "HLA-DRA",
+            "CST3"
+          ],
+          "6": [
+            "PF4",
+            "SDPR",
+            "GNG11",
+            "PPBP",
+            "NRGN"
+          ]
+        }
+      },
+      "n_cells": 2638,
+      "n_clusters": 7,
+      "n_evaluated_iterations": 15,
+      "saved_iterations": [
+        {
+          "iteration": 0,
+          "labels_file": "llm_seed42_agent_repeatability_20261018_222712_094535_PBMC3k_AGENT_BIOLOGY_REPEAT_04_LSEED_42_ITER_00_labels.npy",
+          "cell_ids_file": "llm_seed42_agent_repeatability_20261018_222712_094535_PBMC3k_AGENT_BIOLOGY_REPEAT_04_LSEED_42_ITER_00_cell_ids.npy",
+          "n_cells": 2638,
+          "n_clusters": 9,
+          "is_selected": false
+        },
+        {
+          "iteration": 1,
+          "labels_file": "llm_seed42_agent_repeatability_20261018_222712_094535_PBMC3k_AGENT_BIOLOGY_REPEAT_04_LSEED_42_ITER_01_labels.npy",
+          "cell_ids_file": "llm_seed42_agent_repeatability_20261018_222712_094535_PBMC3k_AGENT_BIOLOGY_REPEAT_04_LSEED_42_ITER_01_cell_ids.npy",
+          "n_cells": 2638,
+          "n_clusters": 9,
+          "is_selected": false
+        },
+        {
+          "iteration": 2,
+          "labels_file": "llm_seed42_agent_repeatability_20261018_222712_094535_PBMC3k_AGENT_BIOLOGY_REPEAT_04_LSEED_42_ITER_02_labels.npy",
+          "cell_ids_file": "llm_seed42_agent_repeatability_20261018_222712_094535_PBMC3k_AGENT_BIOLOGY_REPEAT_04_LSEED_42_ITER_02_cell_ids.npy",
+          "n_cells": 2638,
+          "n_clusters": 9,
+          "is_selected": false
+        },
+        {
+          "iteration": 3,
+          "labels_file": "llm_seed42_agent_repeatability_20261018_222712_094535_PBMC3k_AGENT_BIOLOGY_REPEAT_04_LSEED_42_ITER_03_labels.npy",
+          "cell_ids_file": "llm_seed42_agent_repeatability_20261018_222712_094535_PBMC3k_AGENT_BIOLOGY_REPEAT_04_LSEED_42_ITER_03_cell_ids.npy",
+          "n_cells": 2638,
+          "n_clusters": 9,
+          "is_selected": false
+        },
+        {
+          "iteration": 4,
+          "labels_file": "llm_seed42_agent_repeatability_20261018_222712_094535_PBMC3k_AGENT_BIOLOGY_REPEAT_04_LSEED_42_ITER_04_labels.npy",
+          "cell_ids_file": "llm_seed42_agent_repeatability_20261018_222712_094535_PBMC3k_AGENT_BIOLOGY_REPEAT_04_LSEED_42_ITER_04_cell_ids.npy",
+          "n_cells": 2638,
+          "n_clusters": 8,
+          "is_selected": false
+        },
+        {
+          "iteration": 5,
+          "labels_file": "llm_seed42_agent_repeatability_20261018_222712_094535_PBMC3k_AGENT_BIOLOGY_REPEAT_04_LSEED_42_ITER_05_labels.npy",
+          "cell_ids_file": "llm_seed42_agent_repeatability_20261018_222712_094535_PBMC3k_AGENT_BIOLOGY_REPEAT_04_LSEED_42_ITER_05_cell_ids.npy",
+          "n_cells": 2638,
+          "n_clusters": 9,
+          "is_selected": false
+        },
+        {
+          "iteration": 6,
+          "labels_file": "llm_seed42_agent_repeatability_20261018_222712_094535_PBMC3k_AGENT_BIOLOGY_REPEAT_04_LSEED_42_ITER_06_labels.npy",
+          "cell_ids_file": "llm_seed42_agent_repeatability_20261018_222712_094535_PBMC3k_AGENT_BIOLOGY_REPEAT_04_LSEED_42_ITER_06_cell_ids.npy",
+          "n_cells": 2638,
+          "n_clusters": 8,
+          "is_selected": false
+        },
+        {
+          "iteration": 7,
+          "labels_file": "llm_seed42_agent_repeatability_20261018_222712_094535_PBMC3k_AGENT_BIOLOGY_REPEAT_04_LSEED_42_ITER_07_labels.npy",
+          "cell_ids_file": "llm_seed42_agent_repeatability_20261018_222712_094535_PBMC3k_AGENT_BIOLOGY_REPEAT_04_LSEED_42_ITER_07_cell_ids.npy",
+          "n_cells": 2638,
+          "n_clusters": 7,
+          "is_selected": false
+        },
+        {
+          "iteration": 8,
+          "labels_file": "llm_seed42_agent_repeatability_20261018_222712_094535_PBMC3k_AGENT_BIOLOGY_REPEAT_04_LSEED_42_ITER_08_labels.npy",
+          "cell_ids_file": "llm_seed42_agent_repeatability_20261018_222712_094535_PBMC3k_AGENT_BIOLOGY_REPEAT_04_LSEED_42_ITER_08_cell_ids.npy",
+          "n_cells": 2638,
+          "n_clusters": 8,
+          "is_selected": false
+        },
+        {
+          "iteration": 9,
+          "labels_file": "llm_seed42_agent_repeatability_20261018_222712_094535_PBMC3k_AGENT_BIOLOGY_REPEAT_04_LSEED_42_ITER_09_labels.npy",
+          "cell_ids_file": "llm_seed42_agent_repeatability_20261018_222712_094535_PBMC3k_AGENT_BIOLOGY_REPEAT_04_LSEED_42_ITER_09_cell_ids.npy",
+          "n_cells": 2638,
+          "n_clusters": 7,
+          "is_selected": false
+        },
+        {
+          "iteration": 10,
+          "labels_file": "llm_seed42_agent_repeatability_20261018_222712_094535_PBMC3k_AGENT_BIOLOGY_REPEAT_04_LSEED_42_ITER_10_labels.npy",
+          "cell_ids_file": "llm_seed42_agent_repeatability_20261018_222712_094535_PBMC3k_AGENT_BIOLOGY_REPEAT_04_LSEED_42_ITER_10_cell_ids.npy",
+          "n_cells": 2638,
+          "n_clusters": 7,
+          "is_selected": false
+        },
+        {
+          "iteration": 11,
+          "labels_file": "llm_seed42_agent_repeatability_20261018_222712_094535_PBMC3k_AGENT_BIOLOGY_REPEAT_04_LSEED_42_ITER_11_labels.npy",
+          "cell_ids_file": "llm_seed42_agent_repeatability_20261018_222712_094535_PBMC3k_AGENT_BIOLOGY_REPEAT_04_LSEED_42_ITER_11_cell_ids.npy",
+          "n_cells": 2638,
+          "n_clusters": 7,
+          "is_selected": false
+        },
+        {
+          "iteration": 12,
+          "labels_file": "llm_seed42_agent_repeatability_20261018_222712_094535_PBMC3k_AGENT_BIOLOGY_REPEAT_04_LSEED_42_ITER_12_labels.npy",
+          "cell_ids_file": "llm_seed42_agent_repeatability_20261018_222712_094535_PBMC3k_AGENT_BIOLOGY_REPEAT_04_LSEED_42_ITER_12_cell_ids.npy",
+          "n_cells": 2638,
+          "n_clusters": 7,
+          "is_selected": true
+        },
+        {
+          "iteration": 13,
+          "labels_file": "llm_seed42_agent_repeatability_20261018_222712_094535_PBMC3k_AGENT_BIOLOGY_REPEAT_04_LSEED_42_ITER_13_labels.npy",
+          "cell_ids_file": "llm_seed42_agent_repeatability_20261018_222712_094535_PBMC3k_AGENT_BIOLOGY_REPEAT_04_LSEED_42_ITER_13_cell_ids.npy",
+          "n_cells": 2638,
+          "n_clusters": 7,
+          "is_selected": false
+        },
+        {
+          "iteration": 14,
+          "labels_file": "llm_seed42_agent_repeatability_20261018_222712_094535_PBMC3k_AGENT_BIOLOGY_REPEAT_04_LSEED_42_ITER_14_labels.npy",
+          "cell_ids_file": "llm_seed42_agent_repeatability_20261018_222712_094535_PBMC3k_AGENT_BIOLOGY_REPEAT_04_LSEED_42_ITER_14_cell_ids.npy",
+          "n_cells": 2638,
+          "n_clusters": 7,
+          "is_selected": false
+        }
+      ],
+      "termination_reason": "llm_stop_decision",
+      "status": "success"
+    },
+    {
+      "experiment_id": "llm_seed42_agent_repeatability_20261018_222712_094535_PBMC3k_AGENT_BIOLOGY_REPEAT_05_LSEED_42",
+      "run_index": 5,
+      "leiden_seed": 42,
+      "llm_seed": 42,
+      "selected_iteration": 8,
+      "selected_parameters": {
+        "n_neighbors": 15,
+        "resolution": 0.8,
+        "n_pcs": 12
+      },
+      "selected_metrics": {
+        "n_neighbors": 15,
+        "resolution": 0.8,
+        "n_pcs": 12,
+        "random_state": 42,
+        "n_clusters": 10,
+        "cluster_sizes": {
+          "0": 200,
+          "1": 344,
+          "2": 452,
+          "3": 482,
+          "4": 157,
+          "5": 307,
+          "6": 157,
+          "7": 494,
+          "8": 31,
+          "9": 14
+        },
+        "largest_cluster_size": 494,
+        "largest_cluster_fraction": 0.18726307808946172,
+        "number_of_small_clusters": 2,
+        "small_clusters": {
+          "8": 31,
+          "9": 14
+        },
+        "metric_embedding": "X_pca",
+        "metric_n_pcs": 12,
+        "silhouette_score": 0.23864713311195374,
+        "davies_bouldin_score": 1.3695413806454815,
+        "wc_dispersion_score": 85507.8359375,
+        "marker_genes": {
+          "0": [
+            "IL7R",
+            "LTB",
+            "IL32",
+            "AQP3",
+            "CD2"
+          ],
+          "1": [
+            "CD74",
+            "CD79A",
+            "HLA-DRA",
+            "CD79B",
+            "HLA-DPB1"
+          ],
+          "2": [
+            "IL32",
+            "LTB",
+            "IL7R",
+            "B2M",
+            "CD2"
+          ],
+          "3": [
+            "LYZ",
+            "S100A9",
+            "S100A8",
+            "TYROBP",
+            "FTL"
+          ],
+          "4": [
+            "NKG7",
+            "GZMB",
+            "GNLY",
+            "CTSW",
+            "PRF1"
+          ],
+          "5": [
+            "CCL5",
+            "NKG7",
+            "B2M",
+            "GZMA",
+            "CST7"
+          ],
+          "6": [
+            "LST1",
+            "FCER1G",
+            "AIF1",
+            "FCGR3A",
+            "COTL1"
+          ],
+          "7": [
+            "MALAT1",
+            "CD27",
+            "SELL",
+            "NDFIP1",
+            "IL7R"
+          ],
+          "8": [
+            "HLA-DPA1",
+            "HLA-DPB1",
+            "HLA-DRB1",
+            "HLA-DRA",
+            "CD74"
+          ],
+          "9": [
+            "PF4",
+            "PPBP",
+            "NRGN",
+            "GPX1",
+            "RGS18"
+          ]
+        }
+      },
+      "n_cells": 2638,
+      "n_clusters": 10,
+      "n_evaluated_iterations": 13,
+      "saved_iterations": [
+        {
+          "iteration": 0,
+          "labels_file": "llm_seed42_agent_repeatability_20261018_222712_094535_PBMC3k_AGENT_BIOLOGY_REPEAT_05_LSEED_42_ITER_00_labels.npy",
+          "cell_ids_file": "llm_seed42_agent_repeatability_20261018_222712_094535_PBMC3k_AGENT_BIOLOGY_REPEAT_05_LSEED_42_ITER_00_cell_ids.npy",
+          "n_cells": 2638,
+          "n_clusters": 9,
+          "is_selected": false
+        },
+        {
+          "iteration": 1,
+          "labels_file": "llm_seed42_agent_repeatability_20261018_222712_094535_PBMC3k_AGENT_BIOLOGY_REPEAT_05_LSEED_42_ITER_01_labels.npy",
+          "cell_ids_file": "llm_seed42_agent_repeatability_20261018_222712_094535_PBMC3k_AGENT_BIOLOGY_REPEAT_05_LSEED_42_ITER_01_cell_ids.npy",
+          "n_cells": 2638,
+          "n_clusters": 9,
+          "is_selected": false
+        },
+        {
+          "iteration": 2,
+          "labels_file": "llm_seed42_agent_repeatability_20261018_222712_094535_PBMC3k_AGENT_BIOLOGY_REPEAT_05_LSEED_42_ITER_02_labels.npy",
+          "cell_ids_file": "llm_seed42_agent_repeatability_20261018_222712_094535_PBMC3k_AGENT_BIOLOGY_REPEAT_05_LSEED_42_ITER_02_cell_ids.npy",
+          "n_cells": 2638,
+          "n_clusters": 9,
+          "is_selected": false
+        },
+        {
+          "iteration": 3,
+          "labels_file": "llm_seed42_agent_repeatability_20261018_222712_094535_PBMC3k_AGENT_BIOLOGY_REPEAT_05_LSEED_42_ITER_03_labels.npy",
+          "cell_ids_file": "llm_seed42_agent_repeatability_20261018_222712_094535_PBMC3k_AGENT_BIOLOGY_REPEAT_05_LSEED_42_ITER_03_cell_ids.npy",
+          "n_cells": 2638,
+          "n_clusters": 10,
+          "is_selected": false
+        },
+        {
+          "iteration": 4,
+          "labels_file": "llm_seed42_agent_repeatability_20261018_222712_094535_PBMC3k_AGENT_BIOLOGY_REPEAT_05_LSEED_42_ITER_04_labels.npy",
+          "cell_ids_file": "llm_seed42_agent_repeatability_20261018_222712_094535_PBMC3k_AGENT_BIOLOGY_REPEAT_05_LSEED_42_ITER_04_cell_ids.npy",
+          "n_cells": 2638,
+          "n_clusters": 11,
+          "is_selected": false
+        },
+        {
+          "iteration": 5,
+          "labels_file": "llm_seed42_agent_repeatability_20261018_222712_094535_PBMC3k_AGENT_BIOLOGY_REPEAT_05_LSEED_42_ITER_05_labels.npy",
+          "cell_ids_file": "llm_seed42_agent_repeatability_20261018_222712_094535_PBMC3k_AGENT_BIOLOGY_REPEAT_05_LSEED_42_ITER_05_cell_ids.npy",
+          "n_cells": 2638,
+          "n_clusters": 9,
+          "is_selected": false
+        },
+        {
+          "iteration": 6,
+          "labels_file": "llm_seed42_agent_repeatability_20261018_222712_094535_PBMC3k_AGENT_BIOLOGY_REPEAT_05_LSEED_42_ITER_06_labels.npy",
+          "cell_ids_file": "llm_seed42_agent_repeatability_20261018_222712_094535_PBMC3k_AGENT_BIOLOGY_REPEAT_05_LSEED_42_ITER_06_cell_ids.npy",
+          "n_cells": 2638,
+          "n_clusters": 10,
+          "is_selected": false
+        },
+        {
+          "iteration": 7,
+          "labels_file": "llm_seed42_agent_repeatability_20261018_222712_094535_PBMC3k_AGENT_BIOLOGY_REPEAT_05_LSEED_42_ITER_07_labels.npy",
+          "cell_ids_file": "llm_seed42_agent_repeatability_20261018_222712_094535_PBMC3k_AGENT_BIOLOGY_REPEAT_05_LSEED_42_ITER_07_cell_ids.npy",
+          "n_cells": 2638,
+          "n_clusters": 9,
+          "is_selected": false
+        },
+        {
+          "iteration": 8,
+          "labels_file": "llm_seed42_agent_repeatability_20261018_222712_094535_PBMC3k_AGENT_BIOLOGY_REPEAT_05_LSEED_42_ITER_08_labels.npy",
+          "cell_ids_file": "llm_seed42_agent_repeatability_20261018_222712_094535_PBMC3k_AGENT_BIOLOGY_REPEAT_05_LSEED_42_ITER_08_cell_ids.npy",
+          "n_cells": 2638,
+          "n_clusters": 10,
+          "is_selected": true
+        },
+        {
+          "iteration": 9,
+          "labels_file": "llm_seed42_agent_repeatability_20261018_222712_094535_PBMC3k_AGENT_BIOLOGY_REPEAT_05_LSEED_42_ITER_09_labels.npy",
+          "cell_ids_file": "llm_seed42_agent_repeatability_20261018_222712_094535_PBMC3k_AGENT_BIOLOGY_REPEAT_05_LSEED_42_ITER_09_cell_ids.npy",
+          "n_cells": 2638,
+          "n_clusters": 11,
+          "is_selected": false
+        },
+        {
+          "iteration": 10,
+          "labels_file": "llm_seed42_agent_repeatability_20261018_222712_094535_PBMC3k_AGENT_BIOLOGY_REPEAT_05_LSEED_42_ITER_10_labels.npy",
+          "cell_ids_file": "llm_seed42_agent_repeatability_20261018_222712_094535_PBMC3k_AGENT_BIOLOGY_REPEAT_05_LSEED_42_ITER_10_cell_ids.npy",
+          "n_cells": 2638,
+          "n_clusters": 10,
+          "is_selected": false
+        },
+        {
+          "iteration": 11,
+          "labels_file": "llm_seed42_agent_repeatability_20261018_222712_094535_PBMC3k_AGENT_BIOLOGY_REPEAT_05_LSEED_42_ITER_11_labels.npy",
+          "cell_ids_file": "llm_seed42_agent_repeatability_20261018_222712_094535_PBMC3k_AGENT_BIOLOGY_REPEAT_05_LSEED_42_ITER_11_cell_ids.npy",
+          "n_cells": 2638,
+          "n_clusters": 9,
+          "is_selected": false
+        },
+        {
+          "iteration": 12,
+          "labels_file": "llm_seed42_agent_repeatability_20261018_222712_094535_PBMC3k_AGENT_BIOLOGY_REPEAT_05_LSEED_42_ITER_12_labels.npy",
+          "cell_ids_file": "llm_seed42_agent_repeatability_20261018_222712_094535_PBMC3k_AGENT_BIOLOGY_REPEAT_05_LSEED_42_ITER_12_cell_ids.npy",
+          "n_cells": 2638,
+          "n_clusters": 10,
+          "is_selected": false
+        }
+      ],
+      "termination_reason": "llm_stop_decision",
+      "status": "success"
+    },
+    {
+      "experiment_id": "llm_seed42_agent_repeatability_20261018_222712_094535_PBMC3k_AGENT_BIOLOGY_REPEAT_06_LSEED_42",
+      "run_index": 6,
+      "leiden_seed": 42,
+      "llm_seed": 42,
+      "selected_iteration": 12,
+      "selected_parameters": {
+        "n_neighbors": 45,
+        "resolution": 0.9,
+        "n_pcs": 10
+      },
+      "selected_metrics": {
+        "n_neighbors": 45,
+        "resolution": 0.9,
+        "n_pcs": 10,
+        "random_state": 42,
+        "n_clusters": 10,
+        "cluster_sizes": {
+          "0": 171,
+          "1": 344,
+          "2": 355,
+          "3": 483,
+          "4": 142,
+          "5": 300,
+          "6": 155,
+          "7": 643,
+          "8": 32,
+          "9": 13
+        },
+        "largest_cluster_size": 643,
+        "largest_cluster_fraction": 0.24374526156178924,
+        "number_of_small_clusters": 2,
+        "small_clusters": {
+          "8": 32,
+          "9": 13
+        },
+        "metric_embedding": "X_pca",
+        "metric_n_pcs": 10,
+        "silhouette_score": 0.2780139744281769,
+        "davies_bouldin_score": 1.140917654488589,
+        "wc_dispersion_score": 67643.296875,
+        "marker_genes": {
+          "0": [
+            "LTB",
+            "IL7R",
+            "IL32",
+            "CD2",
+            "AQP3"
+          ],
+          "1": [
+            "CD74",
+            "CD79A",
+            "HLA-DRA",
+            "CD79B",
+            "HLA-DPB1"
+          ],
+          "2": [
+            "IL32",
+            "LTB",
+            "B2M",
+            "IL7R",
+            "CD2"
+          ],
+          "3": [
+            "LYZ",
+            "S100A9",
+            "S100A8",
+            "TYROBP",
+            "FTL"
+          ],
+          "4": [
+            "NKG7",
+            "GZMB",
+            "PRF1",
+            "GNLY",
+            "CTSW"
+          ],
+          "5": [
+            "CCL5",
+            "NKG7",
+            "CST7",
+            "GZMA",
+            "B2M"
+          ],
+          "6": [
+            "LST1",
+            "FCER1G",
+            "AIF1",
+            "FCGR3A",
+            "COTL1"
+          ],
+          "7": [
+            "MALAT1",
+            "IL7R",
+            "LTB",
+            "SELL",
+            "CD27"
+          ],
+          "8": [
+            "HLA-DPA1",
+            "HLA-DPB1",
+            "HLA-DRB1",
+            "HLA-DRA",
+            "CD74"
+          ],
+          "9": [
+            "PF4",
+            "SDPR",
+            "GNG11",
+            "PPBP",
+            "NRGN"
+          ]
+        }
+      },
+      "n_cells": 2638,
+      "n_clusters": 10,
+      "n_evaluated_iterations": 16,
+      "saved_iterations": [
+        {
+          "iteration": 0,
+          "labels_file": "llm_seed42_agent_repeatability_20261018_222712_094535_PBMC3k_AGENT_BIOLOGY_REPEAT_06_LSEED_42_ITER_00_labels.npy",
+          "cell_ids_file": "llm_seed42_agent_repeatability_20261018_222712_094535_PBMC3k_AGENT_BIOLOGY_REPEAT_06_LSEED_42_ITER_00_cell_ids.npy",
+          "n_cells": 2638,
+          "n_clusters": 9,
+          "is_selected": false
+        },
+        {
+          "iteration": 1,
+          "labels_file": "llm_seed42_agent_repeatability_20261018_222712_094535_PBMC3k_AGENT_BIOLOGY_REPEAT_06_LSEED_42_ITER_01_labels.npy",
+          "cell_ids_file": "llm_seed42_agent_repeatability_20261018_222712_094535_PBMC3k_AGENT_BIOLOGY_REPEAT_06_LSEED_42_ITER_01_cell_ids.npy",
+          "n_cells": 2638,
+          "n_clusters": 9,
+          "is_selected": false
+        },
+        {
+          "iteration": 2,
+          "labels_file": "llm_seed42_agent_repeatability_20261018_222712_094535_PBMC3k_AGENT_BIOLOGY_REPEAT_06_LSEED_42_ITER_02_labels.npy",
+          "cell_ids_file": "llm_seed42_agent_repeatability_20261018_222712_094535_PBMC3k_AGENT_BIOLOGY_REPEAT_06_LSEED_42_ITER_02_cell_ids.npy",
+          "n_cells": 2638,
+          "n_clusters": 9,
+          "is_selected": false
+        },
+        {
+          "iteration": 3,
+          "labels_file": "llm_seed42_agent_repeatability_20261018_222712_094535_PBMC3k_AGENT_BIOLOGY_REPEAT_06_LSEED_42_ITER_03_labels.npy",
+          "cell_ids_file": "llm_seed42_agent_repeatability_20261018_222712_094535_PBMC3k_AGENT_BIOLOGY_REPEAT_06_LSEED_42_ITER_03_cell_ids.npy",
+          "n_cells": 2638,
+          "n_clusters": 9,
+          "is_selected": false
+        },
+        {
+          "iteration": 4,
+          "labels_file": "llm_seed42_agent_repeatability_20261018_222712_094535_PBMC3k_AGENT_BIOLOGY_REPEAT_06_LSEED_42_ITER_04_labels.npy",
+          "cell_ids_file": "llm_seed42_agent_repeatability_20261018_222712_094535_PBMC3k_AGENT_BIOLOGY_REPEAT_06_LSEED_42_ITER_04_cell_ids.npy",
+          "n_cells": 2638,
+          "n_clusters": 9,
+          "is_selected": false
+        },
+        {
+          "iteration": 5,
+          "labels_file": "llm_seed42_agent_repeatability_20261018_222712_094535_PBMC3k_AGENT_BIOLOGY_REPEAT_06_LSEED_42_ITER_05_labels.npy",
+          "cell_ids_file": "llm_seed42_agent_repeatability_20261018_222712_094535_PBMC3k_AGENT_BIOLOGY_REPEAT_06_LSEED_42_ITER_05_cell_ids.npy",
+          "n_cells": 2638,
+          "n_clusters": 9,
+          "is_selected": false
+        },
+        {
+          "iteration": 6,
+          "labels_file": "llm_seed42_agent_repeatability_20261018_222712_094535_PBMC3k_AGENT_BIOLOGY_REPEAT_06_LSEED_42_ITER_06_labels.npy",
+          "cell_ids_file": "llm_seed42_agent_repeatability_20261018_222712_094535_PBMC3k_AGENT_BIOLOGY_REPEAT_06_LSEED_42_ITER_06_cell_ids.npy",
+          "n_cells": 2638,
+          "n_clusters": 9,
+          "is_selected": false
+        },
+        {
+          "iteration": 7,
+          "labels_file": "llm_seed42_agent_repeatability_20261018_222712_094535_PBMC3k_AGENT_BIOLOGY_REPEAT_06_LSEED_42_ITER_07_labels.npy",
+          "cell_ids_file": "llm_seed42_agent_repeatability_20261018_222712_094535_PBMC3k_AGENT_BIOLOGY_REPEAT_06_LSEED_42_ITER_07_cell_ids.npy",
+          "n_cells": 2638,
+          "n_clusters": 9,
+          "is_selected": false
+        },
+        {
+          "iteration": 8,
+          "labels_file": "llm_seed42_agent_repeatability_20261018_222712_094535_PBMC3k_AGENT_BIOLOGY_REPEAT_06_LSEED_42_ITER_08_labels.npy",
+          "cell_ids_file": "llm_seed42_agent_repeatability_20261018_222712_094535_PBMC3k_AGENT_BIOLOGY_REPEAT_06_LSEED_42_ITER_08_cell_ids.npy",
+          "n_cells": 2638,
+          "n_clusters": 9,
+          "is_selected": false
+        },
+        {
+          "iteration": 9,
+          "labels_file": "llm_seed42_agent_repeatability_20261018_222712_094535_PBMC3k_AGENT_BIOLOGY_REPEAT_06_LSEED_42_ITER_09_labels.npy",
+          "cell_ids_file": "llm_seed42_agent_repeatability_20261018_222712_094535_PBMC3k_AGENT_BIOLOGY_REPEAT_06_LSEED_42_ITER_09_cell_ids.npy",
+          "n_cells": 2638,
+          "n_clusters": 10,
+          "is_selected": false
+        },
+        {
+          "iteration": 10,
+          "labels_file": "llm_seed42_agent_repeatability_20261018_222712_094535_PBMC3k_AGENT_BIOLOGY_REPEAT_06_LSEED_42_ITER_10_labels.npy",
+          "cell_ids_file": "llm_seed42_agent_repeatability_20261018_222712_094535_PBMC3k_AGENT_BIOLOGY_REPEAT_06_LSEED_42_ITER_10_cell_ids.npy",
+          "n_cells": 2638,
+          "n_clusters": 10,
+          "is_selected": false
+        },
+        {
+          "iteration": 11,
+          "labels_file": "llm_seed42_agent_repeatability_20261018_222712_094535_PBMC3k_AGENT_BIOLOGY_REPEAT_06_LSEED_42_ITER_11_labels.npy",
+          "cell_ids_file": "llm_seed42_agent_repeatability_20261018_222712_094535_PBMC3k_AGENT_BIOLOGY_REPEAT_06_LSEED_42_ITER_11_cell_ids.npy",
+          "n_cells": 2638,
+          "n_clusters": 10,
+          "is_selected": false
+        },
+        {
+          "iteration": 12,
+          "labels_file": "llm_seed42_agent_repeatability_20261018_222712_094535_PBMC3k_AGENT_BIOLOGY_REPEAT_06_LSEED_42_ITER_12_labels.npy",
+          "cell_ids_file": "llm_seed42_agent_repeatability_20261018_222712_094535_PBMC3k_AGENT_BIOLOGY_REPEAT_06_LSEED_42_ITER_12_cell_ids.npy",
+          "n_cells": 2638,
+          "n_clusters": 10,
+          "is_selected": true
+        },
+        {
+          "iteration": 13,
+          "labels_file": "llm_seed42_agent_repeatability_20261018_222712_094535_PBMC3k_AGENT_BIOLOGY_REPEAT_06_LSEED_42_ITER_13_labels.npy",
+          "cell_ids_file": "llm_seed42_agent_repeatability_20261018_222712_094535_PBMC3k_AGENT_BIOLOGY_REPEAT_06_LSEED_42_ITER_13_cell_ids.npy",
+          "n_cells": 2638,
+          "n_clusters": 10,
+          "is_selected": false
+        },
+        {
+          "iteration": 14,
+          "labels_file": "llm_seed42_agent_repeatability_20261018_222712_094535_PBMC3k_AGENT_BIOLOGY_REPEAT_06_LSEED_42_ITER_14_labels.npy",
+          "cell_ids_file": "llm_seed42_agent_repeatability_20261018_222712_094535_PBMC3k_AGENT_BIOLOGY_REPEAT_06_LSEED_42_ITER_14_cell_ids.npy",
+          "n_cells": 2638,
+          "n_clusters": 10,
+          "is_selected": false
+        },
+        {
+          "iteration": 15,
+          "labels_file": "llm_seed42_agent_repeatability_20261018_222712_094535_PBMC3k_AGENT_BIOLOGY_REPEAT_06_LSEED_42_ITER_15_labels.npy",
+          "cell_ids_file": "llm_seed42_agent_repeatability_20261018_222712_094535_PBMC3k_AGENT_BIOLOGY_REPEAT_06_LSEED_42_ITER_15_cell_ids.npy",
+          "n_cells": 2638,
+          "n_clusters": 10,
+          "is_selected": false
+        }
+      ],
+      "termination_reason": "maximum_experiments_reached",
+      "status": "success"
+    },
+    {
+      "experiment_id": "llm_seed42_agent_repeatability_20261018_222712_094535_PBMC3k_AGENT_BIOLOGY_REPEAT_07_LSEED_42",
+      "run_index": 7,
+      "leiden_seed": 42,
+      "llm_seed": 42,
+      "selected_iteration": 7,
+      "selected_parameters": {
+        "n_neighbors": 30,
+        "resolution": 0.7,
+        "n_pcs": 30
+      },
+      "selected_metrics": {
+        "n_neighbors": 30,
+        "resolution": 0.7,
+        "n_pcs": 30,
+        "random_state": 42,
+        "n_clusters": 8,
+        "cluster_sizes": {
+          "0": 1165,
+          "1": 347,
+          "2": 475,
+          "3": 142,
+          "4": 308,
+          "5": 162,
+          "6": 26,
+          "7": 13
+        },
+        "largest_cluster_size": 1165,
+        "largest_cluster_fraction": 0.4416224412433662,
+        "number_of_small_clusters": 2,
+        "small_clusters": {
+          "6": 26,
+          "7": 13
+        },
+        "metric_embedding": "X_pca",
+        "metric_n_pcs": 30,
+        "silhouette_score": 0.20731060206890106,
+        "davies_bouldin_score": 1.662412467705769,
+        "wc_dispersion_score": 233163.890625,
+        "marker_genes": {
+          "0": [
+            "LTB",
+            "IL32",
+            "IL7R",
+            "MALAT1",
+            "CD2"
+          ],
+          "1": [
+            "CD74",
+            "HLA-DRA",
+            "CD79A",
+            "CD79B",
+            "HLA-DPB1"
+          ],
+          "2": [
+            "LYZ",
+            "S100A9",
+            "S100A8",
+            "TYROBP",
+            "FTL"
+          ],
+          "3": [
+            "NKG7",
+            "GZMB",
+            "PRF1",
+            "GNLY",
+            "CTSW"
+          ],
+          "4": [
+            "CCL5",
+            "NKG7",
+            "CST7",
+            "GZMA",
+            "B2M"
+          ],
+          "5": [
+            "LST1",
+            "FCER1G",
+            "AIF1",
+            "COTL1",
+            "FCGR3A"
+          ],
+          "6": [
+            "HLA-DPA1",
+            "FCER1A",
+            "HLA-DPB1",
+            "HLA-DRB1",
+            "HLA-DRA"
+          ],
+          "7": [
+            "PF4",
+            "SDPR",
+            "GNG11",
+            "PPBP",
+            "NRGN"
+          ]
+        }
+      },
+      "n_cells": 2638,
+      "n_clusters": 8,
+      "n_evaluated_iterations": 8,
+      "saved_iterations": [
+        {
+          "iteration": 0,
+          "labels_file": "llm_seed42_agent_repeatability_20261018_222712_094535_PBMC3k_AGENT_BIOLOGY_REPEAT_07_LSEED_42_ITER_00_labels.npy",
+          "cell_ids_file": "llm_seed42_agent_repeatability_20261018_222712_094535_PBMC3k_AGENT_BIOLOGY_REPEAT_07_LSEED_42_ITER_00_cell_ids.npy",
+          "n_cells": 2638,
+          "n_clusters": 9,
+          "is_selected": false
+        },
+        {
+          "iteration": 1,
+          "labels_file": "llm_seed42_agent_repeatability_20261018_222712_094535_PBMC3k_AGENT_BIOLOGY_REPEAT_07_LSEED_42_ITER_01_labels.npy",
+          "cell_ids_file": "llm_seed42_agent_repeatability_20261018_222712_094535_PBMC3k_AGENT_BIOLOGY_REPEAT_07_LSEED_42_ITER_01_cell_ids.npy",
+          "n_cells": 2638,
+          "n_clusters": 9,
+          "is_selected": false
+        },
+        {
+          "iteration": 2,
+          "labels_file": "llm_seed42_agent_repeatability_20261018_222712_094535_PBMC3k_AGENT_BIOLOGY_REPEAT_07_LSEED_42_ITER_02_labels.npy",
+          "cell_ids_file": "llm_seed42_agent_repeatability_20261018_222712_094535_PBMC3k_AGENT_BIOLOGY_REPEAT_07_LSEED_42_ITER_02_cell_ids.npy",
+          "n_cells": 2638,
+          "n_clusters": 9,
+          "is_selected": false
+        },
+        {
+          "iteration": 3,
+          "labels_file": "llm_seed42_agent_repeatability_20261018_222712_094535_PBMC3k_AGENT_BIOLOGY_REPEAT_07_LSEED_42_ITER_03_labels.npy",
+          "cell_ids_file": "llm_seed42_agent_repeatability_20261018_222712_094535_PBMC3k_AGENT_BIOLOGY_REPEAT_07_LSEED_42_ITER_03_cell_ids.npy",
+          "n_cells": 2638,
+          "n_clusters": 9,
+          "is_selected": false
+        },
+        {
+          "iteration": 4,
+          "labels_file": "llm_seed42_agent_repeatability_20261018_222712_094535_PBMC3k_AGENT_BIOLOGY_REPEAT_07_LSEED_42_ITER_04_labels.npy",
+          "cell_ids_file": "llm_seed42_agent_repeatability_20261018_222712_094535_PBMC3k_AGENT_BIOLOGY_REPEAT_07_LSEED_42_ITER_04_cell_ids.npy",
+          "n_cells": 2638,
+          "n_clusters": 7,
+          "is_selected": false
+        },
+        {
+          "iteration": 5,
+          "labels_file": "llm_seed42_agent_repeatability_20261018_222712_094535_PBMC3k_AGENT_BIOLOGY_REPEAT_07_LSEED_42_ITER_05_labels.npy",
+          "cell_ids_file": "llm_seed42_agent_repeatability_20261018_222712_094535_PBMC3k_AGENT_BIOLOGY_REPEAT_07_LSEED_42_ITER_05_cell_ids.npy",
+          "n_cells": 2638,
+          "n_clusters": 8,
+          "is_selected": false
+        },
+        {
+          "iteration": 6,
+          "labels_file": "llm_seed42_agent_repeatability_20261018_222712_094535_PBMC3k_AGENT_BIOLOGY_REPEAT_07_LSEED_42_ITER_06_labels.npy",
+          "cell_ids_file": "llm_seed42_agent_repeatability_20261018_222712_094535_PBMC3k_AGENT_BIOLOGY_REPEAT_07_LSEED_42_ITER_06_cell_ids.npy",
+          "n_cells": 2638,
+          "n_clusters": 8,
+          "is_selected": false
+        },
+        {
+          "iteration": 7,
+          "labels_file": "llm_seed42_agent_repeatability_20261018_222712_094535_PBMC3k_AGENT_BIOLOGY_REPEAT_07_LSEED_42_ITER_07_labels.npy",
+          "cell_ids_file": "llm_seed42_agent_repeatability_20261018_222712_094535_PBMC3k_AGENT_BIOLOGY_REPEAT_07_LSEED_42_ITER_07_cell_ids.npy",
+          "n_cells": 2638,
+          "n_clusters": 8,
+          "is_selected": true
+        }
+      ],
+      "termination_reason": "llm_stop_decision",
+      "status": "success"
+    },
+    {
+      "experiment_id": "llm_seed42_agent_repeatability_20261018_222712_094535_PBMC3k_AGENT_BIOLOGY_REPEAT_08_LSEED_42",
+      "run_index": 8,
+      "leiden_seed": 42,
+      "llm_seed": 42,
+      "selected_iteration": 7,
+      "selected_parameters": {
+        "n_neighbors": 15,
+        "resolution": 0.6,
+        "n_pcs": 20
+      },
+      "selected_metrics": {
+        "n_neighbors": 15,
+        "resolution": 0.6,
+        "n_pcs": 20,
+        "random_state": 42,
+        "n_clusters": 8,
+        "cluster_sizes": {
+          "0": 1151,
+          "1": 297,
+          "2": 348,
+          "3": 489,
+          "4": 165,
+          "5": 148,
+          "6": 26,
+          "7": 14
+        },
+        "largest_cluster_size": 1151,
+        "largest_cluster_fraction": 0.43631539044730855,
+        "number_of_small_clusters": 2,
+        "small_clusters": {
+          "6": 26,
+          "7": 14
+        },
+        "metric_embedding": "X_pca",
+        "metric_n_pcs": 20,
+        "silhouette_score": 0.2578658163547516,
+        "davies_bouldin_score": 1.3711485177415557,
+        "wc_dispersion_score": 157831.5625,
+        "marker_genes": {
+          "0": [
+            "LTB",
+            "IL7R",
+            "IL32",
+            "MALAT1",
+            "CD2"
+          ],
+          "1": [
+            "CCL5",
+            "NKG7",
+            "GZMA",
+            "B2M",
+            "CST7"
+          ],
+          "2": [
+            "CD74",
+            "HLA-DRA",
+            "CD79A",
+            "CD79B",
+            "HLA-DPB1"
+          ],
+          "3": [
+            "LYZ",
+            "S100A9",
+            "S100A8",
+            "TYROBP",
+            "FTL"
+          ],
+          "4": [
+            "NKG7",
+            "GNLY",
+            "CTSW",
+            "GZMB",
+            "PRF1"
+          ],
+          "5": [
+            "LST1",
+            "FCER1G",
+            "FCGR3A",
+            "AIF1",
+            "COTL1"
+          ],
+          "6": [
+            "HLA-DPA1",
+            "HLA-DPB1",
+            "HLA-DRB1",
+            "HLA-DRA",
+            "CST3"
+          ],
+          "7": [
+            "PF4",
+            "PPBP",
+            "NRGN",
+            "GPX1",
+            "RGS18"
+          ]
+        }
+      },
+      "n_cells": 2638,
+      "n_clusters": 8,
+      "n_evaluated_iterations": 12,
+      "saved_iterations": [
+        {
+          "iteration": 0,
+          "labels_file": "llm_seed42_agent_repeatability_20261018_222712_094535_PBMC3k_AGENT_BIOLOGY_REPEAT_08_LSEED_42_ITER_00_labels.npy",
+          "cell_ids_file": "llm_seed42_agent_repeatability_20261018_222712_094535_PBMC3k_AGENT_BIOLOGY_REPEAT_08_LSEED_42_ITER_00_cell_ids.npy",
+          "n_cells": 2638,
+          "n_clusters": 9,
+          "is_selected": false
+        },
+        {
+          "iteration": 1,
+          "labels_file": "llm_seed42_agent_repeatability_20261018_222712_094535_PBMC3k_AGENT_BIOLOGY_REPEAT_08_LSEED_42_ITER_01_labels.npy",
+          "cell_ids_file": "llm_seed42_agent_repeatability_20261018_222712_094535_PBMC3k_AGENT_BIOLOGY_REPEAT_08_LSEED_42_ITER_01_cell_ids.npy",
+          "n_cells": 2638,
+          "n_clusters": 9,
+          "is_selected": false
+        },
+        {
+          "iteration": 2,
+          "labels_file": "llm_seed42_agent_repeatability_20261018_222712_094535_PBMC3k_AGENT_BIOLOGY_REPEAT_08_LSEED_42_ITER_02_labels.npy",
+          "cell_ids_file": "llm_seed42_agent_repeatability_20261018_222712_094535_PBMC3k_AGENT_BIOLOGY_REPEAT_08_LSEED_42_ITER_02_cell_ids.npy",
+          "n_cells": 2638,
+          "n_clusters": 8,
+          "is_selected": false
+        },
+        {
+          "iteration": 3,
+          "labels_file": "llm_seed42_agent_repeatability_20261018_222712_094535_PBMC3k_AGENT_BIOLOGY_REPEAT_08_LSEED_42_ITER_03_labels.npy",
+          "cell_ids_file": "llm_seed42_agent_repeatability_20261018_222712_094535_PBMC3k_AGENT_BIOLOGY_REPEAT_08_LSEED_42_ITER_03_cell_ids.npy",
+          "n_cells": 2638,
+          "n_clusters": 8,
+          "is_selected": false
+        },
+        {
+          "iteration": 4,
+          "labels_file": "llm_seed42_agent_repeatability_20261018_222712_094535_PBMC3k_AGENT_BIOLOGY_REPEAT_08_LSEED_42_ITER_04_labels.npy",
+          "cell_ids_file": "llm_seed42_agent_repeatability_20261018_222712_094535_PBMC3k_AGENT_BIOLOGY_REPEAT_08_LSEED_42_ITER_04_cell_ids.npy",
+          "n_cells": 2638,
+          "n_clusters": 8,
+          "is_selected": false
+        },
+        {
+          "iteration": 5,
+          "labels_file": "llm_seed42_agent_repeatability_20261018_222712_094535_PBMC3k_AGENT_BIOLOGY_REPEAT_08_LSEED_42_ITER_05_labels.npy",
+          "cell_ids_file": "llm_seed42_agent_repeatability_20261018_222712_094535_PBMC3k_AGENT_BIOLOGY_REPEAT_08_LSEED_42_ITER_05_cell_ids.npy",
+          "n_cells": 2638,
+          "n_clusters": 9,
+          "is_selected": false
+        },
+        {
+          "iteration": 6,
+          "labels_file": "llm_seed42_agent_repeatability_20261018_222712_094535_PBMC3k_AGENT_BIOLOGY_REPEAT_08_LSEED_42_ITER_06_labels.npy",
+          "cell_ids_file": "llm_seed42_agent_repeatability_20261018_222712_094535_PBMC3k_AGENT_BIOLOGY_REPEAT_08_LSEED_42_ITER_06_cell_ids.npy",
+          "n_cells": 2638,
+          "n_clusters": 9,
+          "is_selected": false
+        },
+        {
+          "iteration": 7,
+          "labels_file": "llm_seed42_agent_repeatability_20261018_222712_094535_PBMC3k_AGENT_BIOLOGY_REPEAT_08_LSEED_42_ITER_07_labels.npy",
+          "cell_ids_file": "llm_seed42_agent_repeatability_20261018_222712_094535_PBMC3k_AGENT_BIOLOGY_REPEAT_08_LSEED_42_ITER_07_cell_ids.npy",
+          "n_cells": 2638,
+          "n_clusters": 8,
+          "is_selected": true
+        },
+        {
+          "iteration": 8,
+          "labels_file": "llm_seed42_agent_repeatability_20261018_222712_094535_PBMC3k_AGENT_BIOLOGY_REPEAT_08_LSEED_42_ITER_08_labels.npy",
+          "cell_ids_file": "llm_seed42_agent_repeatability_20261018_222712_094535_PBMC3k_AGENT_BIOLOGY_REPEAT_08_LSEED_42_ITER_08_cell_ids.npy",
+          "n_cells": 2638,
+          "n_clusters": 9,
+          "is_selected": false
+        },
+        {
+          "iteration": 9,
+          "labels_file": "llm_seed42_agent_repeatability_20261018_222712_094535_PBMC3k_AGENT_BIOLOGY_REPEAT_08_LSEED_42_ITER_09_labels.npy",
+          "cell_ids_file": "llm_seed42_agent_repeatability_20261018_222712_094535_PBMC3k_AGENT_BIOLOGY_REPEAT_08_LSEED_42_ITER_09_cell_ids.npy",
+          "n_cells": 2638,
+          "n_clusters": 9,
+          "is_selected": false
+        },
+        {
+          "iteration": 10,
+          "labels_file": "llm_seed42_agent_repeatability_20261018_222712_094535_PBMC3k_AGENT_BIOLOGY_REPEAT_08_LSEED_42_ITER_10_labels.npy",
+          "cell_ids_file": "llm_seed42_agent_repeatability_20261018_222712_094535_PBMC3k_AGENT_BIOLOGY_REPEAT_08_LSEED_42_ITER_10_cell_ids.npy",
+          "n_cells": 2638,
+          "n_clusters": 9,
+          "is_selected": false
+        },
+        {
+          "iteration": 11,
+          "labels_file": "llm_seed42_agent_repeatability_20261018_222712_094535_PBMC3k_AGENT_BIOLOGY_REPEAT_08_LSEED_42_ITER_11_labels.npy",
+          "cell_ids_file": "llm_seed42_agent_repeatability_20261018_222712_094535_PBMC3k_AGENT_BIOLOGY_REPEAT_08_LSEED_42_ITER_11_cell_ids.npy",
+          "n_cells": 2638,
+          "n_clusters": 8,
+          "is_selected": false
+        }
+      ],
+      "termination_reason": "llm_stop_decision",
+      "status": "success"
+    }
+  ],
+  "failed_runs": []
+}

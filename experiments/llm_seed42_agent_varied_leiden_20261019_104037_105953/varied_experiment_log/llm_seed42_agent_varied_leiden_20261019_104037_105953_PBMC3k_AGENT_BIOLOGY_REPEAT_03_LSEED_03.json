@@ -1,0 +1,2558 @@
+{
+  "experiment_id": "llm_seed42_agent_varied_leiden_20261019_104037_105953_PBMC3k_AGENT_BIOLOGY_REPEAT_03_LSEED_03",
+  "date": "2026-10-19T08:59:07.822285+00:00",
+  "dataset": "PBMC3k",
+  "method": "agentic",
+  "condition": "biology",
+  "agent_version": "v0.10-candidate-pcs-llm-seed42-repeatability",
+  "llm_seed": 42,
+  "leiden_seed": 3,
+  "max_iterations": 16,
+  "run_index": 3,
+  "initial_parameters": {
+    "n_neighbors": 15,
+    "resolution": 1.0,
+    "n_pcs": 30
+  },
+  "change": "Agent repeatability with fixed seeds and candidate-specific PCA metric evaluation",
+  "reason_for_change": "Smoke-test the adaptive agent workflow while keeping the configured LLM seed, Leiden seed, initial parameters, dataset, and preprocessing fixed. Evaluation metrics use the first n_pcs PCs specified by each candidate and log metric_n_pcs.",
+  "iterations": [
+    {
+      "iteration": 0,
+      "leiden_seed": 3,
+      "parameters": {
+        "n_neighbors": 15,
+        "resolution": 1.0,
+        "n_pcs": 30
+      },
+      "metrics": {
+        "n_neighbors": 15,
+        "resolution": 1.0,
+        "n_pcs": 30,
+        "random_state": 3,
+        "n_clusters": 9,
+        "cluster_sizes": {
+          "0": 573,
+          "1": 596,
+          "2": 341,
+          "3": 206,
+          "4": 141,
+          "5": 304,
+          "6": 431,
+          "7": 33,
+          "8": 13
+        },
+        "largest_cluster_size": 596,
+        "largest_cluster_fraction": 0.2259287338893101,
+        "number_of_small_clusters": 2,
+        "small_clusters": {
+          "7": 33,
+          "8": 13
+        },
+        "metric_embedding": "X_pca",
+        "metric_n_pcs": 30,
+        "silhouette_score": 0.11685029417276382,
+        "davies_bouldin_score": 2.122858011380605,
+        "wc_dispersion_score": 228664.46875,
+        "marker_genes": {
+          "0": [
+            "MALAT1",
+            "CD27",
+            "IL7R",
+            "LTB",
+            "SELL"
+          ],
+          "1": [
+            "LTB",
+            "IL32",
+            "IL7R",
+            "B2M",
+            "CD2"
+          ],
+          "2": [
+            "CD74",
+            "CD79A",
+            "HLA-DRA",
+            "CD79B",
+            "HLA-DPB1"
+          ],
+          "3": [
+            "LST1",
+            "COTL1",
+            "AIF1",
+            "FCER1G",
+            "FTH1"
+          ],
+          "4": [
+            "GZMB",
+            "NKG7",
+            "PRF1",
+            "GNLY",
+            "CTSW"
+          ],
+          "5": [
+            "CCL5",
+            "NKG7",
+            "GZMA",
+            "B2M",
+            "CST7"
+          ],
+          "6": [
+            "S100A9",
+            "LYZ",
+            "S100A8",
+            "TYROBP",
+            "FCN1"
+          ],
+          "7": [
+            "HLA-DPA1",
+            "HLA-DPB1",
+            "HLA-DRB1",
+            "HLA-DRA",
+            "CD74"
+          ],
+          "8": [
+            "PF4",
+            "SDPR",
+            "GNG11",
+            "PPBP",
+            "NRGN"
+          ]
+        }
+      },
+      "cluster_structure": {
+        "n_clusters": 9,
+        "cluster_sizes": {
+          "0": 573,
+          "1": 596,
+          "2": 341,
+          "3": 206,
+          "4": 141,
+          "5": 304,
+          "6": 431,
+          "7": 33,
+          "8": 13
+        },
+        "largest_cluster_size": 596,
+        "largest_cluster_fraction": 0.2259287338893101,
+        "number_of_small_clusters": 2,
+        "small_clusters": {
+          "7": 33,
+          "8": 13
+        }
+      },
+      "clustering_time_seconds": 2.9680388330016285,
+      "evaluation_time_seconds": 0.19647883402649313,
+      "marker_genes": {
+        "0": [
+          "MALAT1",
+          "CD27",
+          "IL7R",
+          "LTB",
+          "SELL"
+        ],
+        "1": [
+          "LTB",
+          "IL32",
+          "IL7R",
+          "B2M",
+          "CD2"
+        ],
+        "2": [
+          "CD74",
+          "CD79A",
+          "HLA-DRA",
+          "CD79B",
+          "HLA-DPB1"
+        ],
+        "3": [
+          "LST1",
+          "COTL1",
+          "AIF1",
+          "FCER1G",
+          "FTH1"
+        ],
+        "4": [
+          "GZMB",
+          "NKG7",
+          "PRF1",
+          "GNLY",
+          "CTSW"
+        ],
+        "5": [
+          "CCL5",
+          "NKG7",
+          "GZMA",
+          "B2M",
+          "CST7"
+        ],
+        "6": [
+          "S100A9",
+          "LYZ",
+          "S100A8",
+          "TYROBP",
+          "FCN1"
+        ],
+        "7": [
+          "HLA-DPA1",
+          "HLA-DPB1",
+          "HLA-DRB1",
+          "HLA-DRA",
+          "CD74"
+        ],
+        "8": [
+          "PF4",
+          "SDPR",
+          "GNG11",
+          "PPBP",
+          "NRGN"
+        ]
+      },
+      "decision": {
+        "decision": "continue",
+        "parameters": {
+          "n_neighbors": 15,
+          "resolution": 0.8,
+          "n_pcs": 30
+        },
+        "reason": "Intrinsic evidence: With only one baseline, silhouette is low (0.117) and DBI is relatively high (2.12), indicating modest separation/cohesion; testing whether reduced granularity improves these metrics is warranted. Structural evidence: 9 clusters with two very small clusters (13 and 33 cells) suggests potential mild over-fragmentation; a slight resolution decrease can merge closely related partitions without forcing a large structural change. Biological evidence: Marker patterns are broadly compatible with expected PBMC-like structure (e.g., class II/B-cell–like, cytotoxic, myeloid, platelet-like), but do not require additional fragmentation; thus a modest decrease in resolution is reasonable while keeping neighbors and PCs fixed to isolate the effect. This targeted change directly tests whether cohesion and separation improve without over-merging.",
+        "llm_decision_time_seconds": 37.07536341698142
+      }
+    },
+    {
+      "iteration": 1,
+      "leiden_seed": 3,
+      "parameters": {
+        "n_neighbors": 15,
+        "resolution": 0.8,
+        "n_pcs": 30
+      },
+      "metrics": {
+        "n_neighbors": 15,
+        "resolution": 0.8,
+        "n_pcs": 30,
+        "random_state": 3,
+        "n_clusters": 9,
+        "cluster_sizes": {
+          "0": 551,
+          "1": 341,
+          "2": 621,
+          "3": 470,
+          "4": 139,
+          "5": 304,
+          "6": 166,
+          "7": 33,
+          "8": 13
+        },
+        "largest_cluster_size": 621,
+        "largest_cluster_fraction": 0.23540561031084153,
+        "number_of_small_clusters": 2,
+        "small_clusters": {
+          "7": 33,
+          "8": 13
+        },
+        "metric_embedding": "X_pca",
+        "metric_n_pcs": 30,
+        "silhouette_score": 0.12225496023893356,
+        "davies_bouldin_score": 2.083483074512591,
+        "wc_dispersion_score": 227737.46875,
+        "marker_genes": {
+          "0": [
+            "MALAT1",
+            "CD27",
+            "IL7R",
+            "SELL",
+            "LTB"
+          ],
+          "1": [
+            "CD74",
+            "CD79A",
+            "HLA-DRA",
+            "CD79B",
+            "HLA-DPB1"
+          ],
+          "2": [
+            "LTB",
+            "IL32",
+            "IL7R",
+            "CD2",
+            "B2M"
+          ],
+          "3": [
+            "LYZ",
+            "S100A9",
+            "S100A8",
+            "TYROBP",
+            "FTL"
+          ],
+          "4": [
+            "GZMB",
+            "NKG7",
+            "PRF1",
+            "GNLY",
+            "CTSW"
+          ],
+          "5": [
+            "CCL5",
+            "NKG7",
+            "GZMA",
+            "CST7",
+            "B2M"
+          ],
+          "6": [
+            "LST1",
+            "FCER1G",
+            "AIF1",
+            "COTL1",
+            "FCGR3A"
+          ],
+          "7": [
+            "HLA-DPA1",
+            "HLA-DPB1",
+            "HLA-DRB1",
+            "HLA-DRA",
+            "CD74"
+          ],
+          "8": [
+            "PF4",
+            "SDPR",
+            "GNG11",
+            "PPBP",
+            "NRGN"
+          ]
+        }
+      },
+      "cluster_structure": {
+        "n_clusters": 9,
+        "cluster_sizes": {
+          "0": 551,
+          "1": 341,
+          "2": 621,
+          "3": 470,
+          "4": 139,
+          "5": 304,
+          "6": 166,
+          "7": 33,
+          "8": 13
+        },
+        "largest_cluster_size": 621,
+        "largest_cluster_fraction": 0.23540561031084153,
+        "number_of_small_clusters": 2,
+        "small_clusters": {
+          "7": 33,
+          "8": 13
+        }
+      },
+      "clustering_time_seconds": 2.780834874982247,
+      "evaluation_time_seconds": 0.17831720897811465,
+      "marker_genes": {
+        "0": [
+          "MALAT1",
+          "CD27",
+          "IL7R",
+          "SELL",
+          "LTB"
+        ],
+        "1": [
+          "CD74",
+          "CD79A",
+          "HLA-DRA",
+          "CD79B",
+          "HLA-DPB1"
+        ],
+        "2": [
+          "LTB",
+          "IL32",
+          "IL7R",
+          "CD2",
+          "B2M"
+        ],
+        "3": [
+          "LYZ",
+          "S100A9",
+          "S100A8",
+          "TYROBP",
+          "FTL"
+        ],
+        "4": [
+          "GZMB",
+          "NKG7",
+          "PRF1",
+          "GNLY",
+          "CTSW"
+        ],
+        "5": [
+          "CCL5",
+          "NKG7",
+          "GZMA",
+          "CST7",
+          "B2M"
+        ],
+        "6": [
+          "LST1",
+          "FCER1G",
+          "AIF1",
+          "COTL1",
+          "FCGR3A"
+        ],
+        "7": [
+          "HLA-DPA1",
+          "HLA-DPB1",
+          "HLA-DRB1",
+          "HLA-DRA",
+          "CD74"
+        ],
+        "8": [
+          "PF4",
+          "SDPR",
+          "GNG11",
+          "PPBP",
+          "NRGN"
+        ]
+      },
+      "decision": {
+        "decision": "continue",
+        "parameters": {
+          "n_neighbors": 15,
+          "resolution": 0.6,
+          "n_pcs": 30
+        },
+        "reason": "Intrinsic evidence: lowering resolution from 1.0 to 0.8 improved silhouette (0.1169→0.1223), reduced Davies-Bouldin (2.12→2.08), and slightly lowered WC-dispersion, suggesting modest over-fragmentation at higher resolution. Structural evidence: cluster count held at 9 with two small clusters persisting (33 and 13 cells); size distribution changed modestly without excessive fragmentation. Biological evidence: marker patterns remain broadly compatible with plausible PBMC structure across runs, without indicating forced splits. To test whether further modest merging improves intrinsic metrics without collapsing meaningful structure, decrease resolution to 0.6 while holding n_neighbors and n_pcs constant to isolate the effect.",
+        "llm_decision_time_seconds": 28.673540792020503
+      }
+    },
+    {
+      "iteration": 2,
+      "leiden_seed": 3,
+      "parameters": {
+        "n_neighbors": 15,
+        "resolution": 0.6,
+        "n_pcs": 30
+      },
+      "metrics": {
+        "n_neighbors": 15,
+        "resolution": 0.6,
+        "n_pcs": 30,
+        "random_state": 3,
+        "n_clusters": 8,
+        "cluster_sizes": {
+          "0": 1170,
+          "1": 347,
+          "2": 470,
+          "3": 139,
+          "4": 306,
+          "5": 166,
+          "6": 27,
+          "7": 13
+        },
+        "largest_cluster_size": 1170,
+        "largest_cluster_fraction": 0.44351781652767247,
+        "number_of_small_clusters": 2,
+        "small_clusters": {
+          "6": 27,
+          "7": 13
+        },
+        "metric_embedding": "X_pca",
+        "metric_n_pcs": 30,
+        "silhouette_score": 0.20587292313575745,
+        "davies_bouldin_score": 1.668244307590283,
+        "wc_dispersion_score": 233455.28125,
+        "marker_genes": {
+          "0": [
+            "LTB",
+            "IL32",
+            "IL7R",
+            "MALAT1",
+            "CD2"
+          ],
+          "1": [
+            "CD74",
+            "HLA-DRA",
+            "CD79A",
+            "CD79B",
+            "HLA-DPB1"
+          ],
+          "2": [
+            "LYZ",
+            "S100A9",
+            "S100A8",
+            "TYROBP",
+            "FTL"
+          ],
+          "3": [
+            "GZMB",
+            "NKG7",
+            "PRF1",
+            "GNLY",
+            "CTSW"
+          ],
+          "4": [
+            "CCL5",
+            "NKG7",
+            "CST7",
+            "GZMA",
+            "B2M"
+          ],
+          "5": [
+            "LST1",
+            "FCER1G",
+            "AIF1",
+            "COTL1",
+            "FCGR3A"
+          ],
+          "6": [
+            "FCER1A",
+            "HLA-DPB1",
+            "HLA-DRB1",
+            "HLA-DPA1",
+            "HLA-DRA"
+          ],
+          "7": [
+            "PF4",
+            "SDPR",
+            "GNG11",
+            "PPBP",
+            "NRGN"
+          ]
+        }
+      },
+      "cluster_structure": {
+        "n_clusters": 8,
+        "cluster_sizes": {
+          "0": 1170,
+          "1": 347,
+          "2": 470,
+          "3": 139,
+          "4": 306,
+          "5": 166,
+          "6": 27,
+          "7": 13
+        },
+        "largest_cluster_size": 1170,
+        "largest_cluster_fraction": 0.44351781652767247,
+        "number_of_small_clusters": 2,
+        "small_clusters": {
+          "6": 27,
+          "7": 13
+        }
+      },
+      "clustering_time_seconds": 2.770814707997488,
+      "evaluation_time_seconds": 0.20010408401140012,
+      "marker_genes": {
+        "0": [
+          "LTB",
+          "IL32",
+          "IL7R",
+          "MALAT1",
+          "CD2"
+        ],
+        "1": [
+          "CD74",
+          "HLA-DRA",
+          "CD79A",
+          "CD79B",
+          "HLA-DPB1"
+        ],
+        "2": [
+          "LYZ",
+          "S100A9",
+          "S100A8",
+          "TYROBP",
+          "FTL"
+        ],
+        "3": [
+          "GZMB",
+          "NKG7",
+          "PRF1",
+          "GNLY",
+          "CTSW"
+        ],
+        "4": [
+          "CCL5",
+          "NKG7",
+          "CST7",
+          "GZMA",
+          "B2M"
+        ],
+        "5": [
+          "LST1",
+          "FCER1G",
+          "AIF1",
+          "COTL1",
+          "FCGR3A"
+        ],
+        "6": [
+          "FCER1A",
+          "HLA-DPB1",
+          "HLA-DRB1",
+          "HLA-DPA1",
+          "HLA-DRA"
+        ],
+        "7": [
+          "PF4",
+          "SDPR",
+          "GNG11",
+          "PPBP",
+          "NRGN"
+        ]
+      },
+      "decision": {
+        "decision": "continue",
+        "parameters": {
+          "n_neighbors": 15,
+          "resolution": 0.6,
+          "n_pcs": 20
+        },
+        "reason": "Intrinsic: Resolution 0.6 substantially improved silhouette (0.206) and Davies–Bouldin (1.67) vs 0.8–1.0, despite higher WC-dispersion, indicating better separation with some increased within-cluster spread. Structural: 8 clusters with one dominant (~44%) and two persistent small clusters; suggests possible hidden substructure in the large group while small clusters appear consistent across settings. Biological: Marker patterns are broadly compatible with plausible PBMC compartments, supporting retention of small clusters but not dictating targets. To address the main uncertainty (elevated WC-dispersion and a large merged cluster) without forcing higher granularity, reduce n_pcs to denoise and potentially tighten clusters while preserving gains at res=0.6.",
+        "llm_decision_time_seconds": 63.70945783398929
+      }
+    },
+    {
+      "iteration": 3,
+      "leiden_seed": 3,
+      "parameters": {
+        "n_neighbors": 15,
+        "resolution": 0.6,
+        "n_pcs": 20
+      },
+      "metrics": {
+        "n_neighbors": 15,
+        "resolution": 0.6,
+        "n_pcs": 20,
+        "random_state": 3,
+        "n_clusters": 9,
+        "cluster_sizes": {
+          "0": 474,
+          "1": 704,
+          "2": 347,
+          "3": 472,
+          "4": 165,
+          "5": 271,
+          "6": 165,
+          "7": 26,
+          "8": 14
+        },
+        "largest_cluster_size": 704,
+        "largest_cluster_fraction": 0.266868840030326,
+        "number_of_small_clusters": 2,
+        "small_clusters": {
+          "7": 26,
+          "8": 14
+        },
+        "metric_embedding": "X_pca",
+        "metric_n_pcs": 20,
+        "silhouette_score": 0.1707603484392166,
+        "davies_bouldin_score": 1.630992041504252,
+        "wc_dispersion_score": 152243.6875,
+        "marker_genes": {
+          "0": [
+            "MALAT1",
+            "CD27",
+            "SELL",
+            "IL7R",
+            "NDFIP1"
+          ],
+          "1": [
+            "LTB",
+            "IL32",
+            "IL7R",
+            "CD2",
+            "B2M"
+          ],
+          "2": [
+            "CD74",
+            "HLA-DRA",
+            "CD79A",
+            "CD79B",
+            "HLA-DPB1"
+          ],
+          "3": [
+            "LYZ",
+            "S100A9",
+            "S100A8",
+            "TYROBP",
+            "FTL"
+          ],
+          "4": [
+            "NKG7",
+            "GNLY",
+            "CTSW",
+            "GZMB",
+            "PRF1"
+          ],
+          "5": [
+            "CCL5",
+            "NKG7",
+            "GZMA",
+            "CST7",
+            "B2M"
+          ],
+          "6": [
+            "LST1",
+            "FCER1G",
+            "AIF1",
+            "COTL1",
+            "FCGR3A"
+          ],
+          "7": [
+            "HLA-DPA1",
+            "HLA-DPB1",
+            "HLA-DRB1",
+            "HLA-DRA",
+            "CST3"
+          ],
+          "8": [
+            "PF4",
+            "PPBP",
+            "NRGN",
+            "GPX1",
+            "RGS18"
+          ]
+        }
+      },
+      "cluster_structure": {
+        "n_clusters": 9,
+        "cluster_sizes": {
+          "0": 474,
+          "1": 704,
+          "2": 347,
+          "3": 472,
+          "4": 165,
+          "5": 271,
+          "6": 165,
+          "7": 26,
+          "8": 14
+        },
+        "largest_cluster_size": 704,
+        "largest_cluster_fraction": 0.266868840030326,
+        "number_of_small_clusters": 2,
+        "small_clusters": {
+          "7": 26,
+          "8": 14
+        }
+      },
+      "clustering_time_seconds": 2.7157350839988794,
+      "evaluation_time_seconds": 0.19219504101783969,
+      "marker_genes": {
+        "0": [
+          "MALAT1",
+          "CD27",
+          "SELL",
+          "IL7R",
+          "NDFIP1"
+        ],
+        "1": [
+          "LTB",
+          "IL32",
+          "IL7R",
+          "CD2",
+          "B2M"
+        ],
+        "2": [
+          "CD74",
+          "HLA-DRA",
+          "CD79A",
+          "CD79B",
+          "HLA-DPB1"
+        ],
+        "3": [
+          "LYZ",
+          "S100A9",
+          "S100A8",
+          "TYROBP",
+          "FTL"
+        ],
+        "4": [
+          "NKG7",
+          "GNLY",
+          "CTSW",
+          "GZMB",
+          "PRF1"
+        ],
+        "5": [
+          "CCL5",
+          "NKG7",
+          "GZMA",
+          "CST7",
+          "B2M"
+        ],
+        "6": [
+          "LST1",
+          "FCER1G",
+          "AIF1",
+          "COTL1",
+          "FCGR3A"
+        ],
+        "7": [
+          "HLA-DPA1",
+          "HLA-DPB1",
+          "HLA-DRB1",
+          "HLA-DRA",
+          "CST3"
+        ],
+        "8": [
+          "PF4",
+          "PPBP",
+          "NRGN",
+          "GPX1",
+          "RGS18"
+        ]
+      },
+      "decision": {
+        "decision": "continue",
+        "parameters": {
+          "n_neighbors": 15,
+          "resolution": 0.6,
+          "n_pcs": 25
+        },
+        "reason": "Intrinsic evidence: At resolution 0.6, reducing PCs from 30 to 20 improved Davies–Bouldin (1.67 → 1.63) and markedly lowered WC-dispersion, but decreased silhouette (0.206 → 0.171). This indicates a trade-off tied to PC dimensionality. Structural evidence: With 20 PCs the cluster-size distribution is more balanced (largest fraction 0.27 vs 0.44 at 30 PCs) with only two small clusters in both cases, suggesting 20 PCs mitigated potential under-clustering while avoiding excessive fragmentation. Biological evidence: Marker patterns across major clusters are broadly compatible with plausible PBMC structure (e.g., T-, B-, myeloid/NK-, HLA-II–rich, and platelet-like signals) in both settings, supporting plausibility but not determining the choice. Testing n_pcs=25 at fixed n_neighbors=15 and resolution=0.6 directly probes this PC-driven trade-off and may yield a better balance of silhouette and DB with reasonable structure.",
+        "llm_decision_time_seconds": 59.93395829098881
+      }
+    },
+    {
+      "iteration": 4,
+      "leiden_seed": 3,
+      "parameters": {
+        "n_neighbors": 15,
+        "resolution": 0.6,
+        "n_pcs": 25
+      },
+      "metrics": {
+        "n_neighbors": 15,
+        "resolution": 0.6,
+        "n_pcs": 25,
+        "random_state": 3,
+        "n_clusters": 8,
+        "cluster_sizes": {
+          "0": 1162,
+          "1": 345,
+          "2": 474,
+          "3": 140,
+          "4": 313,
+          "5": 164,
+          "6": 27,
+          "7": 13
+        },
+        "largest_cluster_size": 1162,
+        "largest_cluster_fraction": 0.4404852160727824,
+        "number_of_small_clusters": 2,
+        "small_clusters": {
+          "6": 27,
+          "7": 13
+        },
+        "metric_embedding": "X_pca",
+        "metric_n_pcs": 25,
+        "silhouette_score": 0.23068954050540924,
+        "davies_bouldin_score": 1.5287856438271494,
+        "wc_dispersion_score": 195374.171875,
+        "marker_genes": {
+          "0": [
+            "LTB",
+            "IL32",
+            "IL7R",
+            "MALAT1",
+            "CD2"
+          ],
+          "1": [
+            "CD74",
+            "CD79A",
+            "HLA-DRA",
+            "CD79B",
+            "HLA-DPB1"
+          ],
+          "2": [
+            "LYZ",
+            "S100A9",
+            "S100A8",
+            "TYROBP",
+            "FTL"
+          ],
+          "3": [
+            "NKG7",
+            "GZMB",
+            "PRF1",
+            "GNLY",
+            "CTSW"
+          ],
+          "4": [
+            "CCL5",
+            "NKG7",
+            "CST7",
+            "GZMA",
+            "B2M"
+          ],
+          "5": [
+            "LST1",
+            "FCER1G",
+            "AIF1",
+            "COTL1",
+            "FCGR3A"
+          ],
+          "6": [
+            "HLA-DPA1",
+            "HLA-DPB1",
+            "HLA-DRB1",
+            "HLA-DRA",
+            "CST3"
+          ],
+          "7": [
+            "PF4",
+            "SDPR",
+            "GNG11",
+            "PPBP",
+            "NRGN"
+          ]
+        }
+      },
+      "cluster_structure": {
+        "n_clusters": 8,
+        "cluster_sizes": {
+          "0": 1162,
+          "1": 345,
+          "2": 474,
+          "3": 140,
+          "4": 313,
+          "5": 164,
+          "6": 27,
+          "7": 13
+        },
+        "largest_cluster_size": 1162,
+        "largest_cluster_fraction": 0.4404852160727824,
+        "number_of_small_clusters": 2,
+        "small_clusters": {
+          "6": 27,
+          "7": 13
+        }
+      },
+      "clustering_time_seconds": 2.742338708980242,
+      "evaluation_time_seconds": 0.17615424998803064,
+      "marker_genes": {
+        "0": [
+          "LTB",
+          "IL32",
+          "IL7R",
+          "MALAT1",
+          "CD2"
+        ],
+        "1": [
+          "CD74",
+          "CD79A",
+          "HLA-DRA",
+          "CD79B",
+          "HLA-DPB1"
+        ],
+        "2": [
+          "LYZ",
+          "S100A9",
+          "S100A8",
+          "TYROBP",
+          "FTL"
+        ],
+        "3": [
+          "NKG7",
+          "GZMB",
+          "PRF1",
+          "GNLY",
+          "CTSW"
+        ],
+        "4": [
+          "CCL5",
+          "NKG7",
+          "CST7",
+          "GZMA",
+          "B2M"
+        ],
+        "5": [
+          "LST1",
+          "FCER1G",
+          "AIF1",
+          "COTL1",
+          "FCGR3A"
+        ],
+        "6": [
+          "HLA-DPA1",
+          "HLA-DPB1",
+          "HLA-DRB1",
+          "HLA-DRA",
+          "CST3"
+        ],
+        "7": [
+          "PF4",
+          "SDPR",
+          "GNG11",
+          "PPBP",
+          "NRGN"
+        ]
+      },
+      "decision": {
+        "decision": "continue",
+        "parameters": {
+          "n_neighbors": 15,
+          "resolution": 0.7,
+          "n_pcs": 25
+        },
+        "reason": "Intrinsic evidence: The current configuration (15, 0.6, 25) yields the best separation so far (highest silhouette 0.23, lowest DB 1.53). WC-dispersion varies with n_pcs, but silhouette and DB consistently improved at 25 PCs versus 20/30. Structural evidence: An 8-cluster solution with a dominant cluster (~44%) suggests possible under-clustering of a broad compartment; small clusters (27, 13 cells) are present but not excessive. A modest increase in resolution may reveal additional structure without strong risk of over-fragmentation if intrinsic metrics hold. Biological context: Marker patterns are broadly compatible with major PBMC compartments; the large IL7R/LTB-rich cluster may contain substructure, but this is only supportive context. Therefore, test a small resolution increase while holding n_neighbors and n_pcs constant to isolate its effect.",
+        "llm_decision_time_seconds": 32.190856333996635
+      }
+    },
+    {
+      "iteration": 5,
+      "leiden_seed": 3,
+      "parameters": {
+        "n_neighbors": 15,
+        "resolution": 0.7,
+        "n_pcs": 25
+      },
+      "metrics": {
+        "n_neighbors": 15,
+        "resolution": 0.7,
+        "n_pcs": 25,
+        "random_state": 3,
+        "n_clusters": 9,
+        "cluster_sizes": {
+          "0": 773,
+          "1": 341,
+          "2": 367,
+          "3": 474,
+          "4": 141,
+          "5": 334,
+          "6": 164,
+          "7": 31,
+          "8": 13
+        },
+        "largest_cluster_size": 773,
+        "largest_cluster_fraction": 0.2930250189537528,
+        "number_of_small_clusters": 2,
+        "small_clusters": {
+          "7": 31,
+          "8": 13
+        },
+        "metric_embedding": "X_pca",
+        "metric_n_pcs": 25,
+        "silhouette_score": 0.1565437614917755,
+        "davies_bouldin_score": 1.8641601080161554,
+        "wc_dispersion_score": 189960.390625,
+        "marker_genes": {
+          "0": [
+            "MALAT1",
+            "LTB",
+            "IL7R",
+            "CD27",
+            "IL32"
+          ],
+          "1": [
+            "CD74",
+            "CD79A",
+            "HLA-DRA",
+            "CD79B",
+            "HLA-DPB1"
+          ],
+          "2": [
+            "IL32",
+            "LTB",
+            "B2M",
+            "IL7R",
+            "CD2"
+          ],
+          "3": [
+            "LYZ",
+            "S100A9",
+            "S100A8",
+            "TYROBP",
+            "FTL"
+          ],
+          "4": [
+            "NKG7",
+            "GZMB",
+            "PRF1",
+            "GNLY",
+            "CTSW"
+          ],
+          "5": [
+            "CCL5",
+            "NKG7",
+            "B2M",
+            "GZMA",
+            "CST7"
+          ],
+          "6": [
+            "LST1",
+            "FCER1G",
+            "AIF1",
+            "COTL1",
+            "FCGR3A"
+          ],
+          "7": [
+            "HLA-DPA1",
+            "HLA-DPB1",
+            "HLA-DRB1",
+            "HLA-DRA",
+            "CD74"
+          ],
+          "8": [
+            "PF4",
+            "SDPR",
+            "GNG11",
+            "PPBP",
+            "NRGN"
+          ]
+        }
+      },
+      "cluster_structure": {
+        "n_clusters": 9,
+        "cluster_sizes": {
+          "0": 773,
+          "1": 341,
+          "2": 367,
+          "3": 474,
+          "4": 141,
+          "5": 334,
+          "6": 164,
+          "7": 31,
+          "8": 13
+        },
+        "largest_cluster_size": 773,
+        "largest_cluster_fraction": 0.2930250189537528,
+        "number_of_small_clusters": 2,
+        "small_clusters": {
+          "7": 31,
+          "8": 13
+        }
+      },
+      "clustering_time_seconds": 3.7949698340089526,
+      "evaluation_time_seconds": 0.271640540973749,
+      "marker_genes": {
+        "0": [
+          "MALAT1",
+          "LTB",
+          "IL7R",
+          "CD27",
+          "IL32"
+        ],
+        "1": [
+          "CD74",
+          "CD79A",
+          "HLA-DRA",
+          "CD79B",
+          "HLA-DPB1"
+        ],
+        "2": [
+          "IL32",
+          "LTB",
+          "B2M",
+          "IL7R",
+          "CD2"
+        ],
+        "3": [
+          "LYZ",
+          "S100A9",
+          "S100A8",
+          "TYROBP",
+          "FTL"
+        ],
+        "4": [
+          "NKG7",
+          "GZMB",
+          "PRF1",
+          "GNLY",
+          "CTSW"
+        ],
+        "5": [
+          "CCL5",
+          "NKG7",
+          "B2M",
+          "GZMA",
+          "CST7"
+        ],
+        "6": [
+          "LST1",
+          "FCER1G",
+          "AIF1",
+          "COTL1",
+          "FCGR3A"
+        ],
+        "7": [
+          "HLA-DPA1",
+          "HLA-DPB1",
+          "HLA-DRB1",
+          "HLA-DRA",
+          "CD74"
+        ],
+        "8": [
+          "PF4",
+          "SDPR",
+          "GNG11",
+          "PPBP",
+          "NRGN"
+        ]
+      },
+      "decision": {
+        "decision": "continue",
+        "parameters": {
+          "n_neighbors": 15,
+          "resolution": 0.65,
+          "n_pcs": 25
+        },
+        "reason": "Intrinsic evidence: resolution 0.6 with 25 PCs gave the strongest metrics so far (highest silhouette, lowest Davies–Bouldin), while 0.7/25 degraded them. Structural evidence: at 0.6/25 a dominant cluster (~44%) suggests possible under-clustering of a T-like group; at 0.7/25 this group splits but with notable intrinsic deterioration. Testing an intermediate resolution (0.65) directly probes whether a gentler split can reduce dominance while preserving acceptable intrinsic quality. Biological evidence: marker patterns indicate the dominant cluster(s) are T-like (IL7R/LTB/IL32) and their split at higher resolution remains T-like, consistent with potential substructure, but this serves only as context and does not determine the choice.",
+        "llm_decision_time_seconds": 34.774548374989536
+      }
+    },
+    {
+      "iteration": 6,
+      "leiden_seed": 3,
+      "parameters": {
+        "n_neighbors": 15,
+        "resolution": 0.65,
+        "n_pcs": 25
+      },
+      "metrics": {
+        "n_neighbors": 15,
+        "resolution": 0.65,
+        "n_pcs": 25,
+        "random_state": 3,
+        "n_clusters": 8,
+        "cluster_sizes": {
+          "0": 1162,
+          "1": 341,
+          "2": 474,
+          "3": 140,
+          "4": 313,
+          "5": 164,
+          "6": 31,
+          "7": 13
+        },
+        "largest_cluster_size": 1162,
+        "largest_cluster_fraction": 0.4404852160727824,
+        "number_of_small_clusters": 2,
+        "small_clusters": {
+          "6": 31,
+          "7": 13
+        },
+        "metric_embedding": "X_pca",
+        "metric_n_pcs": 25,
+        "silhouette_score": 0.23181194067001343,
+        "davies_bouldin_score": 1.5639675628160834,
+        "wc_dispersion_score": 194745.8125,
+        "marker_genes": {
+          "0": [
+            "LTB",
+            "IL32",
+            "IL7R",
+            "MALAT1",
+            "CD2"
+          ],
+          "1": [
+            "CD74",
+            "CD79A",
+            "HLA-DRA",
+            "CD79B",
+            "HLA-DPB1"
+          ],
+          "2": [
+            "LYZ",
+            "S100A9",
+            "S100A8",
+            "TYROBP",
+            "FTL"
+          ],
+          "3": [
+            "NKG7",
+            "GZMB",
+            "PRF1",
+            "GNLY",
+            "CTSW"
+          ],
+          "4": [
+            "CCL5",
+            "NKG7",
+            "CST7",
+            "GZMA",
+            "B2M"
+          ],
+          "5": [
+            "LST1",
+            "FCER1G",
+            "AIF1",
+            "COTL1",
+            "FCGR3A"
+          ],
+          "6": [
+            "HLA-DPA1",
+            "HLA-DPB1",
+            "HLA-DRB1",
+            "HLA-DRA",
+            "CD74"
+          ],
+          "7": [
+            "PF4",
+            "SDPR",
+            "GNG11",
+            "PPBP",
+            "NRGN"
+          ]
+        }
+      },
+      "cluster_structure": {
+        "n_clusters": 8,
+        "cluster_sizes": {
+          "0": 1162,
+          "1": 341,
+          "2": 474,
+          "3": 140,
+          "4": 313,
+          "5": 164,
+          "6": 31,
+          "7": 13
+        },
+        "largest_cluster_size": 1162,
+        "largest_cluster_fraction": 0.4404852160727824,
+        "number_of_small_clusters": 2,
+        "small_clusters": {
+          "6": 31,
+          "7": 13
+        }
+      },
+      "clustering_time_seconds": 2.9931747500086203,
+      "evaluation_time_seconds": 0.19765475002350286,
+      "marker_genes": {
+        "0": [
+          "LTB",
+          "IL32",
+          "IL7R",
+          "MALAT1",
+          "CD2"
+        ],
+        "1": [
+          "CD74",
+          "CD79A",
+          "HLA-DRA",
+          "CD79B",
+          "HLA-DPB1"
+        ],
+        "2": [
+          "LYZ",
+          "S100A9",
+          "S100A8",
+          "TYROBP",
+          "FTL"
+        ],
+        "3": [
+          "NKG7",
+          "GZMB",
+          "PRF1",
+          "GNLY",
+          "CTSW"
+        ],
+        "4": [
+          "CCL5",
+          "NKG7",
+          "CST7",
+          "GZMA",
+          "B2M"
+        ],
+        "5": [
+          "LST1",
+          "FCER1G",
+          "AIF1",
+          "COTL1",
+          "FCGR3A"
+        ],
+        "6": [
+          "HLA-DPA1",
+          "HLA-DPB1",
+          "HLA-DRB1",
+          "HLA-DRA",
+          "CD74"
+        ],
+        "7": [
+          "PF4",
+          "SDPR",
+          "GNG11",
+          "PPBP",
+          "NRGN"
+        ]
+      },
+      "decision": {
+        "decision": "continue",
+        "parameters": {
+          "n_neighbors": 20,
+          "resolution": 0.6,
+          "n_pcs": 25
+        },
+        "reason": "Intrinsic evidence: The best metrics are at n_pcs=25 with resolution 0.6–0.65 (silhouette ~0.231, DBI ~1.53–1.56). Increasing resolution to 0.7 degraded both silhouette and DBI. n_pcs=25 outperformed 20 and 30. We have only tested n_neighbors=15; exploring n_neighbors may improve separation without changing granularity. Structural evidence: The 8-cluster solution at res 0.6–0.65 has a reasonable size distribution with two small, persistent clusters; pushing resolution higher increased fragmentation without intrinsic gains. Adjusting n_neighbors (to 20) tests graph connectivity while preserving current granularity. Biological evidence (supporting only): Marker patterns are broadly compatible with PBMC structure (e.g., T/NK/monocytic/B/platelet-like signals), suggesting small clusters need not be merged, but this does not drive the decision. Therefore, test n_neighbors=20 while keeping the strongest settings (n_pcs=25, resolution=0.6).",
+        "llm_decision_time_seconds": 40.731455917004496
+      }
+    },
+    {
+      "iteration": 7,
+      "leiden_seed": 3,
+      "parameters": {
+        "n_neighbors": 20,
+        "resolution": 0.6,
+        "n_pcs": 25
+      },
+      "metrics": {
+        "n_neighbors": 20,
+        "resolution": 0.6,
+        "n_pcs": 25,
+        "random_state": 3,
+        "n_clusters": 8,
+        "cluster_sizes": {
+          "0": 1168,
+          "1": 346,
+          "2": 478,
+          "3": 132,
+          "4": 315,
+          "5": 160,
+          "6": 26,
+          "7": 13
+        },
+        "largest_cluster_size": 1168,
+        "largest_cluster_fraction": 0.44275966641395,
+        "number_of_small_clusters": 2,
+        "small_clusters": {
+          "6": 26,
+          "7": 13
+        },
+        "metric_embedding": "X_pca",
+        "metric_n_pcs": 25,
+        "silhouette_score": 0.23126891255378723,
+        "davies_bouldin_score": 1.5165716628792159,
+        "wc_dispersion_score": 196243.59375,
+        "marker_genes": {
+          "0": [
+            "LTB",
+            "IL32",
+            "IL7R",
+            "MALAT1",
+            "CD2"
+          ],
+          "1": [
+            "CD74",
+            "HLA-DRA",
+            "CD79A",
+            "CD79B",
+            "HLA-DPB1"
+          ],
+          "2": [
+            "LYZ",
+            "S100A9",
+            "S100A8",
+            "TYROBP",
+            "FTL"
+          ],
+          "3": [
+            "NKG7",
+            "PRF1",
+            "GZMB",
+            "GNLY",
+            "CST7"
+          ],
+          "4": [
+            "CCL5",
+            "NKG7",
+            "CST7",
+            "GZMA",
+            "B2M"
+          ],
+          "5": [
+            "LST1",
+            "FCER1G",
+            "AIF1",
+            "COTL1",
+            "FCGR3A"
+          ],
+          "6": [
+            "HLA-DPA1",
+            "HLA-DPB1",
+            "HLA-DRB1",
+            "HLA-DRA",
+            "CST3"
+          ],
+          "7": [
+            "PF4",
+            "SDPR",
+            "GNG11",
+            "PPBP",
+            "NRGN"
+          ]
+        }
+      },
+      "cluster_structure": {
+        "n_clusters": 8,
+        "cluster_sizes": {
+          "0": 1168,
+          "1": 346,
+          "2": 478,
+          "3": 132,
+          "4": 315,
+          "5": 160,
+          "6": 26,
+          "7": 13
+        },
+        "largest_cluster_size": 1168,
+        "largest_cluster_fraction": 0.44275966641395,
+        "number_of_small_clusters": 2,
+        "small_clusters": {
+          "6": 26,
+          "7": 13
+        }
+      },
+      "clustering_time_seconds": 3.0500457089801785,
+      "evaluation_time_seconds": 0.1866471669927705,
+      "marker_genes": {
+        "0": [
+          "LTB",
+          "IL32",
+          "IL7R",
+          "MALAT1",
+          "CD2"
+        ],
+        "1": [
+          "CD74",
+          "HLA-DRA",
+          "CD79A",
+          "CD79B",
+          "HLA-DPB1"
+        ],
+        "2": [
+          "LYZ",
+          "S100A9",
+          "S100A8",
+          "TYROBP",
+          "FTL"
+        ],
+        "3": [
+          "NKG7",
+          "PRF1",
+          "GZMB",
+          "GNLY",
+          "CST7"
+        ],
+        "4": [
+          "CCL5",
+          "NKG7",
+          "CST7",
+          "GZMA",
+          "B2M"
+        ],
+        "5": [
+          "LST1",
+          "FCER1G",
+          "AIF1",
+          "COTL1",
+          "FCGR3A"
+        ],
+        "6": [
+          "HLA-DPA1",
+          "HLA-DPB1",
+          "HLA-DRB1",
+          "HLA-DRA",
+          "CST3"
+        ],
+        "7": [
+          "PF4",
+          "SDPR",
+          "GNG11",
+          "PPBP",
+          "NRGN"
+        ]
+      },
+      "decision": {
+        "decision": "continue",
+        "parameters": {
+          "n_neighbors": 30,
+          "resolution": 0.6,
+          "n_pcs": 25
+        },
+        "reason": "Intrinsic evidence: The current setting (20, 0.6, 25) yields one of the top silhouette scores (~0.231) and the best Davies-Bouldin so far (1.52), with WC-dispersion comparable to nearby optima. Prior increases in resolution degraded intrinsic metrics, while moving n_neighbors from 15 to 20 improved DB without harming silhouette, suggesting further exploration along n_neighbors may refine separation. Structural evidence: Cluster count and size distribution are stable (8 clusters, two small clusters, a dominant cluster ~0.44). Given that higher resolution previously increased fragmentation without intrinsic gains, holding resolution constant while adjusting n_neighbors is a focused way to test whether graph smoothing can further improve separation or reduce within-cluster dispersion without over-fragmentation. Biological evidence: Marker patterns are broadly compatible with plausible PBMC structure across settings (e.g., distinct cytotoxic/NK-like, myeloid-like, B-like, platelet-like signals), supporting that clusters are coherent, but this is secondary and not driving the choice. Testing n_neighbors=30 at the same resolution/PCs targets a specific uncertainty (effect of neighbor graph density) with a reasonable chance of incremental intrinsic improvement.",
+        "llm_decision_time_seconds": 76.6937912919966
+      }
+    },
+    {
+      "iteration": 8,
+      "leiden_seed": 3,
+      "parameters": {
+        "n_neighbors": 30,
+        "resolution": 0.6,
+        "n_pcs": 25
+      },
+      "metrics": {
+        "n_neighbors": 30,
+        "resolution": 0.6,
+        "n_pcs": 25,
+        "random_state": 3,
+        "n_clusters": 8,
+        "cluster_sizes": {
+          "0": 1168,
+          "1": 346,
+          "2": 477,
+          "3": 139,
+          "4": 308,
+          "5": 161,
+          "6": 26,
+          "7": 13
+        },
+        "largest_cluster_size": 1168,
+        "largest_cluster_fraction": 0.44275966641395,
+        "number_of_small_clusters": 2,
+        "small_clusters": {
+          "6": 26,
+          "7": 13
+        },
+        "metric_embedding": "X_pca",
+        "metric_n_pcs": 25,
+        "silhouette_score": 0.23334091901779175,
+        "davies_bouldin_score": 1.517432178514839,
+        "wc_dispersion_score": 195251.359375,
+        "marker_genes": {
+          "0": [
+            "LTB",
+            "IL32",
+            "IL7R",
+            "MALAT1",
+            "CD2"
+          ],
+          "1": [
+            "CD74",
+            "HLA-DRA",
+            "CD79A",
+            "CD79B",
+            "HLA-DPB1"
+          ],
+          "2": [
+            "LYZ",
+            "S100A9",
+            "S100A8",
+            "TYROBP",
+            "FTL"
+          ],
+          "3": [
+            "NKG7",
+            "GZMB",
+            "PRF1",
+            "GNLY",
+            "CTSW"
+          ],
+          "4": [
+            "CCL5",
+            "NKG7",
+            "CST7",
+            "GZMA",
+            "B2M"
+          ],
+          "5": [
+            "LST1",
+            "FCER1G",
+            "AIF1",
+            "COTL1",
+            "FCGR3A"
+          ],
+          "6": [
+            "HLA-DPA1",
+            "HLA-DPB1",
+            "HLA-DRB1",
+            "HLA-DRA",
+            "CST3"
+          ],
+          "7": [
+            "PF4",
+            "SDPR",
+            "GNG11",
+            "PPBP",
+            "NRGN"
+          ]
+        }
+      },
+      "cluster_structure": {
+        "n_clusters": 8,
+        "cluster_sizes": {
+          "0": 1168,
+          "1": 346,
+          "2": 477,
+          "3": 139,
+          "4": 308,
+          "5": 161,
+          "6": 26,
+          "7": 13
+        },
+        "largest_cluster_size": 1168,
+        "largest_cluster_fraction": 0.44275966641395,
+        "number_of_small_clusters": 2,
+        "small_clusters": {
+          "6": 26,
+          "7": 13
+        }
+      },
+      "clustering_time_seconds": 3.532398833980551,
+      "evaluation_time_seconds": 0.18116745800944045,
+      "marker_genes": {
+        "0": [
+          "LTB",
+          "IL32",
+          "IL7R",
+          "MALAT1",
+          "CD2"
+        ],
+        "1": [
+          "CD74",
+          "HLA-DRA",
+          "CD79A",
+          "CD79B",
+          "HLA-DPB1"
+        ],
+        "2": [
+          "LYZ",
+          "S100A9",
+          "S100A8",
+          "TYROBP",
+          "FTL"
+        ],
+        "3": [
+          "NKG7",
+          "GZMB",
+          "PRF1",
+          "GNLY",
+          "CTSW"
+        ],
+        "4": [
+          "CCL5",
+          "NKG7",
+          "CST7",
+          "GZMA",
+          "B2M"
+        ],
+        "5": [
+          "LST1",
+          "FCER1G",
+          "AIF1",
+          "COTL1",
+          "FCGR3A"
+        ],
+        "6": [
+          "HLA-DPA1",
+          "HLA-DPB1",
+          "HLA-DRB1",
+          "HLA-DRA",
+          "CST3"
+        ],
+        "7": [
+          "PF4",
+          "SDPR",
+          "GNG11",
+          "PPBP",
+          "NRGN"
+        ]
+      },
+      "decision": {
+        "decision": "continue",
+        "parameters": {
+          "n_neighbors": 40,
+          "resolution": 0.6,
+          "n_pcs": 25
+        },
+        "reason": "Intrinsic: At resolution 0.6 with 25 PCs, increasing n_neighbors from 15→20→30 yielded slight silhouette gains (≈0.231→0.233) with similarly favorable Davies–Bouldin (~1.52) and WC-dispersion; higher resolution degraded metrics, and 20 or 30 PCs were worse than 25. Structural: The 8-cluster structure with two small, stable clusters recurs across runs, suggesting no obvious over-fragmentation; a larger neighbor graph may improve separation without changing granularity. Biological: Marker patterns are broadly compatible with plausible PBMC partitions, supporting a smoothing-focused test rather than altering resolution.",
+        "llm_decision_time_seconds": 64.2664883339894
+      }
+    },
+    {
+      "iteration": 9,
+      "leiden_seed": 3,
+      "parameters": {
+        "n_neighbors": 40,
+        "resolution": 0.6,
+        "n_pcs": 25
+      },
+      "metrics": {
+        "n_neighbors": 40,
+        "resolution": 0.6,
+        "n_pcs": 25,
+        "random_state": 3,
+        "n_clusters": 8,
+        "cluster_sizes": {
+          "0": 1168,
+          "1": 308,
+          "2": 346,
+          "3": 477,
+          "4": 139,
+          "5": 161,
+          "6": 26,
+          "7": 13
+        },
+        "largest_cluster_size": 1168,
+        "largest_cluster_fraction": 0.44275966641395,
+        "number_of_small_clusters": 2,
+        "small_clusters": {
+          "6": 26,
+          "7": 13
+        },
+        "metric_embedding": "X_pca",
+        "metric_n_pcs": 25,
+        "silhouette_score": 0.2333480715751648,
+        "davies_bouldin_score": 1.517218376162797,
+        "wc_dispersion_score": 195240.640625,
+        "marker_genes": {
+          "0": [
+            "LTB",
+            "IL32",
+            "IL7R",
+            "MALAT1",
+            "CD2"
+          ],
+          "1": [
+            "CCL5",
+            "NKG7",
+            "CST7",
+            "GZMA",
+            "B2M"
+          ],
+          "2": [
+            "CD74",
+            "HLA-DRA",
+            "CD79A",
+            "CD79B",
+            "HLA-DPB1"
+          ],
+          "3": [
+            "LYZ",
+            "S100A9",
+            "S100A8",
+            "TYROBP",
+            "FTL"
+          ],
+          "4": [
+            "NKG7",
+            "GZMB",
+            "PRF1",
+            "GNLY",
+            "CTSW"
+          ],
+          "5": [
+            "LST1",
+            "FCER1G",
+            "AIF1",
+            "COTL1",
+            "FCGR3A"
+          ],
+          "6": [
+            "HLA-DPA1",
+            "HLA-DPB1",
+            "HLA-DRB1",
+            "HLA-DRA",
+            "CST3"
+          ],
+          "7": [
+            "PF4",
+            "SDPR",
+            "GNG11",
+            "PPBP",
+            "NRGN"
+          ]
+        }
+      },
+      "cluster_structure": {
+        "n_clusters": 8,
+        "cluster_sizes": {
+          "0": 1168,
+          "1": 308,
+          "2": 346,
+          "3": 477,
+          "4": 139,
+          "5": 161,
+          "6": 26,
+          "7": 13
+        },
+        "largest_cluster_size": 1168,
+        "largest_cluster_fraction": 0.44275966641395,
+        "number_of_small_clusters": 2,
+        "small_clusters": {
+          "6": 26,
+          "7": 13
+        }
+      },
+      "clustering_time_seconds": 4.025179165997542,
+      "evaluation_time_seconds": 0.18752708300598897,
+      "marker_genes": {
+        "0": [
+          "LTB",
+          "IL32",
+          "IL7R",
+          "MALAT1",
+          "CD2"
+        ],
+        "1": [
+          "CCL5",
+          "NKG7",
+          "CST7",
+          "GZMA",
+          "B2M"
+        ],
+        "2": [
+          "CD74",
+          "HLA-DRA",
+          "CD79A",
+          "CD79B",
+          "HLA-DPB1"
+        ],
+        "3": [
+          "LYZ",
+          "S100A9",
+          "S100A8",
+          "TYROBP",
+          "FTL"
+        ],
+        "4": [
+          "NKG7",
+          "GZMB",
+          "PRF1",
+          "GNLY",
+          "CTSW"
+        ],
+        "5": [
+          "LST1",
+          "FCER1G",
+          "AIF1",
+          "COTL1",
+          "FCGR3A"
+        ],
+        "6": [
+          "HLA-DPA1",
+          "HLA-DPB1",
+          "HLA-DRB1",
+          "HLA-DRA",
+          "CST3"
+        ],
+        "7": [
+          "PF4",
+          "SDPR",
+          "GNG11",
+          "PPBP",
+          "NRGN"
+        ]
+      },
+      "decision": {
+        "decision": "continue",
+        "parameters": {
+          "n_neighbors": 40,
+          "resolution": 0.65,
+          "n_pcs": 25
+        },
+        "reason": "Intrinsic evidence: With n_pcs=25 and resolution=0.6, n_neighbors 20–40 yield the best overall metrics so far (silhouette ~0.233, DB ~1.52), indicating a plateau. At n_neighbors=15, a modest increase to resolution=0.65 maintained similar silhouette while slightly lowering WC-dispersion, whereas larger increases degraded metrics. Testing 0.65 at n_neighbors=40 may reveal slight improvements without the deterioration seen at higher resolutions. Structural evidence: The current 8-cluster solution shows one dominant cluster (~44%) and two persistent small clusters; a small resolution increase may refine boundaries or reduce heterogeneity in large clusters without excessive fragmentation. Biological evidence (supporting only): Marker patterns are broadly compatible with major PBMC lineages; a modest increase in granularity could separate subtle states, but biology is not the optimization target.",
+        "llm_decision_time_seconds": 83.9680515420041
+      }
+    },
+    {
+      "iteration": 10,
+      "leiden_seed": 3,
+      "parameters": {
+        "n_neighbors": 40,
+        "resolution": 0.65,
+        "n_pcs": 25
+      },
+      "metrics": {
+        "n_neighbors": 40,
+        "resolution": 0.65,
+        "n_pcs": 25,
+        "random_state": 3,
+        "n_clusters": 8,
+        "cluster_sizes": {
+          "0": 1166,
+          "1": 346,
+          "2": 476,
+          "3": 139,
+          "4": 310,
+          "5": 162,
+          "6": 26,
+          "7": 13
+        },
+        "largest_cluster_size": 1166,
+        "largest_cluster_fraction": 0.44200151630022744,
+        "number_of_small_clusters": 2,
+        "small_clusters": {
+          "6": 26,
+          "7": 13
+        },
+        "metric_embedding": "X_pca",
+        "metric_n_pcs": 25,
+        "silhouette_score": 0.23259197175502777,
+        "davies_bouldin_score": 1.5198624056735883,
+        "wc_dispersion_score": 195292.34375,
+        "marker_genes": {
+          "0": [
+            "LTB",
+            "IL32",
+            "IL7R",
+            "MALAT1",
+            "CD2"
+          ],
+          "1": [
+            "CD74",
+            "HLA-DRA",
+            "CD79A",
+            "CD79B",
+            "HLA-DPB1"
+          ],
+          "2": [
+            "LYZ",
+            "S100A9",
+            "S100A8",
+            "TYROBP",
+            "FTL"
+          ],
+          "3": [
+            "NKG7",
+            "GZMB",
+            "PRF1",
+            "GNLY",
+            "CTSW"
+          ],
+          "4": [
+            "CCL5",
+            "NKG7",
+            "CST7",
+            "GZMA",
+            "B2M"
+          ],
+          "5": [
+            "LST1",
+            "FCER1G",
+            "AIF1",
+            "COTL1",
+            "FCGR3A"
+          ],
+          "6": [
+            "HLA-DPA1",
+            "HLA-DPB1",
+            "HLA-DRB1",
+            "HLA-DRA",
+            "CST3"
+          ],
+          "7": [
+            "PF4",
+            "SDPR",
+            "GNG11",
+            "PPBP",
+            "NRGN"
+          ]
+        }
+      },
+      "cluster_structure": {
+        "n_clusters": 8,
+        "cluster_sizes": {
+          "0": 1166,
+          "1": 346,
+          "2": 476,
+          "3": 139,
+          "4": 310,
+          "5": 162,
+          "6": 26,
+          "7": 13
+        },
+        "largest_cluster_size": 1166,
+        "largest_cluster_fraction": 0.44200151630022744,
+        "number_of_small_clusters": 2,
+        "small_clusters": {
+          "6": 26,
+          "7": 13
+        }
+      },
+      "clustering_time_seconds": 4.058718707994558,
+      "evaluation_time_seconds": 0.1975002080143895,
+      "marker_genes": {
+        "0": [
+          "LTB",
+          "IL32",
+          "IL7R",
+          "MALAT1",
+          "CD2"
+        ],
+        "1": [
+          "CD74",
+          "HLA-DRA",
+          "CD79A",
+          "CD79B",
+          "HLA-DPB1"
+        ],
+        "2": [
+          "LYZ",
+          "S100A9",
+          "S100A8",
+          "TYROBP",
+          "FTL"
+        ],
+        "3": [
+          "NKG7",
+          "GZMB",
+          "PRF1",
+          "GNLY",
+          "CTSW"
+        ],
+        "4": [
+          "CCL5",
+          "NKG7",
+          "CST7",
+          "GZMA",
+          "B2M"
+        ],
+        "5": [
+          "LST1",
+          "FCER1G",
+          "AIF1",
+          "COTL1",
+          "FCGR3A"
+        ],
+        "6": [
+          "HLA-DPA1",
+          "HLA-DPB1",
+          "HLA-DRB1",
+          "HLA-DRA",
+          "CST3"
+        ],
+        "7": [
+          "PF4",
+          "SDPR",
+          "GNG11",
+          "PPBP",
+          "NRGN"
+        ]
+      },
+      "decision": {
+        "decision": "continue",
+        "parameters": {
+          "n_neighbors": 40,
+          "resolution": 0.55,
+          "n_pcs": 25
+        },
+        "reason": "Intrinsic: The best silhouette (~0.233) and among the best Davies–Bouldin (~1.516–1.517) occur at resolution 0.6 with n_neighbors 20–40 and n_pcs 25. Increasing resolution to 0.65 slightly worsened both metrics, suggesting the optimum may lie at or slightly below 0.6. Testing 0.55 directly probes whether modestly lower granularity yields a small further gain in separation/cohesion without sacrificing dispersion. Structural: Current solutions consistently yield 8 clusters with a dominant large cluster (~44%) and two persistent small clusters (26, 13). Two cytotoxic-like clusters are split; a slight reduction in resolution will test if this partitioning is supported or overly fine without forcing merges. Biological (context only): Marker patterns are broadly compatible with PBMC structure (T-like, B-like, myeloid-like, cytotoxic-like, DC-/platelet-like signals), but do not determine the target granularity. A small decrease in resolution is reasonable to assess if intrinsic metrics improve while maintaining plausible structure.",
+        "llm_decision_time_seconds": 48.053274875011994
+      }
+    },
+    {
+      "iteration": 11,
+      "leiden_seed": 3,
+      "parameters": {
+        "n_neighbors": 40,
+        "resolution": 0.55,
+        "n_pcs": 25
+      },
+      "metrics": {
+        "n_neighbors": 40,
+        "resolution": 0.55,
+        "n_pcs": 25,
+        "random_state": 3,
+        "n_clusters": 7,
+        "cluster_sizes": {
+          "0": 1177,
+          "1": 438,
+          "2": 346,
+          "3": 477,
+          "4": 161,
+          "5": 26,
+          "6": 13
+        },
+        "largest_cluster_size": 1177,
+        "largest_cluster_fraction": 0.4461713419257013,
+        "number_of_small_clusters": 2,
+        "small_clusters": {
+          "5": 26,
+          "6": 13
+        },
+        "metric_embedding": "X_pca",
+        "metric_n_pcs": 25,
+        "silhouette_score": 0.2585865259170532,
+        "davies_bouldin_score": 1.4162448962518968,
+        "wc_dispersion_score": 208720.640625,
+        "marker_genes": {
+          "0": [
+            "LTB",
+            "IL32",
+            "IL7R",
+            "MALAT1",
+            "CD2"
+          ],
+          "1": [
+            "NKG7",
+            "CST7",
+            "GZMA",
+            "B2M",
+            "CTSW"
+          ],
+          "2": [
+            "CD74",
+            "HLA-DRA",
+            "CD79A",
+            "CD79B",
+            "HLA-DPB1"
+          ],
+          "3": [
+            "LYZ",
+            "S100A9",
+            "S100A8",
+            "TYROBP",
+            "FTL"
+          ],
+          "4": [
+            "LST1",
+            "FCER1G",
+            "AIF1",
+            "COTL1",
+            "FCGR3A"
+          ],
+          "5": [
+            "HLA-DPA1",
+            "HLA-DPB1",
+            "HLA-DRB1",
+            "HLA-DRA",
+            "CST3"
+          ],
+          "6": [
+            "PF4",
+            "SDPR",
+            "GNG11",
+            "PPBP",
+            "NRGN"
+          ]
+        }
+      },
+      "cluster_structure": {
+        "n_clusters": 7,
+        "cluster_sizes": {
+          "0": 1177,
+          "1": 438,
+          "2": 346,
+          "3": 477,
+          "4": 161,
+          "5": 26,
+          "6": 13
+        },
+        "largest_cluster_size": 1177,
+        "largest_cluster_fraction": 0.4461713419257013,
+        "number_of_small_clusters": 2,
+        "small_clusters": {
+          "5": 26,
+          "6": 13
+        }
+      },
+      "clustering_time_seconds": 3.8683207080175634,
+      "evaluation_time_seconds": 0.17114141600904986,
+      "marker_genes": {
+        "0": [
+          "LTB",
+          "IL32",
+          "IL7R",
+          "MALAT1",
+          "CD2"
+        ],
+        "1": [
+          "NKG7",
+          "CST7",
+          "GZMA",
+          "B2M",
+          "CTSW"
+        ],
+        "2": [
+          "CD74",
+          "HLA-DRA",
+          "CD79A",
+          "CD79B",
+          "HLA-DPB1"
+        ],
+        "3": [
+          "LYZ",
+          "S100A9",
+          "S100A8",
+          "TYROBP",
+          "FTL"
+        ],
+        "4": [
+          "LST1",
+          "FCER1G",
+          "AIF1",
+          "COTL1",
+          "FCGR3A"
+        ],
+        "5": [
+          "HLA-DPA1",
+          "HLA-DPB1",
+          "HLA-DRB1",
+          "HLA-DRA",
+          "CST3"
+        ],
+        "6": [
+          "PF4",
+          "SDPR",
+          "GNG11",
+          "PPBP",
+          "NRGN"
+        ]
+      },
+      "decision": {
+        "decision": "continue",
+        "parameters": {
+          "n_neighbors": 40,
+          "resolution": 0.5,
+          "n_pcs": 25
+        },
+        "reason": "Intrinsic evidence: The current setting (40, 0.55, 25) yields the best separation so far (silhouette 0.2596, DBI 1.416), but with higher WC-dispersion than nearby settings at higher resolution; testing a slightly lower resolution will probe whether the improvement in separation continues or reverses, mapping a local optimum. Structural evidence: Seven clusters with two very small clusters and a dominant large cluster suggest mild risk of under-clustering if resolution is reduced, but the present improvements in separation justify a targeted check at 0.5. Biological evidence (context only): Broad marker patterns remain compatible with major PBMC compartments at 0.55; a modest decrease may merge closely related subsets, which is acceptable if intrinsic metrics improve; biology is not used as a target here.",
+        "llm_decision_time_seconds": 72.66374595899833
+      }
+    },
+    {
+      "iteration": 12,
+      "leiden_seed": 3,
+      "parameters": {
+        "n_neighbors": 40,
+        "resolution": 0.5,
+        "n_pcs": 25
+      },
+      "metrics": {
+        "n_neighbors": 40,
+        "resolution": 0.5,
+        "n_pcs": 25,
+        "random_state": 3,
+        "n_clusters": 7,
+        "cluster_sizes": {
+          "0": 1179,
+          "1": 346,
+          "2": 477,
+          "3": 436,
+          "4": 161,
+          "5": 26,
+          "6": 13
+        },
+        "largest_cluster_size": 1179,
+        "largest_cluster_fraction": 0.4469294920394238,
+        "number_of_small_clusters": 2,
+        "small_clusters": {
+          "5": 26,
+          "6": 13
+        },
+        "metric_embedding": "X_pca",
+        "metric_n_pcs": 25,
+        "silhouette_score": 0.2591972053050995,
+        "davies_bouldin_score": 1.4146630005619387,
+        "wc_dispersion_score": 208614.078125,
+        "marker_genes": {
+          "0": [
+            "LTB",
+            "IL32",
+            "IL7R",
+            "MALAT1",
+            "CD2"
+          ],
+          "1": [
+            "CD74",
+            "HLA-DRA",
+            "CD79A",
+            "CD79B",
+            "HLA-DPB1"
+          ],
+          "2": [
+            "LYZ",
+            "S100A9",
+            "S100A8",
+            "TYROBP",
+            "FTL"
+          ],
+          "3": [
+            "NKG7",
+            "CST7",
+            "GZMA",
+            "B2M",
+            "CTSW"
+          ],
+          "4": [
+            "LST1",
+            "FCER1G",
+            "AIF1",
+            "COTL1",
+            "FCGR3A"
+          ],
+          "5": [
+            "HLA-DPA1",
+            "HLA-DPB1",
+            "HLA-DRB1",
+            "HLA-DRA",
+            "CST3"
+          ],
+          "6": [
+            "PF4",
+            "SDPR",
+            "GNG11",
+            "PPBP",
+            "NRGN"
+          ]
+        }
+      },
+      "cluster_structure": {
+        "n_clusters": 7,
+        "cluster_sizes": {
+          "0": 1179,
+          "1": 346,
+          "2": 477,
+          "3": 436,
+          "4": 161,
+          "5": 26,
+          "6": 13
+        },
+        "largest_cluster_size": 1179,
+        "largest_cluster_fraction": 0.4469294920394238,
+        "number_of_small_clusters": 2,
+        "small_clusters": {
+          "5": 26,
+          "6": 13
+        }
+      },
+      "clustering_time_seconds": 3.9343107500171755,
+      "evaluation_time_seconds": 0.18949812499340624,
+      "marker_genes": {
+        "0": [
+          "LTB",
+          "IL32",
+          "IL7R",
+          "MALAT1",
+          "CD2"
+        ],
+        "1": [
+          "CD74",
+          "HLA-DRA",
+          "CD79A",
+          "CD79B",
+          "HLA-DPB1"
+        ],
+        "2": [
+          "LYZ",
+          "S100A9",
+          "S100A8",
+          "TYROBP",
+          "FTL"
+        ],
+        "3": [
+          "NKG7",
+          "CST7",
+          "GZMA",
+          "B2M",
+          "CTSW"
+        ],
+        "4": [
+          "LST1",
+          "FCER1G",
+          "AIF1",
+          "COTL1",
+          "FCGR3A"
+        ],
+        "5": [
+          "HLA-DPA1",
+          "HLA-DPB1",
+          "HLA-DRB1",
+          "HLA-DRA",
+          "CST3"
+        ],
+        "6": [
+          "PF4",
+          "SDPR",
+          "GNG11",
+          "PPBP",
+          "NRGN"
+        ]
+      },
+      "decision": {
+        "decision": "stop",
+        "reason": "Intrinsic evidence: The current configuration (n_neighbors=40, resolution=0.5, n_pcs=25) yields the highest silhouette (0.259) and lowest Davies–Bouldin (1.415) among tested settings. Improvements from 0.55→0.5 are small and the neighbor trend has largely saturated; while WC-dispersion is higher than at 0.6, this is expected with coarser granularity and is offset by stronger separation metrics. Structural evidence: A 7-cluster solution with two persistent small clusters and a large dominant cluster (~0.45) is similar across nearby settings and does not clearly indicate over- or under-clustering; further lowering resolution would likely merge structure with limited intrinsic gain. Biological evidence: Marker patterns are broadly compatible with major PBMC compartments, providing contextual plausibility without requiring additional partitioning. Given the plateauing intrinsic metrics and reasonable structure, further experiments are unlikely to provide meaningful improvement.",
+        "llm_decision_time_seconds": 85.55409775002045
+      }
+    }
+  ],
+  "termination_reason": "llm_stop_decision",
+  "total_runtime_seconds": 850.9183710419748,
+  "final_result": {
+    "termination_reason": "llm_stop_decision",
+    "best_iteration": 12,
+    "best_parameters": {
+      "n_neighbors": 40,
+      "resolution": 0.5,
+      "n_pcs": 25
+    },
+    "best_metrics": {
+      "n_neighbors": 40,
+      "resolution": 0.5,
+      "n_pcs": 25,
+      "random_state": 3,
+      "n_clusters": 7,
+      "cluster_sizes": {
+        "0": 1179,
+        "1": 346,
+        "2": 477,
+        "3": 436,
+        "4": 161,
+        "5": 26,
+        "6": 13
+      },
+      "largest_cluster_size": 1179,
+      "largest_cluster_fraction": 0.4469294920394238,
+      "number_of_small_clusters": 2,
+      "small_clusters": {
+        "5": 26,
+        "6": 13
+      },
+      "metric_embedding": "X_pca",
+      "metric_n_pcs": 25,
+      "silhouette_score": 0.2591972053050995,
+      "davies_bouldin_score": 1.4146630005619387,
+      "wc_dispersion_score": 208614.078125,
+      "marker_genes": {
+        "0": [
+          "LTB",
+          "IL32",
+          "IL7R",
+          "MALAT1",
+          "CD2"
+        ],
+        "1": [
+          "CD74",
+          "HLA-DRA",
+          "CD79A",
+          "CD79B",
+          "HLA-DPB1"
+        ],
+        "2": [
+          "LYZ",
+          "S100A9",
+          "S100A8",
+          "TYROBP",
+          "FTL"
+        ],
+        "3": [
+          "NKG7",
+          "CST7",
+          "GZMA",
+          "B2M",
+          "CTSW"
+        ],
+        "4": [
+          "LST1",
+          "FCER1G",
+          "AIF1",
+          "COTL1",
+          "FCGR3A"
+        ],
+        "5": [
+          "HLA-DPA1",
+          "HLA-DPB1",
+          "HLA-DRB1",
+          "HLA-DRA",
+          "CST3"
+        ],
+        "6": [
+          "PF4",
+          "SDPR",
+          "GNG11",
+          "PPBP",
+          "NRGN"
+        ]
+      }
+    },
+    "final_selection_reason": "Strongest intrinsic evidence: Iteration 12 shows the highest silhouette and the lowest Davies–Bouldin across all runs, indicating the best overall separation and compactness. While its WC-dispersion is higher than some 8-cluster solutions, this is expected with fewer clusters and is outweighed by the substantial gains in silhouette and DB. Cluster structure: Iteration 12 (7 clusters) avoids over-fragmenting the cytotoxic compartment seen in 8-cluster runs (e.g., iterations 8/9), retains two very small but stable clusters (~26 and ~13 cells), and has a largest-cluster fraction similar to other configurations, suggesting a parsimonious, consistent structure rather than under- or over-clustering. Biological evidence: Marker patterns are coherent and consistent with major PBMC compartments across solutions; the 7-cluster solution merges closely related cytotoxic signatures without introducing questionable tiny groups, providing supporting (not contradictory) context. Final selection: Iteration 12 is selected because it provides the strongest intrinsic metrics, a reasonable and stable cluster-size distribution with no strong contradictory biological signals; the modest WC trade-off is acceptable given the clear improvements in silhouette and Davies–Bouldin.",
+    "final_selection_time_seconds": 76.18207033301587
+  }
+}

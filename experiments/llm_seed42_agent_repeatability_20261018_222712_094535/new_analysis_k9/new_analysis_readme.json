@@ -1,0 +1,26 @@
+{
+  "experiment_directory": "/Users/lola/Desktop/Agentic_Thesis_copy/experiments/llm_seed42_agent_repeatability_20261018_222712_094535",
+  "analysis_output_directory": "/Users/lola/Desktop/Agentic_Thesis_copy/experiments/llm_seed42_agent_repeatability_20261018_222712_094535/new_analysis_k9",
+  "analysis_type": "clean agent repeatability post-processing",
+  "n_successful_runs": 8,
+  "n_failed_runs": 0,
+  "n_cells": 2638,
+  "k_argument_for_output_compatibility_only": 9,
+  "llm_seed_configured_in_experiment": 42,
+  "outputs_intentionally_omitted": [
+    "new_cross_run_same_iteration_position_similarity.csv",
+    "new_within_run_pairwise_iteration_similarity.csv",
+    "new_trajectory_consensus_vs_iterations.csv",
+    "new_within_run_trajectory_consensus_summary.csv",
+    "new_fig_within_run_iteration_ari_run_*.png",
+    "new_final_best_consensus_vs_runs.csv",
+    "final-best consensus partitions and co-association matrices"
+  ],
+  "interpretation": [
+    "ARI/NMI measure agreement between partitions, not biological accuracy.",
+    "Final-best comparisons use the selected partition saved for each run.",
+    "Cell IDs and their order are checked against the first successful run before comparisons.",
+    "The within_run_consensus folder name is retained for workflow continuity; this clean script stores selected-best cell labels there and does not calculate within-run consensus.",
+    "A configured LLM seed is best-effort reproducibility, not a guarantee of identical outputs."
+  ]
+}

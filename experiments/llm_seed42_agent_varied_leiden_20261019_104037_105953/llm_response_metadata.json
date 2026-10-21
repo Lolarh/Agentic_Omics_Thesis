@@ -1,0 +1,3004 @@
+{
+  "note": "system_fingerprint is recorded only when exposed by LangChain response metadata. A null value does not prove the provider omitted it; the installed integration may not expose it through this callback.",
+  "n_llm_responses_observed": 111,
+  "n_responses_with_fingerprint": 0,
+  "records": [
+    {
+      "run_index": 1,
+      "system_fingerprint": null,
+      "model_name": "gpt-5-2025-08-07",
+      "response_metadata_keys": [
+        "finish_reason",
+        "id",
+        "logprobs",
+        "model_name",
+        "model_provider",
+        "service_tier",
+        "system_fingerprint",
+        "token_usage"
+      ],
+      "generation_info_keys": [
+        "finish_reason",
+        "logprobs"
+      ],
+      "llm_output_keys": [
+        "id",
+        "model_name",
+        "model_provider",
+        "service_tier",
+        "system_fingerprint",
+        "token_usage"
+      ]
+    },
+    {
+      "run_index": 1,
+      "system_fingerprint": null,
+      "model_name": "gpt-5-2025-08-07",
+      "response_metadata_keys": [
+        "finish_reason",
+        "id",
+        "logprobs",
+        "model_name",
+        "model_provider",
+        "service_tier",
+        "system_fingerprint",
+        "token_usage"
+      ],
+      "generation_info_keys": [
+        "finish_reason",
+        "logprobs"
+      ],
+      "llm_output_keys": [
+        "id",
+        "model_name",
+        "model_provider",
+        "service_tier",
+        "system_fingerprint",
+        "token_usage"
+      ]
+    },
+    {
+      "run_index": 1,
+      "system_fingerprint": null,
+      "model_name": "gpt-5-2025-08-07",
+      "response_metadata_keys": [
+        "finish_reason",
+        "id",
+        "logprobs",
+        "model_name",
+        "model_provider",
+        "service_tier",
+        "system_fingerprint",
+        "token_usage"
+      ],
+      "generation_info_keys": [
+        "finish_reason",
+        "logprobs"
+      ],
+      "llm_output_keys": [
+        "id",
+        "model_name",
+        "model_provider",
+        "service_tier",
+        "system_fingerprint",
+        "token_usage"
+      ]
+    },
+    {
+      "run_index": 1,
+      "system_fingerprint": null,
+      "model_name": "gpt-5-2025-08-07",
+      "response_metadata_keys": [
+        "finish_reason",
+        "id",
+        "logprobs",
+        "model_name",
+        "model_provider",
+        "service_tier",
+        "system_fingerprint",
+        "token_usage"
+      ],
+      "generation_info_keys": [
+        "finish_reason",
+        "logprobs"
+      ],
+      "llm_output_keys": [
+        "id",
+        "model_name",
+        "model_provider",
+        "service_tier",
+        "system_fingerprint",
+        "token_usage"
+      ]
+    },
+    {
+      "run_index": 1,
+      "system_fingerprint": null,
+      "model_name": "gpt-5-2025-08-07",
+      "response_metadata_keys": [
+        "finish_reason",
+        "id",
+        "logprobs",
+        "model_name",
+        "model_provider",
+        "service_tier",
+        "system_fingerprint",
+        "token_usage"
+      ],
+      "generation_info_keys": [
+        "finish_reason",
+        "logprobs"
+      ],
+      "llm_output_keys": [
+        "id",
+        "model_name",
+        "model_provider",
+        "service_tier",
+        "system_fingerprint",
+        "token_usage"
+      ]
+    },
+    {
+      "run_index": 1,
+      "system_fingerprint": null,
+      "model_name": "gpt-5-2025-08-07",
+      "response_metadata_keys": [
+        "finish_reason",
+        "id",
+        "logprobs",
+        "model_name",
+        "model_provider",
+        "service_tier",
+        "system_fingerprint",
+        "token_usage"
+      ],
+      "generation_info_keys": [
+        "finish_reason",
+        "logprobs"
+      ],
+      "llm_output_keys": [
+        "id",
+        "model_name",
+        "model_provider",
+        "service_tier",
+        "system_fingerprint",
+        "token_usage"
+      ]
+    },
+    {
+      "run_index": 1,
+      "system_fingerprint": null,
+      "model_name": "gpt-5-2025-08-07",
+      "response_metadata_keys": [
+        "finish_reason",
+        "id",
+        "logprobs",
+        "model_name",
+        "model_provider",
+        "service_tier",
+        "system_fingerprint",
+        "token_usage"
+      ],
+      "generation_info_keys": [
+        "finish_reason",
+        "logprobs"
+      ],
+      "llm_output_keys": [
+        "id",
+        "model_name",
+        "model_provider",
+        "service_tier",
+        "system_fingerprint",
+        "token_usage"
+      ]
+    },
+    {
+      "run_index": 1,
+      "system_fingerprint": null,
+      "model_name": "gpt-5-2025-08-07",
+      "response_metadata_keys": [
+        "finish_reason",
+        "id",
+        "logprobs",
+        "model_name",
+        "model_provider",
+        "service_tier",
+        "system_fingerprint",
+        "token_usage"
+      ],
+      "generation_info_keys": [
+        "finish_reason",
+        "logprobs"
+      ],
+      "llm_output_keys": [
+        "id",
+        "model_name",
+        "model_provider",
+        "service_tier",
+        "system_fingerprint",
+        "token_usage"
+      ]
+    },
+    {
+      "run_index": 1,
+      "system_fingerprint": null,
+      "model_name": "gpt-5-2025-08-07",
+      "response_metadata_keys": [
+        "finish_reason",
+        "id",
+        "logprobs",
+        "model_name",
+        "model_provider",
+        "service_tier",
+        "system_fingerprint",
+        "token_usage"
+      ],
+      "generation_info_keys": [
+        "finish_reason",
+        "logprobs"
+      ],
+      "llm_output_keys": [
+        "id",
+        "model_name",
+        "model_provider",
+        "service_tier",
+        "system_fingerprint",
+        "token_usage"
+      ]
+    },
+    {
+      "run_index": 1,
+      "system_fingerprint": null,
+      "model_name": "gpt-5-2025-08-07",
+      "response_metadata_keys": [
+        "finish_reason",
+        "id",
+        "logprobs",
+        "model_name",
+        "model_provider",
+        "service_tier",
+        "system_fingerprint",
+        "token_usage"
+      ],
+      "generation_info_keys": [
+        "finish_reason",
+        "logprobs"
+      ],
+      "llm_output_keys": [
+        "id",
+        "model_name",
+        "model_provider",
+        "service_tier",
+        "system_fingerprint",
+        "token_usage"
+      ]
+    },
+    {
+      "run_index": 2,
+      "system_fingerprint": null,
+      "model_name": "gpt-5-2025-08-07",
+      "response_metadata_keys": [
+        "finish_reason",
+        "id",
+        "logprobs",
+        "model_name",
+        "model_provider",
+        "service_tier",
+        "system_fingerprint",
+        "token_usage"
+      ],
+      "generation_info_keys": [
+        "finish_reason",
+        "logprobs"
+      ],
+      "llm_output_keys": [
+        "id",
+        "model_name",
+        "model_provider",
+        "service_tier",
+        "system_fingerprint",
+        "token_usage"
+      ]
+    },
+    {
+      "run_index": 2,
+      "system_fingerprint": null,
+      "model_name": "gpt-5-2025-08-07",
+      "response_metadata_keys": [
+        "finish_reason",
+        "id",
+        "logprobs",
+        "model_name",
+        "model_provider",
+        "service_tier",
+        "system_fingerprint",
+        "token_usage"
+      ],
+      "generation_info_keys": [
+        "finish_reason",
+        "logprobs"
+      ],
+      "llm_output_keys": [
+        "id",
+        "model_name",
+        "model_provider",
+        "service_tier",
+        "system_fingerprint",
+        "token_usage"
+      ]
+    },
+    {
+      "run_index": 2,
+      "system_fingerprint": null,
+      "model_name": "gpt-5-2025-08-07",
+      "response_metadata_keys": [
+        "finish_reason",
+        "id",
+        "logprobs",
+        "model_name",
+        "model_provider",
+        "service_tier",
+        "system_fingerprint",
+        "token_usage"
+      ],
+      "generation_info_keys": [
+        "finish_reason",
+        "logprobs"
+      ],
+      "llm_output_keys": [
+        "id",
+        "model_name",
+        "model_provider",
+        "service_tier",
+        "system_fingerprint",
+        "token_usage"
+      ]
+    },
+    {
+      "run_index": 2,
+      "system_fingerprint": null,
+      "model_name": "gpt-5-2025-08-07",
+      "response_metadata_keys": [
+        "finish_reason",
+        "id",
+        "logprobs",
+        "model_name",
+        "model_provider",
+        "service_tier",
+        "system_fingerprint",
+        "token_usage"
+      ],
+      "generation_info_keys": [
+        "finish_reason",
+        "logprobs"
+      ],
+      "llm_output_keys": [
+        "id",
+        "model_name",
+        "model_provider",
+        "service_tier",
+        "system_fingerprint",
+        "token_usage"
+      ]
+    },
+    {
+      "run_index": 2,
+      "system_fingerprint": null,
+      "model_name": "gpt-5-2025-08-07",
+      "response_metadata_keys": [
+        "finish_reason",
+        "id",
+        "logprobs",
+        "model_name",
+        "model_provider",
+        "service_tier",
+        "system_fingerprint",
+        "token_usage"
+      ],
+      "generation_info_keys": [
+        "finish_reason",
+        "logprobs"
+      ],
+      "llm_output_keys": [
+        "id",
+        "model_name",
+        "model_provider",
+        "service_tier",
+        "system_fingerprint",
+        "token_usage"
+      ]
+    },
+    {
+      "run_index": 2,
+      "system_fingerprint": null,
+      "model_name": "gpt-5-2025-08-07",
+      "response_metadata_keys": [
+        "finish_reason",
+        "id",
+        "logprobs",
+        "model_name",
+        "model_provider",
+        "service_tier",
+        "system_fingerprint",
+        "token_usage"
+      ],
+      "generation_info_keys": [
+        "finish_reason",
+        "logprobs"
+      ],
+      "llm_output_keys": [
+        "id",
+        "model_name",
+        "model_provider",
+        "service_tier",
+        "system_fingerprint",
+        "token_usage"
+      ]
+    },
+    {
+      "run_index": 2,
+      "system_fingerprint": null,
+      "model_name": "gpt-5-2025-08-07",
+      "response_metadata_keys": [
+        "finish_reason",
+        "id",
+        "logprobs",
+        "model_name",
+        "model_provider",
+        "service_tier",
+        "system_fingerprint",
+        "token_usage"
+      ],
+      "generation_info_keys": [
+        "finish_reason",
+        "logprobs"
+      ],
+      "llm_output_keys": [
+        "id",
+        "model_name",
+        "model_provider",
+        "service_tier",
+        "system_fingerprint",
+        "token_usage"
+      ]
+    },
+    {
+      "run_index": 2,
+      "system_fingerprint": null,
+      "model_name": "gpt-5-2025-08-07",
+      "response_metadata_keys": [
+        "finish_reason",
+        "id",
+        "logprobs",
+        "model_name",
+        "model_provider",
+        "service_tier",
+        "system_fingerprint",
+        "token_usage"
+      ],
+      "generation_info_keys": [
+        "finish_reason",
+        "logprobs"
+      ],
+      "llm_output_keys": [
+        "id",
+        "model_name",
+        "model_provider",
+        "service_tier",
+        "system_fingerprint",
+        "token_usage"
+      ]
+    },
+    {
+      "run_index": 2,
+      "system_fingerprint": null,
+      "model_name": "gpt-5-2025-08-07",
+      "response_metadata_keys": [
+        "finish_reason",
+        "id",
+        "logprobs",
+        "model_name",
+        "model_provider",
+        "service_tier",
+        "system_fingerprint",
+        "token_usage"
+      ],
+      "generation_info_keys": [
+        "finish_reason",
+        "logprobs"
+      ],
+      "llm_output_keys": [
+        "id",
+        "model_name",
+        "model_provider",
+        "service_tier",
+        "system_fingerprint",
+        "token_usage"
+      ]
+    },
+    {
+      "run_index": 2,
+      "system_fingerprint": null,
+      "model_name": "gpt-5-2025-08-07",
+      "response_metadata_keys": [
+        "finish_reason",
+        "id",
+        "logprobs",
+        "model_name",
+        "model_provider",
+        "service_tier",
+        "system_fingerprint",
+        "token_usage"
+      ],
+      "generation_info_keys": [
+        "finish_reason",
+        "logprobs"
+      ],
+      "llm_output_keys": [
+        "id",
+        "model_name",
+        "model_provider",
+        "service_tier",
+        "system_fingerprint",
+        "token_usage"
+      ]
+    },
+    {
+      "run_index": 2,
+      "system_fingerprint": null,
+      "model_name": "gpt-5-2025-08-07",
+      "response_metadata_keys": [
+        "finish_reason",
+        "id",
+        "logprobs",
+        "model_name",
+        "model_provider",
+        "service_tier",
+        "system_fingerprint",
+        "token_usage"
+      ],
+      "generation_info_keys": [
+        "finish_reason",
+        "logprobs"
+      ],
+      "llm_output_keys": [
+        "id",
+        "model_name",
+        "model_provider",
+        "service_tier",
+        "system_fingerprint",
+        "token_usage"
+      ]
+    },
+    {
+      "run_index": 2,
+      "system_fingerprint": null,
+      "model_name": "gpt-5-2025-08-07",
+      "response_metadata_keys": [
+        "finish_reason",
+        "id",
+        "logprobs",
+        "model_name",
+        "model_provider",
+        "service_tier",
+        "system_fingerprint",
+        "token_usage"
+      ],
+      "generation_info_keys": [
+        "finish_reason",
+        "logprobs"
+      ],
+      "llm_output_keys": [
+        "id",
+        "model_name",
+        "model_provider",
+        "service_tier",
+        "system_fingerprint",
+        "token_usage"
+      ]
+    },
+    {
+      "run_index": 2,
+      "system_fingerprint": null,
+      "model_name": "gpt-5-2025-08-07",
+      "response_metadata_keys": [
+        "finish_reason",
+        "id",
+        "logprobs",
+        "model_name",
+        "model_provider",
+        "service_tier",
+        "system_fingerprint",
+        "token_usage"
+      ],
+      "generation_info_keys": [
+        "finish_reason",
+        "logprobs"
+      ],
+      "llm_output_keys": [
+        "id",
+        "model_name",
+        "model_provider",
+        "service_tier",
+        "system_fingerprint",
+        "token_usage"
+      ]
+    },
+    {
+      "run_index": 2,
+      "system_fingerprint": null,
+      "model_name": "gpt-5-2025-08-07",
+      "response_metadata_keys": [
+        "finish_reason",
+        "id",
+        "logprobs",
+        "model_name",
+        "model_provider",
+        "service_tier",
+        "system_fingerprint",
+        "token_usage"
+      ],
+      "generation_info_keys": [
+        "finish_reason",
+        "logprobs"
+      ],
+      "llm_output_keys": [
+        "id",
+        "model_name",
+        "model_provider",
+        "service_tier",
+        "system_fingerprint",
+        "token_usage"
+      ]
+    },
+    {
+      "run_index": 2,
+      "system_fingerprint": null,
+      "model_name": "gpt-5-2025-08-07",
+      "response_metadata_keys": [
+        "finish_reason",
+        "id",
+        "logprobs",
+        "model_name",
+        "model_provider",
+        "service_tier",
+        "system_fingerprint",
+        "token_usage"
+      ],
+      "generation_info_keys": [
+        "finish_reason",
+        "logprobs"
+      ],
+      "llm_output_keys": [
+        "id",
+        "model_name",
+        "model_provider",
+        "service_tier",
+        "system_fingerprint",
+        "token_usage"
+      ]
+    },
+    {
+      "run_index": 3,
+      "system_fingerprint": null,
+      "model_name": "gpt-5-2025-08-07",
+      "response_metadata_keys": [
+        "finish_reason",
+        "id",
+        "logprobs",
+        "model_name",
+        "model_provider",
+        "service_tier",
+        "system_fingerprint",
+        "token_usage"
+      ],
+      "generation_info_keys": [
+        "finish_reason",
+        "logprobs"
+      ],
+      "llm_output_keys": [
+        "id",
+        "model_name",
+        "model_provider",
+        "service_tier",
+        "system_fingerprint",
+        "token_usage"
+      ]
+    },
+    {
+      "run_index": 3,
+      "system_fingerprint": null,
+      "model_name": "gpt-5-2025-08-07",
+      "response_metadata_keys": [
+        "finish_reason",
+        "id",
+        "logprobs",
+        "model_name",
+        "model_provider",
+        "service_tier",
+        "system_fingerprint",
+        "token_usage"
+      ],
+      "generation_info_keys": [
+        "finish_reason",
+        "logprobs"
+      ],
+      "llm_output_keys": [
+        "id",
+        "model_name",
+        "model_provider",
+        "service_tier",
+        "system_fingerprint",
+        "token_usage"
+      ]
+    },
+    {
+      "run_index": 3,
+      "system_fingerprint": null,
+      "model_name": "gpt-5-2025-08-07",
+      "response_metadata_keys": [
+        "finish_reason",
+        "id",
+        "logprobs",
+        "model_name",
+        "model_provider",
+        "service_tier",
+        "system_fingerprint",
+        "token_usage"
+      ],
+      "generation_info_keys": [
+        "finish_reason",
+        "logprobs"
+      ],
+      "llm_output_keys": [
+        "id",
+        "model_name",
+        "model_provider",
+        "service_tier",
+        "system_fingerprint",
+        "token_usage"
+      ]
+    },
+    {
+      "run_index": 3,
+      "system_fingerprint": null,
+      "model_name": "gpt-5-2025-08-07",
+      "response_metadata_keys": [
+        "finish_reason",
+        "id",
+        "logprobs",
+        "model_name",
+        "model_provider",
+        "service_tier",
+        "system_fingerprint",
+        "token_usage"
+      ],
+      "generation_info_keys": [
+        "finish_reason",
+        "logprobs"
+      ],
+      "llm_output_keys": [
+        "id",
+        "model_name",
+        "model_provider",
+        "service_tier",
+        "system_fingerprint",
+        "token_usage"
+      ]
+    },
+    {
+      "run_index": 3,
+      "system_fingerprint": null,
+      "model_name": "gpt-5-2025-08-07",
+      "response_metadata_keys": [
+        "finish_reason",
+        "id",
+        "logprobs",
+        "model_name",
+        "model_provider",
+        "service_tier",
+        "system_fingerprint",
+        "token_usage"
+      ],
+      "generation_info_keys": [
+        "finish_reason",
+        "logprobs"
+      ],
+      "llm_output_keys": [
+        "id",
+        "model_name",
+        "model_provider",
+        "service_tier",
+        "system_fingerprint",
+        "token_usage"
+      ]
+    },
+    {
+      "run_index": 3,
+      "system_fingerprint": null,
+      "model_name": "gpt-5-2025-08-07",
+      "response_metadata_keys": [
+        "finish_reason",
+        "id",
+        "logprobs",
+        "model_name",
+        "model_provider",
+        "service_tier",
+        "system_fingerprint",
+        "token_usage"
+      ],
+      "generation_info_keys": [
+        "finish_reason",
+        "logprobs"
+      ],
+      "llm_output_keys": [
+        "id",
+        "model_name",
+        "model_provider",
+        "service_tier",
+        "system_fingerprint",
+        "token_usage"
+      ]
+    },
+    {
+      "run_index": 3,
+      "system_fingerprint": null,
+      "model_name": "gpt-5-2025-08-07",
+      "response_metadata_keys": [
+        "finish_reason",
+        "id",
+        "logprobs",
+        "model_name",
+        "model_provider",
+        "service_tier",
+        "system_fingerprint",
+        "token_usage"
+      ],
+      "generation_info_keys": [
+        "finish_reason",
+        "logprobs"
+      ],
+      "llm_output_keys": [
+        "id",
+        "model_name",
+        "model_provider",
+        "service_tier",
+        "system_fingerprint",
+        "token_usage"
+      ]
+    },
+    {
+      "run_index": 3,
+      "system_fingerprint": null,
+      "model_name": "gpt-5-2025-08-07",
+      "response_metadata_keys": [
+        "finish_reason",
+        "id",
+        "logprobs",
+        "model_name",
+        "model_provider",
+        "service_tier",
+        "system_fingerprint",
+        "token_usage"
+      ],
+      "generation_info_keys": [
+        "finish_reason",
+        "logprobs"
+      ],
+      "llm_output_keys": [
+        "id",
+        "model_name",
+        "model_provider",
+        "service_tier",
+        "system_fingerprint",
+        "token_usage"
+      ]
+    },
+    {
+      "run_index": 3,
+      "system_fingerprint": null,
+      "model_name": "gpt-5-2025-08-07",
+      "response_metadata_keys": [
+        "finish_reason",
+        "id",
+        "logprobs",
+        "model_name",
+        "model_provider",
+        "service_tier",
+        "system_fingerprint",
+        "token_usage"
+      ],
+      "generation_info_keys": [
+        "finish_reason",
+        "logprobs"
+      ],
+      "llm_output_keys": [
+        "id",
+        "model_name",
+        "model_provider",
+        "service_tier",
+        "system_fingerprint",
+        "token_usage"
+      ]
+    },
+    {
+      "run_index": 3,
+      "system_fingerprint": null,
+      "model_name": "gpt-5-2025-08-07",
+      "response_metadata_keys": [
+        "finish_reason",
+        "id",
+        "logprobs",
+        "model_name",
+        "model_provider",
+        "service_tier",
+        "system_fingerprint",
+        "token_usage"
+      ],
+      "generation_info_keys": [
+        "finish_reason",
+        "logprobs"
+      ],
+      "llm_output_keys": [
+        "id",
+        "model_name",
+        "model_provider",
+        "service_tier",
+        "system_fingerprint",
+        "token_usage"
+      ]
+    },
+    {
+      "run_index": 3,
+      "system_fingerprint": null,
+      "model_name": "gpt-5-2025-08-07",
+      "response_metadata_keys": [
+        "finish_reason",
+        "id",
+        "logprobs",
+        "model_name",
+        "model_provider",
+        "service_tier",
+        "system_fingerprint",
+        "token_usage"
+      ],
+      "generation_info_keys": [
+        "finish_reason",
+        "logprobs"
+      ],
+      "llm_output_keys": [
+        "id",
+        "model_name",
+        "model_provider",
+        "service_tier",
+        "system_fingerprint",
+        "token_usage"
+      ]
+    },
+    {
+      "run_index": 3,
+      "system_fingerprint": null,
+      "model_name": "gpt-5-2025-08-07",
+      "response_metadata_keys": [
+        "finish_reason",
+        "id",
+        "logprobs",
+        "model_name",
+        "model_provider",
+        "service_tier",
+        "system_fingerprint",
+        "token_usage"
+      ],
+      "generation_info_keys": [
+        "finish_reason",
+        "logprobs"
+      ],
+      "llm_output_keys": [
+        "id",
+        "model_name",
+        "model_provider",
+        "service_tier",
+        "system_fingerprint",
+        "token_usage"
+      ]
+    },
+    {
+      "run_index": 3,
+      "system_fingerprint": null,
+      "model_name": "gpt-5-2025-08-07",
+      "response_metadata_keys": [
+        "finish_reason",
+        "id",
+        "logprobs",
+        "model_name",
+        "model_provider",
+        "service_tier",
+        "system_fingerprint",
+        "token_usage"
+      ],
+      "generation_info_keys": [
+        "finish_reason",
+        "logprobs"
+      ],
+      "llm_output_keys": [
+        "id",
+        "model_name",
+        "model_provider",
+        "service_tier",
+        "system_fingerprint",
+        "token_usage"
+      ]
+    },
+    {
+      "run_index": 3,
+      "system_fingerprint": null,
+      "model_name": "gpt-5-2025-08-07",
+      "response_metadata_keys": [
+        "finish_reason",
+        "id",
+        "logprobs",
+        "model_name",
+        "model_provider",
+        "service_tier",
+        "system_fingerprint",
+        "token_usage"
+      ],
+      "generation_info_keys": [
+        "finish_reason",
+        "logprobs"
+      ],
+      "llm_output_keys": [
+        "id",
+        "model_name",
+        "model_provider",
+        "service_tier",
+        "system_fingerprint",
+        "token_usage"
+      ]
+    },
+    {
+      "run_index": 4,
+      "system_fingerprint": null,
+      "model_name": "gpt-5-2025-08-07",
+      "response_metadata_keys": [
+        "finish_reason",
+        "id",
+        "logprobs",
+        "model_name",
+        "model_provider",
+        "service_tier",
+        "system_fingerprint",
+        "token_usage"
+      ],
+      "generation_info_keys": [
+        "finish_reason",
+        "logprobs"
+      ],
+      "llm_output_keys": [
+        "id",
+        "model_name",
+        "model_provider",
+        "service_tier",
+        "system_fingerprint",
+        "token_usage"
+      ]
+    },
+    {
+      "run_index": 4,
+      "system_fingerprint": null,
+      "model_name": "gpt-5-2025-08-07",
+      "response_metadata_keys": [
+        "finish_reason",
+        "id",
+        "logprobs",
+        "model_name",
+        "model_provider",
+        "service_tier",
+        "system_fingerprint",
+        "token_usage"
+      ],
+      "generation_info_keys": [
+        "finish_reason",
+        "logprobs"
+      ],
+      "llm_output_keys": [
+        "id",
+        "model_name",
+        "model_provider",
+        "service_tier",
+        "system_fingerprint",
+        "token_usage"
+      ]
+    },
+    {
+      "run_index": 4,
+      "system_fingerprint": null,
+      "model_name": "gpt-5-2025-08-07",
+      "response_metadata_keys": [
+        "finish_reason",
+        "id",
+        "logprobs",
+        "model_name",
+        "model_provider",
+        "service_tier",
+        "system_fingerprint",
+        "token_usage"
+      ],
+      "generation_info_keys": [
+        "finish_reason",
+        "logprobs"
+      ],
+      "llm_output_keys": [
+        "id",
+        "model_name",
+        "model_provider",
+        "service_tier",
+        "system_fingerprint",
+        "token_usage"
+      ]
+    },
+    {
+      "run_index": 4,
+      "system_fingerprint": null,
+      "model_name": "gpt-5-2025-08-07",
+      "response_metadata_keys": [
+        "finish_reason",
+        "id",
+        "logprobs",
+        "model_name",
+        "model_provider",
+        "service_tier",
+        "system_fingerprint",
+        "token_usage"
+      ],
+      "generation_info_keys": [
+        "finish_reason",
+        "logprobs"
+      ],
+      "llm_output_keys": [
+        "id",
+        "model_name",
+        "model_provider",
+        "service_tier",
+        "system_fingerprint",
+        "token_usage"
+      ]
+    },
+    {
+      "run_index": 4,
+      "system_fingerprint": null,
+      "model_name": "gpt-5-2025-08-07",
+      "response_metadata_keys": [
+        "finish_reason",
+        "id",
+        "logprobs",
+        "model_name",
+        "model_provider",
+        "service_tier",
+        "system_fingerprint",
+        "token_usage"
+      ],
+      "generation_info_keys": [
+        "finish_reason",
+        "logprobs"
+      ],
+      "llm_output_keys": [
+        "id",
+        "model_name",
+        "model_provider",
+        "service_tier",
+        "system_fingerprint",
+        "token_usage"
+      ]
+    },
+    {
+      "run_index": 4,
+      "system_fingerprint": null,
+      "model_name": "gpt-5-2025-08-07",
+      "response_metadata_keys": [
+        "finish_reason",
+        "id",
+        "logprobs",
+        "model_name",
+        "model_provider",
+        "service_tier",
+        "system_fingerprint",
+        "token_usage"
+      ],
+      "generation_info_keys": [
+        "finish_reason",
+        "logprobs"
+      ],
+      "llm_output_keys": [
+        "id",
+        "model_name",
+        "model_provider",
+        "service_tier",
+        "system_fingerprint",
+        "token_usage"
+      ]
+    },
+    {
+      "run_index": 4,
+      "system_fingerprint": null,
+      "model_name": "gpt-5-2025-08-07",
+      "response_metadata_keys": [
+        "finish_reason",
+        "id",
+        "logprobs",
+        "model_name",
+        "model_provider",
+        "service_tier",
+        "system_fingerprint",
+        "token_usage"
+      ],
+      "generation_info_keys": [
+        "finish_reason",
+        "logprobs"
+      ],
+      "llm_output_keys": [
+        "id",
+        "model_name",
+        "model_provider",
+        "service_tier",
+        "system_fingerprint",
+        "token_usage"
+      ]
+    },
+    {
+      "run_index": 4,
+      "system_fingerprint": null,
+      "model_name": "gpt-5-2025-08-07",
+      "response_metadata_keys": [
+        "finish_reason",
+        "id",
+        "logprobs",
+        "model_name",
+        "model_provider",
+        "service_tier",
+        "system_fingerprint",
+        "token_usage"
+      ],
+      "generation_info_keys": [
+        "finish_reason",
+        "logprobs"
+      ],
+      "llm_output_keys": [
+        "id",
+        "model_name",
+        "model_provider",
+        "service_tier",
+        "system_fingerprint",
+        "token_usage"
+      ]
+    },
+    {
+      "run_index": 4,
+      "system_fingerprint": null,
+      "model_name": "gpt-5-2025-08-07",
+      "response_metadata_keys": [
+        "finish_reason",
+        "id",
+        "logprobs",
+        "model_name",
+        "model_provider",
+        "service_tier",
+        "system_fingerprint",
+        "token_usage"
+      ],
+      "generation_info_keys": [
+        "finish_reason",
+        "logprobs"
+      ],
+      "llm_output_keys": [
+        "id",
+        "model_name",
+        "model_provider",
+        "service_tier",
+        "system_fingerprint",
+        "token_usage"
+      ]
+    },
+    {
+      "run_index": 4,
+      "system_fingerprint": null,
+      "model_name": "gpt-5-2025-08-07",
+      "response_metadata_keys": [
+        "finish_reason",
+        "id",
+        "logprobs",
+        "model_name",
+        "model_provider",
+        "service_tier",
+        "system_fingerprint",
+        "token_usage"
+      ],
+      "generation_info_keys": [
+        "finish_reason",
+        "logprobs"
+      ],
+      "llm_output_keys": [
+        "id",
+        "model_name",
+        "model_provider",
+        "service_tier",
+        "system_fingerprint",
+        "token_usage"
+      ]
+    },
+    {
+      "run_index": 4,
+      "system_fingerprint": null,
+      "model_name": "gpt-5-2025-08-07",
+      "response_metadata_keys": [
+        "finish_reason",
+        "id",
+        "logprobs",
+        "model_name",
+        "model_provider",
+        "service_tier",
+        "system_fingerprint",
+        "token_usage"
+      ],
+      "generation_info_keys": [
+        "finish_reason",
+        "logprobs"
+      ],
+      "llm_output_keys": [
+        "id",
+        "model_name",
+        "model_provider",
+        "service_tier",
+        "system_fingerprint",
+        "token_usage"
+      ]
+    },
+    {
+      "run_index": 4,
+      "system_fingerprint": null,
+      "model_name": "gpt-5-2025-08-07",
+      "response_metadata_keys": [
+        "finish_reason",
+        "id",
+        "logprobs",
+        "model_name",
+        "model_provider",
+        "service_tier",
+        "system_fingerprint",
+        "token_usage"
+      ],
+      "generation_info_keys": [
+        "finish_reason",
+        "logprobs"
+      ],
+      "llm_output_keys": [
+        "id",
+        "model_name",
+        "model_provider",
+        "service_tier",
+        "system_fingerprint",
+        "token_usage"
+      ]
+    },
+    {
+      "run_index": 4,
+      "system_fingerprint": null,
+      "model_name": "gpt-5-2025-08-07",
+      "response_metadata_keys": [
+        "finish_reason",
+        "id",
+        "logprobs",
+        "model_name",
+        "model_provider",
+        "service_tier",
+        "system_fingerprint",
+        "token_usage"
+      ],
+      "generation_info_keys": [
+        "finish_reason",
+        "logprobs"
+      ],
+      "llm_output_keys": [
+        "id",
+        "model_name",
+        "model_provider",
+        "service_tier",
+        "system_fingerprint",
+        "token_usage"
+      ]
+    },
+    {
+      "run_index": 4,
+      "system_fingerprint": null,
+      "model_name": "gpt-5-2025-08-07",
+      "response_metadata_keys": [
+        "finish_reason",
+        "id",
+        "logprobs",
+        "model_name",
+        "model_provider",
+        "service_tier",
+        "system_fingerprint",
+        "token_usage"
+      ],
+      "generation_info_keys": [
+        "finish_reason",
+        "logprobs"
+      ],
+      "llm_output_keys": [
+        "id",
+        "model_name",
+        "model_provider",
+        "service_tier",
+        "system_fingerprint",
+        "token_usage"
+      ]
+    },
+    {
+      "run_index": 4,
+      "system_fingerprint": null,
+      "model_name": "gpt-5-2025-08-07",
+      "response_metadata_keys": [
+        "finish_reason",
+        "id",
+        "logprobs",
+        "model_name",
+        "model_provider",
+        "service_tier",
+        "system_fingerprint",
+        "token_usage"
+      ],
+      "generation_info_keys": [
+        "finish_reason",
+        "logprobs"
+      ],
+      "llm_output_keys": [
+        "id",
+        "model_name",
+        "model_provider",
+        "service_tier",
+        "system_fingerprint",
+        "token_usage"
+      ]
+    },
+    {
+      "run_index": 4,
+      "system_fingerprint": null,
+      "model_name": "gpt-5-2025-08-07",
+      "response_metadata_keys": [
+        "finish_reason",
+        "id",
+        "logprobs",
+        "model_name",
+        "model_provider",
+        "service_tier",
+        "system_fingerprint",
+        "token_usage"
+      ],
+      "generation_info_keys": [
+        "finish_reason",
+        "logprobs"
+      ],
+      "llm_output_keys": [
+        "id",
+        "model_name",
+        "model_provider",
+        "service_tier",
+        "system_fingerprint",
+        "token_usage"
+      ]
+    },
+    {
+      "run_index": 5,
+      "system_fingerprint": null,
+      "model_name": "gpt-5-2025-08-07",
+      "response_metadata_keys": [
+        "finish_reason",
+        "id",
+        "logprobs",
+        "model_name",
+        "model_provider",
+        "service_tier",
+        "system_fingerprint",
+        "token_usage"
+      ],
+      "generation_info_keys": [
+        "finish_reason",
+        "logprobs"
+      ],
+      "llm_output_keys": [
+        "id",
+        "model_name",
+        "model_provider",
+        "service_tier",
+        "system_fingerprint",
+        "token_usage"
+      ]
+    },
+    {
+      "run_index": 5,
+      "system_fingerprint": null,
+      "model_name": "gpt-5-2025-08-07",
+      "response_metadata_keys": [
+        "finish_reason",
+        "id",
+        "logprobs",
+        "model_name",
+        "model_provider",
+        "service_tier",
+        "system_fingerprint",
+        "token_usage"
+      ],
+      "generation_info_keys": [
+        "finish_reason",
+        "logprobs"
+      ],
+      "llm_output_keys": [
+        "id",
+        "model_name",
+        "model_provider",
+        "service_tier",
+        "system_fingerprint",
+        "token_usage"
+      ]
+    },
+    {
+      "run_index": 5,
+      "system_fingerprint": null,
+      "model_name": "gpt-5-2025-08-07",
+      "response_metadata_keys": [
+        "finish_reason",
+        "id",
+        "logprobs",
+        "model_name",
+        "model_provider",
+        "service_tier",
+        "system_fingerprint",
+        "token_usage"
+      ],
+      "generation_info_keys": [
+        "finish_reason",
+        "logprobs"
+      ],
+      "llm_output_keys": [
+        "id",
+        "model_name",
+        "model_provider",
+        "service_tier",
+        "system_fingerprint",
+        "token_usage"
+      ]
+    },
+    {
+      "run_index": 5,
+      "system_fingerprint": null,
+      "model_name": "gpt-5-2025-08-07",
+      "response_metadata_keys": [
+        "finish_reason",
+        "id",
+        "logprobs",
+        "model_name",
+        "model_provider",
+        "service_tier",
+        "system_fingerprint",
+        "token_usage"
+      ],
+      "generation_info_keys": [
+        "finish_reason",
+        "logprobs"
+      ],
+      "llm_output_keys": [
+        "id",
+        "model_name",
+        "model_provider",
+        "service_tier",
+        "system_fingerprint",
+        "token_usage"
+      ]
+    },
+    {
+      "run_index": 5,
+      "system_fingerprint": null,
+      "model_name": "gpt-5-2025-08-07",
+      "response_metadata_keys": [
+        "finish_reason",
+        "id",
+        "logprobs",
+        "model_name",
+        "model_provider",
+        "service_tier",
+        "system_fingerprint",
+        "token_usage"
+      ],
+      "generation_info_keys": [
+        "finish_reason",
+        "logprobs"
+      ],
+      "llm_output_keys": [
+        "id",
+        "model_name",
+        "model_provider",
+        "service_tier",
+        "system_fingerprint",
+        "token_usage"
+      ]
+    },
+    {
+      "run_index": 5,
+      "system_fingerprint": null,
+      "model_name": "gpt-5-2025-08-07",
+      "response_metadata_keys": [
+        "finish_reason",
+        "id",
+        "logprobs",
+        "model_name",
+        "model_provider",
+        "service_tier",
+        "system_fingerprint",
+        "token_usage"
+      ],
+      "generation_info_keys": [
+        "finish_reason",
+        "logprobs"
+      ],
+      "llm_output_keys": [
+        "id",
+        "model_name",
+        "model_provider",
+        "service_tier",
+        "system_fingerprint",
+        "token_usage"
+      ]
+    },
+    {
+      "run_index": 5,
+      "system_fingerprint": null,
+      "model_name": "gpt-5-2025-08-07",
+      "response_metadata_keys": [
+        "finish_reason",
+        "id",
+        "logprobs",
+        "model_name",
+        "model_provider",
+        "service_tier",
+        "system_fingerprint",
+        "token_usage"
+      ],
+      "generation_info_keys": [
+        "finish_reason",
+        "logprobs"
+      ],
+      "llm_output_keys": [
+        "id",
+        "model_name",
+        "model_provider",
+        "service_tier",
+        "system_fingerprint",
+        "token_usage"
+      ]
+    },
+    {
+      "run_index": 5,
+      "system_fingerprint": null,
+      "model_name": "gpt-5-2025-08-07",
+      "response_metadata_keys": [
+        "finish_reason",
+        "id",
+        "logprobs",
+        "model_name",
+        "model_provider",
+        "service_tier",
+        "system_fingerprint",
+        "token_usage"
+      ],
+      "generation_info_keys": [
+        "finish_reason",
+        "logprobs"
+      ],
+      "llm_output_keys": [
+        "id",
+        "model_name",
+        "model_provider",
+        "service_tier",
+        "system_fingerprint",
+        "token_usage"
+      ]
+    },
+    {
+      "run_index": 5,
+      "system_fingerprint": null,
+      "model_name": "gpt-5-2025-08-07",
+      "response_metadata_keys": [
+        "finish_reason",
+        "id",
+        "logprobs",
+        "model_name",
+        "model_provider",
+        "service_tier",
+        "system_fingerprint",
+        "token_usage"
+      ],
+      "generation_info_keys": [
+        "finish_reason",
+        "logprobs"
+      ],
+      "llm_output_keys": [
+        "id",
+        "model_name",
+        "model_provider",
+        "service_tier",
+        "system_fingerprint",
+        "token_usage"
+      ]
+    },
+    {
+      "run_index": 5,
+      "system_fingerprint": null,
+      "model_name": "gpt-5-2025-08-07",
+      "response_metadata_keys": [
+        "finish_reason",
+        "id",
+        "logprobs",
+        "model_name",
+        "model_provider",
+        "service_tier",
+        "system_fingerprint",
+        "token_usage"
+      ],
+      "generation_info_keys": [
+        "finish_reason",
+        "logprobs"
+      ],
+      "llm_output_keys": [
+        "id",
+        "model_name",
+        "model_provider",
+        "service_tier",
+        "system_fingerprint",
+        "token_usage"
+      ]
+    },
+    {
+      "run_index": 5,
+      "system_fingerprint": null,
+      "model_name": "gpt-5-2025-08-07",
+      "response_metadata_keys": [
+        "finish_reason",
+        "id",
+        "logprobs",
+        "model_name",
+        "model_provider",
+        "service_tier",
+        "system_fingerprint",
+        "token_usage"
+      ],
+      "generation_info_keys": [
+        "finish_reason",
+        "logprobs"
+      ],
+      "llm_output_keys": [
+        "id",
+        "model_name",
+        "model_provider",
+        "service_tier",
+        "system_fingerprint",
+        "token_usage"
+      ]
+    },
+    {
+      "run_index": 5,
+      "system_fingerprint": null,
+      "model_name": "gpt-5-2025-08-07",
+      "response_metadata_keys": [
+        "finish_reason",
+        "id",
+        "logprobs",
+        "model_name",
+        "model_provider",
+        "service_tier",
+        "system_fingerprint",
+        "token_usage"
+      ],
+      "generation_info_keys": [
+        "finish_reason",
+        "logprobs"
+      ],
+      "llm_output_keys": [
+        "id",
+        "model_name",
+        "model_provider",
+        "service_tier",
+        "system_fingerprint",
+        "token_usage"
+      ]
+    },
+    {
+      "run_index": 5,
+      "system_fingerprint": null,
+      "model_name": "gpt-5-2025-08-07",
+      "response_metadata_keys": [
+        "finish_reason",
+        "id",
+        "logprobs",
+        "model_name",
+        "model_provider",
+        "service_tier",
+        "system_fingerprint",
+        "token_usage"
+      ],
+      "generation_info_keys": [
+        "finish_reason",
+        "logprobs"
+      ],
+      "llm_output_keys": [
+        "id",
+        "model_name",
+        "model_provider",
+        "service_tier",
+        "system_fingerprint",
+        "token_usage"
+      ]
+    },
+    {
+      "run_index": 5,
+      "system_fingerprint": null,
+      "model_name": "gpt-5-2025-08-07",
+      "response_metadata_keys": [
+        "finish_reason",
+        "id",
+        "logprobs",
+        "model_name",
+        "model_provider",
+        "service_tier",
+        "system_fingerprint",
+        "token_usage"
+      ],
+      "generation_info_keys": [
+        "finish_reason",
+        "logprobs"
+      ],
+      "llm_output_keys": [
+        "id",
+        "model_name",
+        "model_provider",
+        "service_tier",
+        "system_fingerprint",
+        "token_usage"
+      ]
+    },
+    {
+      "run_index": 5,
+      "system_fingerprint": null,
+      "model_name": "gpt-5-2025-08-07",
+      "response_metadata_keys": [
+        "finish_reason",
+        "id",
+        "logprobs",
+        "model_name",
+        "model_provider",
+        "service_tier",
+        "system_fingerprint",
+        "token_usage"
+      ],
+      "generation_info_keys": [
+        "finish_reason",
+        "logprobs"
+      ],
+      "llm_output_keys": [
+        "id",
+        "model_name",
+        "model_provider",
+        "service_tier",
+        "system_fingerprint",
+        "token_usage"
+      ]
+    },
+    {
+      "run_index": 5,
+      "system_fingerprint": null,
+      "model_name": "gpt-5-2025-08-07",
+      "response_metadata_keys": [
+        "finish_reason",
+        "id",
+        "logprobs",
+        "model_name",
+        "model_provider",
+        "service_tier",
+        "system_fingerprint",
+        "token_usage"
+      ],
+      "generation_info_keys": [
+        "finish_reason",
+        "logprobs"
+      ],
+      "llm_output_keys": [
+        "id",
+        "model_name",
+        "model_provider",
+        "service_tier",
+        "system_fingerprint",
+        "token_usage"
+      ]
+    },
+    {
+      "run_index": 6,
+      "system_fingerprint": null,
+      "model_name": "gpt-5-2025-08-07",
+      "response_metadata_keys": [
+        "finish_reason",
+        "id",
+        "logprobs",
+        "model_name",
+        "model_provider",
+        "service_tier",
+        "system_fingerprint",
+        "token_usage"
+      ],
+      "generation_info_keys": [
+        "finish_reason",
+        "logprobs"
+      ],
+      "llm_output_keys": [
+        "id",
+        "model_name",
+        "model_provider",
+        "service_tier",
+        "system_fingerprint",
+        "token_usage"
+      ]
+    },
+    {
+      "run_index": 6,
+      "system_fingerprint": null,
+      "model_name": "gpt-5-2025-08-07",
+      "response_metadata_keys": [
+        "finish_reason",
+        "id",
+        "logprobs",
+        "model_name",
+        "model_provider",
+        "service_tier",
+        "system_fingerprint",
+        "token_usage"
+      ],
+      "generation_info_keys": [
+        "finish_reason",
+        "logprobs"
+      ],
+      "llm_output_keys": [
+        "id",
+        "model_name",
+        "model_provider",
+        "service_tier",
+        "system_fingerprint",
+        "token_usage"
+      ]
+    },
+    {
+      "run_index": 6,
+      "system_fingerprint": null,
+      "model_name": "gpt-5-2025-08-07",
+      "response_metadata_keys": [
+        "finish_reason",
+        "id",
+        "logprobs",
+        "model_name",
+        "model_provider",
+        "service_tier",
+        "system_fingerprint",
+        "token_usage"
+      ],
+      "generation_info_keys": [
+        "finish_reason",
+        "logprobs"
+      ],
+      "llm_output_keys": [
+        "id",
+        "model_name",
+        "model_provider",
+        "service_tier",
+        "system_fingerprint",
+        "token_usage"
+      ]
+    },
+    {
+      "run_index": 6,
+      "system_fingerprint": null,
+      "model_name": "gpt-5-2025-08-07",
+      "response_metadata_keys": [
+        "finish_reason",
+        "id",
+        "logprobs",
+        "model_name",
+        "model_provider",
+        "service_tier",
+        "system_fingerprint",
+        "token_usage"
+      ],
+      "generation_info_keys": [
+        "finish_reason",
+        "logprobs"
+      ],
+      "llm_output_keys": [
+        "id",
+        "model_name",
+        "model_provider",
+        "service_tier",
+        "system_fingerprint",
+        "token_usage"
+      ]
+    },
+    {
+      "run_index": 6,
+      "system_fingerprint": null,
+      "model_name": "gpt-5-2025-08-07",
+      "response_metadata_keys": [
+        "finish_reason",
+        "id",
+        "logprobs",
+        "model_name",
+        "model_provider",
+        "service_tier",
+        "system_fingerprint",
+        "token_usage"
+      ],
+      "generation_info_keys": [
+        "finish_reason",
+        "logprobs"
+      ],
+      "llm_output_keys": [
+        "id",
+        "model_name",
+        "model_provider",
+        "service_tier",
+        "system_fingerprint",
+        "token_usage"
+      ]
+    },
+    {
+      "run_index": 6,
+      "system_fingerprint": null,
+      "model_name": "gpt-5-2025-08-07",
+      "response_metadata_keys": [
+        "finish_reason",
+        "id",
+        "logprobs",
+        "model_name",
+        "model_provider",
+        "service_tier",
+        "system_fingerprint",
+        "token_usage"
+      ],
+      "generation_info_keys": [
+        "finish_reason",
+        "logprobs"
+      ],
+      "llm_output_keys": [
+        "id",
+        "model_name",
+        "model_provider",
+        "service_tier",
+        "system_fingerprint",
+        "token_usage"
+      ]
+    },
+    {
+      "run_index": 6,
+      "system_fingerprint": null,
+      "model_name": "gpt-5-2025-08-07",
+      "response_metadata_keys": [
+        "finish_reason",
+        "id",
+        "logprobs",
+        "model_name",
+        "model_provider",
+        "service_tier",
+        "system_fingerprint",
+        "token_usage"
+      ],
+      "generation_info_keys": [
+        "finish_reason",
+        "logprobs"
+      ],
+      "llm_output_keys": [
+        "id",
+        "model_name",
+        "model_provider",
+        "service_tier",
+        "system_fingerprint",
+        "token_usage"
+      ]
+    },
+    {
+      "run_index": 6,
+      "system_fingerprint": null,
+      "model_name": "gpt-5-2025-08-07",
+      "response_metadata_keys": [
+        "finish_reason",
+        "id",
+        "logprobs",
+        "model_name",
+        "model_provider",
+        "service_tier",
+        "system_fingerprint",
+        "token_usage"
+      ],
+      "generation_info_keys": [
+        "finish_reason",
+        "logprobs"
+      ],
+      "llm_output_keys": [
+        "id",
+        "model_name",
+        "model_provider",
+        "service_tier",
+        "system_fingerprint",
+        "token_usage"
+      ]
+    },
+    {
+      "run_index": 6,
+      "system_fingerprint": null,
+      "model_name": "gpt-5-2025-08-07",
+      "response_metadata_keys": [
+        "finish_reason",
+        "id",
+        "logprobs",
+        "model_name",
+        "model_provider",
+        "service_tier",
+        "system_fingerprint",
+        "token_usage"
+      ],
+      "generation_info_keys": [
+        "finish_reason",
+        "logprobs"
+      ],
+      "llm_output_keys": [
+        "id",
+        "model_name",
+        "model_provider",
+        "service_tier",
+        "system_fingerprint",
+        "token_usage"
+      ]
+    },
+    {
+      "run_index": 6,
+      "system_fingerprint": null,
+      "model_name": "gpt-5-2025-08-07",
+      "response_metadata_keys": [
+        "finish_reason",
+        "id",
+        "logprobs",
+        "model_name",
+        "model_provider",
+        "service_tier",
+        "system_fingerprint",
+        "token_usage"
+      ],
+      "generation_info_keys": [
+        "finish_reason",
+        "logprobs"
+      ],
+      "llm_output_keys": [
+        "id",
+        "model_name",
+        "model_provider",
+        "service_tier",
+        "system_fingerprint",
+        "token_usage"
+      ]
+    },
+    {
+      "run_index": 6,
+      "system_fingerprint": null,
+      "model_name": "gpt-5-2025-08-07",
+      "response_metadata_keys": [
+        "finish_reason",
+        "id",
+        "logprobs",
+        "model_name",
+        "model_provider",
+        "service_tier",
+        "system_fingerprint",
+        "token_usage"
+      ],
+      "generation_info_keys": [
+        "finish_reason",
+        "logprobs"
+      ],
+      "llm_output_keys": [
+        "id",
+        "model_name",
+        "model_provider",
+        "service_tier",
+        "system_fingerprint",
+        "token_usage"
+      ]
+    },
+    {
+      "run_index": 6,
+      "system_fingerprint": null,
+      "model_name": "gpt-5-2025-08-07",
+      "response_metadata_keys": [
+        "finish_reason",
+        "id",
+        "logprobs",
+        "model_name",
+        "model_provider",
+        "service_tier",
+        "system_fingerprint",
+        "token_usage"
+      ],
+      "generation_info_keys": [
+        "finish_reason",
+        "logprobs"
+      ],
+      "llm_output_keys": [
+        "id",
+        "model_name",
+        "model_provider",
+        "service_tier",
+        "system_fingerprint",
+        "token_usage"
+      ]
+    },
+    {
+      "run_index": 7,
+      "system_fingerprint": null,
+      "model_name": "gpt-5-2025-08-07",
+      "response_metadata_keys": [
+        "finish_reason",
+        "id",
+        "logprobs",
+        "model_name",
+        "model_provider",
+        "service_tier",
+        "system_fingerprint",
+        "token_usage"
+      ],
+      "generation_info_keys": [
+        "finish_reason",
+        "logprobs"
+      ],
+      "llm_output_keys": [
+        "id",
+        "model_name",
+        "model_provider",
+        "service_tier",
+        "system_fingerprint",
+        "token_usage"
+      ]
+    },
+    {
+      "run_index": 7,
+      "system_fingerprint": null,
+      "model_name": "gpt-5-2025-08-07",
+      "response_metadata_keys": [
+        "finish_reason",
+        "id",
+        "logprobs",
+        "model_name",
+        "model_provider",
+        "service_tier",
+        "system_fingerprint",
+        "token_usage"
+      ],
+      "generation_info_keys": [
+        "finish_reason",
+        "logprobs"
+      ],
+      "llm_output_keys": [
+        "id",
+        "model_name",
+        "model_provider",
+        "service_tier",
+        "system_fingerprint",
+        "token_usage"
+      ]
+    },
+    {
+      "run_index": 7,
+      "system_fingerprint": null,
+      "model_name": "gpt-5-2025-08-07",
+      "response_metadata_keys": [
+        "finish_reason",
+        "id",
+        "logprobs",
+        "model_name",
+        "model_provider",
+        "service_tier",
+        "system_fingerprint",
+        "token_usage"
+      ],
+      "generation_info_keys": [
+        "finish_reason",
+        "logprobs"
+      ],
+      "llm_output_keys": [
+        "id",
+        "model_name",
+        "model_provider",
+        "service_tier",
+        "system_fingerprint",
+        "token_usage"
+      ]
+    },
+    {
+      "run_index": 7,
+      "system_fingerprint": null,
+      "model_name": "gpt-5-2025-08-07",
+      "response_metadata_keys": [
+        "finish_reason",
+        "id",
+        "logprobs",
+        "model_name",
+        "model_provider",
+        "service_tier",
+        "system_fingerprint",
+        "token_usage"
+      ],
+      "generation_info_keys": [
+        "finish_reason",
+        "logprobs"
+      ],
+      "llm_output_keys": [
+        "id",
+        "model_name",
+        "model_provider",
+        "service_tier",
+        "system_fingerprint",
+        "token_usage"
+      ]
+    },
+    {
+      "run_index": 7,
+      "system_fingerprint": null,
+      "model_name": "gpt-5-2025-08-07",
+      "response_metadata_keys": [
+        "finish_reason",
+        "id",
+        "logprobs",
+        "model_name",
+        "model_provider",
+        "service_tier",
+        "system_fingerprint",
+        "token_usage"
+      ],
+      "generation_info_keys": [
+        "finish_reason",
+        "logprobs"
+      ],
+      "llm_output_keys": [
+        "id",
+        "model_name",
+        "model_provider",
+        "service_tier",
+        "system_fingerprint",
+        "token_usage"
+      ]
+    },
+    {
+      "run_index": 7,
+      "system_fingerprint": null,
+      "model_name": "gpt-5-2025-08-07",
+      "response_metadata_keys": [
+        "finish_reason",
+        "id",
+        "logprobs",
+        "model_name",
+        "model_provider",
+        "service_tier",
+        "system_fingerprint",
+        "token_usage"
+      ],
+      "generation_info_keys": [
+        "finish_reason",
+        "logprobs"
+      ],
+      "llm_output_keys": [
+        "id",
+        "model_name",
+        "model_provider",
+        "service_tier",
+        "system_fingerprint",
+        "token_usage"
+      ]
+    },
+    {
+      "run_index": 7,
+      "system_fingerprint": null,
+      "model_name": "gpt-5-2025-08-07",
+      "response_metadata_keys": [
+        "finish_reason",
+        "id",
+        "logprobs",
+        "model_name",
+        "model_provider",
+        "service_tier",
+        "system_fingerprint",
+        "token_usage"
+      ],
+      "generation_info_keys": [
+        "finish_reason",
+        "logprobs"
+      ],
+      "llm_output_keys": [
+        "id",
+        "model_name",
+        "model_provider",
+        "service_tier",
+        "system_fingerprint",
+        "token_usage"
+      ]
+    },
+    {
+      "run_index": 7,
+      "system_fingerprint": null,
+      "model_name": "gpt-5-2025-08-07",
+      "response_metadata_keys": [
+        "finish_reason",
+        "id",
+        "logprobs",
+        "model_name",
+        "model_provider",
+        "service_tier",
+        "system_fingerprint",
+        "token_usage"
+      ],
+      "generation_info_keys": [
+        "finish_reason",
+        "logprobs"
+      ],
+      "llm_output_keys": [
+        "id",
+        "model_name",
+        "model_provider",
+        "service_tier",
+        "system_fingerprint",
+        "token_usage"
+      ]
+    },
+    {
+      "run_index": 7,
+      "system_fingerprint": null,
+      "model_name": "gpt-5-2025-08-07",
+      "response_metadata_keys": [
+        "finish_reason",
+        "id",
+        "logprobs",
+        "model_name",
+        "model_provider",
+        "service_tier",
+        "system_fingerprint",
+        "token_usage"
+      ],
+      "generation_info_keys": [
+        "finish_reason",
+        "logprobs"
+      ],
+      "llm_output_keys": [
+        "id",
+        "model_name",
+        "model_provider",
+        "service_tier",
+        "system_fingerprint",
+        "token_usage"
+      ]
+    },
+    {
+      "run_index": 7,
+      "system_fingerprint": null,
+      "model_name": "gpt-5-2025-08-07",
+      "response_metadata_keys": [
+        "finish_reason",
+        "id",
+        "logprobs",
+        "model_name",
+        "model_provider",
+        "service_tier",
+        "system_fingerprint",
+        "token_usage"
+      ],
+      "generation_info_keys": [
+        "finish_reason",
+        "logprobs"
+      ],
+      "llm_output_keys": [
+        "id",
+        "model_name",
+        "model_provider",
+        "service_tier",
+        "system_fingerprint",
+        "token_usage"
+      ]
+    },
+    {
+      "run_index": 7,
+      "system_fingerprint": null,
+      "model_name": "gpt-5-2025-08-07",
+      "response_metadata_keys": [
+        "finish_reason",
+        "id",
+        "logprobs",
+        "model_name",
+        "model_provider",
+        "service_tier",
+        "system_fingerprint",
+        "token_usage"
+      ],
+      "generation_info_keys": [
+        "finish_reason",
+        "logprobs"
+      ],
+      "llm_output_keys": [
+        "id",
+        "model_name",
+        "model_provider",
+        "service_tier",
+        "system_fingerprint",
+        "token_usage"
+      ]
+    },
+    {
+      "run_index": 7,
+      "system_fingerprint": null,
+      "model_name": "gpt-5-2025-08-07",
+      "response_metadata_keys": [
+        "finish_reason",
+        "id",
+        "logprobs",
+        "model_name",
+        "model_provider",
+        "service_tier",
+        "system_fingerprint",
+        "token_usage"
+      ],
+      "generation_info_keys": [
+        "finish_reason",
+        "logprobs"
+      ],
+      "llm_output_keys": [
+        "id",
+        "model_name",
+        "model_provider",
+        "service_tier",
+        "system_fingerprint",
+        "token_usage"
+      ]
+    },
+    {
+      "run_index": 8,
+      "system_fingerprint": null,
+      "model_name": "gpt-5-2025-08-07",
+      "response_metadata_keys": [
+        "finish_reason",
+        "id",
+        "logprobs",
+        "model_name",
+        "model_provider",
+        "service_tier",
+        "system_fingerprint",
+        "token_usage"
+      ],
+      "generation_info_keys": [
+        "finish_reason",
+        "logprobs"
+      ],
+      "llm_output_keys": [
+        "id",
+        "model_name",
+        "model_provider",
+        "service_tier",
+        "system_fingerprint",
+        "token_usage"
+      ]
+    },
+    {
+      "run_index": 8,
+      "system_fingerprint": null,
+      "model_name": "gpt-5-2025-08-07",
+      "response_metadata_keys": [
+        "finish_reason",
+        "id",
+        "logprobs",
+        "model_name",
+        "model_provider",
+        "service_tier",
+        "system_fingerprint",
+        "token_usage"
+      ],
+      "generation_info_keys": [
+        "finish_reason",
+        "logprobs"
+      ],
+      "llm_output_keys": [
+        "id",
+        "model_name",
+        "model_provider",
+        "service_tier",
+        "system_fingerprint",
+        "token_usage"
+      ]
+    },
+    {
+      "run_index": 8,
+      "system_fingerprint": null,
+      "model_name": "gpt-5-2025-08-07",
+      "response_metadata_keys": [
+        "finish_reason",
+        "id",
+        "logprobs",
+        "model_name",
+        "model_provider",
+        "service_tier",
+        "system_fingerprint",
+        "token_usage"
+      ],
+      "generation_info_keys": [
+        "finish_reason",
+        "logprobs"
+      ],
+      "llm_output_keys": [
+        "id",
+        "model_name",
+        "model_provider",
+        "service_tier",
+        "system_fingerprint",
+        "token_usage"
+      ]
+    },
+    {
+      "run_index": 8,
+      "system_fingerprint": null,
+      "model_name": "gpt-5-2025-08-07",
+      "response_metadata_keys": [
+        "finish_reason",
+        "id",
+        "logprobs",
+        "model_name",
+        "model_provider",
+        "service_tier",
+        "system_fingerprint",
+        "token_usage"
+      ],
+      "generation_info_keys": [
+        "finish_reason",
+        "logprobs"
+      ],
+      "llm_output_keys": [
+        "id",
+        "model_name",
+        "model_provider",
+        "service_tier",
+        "system_fingerprint",
+        "token_usage"
+      ]
+    },
+    {
+      "run_index": 8,
+      "system_fingerprint": null,
+      "model_name": "gpt-5-2025-08-07",
+      "response_metadata_keys": [
+        "finish_reason",
+        "id",
+        "logprobs",
+        "model_name",
+        "model_provider",
+        "service_tier",
+        "system_fingerprint",
+        "token_usage"
+      ],
+      "generation_info_keys": [
+        "finish_reason",
+        "logprobs"
+      ],
+      "llm_output_keys": [
+        "id",
+        "model_name",
+        "model_provider",
+        "service_tier",
+        "system_fingerprint",
+        "token_usage"
+      ]
+    },
+    {
+      "run_index": 8,
+      "system_fingerprint": null,
+      "model_name": "gpt-5-2025-08-07",
+      "response_metadata_keys": [
+        "finish_reason",
+        "id",
+        "logprobs",
+        "model_name",
+        "model_provider",
+        "service_tier",
+        "system_fingerprint",
+        "token_usage"
+      ],
+      "generation_info_keys": [
+        "finish_reason",
+        "logprobs"
+      ],
+      "llm_output_keys": [
+        "id",
+        "model_name",
+        "model_provider",
+        "service_tier",
+        "system_fingerprint",
+        "token_usage"
+      ]
+    },
+    {
+      "run_index": 8,
+      "system_fingerprint": null,
+      "model_name": "gpt-5-2025-08-07",
+      "response_metadata_keys": [
+        "finish_reason",
+        "id",
+        "logprobs",
+        "model_name",
+        "model_provider",
+        "service_tier",
+        "system_fingerprint",
+        "token_usage"
+      ],
+      "generation_info_keys": [
+        "finish_reason",
+        "logprobs"
+      ],
+      "llm_output_keys": [
+        "id",
+        "model_name",
+        "model_provider",
+        "service_tier",
+        "system_fingerprint",
+        "token_usage"
+      ]
+    },
+    {
+      "run_index": 8,
+      "system_fingerprint": null,
+      "model_name": "gpt-5-2025-08-07",
+      "response_metadata_keys": [
+        "finish_reason",
+        "id",
+        "logprobs",
+        "model_name",
+        "model_provider",
+        "service_tier",
+        "system_fingerprint",
+        "token_usage"
+      ],
+      "generation_info_keys": [
+        "finish_reason",
+        "logprobs"
+      ],
+      "llm_output_keys": [
+        "id",
+        "model_name",
+        "model_provider",
+        "service_tier",
+        "system_fingerprint",
+        "token_usage"
+      ]
+    },
+    {
+      "run_index": 8,
+      "system_fingerprint": null,
+      "model_name": "gpt-5-2025-08-07",
+      "response_metadata_keys": [
+        "finish_reason",
+        "id",
+        "logprobs",
+        "model_name",
+        "model_provider",
+        "service_tier",
+        "system_fingerprint",
+        "token_usage"
+      ],
+      "generation_info_keys": [
+        "finish_reason",
+        "logprobs"
+      ],
+      "llm_output_keys": [
+        "id",
+        "model_name",
+        "model_provider",
+        "service_tier",
+        "system_fingerprint",
+        "token_usage"
+      ]
+    },
+    {
+      "run_index": 8,
+      "system_fingerprint": null,
+      "model_name": "gpt-5-2025-08-07",
+      "response_metadata_keys": [
+        "finish_reason",
+        "id",
+        "logprobs",
+        "model_name",
+        "model_provider",
+        "service_tier",
+        "system_fingerprint",
+        "token_usage"
+      ],
+      "generation_info_keys": [
+        "finish_reason",
+        "logprobs"
+      ],
+      "llm_output_keys": [
+        "id",
+        "model_name",
+        "model_provider",
+        "service_tier",
+        "system_fingerprint",
+        "token_usage"
+      ]
+    },
+    {
+      "run_index": 8,
+      "system_fingerprint": null,
+      "model_name": "gpt-5-2025-08-07",
+      "response_metadata_keys": [
+        "finish_reason",
+        "id",
+        "logprobs",
+        "model_name",
+        "model_provider",
+        "service_tier",
+        "system_fingerprint",
+        "token_usage"
+      ],
+      "generation_info_keys": [
+        "finish_reason",
+        "logprobs"
+      ],
+      "llm_output_keys": [
+        "id",
+        "model_name",
+        "model_provider",
+        "service_tier",
+        "system_fingerprint",
+        "token_usage"
+      ]
+    },
+    {
+      "run_index": 8,
+      "system_fingerprint": null,
+      "model_name": "gpt-5-2025-08-07",
+      "response_metadata_keys": [
+        "finish_reason",
+        "id",
+        "logprobs",
+        "model_name",
+        "model_provider",
+        "service_tier",
+        "system_fingerprint",
+        "token_usage"
+      ],
+      "generation_info_keys": [
+        "finish_reason",
+        "logprobs"
+      ],
+      "llm_output_keys": [
+        "id",
+        "model_name",
+        "model_provider",
+        "service_tier",
+        "system_fingerprint",
+        "token_usage"
+      ]
+    },
+    {
+      "run_index": 8,
+      "system_fingerprint": null,
+      "model_name": "gpt-5-2025-08-07",
+      "response_metadata_keys": [
+        "finish_reason",
+        "id",
+        "logprobs",
+        "model_name",
+        "model_provider",
+        "service_tier",
+        "system_fingerprint",
+        "token_usage"
+      ],
+      "generation_info_keys": [
+        "finish_reason",
+        "logprobs"
+      ],
+      "llm_output_keys": [
+        "id",
+        "model_name",
+        "model_provider",
+        "service_tier",
+        "system_fingerprint",
+        "token_usage"
+      ]
+    },
+    {
+      "run_index": 8,
+      "system_fingerprint": null,
+      "model_name": "gpt-5-2025-08-07",
+      "response_metadata_keys": [
+        "finish_reason",
+        "id",
+        "logprobs",
+        "model_name",
+        "model_provider",
+        "service_tier",
+        "system_fingerprint",
+        "token_usage"
+      ],
+      "generation_info_keys": [
+        "finish_reason",
+        "logprobs"
+      ],
+      "llm_output_keys": [
+        "id",
+        "model_name",
+        "model_provider",
+        "service_tier",
+        "system_fingerprint",
+        "token_usage"
+      ]
+    },
+    {
+      "run_index": 8,
+      "system_fingerprint": null,
+      "model_name": "gpt-5-2025-08-07",
+      "response_metadata_keys": [
+        "finish_reason",
+        "id",
+        "logprobs",
+        "model_name",
+        "model_provider",
+        "service_tier",
+        "system_fingerprint",
+        "token_usage"
+      ],
+      "generation_info_keys": [
+        "finish_reason",
+        "logprobs"
+      ],
+      "llm_output_keys": [
+        "id",
+        "model_name",
+        "model_provider",
+        "service_tier",
+        "system_fingerprint",
+        "token_usage"
+      ]
+    },
+    {
+      "run_index": 8,
+      "system_fingerprint": null,
+      "model_name": "gpt-5-2025-08-07",
+      "response_metadata_keys": [
+        "finish_reason",
+        "id",
+        "logprobs",
+        "model_name",
+        "model_provider",
+        "service_tier",
+        "system_fingerprint",
+        "token_usage"
+      ],
+      "generation_info_keys": [
+        "finish_reason",
+        "logprobs"
+      ],
+      "llm_output_keys": [
+        "id",
+        "model_name",
+        "model_provider",
+        "service_tier",
+        "system_fingerprint",
+        "token_usage"
+      ]
+    }
+  ]
+}
